@@ -1,12 +1,6 @@
-local function map(mode, lhs, rhs, opts)
-  local options = {noremap = true}
-  if opts then options = vim.tbl_extend('force', options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
-map('n', '<leader>0', ':NvimTreeFindFile<CR>')
-map('n', '<leader>nt', ':NvimTreeToggle<CR>')
-map('n', '<leader>nr', ':NvimTreeRefresh<CR>')
+vim.api.nvim_set_keymap('n', '<leader>0', ':NvimTreeFindFile<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>nt', ':NvimTreeToggle<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>nr', ':NvimTreeRefresh<CR>', { noremap = true })
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 vim.g.nvim_tree_bindings = {

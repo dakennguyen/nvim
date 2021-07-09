@@ -36,7 +36,7 @@ require('packer').startup(function()
   use 'nvim-telescope/telescope-fzy-native.nvim'
   use 'phaazon/hop.nvim'
   use 'matze/vim-move'
-  use 'junegunn/fzf'
+  use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
   use 'junegunn/fzf.vim'
   use 'tpope/vim-projectionist'
   use 'numToStr/Navigator.nvim'
@@ -91,7 +91,7 @@ map('n', 'gq', ':q<cr><c-w><c-p>', { silent = true })
 vim.cmd[[autocmd BufReadPost quickfix nnoremap <buffer> gq :q<CR>]]
 
 map('n', '<leader>s', ':source ~/.config/nvim/init.lua<CR>:PackerCompile<cr>')
-map('n', '<leader>ev', ':vsplit ~/.config/nvim/init.lua<cr>')
+-- map('n', '<leader>ev', ':vsplit ~/.config/nvim/init.lua<cr>')
 
 -- gf
 map('', 'gff', 'gf',       { noremap = true })
@@ -287,48 +287,6 @@ map('v', '<leader>gv', ':GV<CR>',  { silent = true })             -- GV in Visua
 map('n', '<leader>fp', [[:MarkdownPreview<CR>]], { silent = true })
 
 -- ==========================================
--- use 'dense-analysis/ale'
--- ==========================================
--- vim.g.ale_linters_explicit = 1
--- vim.g.ale_lint_on_text_changed = 'never'
--- vim.g.ale_lint_on_insert_leave = 0
--- vim.g.ale_lint_on_enter = 0
--- vim.g.ale_fix_on_save = 1
-
--- vim.g.ale_set_loclist = 0
--- vim.g.ale_set_quickfix = 1
--- vim.g.ale_open_list = 0
-
--- vim.g.ale_linters = {
---   javascript = {'eslint', 'prettier'},
--- }
--- vim.g.ale_fixers = {
---   javascript = {'prettier'},
--- }
-
--- ==========================================
--- use 'junegunn/fzf'
--- ==========================================
--- Insert mode completion
-map('i', '<c-x><c-l>',
-  "fzf#vim#complete(fzf#wrap({" ..
-  [[ 'prefix': '^.*$', ]] ..
-  [[ 'source': 'rg -n ^ --color always', 'options': '--ansi --delimiter : --nth 3..', ]] ..
-  [[ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') } ]] ..
-  "}))",
-  { expr = true }
-)
-
--- Insert mode completion for EH FE locale
-map('i', '<c-x><c-k>',
-  "fzf#vim#complete(fzf#wrap({" ..
-  [[ 'source': 'cat ~/Documents/Workspace/Thinkei/frontend-core/src/packages/eh-locale/lang/en-AU.json', ]] ..
-  [[ 'reducer': { lines -> join(["Intl.formatMessage({ id: '", split(substitute(join(lines), '^\s*\(.\{-}\)\s*$', '\1', ''), '\"')[0], "' })"], "") } ]] ..
-  "}))",
-  { expr = true }
-)
-
--- ==========================================
 -- use 'tpope/vim-projectionist'
 -- ==========================================
 vim.g.projectionist_heuristics = {
@@ -385,5 +343,8 @@ require('plugins/statusline')
 require('plugins/telescope')
 require('plugins/toggleterm')
 require('plugins/treesitter')
+
+-- require('plugins/ale')
+require('plugins/fzf')
 
 require('theme')

@@ -23,3 +23,22 @@ vim.g.fzf_colors = {
   spinner = {'fg', 'Label'},
   header =  {'fg', 'Comment'}
 }
+
+-- Insert mode completion
+vim.api.nvim_set_keymap('i', '<c-x><c-l>',
+  "fzf#vim#complete(fzf#wrap({" ..
+  [[ 'prefix': '^.*$', ]] ..
+  [[ 'source': 'rg -n ^ --color always', 'options': '--ansi --delimiter : --nth 3..', ]] ..
+  [[ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') } ]] ..
+  "}))",
+  { noremap = true, expr = true }
+)
+
+-- Insert mode completion for EH FE locale
+vim.api.nvim_set_keymap('i', '<c-x><c-k>',
+  "fzf#vim#complete(fzf#wrap({" ..
+  [[ 'source': 'cat ~/Documents/Workspace/Thinkei/frontend-core/src/packages/eh-locale/lang/en-AU.json', ]] ..
+  [[ 'reducer': { lines -> join(["Intl.formatMessage({ id: '", split(substitute(join(lines), '^\s*\(.\{-}\)\s*$', '\1', ''), '\"')[0], "' })"], "") } ]] ..
+  "}))",
+  { noremap = true, expr = true }
+)
