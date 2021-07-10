@@ -25,7 +25,7 @@ vim.g.fzf_colors = {
 }
 
 -- Insert mode completion
-vim.api.nvim_set_keymap('i', '<c-x><c-l>',
+map('i', '<c-x><c-l>',
   "fzf#vim#complete(fzf#wrap({" ..
   [[ 'prefix': '^.*$', ]] ..
   [[ 'source': 'rg -n ^ --color always', 'options': '--ansi --delimiter : --nth 3..', ]] ..
@@ -35,7 +35,7 @@ vim.api.nvim_set_keymap('i', '<c-x><c-l>',
 )
 
 -- Insert mode completion for EH FE locale
-vim.api.nvim_set_keymap('i', '<c-x><c-k>',
+map('i', '<c-x><c-k>',
   "fzf#vim#complete(fzf#wrap({" ..
   [[ 'source': 'cat ~/Documents/Workspace/Thinkei/frontend-core/src/packages/eh-locale/lang/en-AU.json', ]] ..
   [[ 'reducer': { lines -> join(["Intl.formatMessage({ id: '", split(substitute(join(lines), '^\s*\(.\{-}\)\s*$', '\1', ''), '\"')[0], "' })"], "") } ]] ..

@@ -1,3 +1,9 @@
+function map(mode, lhs, rhs, opts)
+  local options = {noremap = true}
+  if opts then options = vim.tbl_extend('force', options, opts) end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
 require('packer').startup(function()
   -- use { 'shaunsingh/nord.nvim', config = "require'nord'.set()" }
   -- use 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
@@ -70,12 +76,6 @@ end)
 
 require('settings')
 require('functions')
-
-local function map(mode, lhs, rhs, opts)
-  local options = {noremap = true}
-  if opts then options = vim.tbl_extend('force', options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
 
 -- #############################################
 -- Section: Mappings
