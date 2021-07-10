@@ -26,7 +26,6 @@ require('packer').startup(function()
 
   -- Group: Language support
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'nvim-treesitter/nvim-treesitter-refactor'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-compe'
 
