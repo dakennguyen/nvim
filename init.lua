@@ -92,17 +92,14 @@ require('functions')
 -- Section: Mappings
 -- #############################################
 
+-- General
 map('n', '<leader><space>', ':noh<cr>', { noremap = true, silent = true })
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
-
 map('n', 'ss', ':w<cr>', { noremap = true, silent = true })
 
 -- gq
 map('n', 'gq', ':q<cr><c-w><c-p>', { silent = true })
 vim.cmd[[autocmd BufReadPost quickfix nnoremap <buffer> gq :q<CR>]]
-
-map('n', '<leader>s', ':source ~/.config/nvim/init.lua<CR>:PackerCompile<cr>')
--- map('n', '<leader>ev', ':vsplit ~/.config/nvim/init.lua<cr>')
 
 -- gf
 map('', 'gff', 'gf',       { noremap = true })
@@ -115,9 +112,6 @@ map('', 'gft', '<c-w>gf',  { noremap = true })
 
 -- quickfix
 map('n', '<leader>c', ':copen<cr>', { noremap = true, silent = true })
-
--- Ruby
-map('n', '<leader>rr', ':call VimuxRunCommand(\'ruby\' . \' \' . expand(\"%\"))<CR>')
 
 -- Tab
 map('n', '<leader>t', ':tabnew<cr>', { silent = true })
@@ -135,23 +129,28 @@ map('', '<leader>y', '"*y')
 -- map('n', '<leader>p', '"*p')
 
 -- resize panes
-map('n', '<Up>', ':10winc +<CR>')
-map('n', '<Down>', ':10winc -<CR>')
-map('n', '<Left>', ':10winc <<CR>')
+map('n', '<Up>',    ':10winc +<CR>')
+map('n', '<Down>',  ':10winc -<CR>')
+map('n', '<Left>',  ':10winc <<CR>')
 map('n', '<Right>', ':10winc ><CR>')
 
 -- File
-map('n', '<leader>fc',  [[:saveas <C-R>=expand("%:p:h")<CR>/]]                                )    -- File > Copy
-map('n', '<leader>fyd', [[:let @+=expand("%:h") | echo @+<CR>]],             { silent = true })    -- File > Yank > Directory Path
-map('n', '<leader>fyy', [[:let @+=expand("%") | echo @+<CR>]],               { silent = true })    -- File > Yank > Relative File Path
-map('n', '<leader>fyl', [[:let @+=expand("%").":".line(".") | echo @+<CR>]], { silent = true })    -- File > Yank > Relative File Path with Line number
-map('n', '<leader>fyY', [[:let @+=expand("%:p") | echo @+<CR>]],             { silent = true })    -- File > Yank > Full File Path
-map('n', '<leader>fyn', [[:let @+=expand("%:t:r") | echo @+<CR>]],           { silent = true })    -- File > Yank > File Name without extension
-map('n', '<leader>fyN', [[:let @+=expand("%:t") | echo @+<CR>]],             { silent = true })    -- File > Yank > File Name with extension
-map('n', '<leader>fyf', [[ggVG"*y<c-o>]],                                    { silent = true })    -- File > Yank File Content
+map('n', '<leader>fc',  [[ :saveas <C-R>=expand("%:p:h")<CR>/              ]] )                    -- File > Save As
+map('n', '<leader>fyd', [[ :let @+=expand("%:h") | echo @+<CR>             ]] , { silent = true }) -- File > Copy > Directory Path
+map('n', '<leader>fyy', [[ :let @+=expand("%") | echo @+<CR>               ]] , { silent = true }) -- File > Copy > Relative File Path
+map('n', '<leader>fyl', [[ :let @+=expand("%").":".line(".") | echo @+<CR> ]] , { silent = true }) -- File > Copy > Relative File Path with Line number
+map('n', '<leader>fyY', [[ :let @+=expand("%:p") | echo @+<CR>             ]] , { silent = true }) -- File > Copy > Full File Path
+map('n', '<leader>fyn', [[ :let @+=expand("%:t:r") | echo @+<CR>           ]] , { silent = true }) -- File > Copy > File Name without extension
+map('n', '<leader>fyN', [[ :let @+=expand("%:t") | echo @+<CR>             ]] , { silent = true }) -- File > Copy > File Name with extension
+map('n', '<leader>fyf', [[ ggVG"*y<c-o>                                    ]] , { silent = true }) -- File > Copy > File Content
 
--- scratch
+-- open files
 map('n', 'gs', ':topleft 18 new ~/.dotfiles/scratch.vim<CR>', { silent = true })
+map('n', '<leader>s', ':source ~/.config/nvim/init.lua<CR>:PackerCompile<cr>')
+-- map('n', '<leader>ev', ':vsplit ~/.config/nvim/init.lua<cr>')
+
+-- Ruby
+map('n', '<leader>rr', ':call VimuxRunCommand(\'ruby\' . \' \' . expand(\"%\"))<CR>')
 
 -- debugger
 map('i', 'bb', 'debugger<esc>')
