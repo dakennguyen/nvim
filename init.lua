@@ -8,6 +8,7 @@ require('packer').startup(function()
   -- use { 'shaunsingh/nord.nvim', config = "require'nord'.set()" }
   -- use 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
   -- use 'galooshi/vim-import-js'
+  -- use 'meain/vim-printer'
   -- use 'dense-analysis/ale'
   -- use 'tpope/vim-endwise'
   use 'wbthomason/packer.nvim'
@@ -66,7 +67,6 @@ require('packer').startup(function()
   use 'tpope/vim-abolish'
   use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
   use 'benmills/vimux'
-  use 'meain/vim-printer'
   use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
   use 'akinsho/nvim-toggleterm.lua'
   use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
@@ -174,9 +174,9 @@ map('n', 'gn', ':80vs note:home<cr>:MostRecentNote<cr><cr>', { silent = true })
 -- ==========================================
 -- use 'meain/vim-printer'
 -- ==========================================
-vim.g.vim_printer_items = {
-  ruby = 'byebug',
-}
+-- vim.g.vim_printer_items = {
+--   ruby = 'byebug',
+-- }
 
 -- ==========================================
 -- use 'gcmt/taboo.vim'
@@ -188,14 +188,6 @@ map('n', '<leader>rn', ':TabooRename ')
 -- use 'arecarn/vim-clean-fold'
 -- ==========================================
 vim.opt.foldtext = [[clean_fold#fold_text('_')]]
-
--- ==========================================
--- use 'bkad/CamelCaseMotion'
--- ==========================================
-map('', '<S-w>', '<use>CamelCaseMotion_w',   { noremap = false, silent = true })
-map('', '<S-b>', '<use>CamelCaseMotion_b',   { noremap = false, silent = true })
-map('', '<S-e>', '<use>CamelCaseMotion_e',   { noremap = false, silent = true })
-map('', 'g<S-e>', '<use>CamelCaseMotion_ge', { noremap = false, silent = true })
 
 -- ==========================================
 -- use 'szw/vim-maximizer'
