@@ -10,7 +10,7 @@ require('packer').startup(function()
   -- Group: Theme
   use { 'kyazdani42/nvim-web-devicons', config = "require'nvim-web-devicons'.setup {}" }
   use 'dakennguyen/statusline'
-  use 'cocopon/iceberg.vim'
+  use 'dakennguyen/iceberg.vim'
 
   -- Group: Development
   use 'tpope/vim-surround'
