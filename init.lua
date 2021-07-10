@@ -40,7 +40,6 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
   use 'nvim-telescope/telescope-fzy-native.nvim'
   use 'phaazon/hop.nvim'
-  use 'matze/vim-move'
   use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
   use 'junegunn/fzf.vim'
   use 'tpope/vim-projectionist'
@@ -64,8 +63,9 @@ require('packer').startup(function()
   use { 'ruifm/gitlinker.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- Group: Miscellaneous
-  use 'benmills/vimux'
   use 'tpope/vim-obsession'
+  use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
+  use 'benmills/vimux'
   use 'meain/vim-printer'
   use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
   use 'akinsho/nvim-toggleterm.lua'
@@ -217,11 +217,6 @@ map('v', 'Zz', '<ESC>:MaximizerToggle<CR>gv', { silent = true })
 -- ==========================================
 vim.g.splitjoin_split_mapping = 'gj'
 vim.g.splitjoin_join_mapping  = 'gk'
-
--- ==========================================
--- use 'matze/vim-move'
--- ==========================================
-vim.g.move_key_modifier = 'S'
 
 -- ==========================================
 -- use 'ntpeters/vim-better-whitespace'
