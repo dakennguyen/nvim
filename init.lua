@@ -64,7 +64,6 @@ require('packer').startup(function()
   use 'akinsho/nvim-toggleterm.lua'
   use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
 
-  -- use { 'shaunsingh/nord.nvim', config = "require'nord'.set()" }
   -- use 'tpope/vim-endwise'
   -- use 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
   -- use {
@@ -153,6 +152,9 @@ map('n', '<leader>fyf', [[ggVG"*y<c-o>]],                                    { s
 
 -- scratch
 map('n', 'gs', ':topleft 18 new ~/.dotfiles/scratch.vim<CR>', { silent = true })
+
+-- debugger
+map('i', 'bb', 'debugger<esc>')
 
 
 
