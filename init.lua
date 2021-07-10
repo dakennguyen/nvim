@@ -9,6 +9,7 @@ require('packer').startup(function()
   -- use 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
   -- use 'galooshi/vim-import-js'
   -- use 'dense-analysis/ale'
+  -- use 'tpope/vim-endwise'
   use 'wbthomason/packer.nvim'
 
   -- Group: Theme
@@ -18,11 +19,9 @@ require('packer').startup(function()
 
   -- Group: Development
   use 'tpope/vim-surround'
-  use 'tpope/vim-endwise'
   use 'tpope/vim-commentary'
   use 'tpope/vim-unimpaired'
   use 'ntpeters/vim-better-whitespace'
-  use 'Chiel92/vim-autoformat'
   use 'ludovicchabant/vim-gutentags'
   use 'AndrewRadev/splitjoin.vim'
   use 'vim-test/vim-test'
@@ -197,11 +196,6 @@ map('', '<S-w>', '<use>CamelCaseMotion_w',   { noremap = false, silent = true })
 map('', '<S-b>', '<use>CamelCaseMotion_b',   { noremap = false, silent = true })
 map('', '<S-e>', '<use>CamelCaseMotion_e',   { noremap = false, silent = true })
 map('', 'g<S-e>', '<use>CamelCaseMotion_ge', { noremap = false, silent = true })
-
--- ==========================================
--- use 'Chiel92/vim-autoformat'
--- ==========================================
-map('n', '<F3>', ':Autoformat<CR>')
 
 -- ==========================================
 -- use 'brooth/far.vim'

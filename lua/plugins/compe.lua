@@ -55,7 +55,12 @@ _G.s_tab_complete = function()
   end
 end
 
-map('i', '<Tab>', 'v:lua.tab_complete()', {expr = true})
-map('s', '<Tab>', 'v:lua.tab_complete()', {expr = true})
-map('i', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
-map('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
+map('i', '<Tab>', 'v:lua.tab_complete()',     { expr = true })
+map('s', '<Tab>', 'v:lua.tab_complete()',     { expr = true })
+map('i', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
+map('s', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
+
+map('i' , '<CR>',  [[ compe#confirm('<CR>')         ]], { silent = true, expr = true })
+map('i' , '<C-e>', [[ compe#close('<C-e>')          ]], { silent = true, expr = true })
+map('i' , '<C-u>', [[ compe#scroll({ 'delta': -4 }) ]], { silent = true, expr = true })
+map('i' , '<C-d>', [[ compe#scroll({ 'delta': +4 }) ]], { silent = true, expr = true })
