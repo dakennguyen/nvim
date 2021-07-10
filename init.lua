@@ -68,8 +68,7 @@ require('packer').startup(function()
   use 'benmills/vimux'
   use 'tpope/vim-obsession'
   use 'meain/vim-printer'
-  use 'xolox/vim-notes'
-  use 'xolox/vim-misc'
+  use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
   use 'akinsho/nvim-toggleterm.lua'
   use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
 end)
@@ -331,6 +330,7 @@ vim.g.projectionist_heuristics = {
     }
   }
 }
+
 require('plugins/autopairs')
 require('plugins/autotag')
 require('plugins/compe')
