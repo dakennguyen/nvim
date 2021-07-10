@@ -25,7 +25,6 @@ require('packer').startup(function()
   use 'ludovicchabant/vim-gutentags'
   use 'AndrewRadev/splitjoin.vim'
   use 'vim-test/vim-test'
-  use 'brooth/far.vim'
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
   use 'kevinhwang91/nvim-bqf'
@@ -64,6 +63,7 @@ require('packer').startup(function()
 
   -- Group: Miscellaneous
   use 'tpope/vim-obsession'
+  use 'tpope/vim-abolish'
   use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
   use 'benmills/vimux'
   use 'meain/vim-printer'
@@ -196,14 +196,6 @@ map('', '<S-w>', '<use>CamelCaseMotion_w',   { noremap = false, silent = true })
 map('', '<S-b>', '<use>CamelCaseMotion_b',   { noremap = false, silent = true })
 map('', '<S-e>', '<use>CamelCaseMotion_e',   { noremap = false, silent = true })
 map('', 'g<S-e>', '<use>CamelCaseMotion_ge', { noremap = false, silent = true })
-
--- ==========================================
--- use 'brooth/far.vim'
--- ==========================================
-vim.opt.lazyredraw = true
-vim.g['far#source'] = 'rg'
-map('n', '<leader>fr', 'viw:Farr<cr>', { silent = true })
-map('v', '<leader>fr', ':Farr<cr>', { silent = true })
 
 -- ==========================================
 -- use 'szw/vim-maximizer'
