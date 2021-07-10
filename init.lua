@@ -5,12 +5,6 @@ function map(mode, lhs, rhs, opts)
 end
 
 require('packer').startup(function()
-  -- use { 'shaunsingh/nord.nvim', config = "require'nord'.set()" }
-  -- use 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
-  -- use 'galooshi/vim-import-js'
-  -- use 'meain/vim-printer'
-  -- use 'dense-analysis/ale'
-  -- use 'tpope/vim-endwise'
   use 'wbthomason/packer.nvim'
 
   -- Group: Theme
@@ -70,6 +64,27 @@ require('packer').startup(function()
   use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
   use 'akinsho/nvim-toggleterm.lua'
   use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
+
+  -- use { 'shaunsingh/nord.nvim', config = "require'nord'.set()" }
+  -- use 'tpope/vim-endwise'
+  -- use 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
+  -- use {
+  --   'galooshi/vim-import-js',
+  --   config = function()
+  --     map('n', '<leader>ii', ':ImportJSWord<CR>')
+  --     map('n', '<leader>if', ':ImportJSFix<CR>')
+  --     map('n', '<leader>ig', ':ImportJSGoto<CR>')
+  --   end,
+  -- }
+  -- use {
+  --   'meain/vim-printer',
+  --   config = function()
+  --     vim.g.vim_printer_items = {
+  --       ruby = 'byebug',
+  --     }
+  --   end,
+  -- }
+  -- use 'dense-analysis/ale'
 end)
 
 require('settings')
@@ -153,13 +168,6 @@ map('n', 'ga', '<Plug>(EasyAlign)', { noremap = false })
 map('x', 'ga', '<Plug>(EasyAlign)', { noremap = false })
 
 -- ==========================================
--- use 'galooshi/vim-import-js'
--- ==========================================
--- map('n', '<leader>ii', ':ImportJSWord<CR>')
--- map('n', '<leader>if', ':ImportJSFix<CR>')
--- map('n', '<leader>ig', ':ImportJSGoto<CR>')
-
--- ==========================================
 -- use 'kdheepak/lazygit.nvim'
 -- ==========================================
 map('n', '<leader>lg', ':LazyGit<CR>', { silent = true })
@@ -170,13 +178,6 @@ map('n', '<leader>lg', ':LazyGit<CR>', { silent = true })
 vim.g.notes_directories = { '~/Documents/Workspace/Thinkei/Notes' }
 vim.g.notes_tab_indents = 0
 map('n', 'gn', ':80vs note:home<cr>:MostRecentNote<cr><cr>', { silent = true })
-
--- ==========================================
--- use 'meain/vim-printer'
--- ==========================================
--- vim.g.vim_printer_items = {
---   ruby = 'byebug',
--- }
 
 -- ==========================================
 -- use 'gcmt/taboo.vim'
