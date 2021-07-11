@@ -21,7 +21,6 @@ require('packer').startup(function()
   use 'AndrewRadev/splitjoin.vim'
   use 'vim-test/vim-test'
   use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
   use 'kevinhwang91/nvim-bqf'
 
   -- Group: Language support
@@ -82,7 +81,14 @@ require('packer').startup(function()
   --     }
   --   end,
   -- }
-  -- use 'dense-analysis/ale'
+  -- use {
+  --   'dense-analysis/ale',
+  --   config = "require('plugins/ale')",
+  -- }
+  -- use {
+  --   'windwp/nvim-ts-autotag',
+  --   config = "require('plugins/autotag')",
+  -- }
 end)
 
 require('settings')
@@ -259,54 +265,7 @@ map('v', '<leader>gv', ':GV<CR>',  { silent = true })             -- GV in Visua
 -- ==========================================
 map('n', '<leader>fp', [[:MarkdownPreview<CR>]], { silent = true })
 
--- ==========================================
--- use 'tpope/vim-projectionist'
--- ==========================================
-vim.g.projectionist_heuristics = {
-  ['*'] = {
-    ['lib/*.rb'] = {
-      alternate = 'spec/lib/{}_spec.rb',
-      type = 'source',
-    },
-    ['lib/*.rake'] = {
-      alternate = 'spec/lib/{}_rake_spec.rb',
-      type = 'source',
-    },
-    ['app/*.rb'] = {
-      alternate = 'spec/{}_spec.rb',
-      type = 'source',
-    },
-    ['spec/*_rake_spec.rb'] = {
-      alternate = '{}.rake',
-      type =  'spec',
-    },
-    ['spec/*_spec.rb'] = {
-      alternate = {
-        'app/{}.rb',
-        '{}.rb',
-      },
-      type = 'spec',
-    },
-    ['*.js'] = {
-      alternate = {
-        '{dirname}/__tests__/{basename}.spec.js',
-        '{dirname}/__tests__/integration.spec.js'
-      },
-      type = 'source',
-    },
-    ['*/integration.spec.js'] = {
-      alternate = '{dirname}/index.js',
-      type = 'spec',
-    },
-    ['*.spec.js'] = {
-      alternate = '{dirname}/../{basename}.js',
-      type = 'spec',
-    }
-  }
-}
-
 require('plugins/autopairs')
-require('plugins/autotag')
 require('plugins/compe')
 require('plugins/gitlinker')
 require('plugins/hop')
@@ -318,7 +277,7 @@ require('plugins/telescope')
 require('plugins/toggleterm')
 require('plugins/treesitter')
 
--- require('plugins/ale')
 require('plugins/fzf')
+require('plugins/projectionist')
 
 require('theme')
