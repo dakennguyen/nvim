@@ -5,6 +5,12 @@ map('n', '<leader><space>', ':noh<cr>', { silent = true })
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 map('n', 'ss', ':w<cr>', { silent = true })
 
+-- gj, gk
+map('n', 'j', 'gj')
+map('n', 'k', 'gk')
+map('v', 'j', 'gj')
+map('v', 'k', 'gk')
+
 -- gq
 map('n', 'gq', ':q<cr><c-w><c-p>', { silent = true })
 vim.cmd[[autocmd BufReadPost quickfix nnoremap <buffer> gq :q<CR>]]
