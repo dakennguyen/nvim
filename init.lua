@@ -167,6 +167,9 @@ map('v', '<leader>gv', ':GV<CR>',  { silent = true })             -- GV in Visua
 -- ==========================================
 map('n', '<leader>fp', [[:MarkdownPreview<CR>]], { silent = true })
 
+-- #############################################
+-- #############################################
+
 require('plugins/autopairs')
 require('plugins/compe')
 require('plugins/gitlinker')
@@ -179,7 +182,7 @@ require('plugins/telescope')
 require('plugins/toggleterm')
 require('plugins/treesitter')
 
-require('plugins/fzf')
-require('plugins/projectionist')
+require('plugins/vim-fzf')
+require('plugins/vim-projectionist')
 
 require('theme')
