@@ -1,6 +1,6 @@
-map('n', '<leader>0', ':NvimTreeFindFile<CR>', { noremap = true })
-map('n', '<leader>nt', ':NvimTreeToggle<CR>', { noremap = true })
-map('n', '<leader>nr', ':NvimTreeRefresh<CR>', { noremap = true })
+map('n', '<leader>0', ':NvimTreeFindFile<CR>')
+map('n', '<leader>nt', ':NvimTreeToggle<CR>')
+map('n', '<leader>nr', ':NvimTreeRefresh<CR>')
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 vim.g.nvim_tree_bindings = {

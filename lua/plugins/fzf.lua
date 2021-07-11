@@ -31,7 +31,7 @@ map('i', '<c-x><c-l>',
   [[ 'source': 'rg -n ^ --color always', 'options': '--ansi --delimiter : --nth 3..', ]] ..
   [[ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') } ]] ..
   "}))",
-  { noremap = true, expr = true }
+  { expr = true }
 )
 
 -- Insert mode completion for EH FE locale
@@ -40,5 +40,5 @@ map('i', '<c-x><c-k>',
   [[ 'source': 'cat ~/Documents/Workspace/Thinkei/frontend-core/src/packages/eh-locale/lang/en-AU.json', ]] ..
   [[ 'reducer': { lines -> join(["Intl.formatMessage({ id: '", split(substitute(join(lines), '^\s*\(.\{-}\)\s*$', '\1', ''), '\"')[0], "' })"], "") } ]] ..
   "}))",
-  { noremap = true, expr = true }
+  { expr = true }
 )

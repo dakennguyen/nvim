@@ -1,5 +1,5 @@
 function map(mode, lhs, rhs, opts)
-  local options = {noremap = true}
+  local options = { noremap = true }
   if opts then options = vim.tbl_extend('force', options, opts) end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
@@ -71,25 +71,25 @@ require('functions')
 -- #############################################
 
 -- General
-map('n', '<leader><space>', ':noh<cr>', { noremap = true, silent = true })
+map('n', '<leader><space>', ':noh<cr>', { silent = true })
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
-map('n', 'ss', ':w<cr>', { noremap = true, silent = true })
+map('n', 'ss', ':w<cr>', { silent = true })
 
 -- gq
 map('n', 'gq', ':q<cr><c-w><c-p>', { silent = true })
 vim.cmd[[autocmd BufReadPost quickfix nnoremap <buffer> gq :q<CR>]]
 
 -- gf
-map('', 'gff', 'gf',       { noremap = true })
-map('', 'gfv', '<c-w>vgf', { noremap = true })
-map('', 'gfs', '<c-w>f',   { noremap = true })
-map('', 'gft', '<c-w>gf',  { noremap = true })
+map('', 'gff', 'gf')
+map('', 'gfv', '<c-w>vgf')
+map('', 'gfs', '<c-w>f')
+map('', 'gft', '<c-w>gf')
 
 -- gd
--- map('', 'gdd', 'gd', { noremap = true })
+-- map('', 'gdd', 'gd')
 
 -- quickfix
-map('n', '<leader>c', ':copen<cr>', { noremap = true, silent = true })
+map('n', '<leader>c', ':copen<cr>', { silent = true })
 
 -- Tab
 map('n', '<leader>t', ':tabnew<cr>', { silent = true })
