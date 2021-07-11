@@ -4,24 +4,26 @@ vim.env.FZF_DEFAULT_OPTS = [[ --bind 'ctrl-e:preview-down,ctrl-y:preview-up,ctrl
 vim.g.fzf_preview_source = [[ --preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200']]
 vim.g.fzf_layout = { down = '80%' }
 vim.g.fzf_action = {
+  -- ['enter']  = 'drop',
+  -- ['ctrl-t'] = 'tab drop',
   ['ctrl-t'] = 'tab split',
   ['ctrl-s'] = 'split',
   ['ctrl-v'] = 'vsplit'
 }
 vim.g.fzf_colors = {
-  fg =      {'fg', 'Normal'},
-  bg =      {'bg', 'Normal'},
-  hl =      {'fg', 'Comment'},
-  ['fg+'] = {'fg', 'CursorLine', 'CursorColumn', 'Normal'},
-  ['bg+'] =  {'bg', 'CursorLine', 'CursorColumn'},
-  ['hl+'] =  {'fg', 'Statement'},
-  info =    {'fg', 'PreProc'},
-  border =  {'fg', 'Ignore'},
-  prompt =  {'fg', 'Conditional'},
-  pointer = {'fg', 'Exception'},
-  marker =  {'fg', 'Keyword'},
-  spinner = {'fg', 'Label'},
-  header =  {'fg', 'Comment'}
+  fg      = { 'fg', 'Normal' },
+  bg      = { 'bg', 'Normal' },
+  hl      = { 'fg', 'Comment'},
+  ['fg+'] = { 'fg', 'CursorLine', 'CursorColumn', 'Normal' },
+  ['bg+'] = { 'bg', 'CursorLine', 'CursorColumn' },
+  ['hl+'] = { 'fg', 'Statement' },
+  info    = { 'fg', 'PreProc' },
+  border  = { 'fg', 'Ignore' },
+  prompt  = { 'fg', 'Conditional' },
+  pointer = { 'fg', 'Exception' },
+  marker  = { 'fg', 'Keyword' },
+  spinner = { 'fg', 'Label' },
+  header  = { 'fg', 'Comment' }
 }
 
 -- Insert mode completion

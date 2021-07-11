@@ -38,6 +38,7 @@ require('telescope').setup{
       previewer = false,
       mappings = {
         i = {
+          ["<cr>"] = "select_horizontal",
           ["<c-d>"] = "delete_buffer",
         },
       }

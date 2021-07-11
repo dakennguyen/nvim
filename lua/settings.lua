@@ -28,6 +28,9 @@ o.exrc = true                  -- Enable reading local .nvimrc
 o.so = 5                       -- Scrolloff
 o.mouse = 'a'                  -- Scroll with mouse
 
+-- buffer
+o.switchbuf:append { 'useopen' }
+
 -- Theme
 o.encoding = 'UTF-8'
 o.laststatus=2
