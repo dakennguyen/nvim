@@ -15,13 +15,14 @@ require('packer').startup(function()
   -- Group: Development
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
-  use 'tpope/vim-unimpaired'
+  use 'tpope/vim-abolish'
   use 'ntpeters/vim-better-whitespace'
   use 'ludovicchabant/vim-gutentags'
   use 'AndrewRadev/splitjoin.vim'
   use 'vim-test/vim-test'
   use 'windwp/nvim-autopairs'
   use 'kevinhwang91/nvim-bqf'
+  use 'junegunn/vim-easy-align'
 
   -- Group: Language support
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -38,14 +39,13 @@ require('packer').startup(function()
   use 'numToStr/Navigator.nvim'
   use 'kyazdani42/nvim-tree.lua'
 
-  -- Group: Editor
+  -- Group: Visual
   use 'arecarn/vim-clean-fold'
   use 'szw/vim-maximizer'
   use 'arecarn/vim-fold-cycle'
   use 'gcmt/taboo.vim'
   use { 'norcalli/nvim-colorizer.lua', config = "require'colorizer'.setup()" }
   use 'folke/lsp-colors.nvim'
-  use 'junegunn/vim-easy-align'
 
   -- Group: Git
   use 'tpope/vim-fugitive'
@@ -55,7 +55,7 @@ require('packer').startup(function()
 
   -- Group: Miscellaneous
   use 'tpope/vim-obsession'
-  use 'tpope/vim-abolish'
+  use 'tpope/vim-unimpaired'
   use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
   use 'benmills/vimux'
   use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
