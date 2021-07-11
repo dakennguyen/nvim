@@ -152,7 +152,6 @@ map('n', 't<C-g>', ':TestVisit<CR>',   { noremap = false, silent = true })
 -- use 'tpope/vim-fugitive'
 -- ==========================================
 vim.opt.diffopt:append { 'vertical' }
-vim.cmd [[command! -nargs=* Glg Git --paginate log --oneline --decorate --graph --all <args>]]
 map('n', 'gb', ':Git blame<CR>', { silent = true })               -- Git Blame
 map('n', '<leader>gd', ':Gdiffsplit<CR>', { silent = true })      -- Git diff
 
