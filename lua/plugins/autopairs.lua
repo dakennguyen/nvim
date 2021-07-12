@@ -1,29 +1,46 @@
 local npairs = require('nvim-autopairs')
 local Rule = require('nvim-autopairs.rule')
+local endwise = require('nvim-autopairs.ts-rule').endwise
 
 npairs.setup{
   ignored_next_char = "[%w%:%.]"
 }
 
 npairs.add_rules({
-  Rule('do$', 'end', "ruby")
+  endwise('do$',         'end', 'ruby', nil),
+  endwise('begin$',      'end', 'ruby', nil),
+  endwise('def%s.+$',    'end', 'ruby', nil),
+  endwise('module%s.+$', 'end', 'ruby', nil),
+  endwise('class%s.+$',  'end', 'ruby', nil),
+  -- endwise('if%s.+$',     'end', 'ruby', nil),
+  -- endwise('unless%s.+$', 'end', 'ruby', nil),
+  -- endwise('case%s.+$',   'end', 'ruby', nil),
+  -- endwise('while%s.+$',  'end', 'ruby', nil),
+  -- endwise('until%s.+$',  'end', 'ruby', nil),
+  Rule('if%s.+%s$',     'end', "ruby")
     :use_regex(true),
-  Rule('begin$', 'end', "ruby")
+  Rule('unless%s.+%s$', 'end', "ruby")
     :use_regex(true),
-  Rule('module%s[%w_]+%s$', 'end', "ruby")
+  Rule('case%s.+%s$',   'end', "ruby")
     :use_regex(true),
-  Rule('class%s[%w_]+%s$', 'end', "ruby")
+  Rule('while%s.+%s$',  'end', "ruby")
     :use_regex(true),
-  Rule('def%s[%w_]+%s$', 'end', "ruby")
-    :use_regex(true),
-  Rule('if%s[%w_]+%s$', 'end', "ruby")
-    :use_regex(true),
-  Rule('unless%s[%w_]+%s$', 'end', "ruby")
-    :use_regex(true),
-  Rule('case%s[%w_]+%s$', 'end', "ruby")
-    :use_regex(true),
-  Rule('while%s[%w_]+%s$', 'end', "ruby")
-    :use_regex(true),
-  Rule('until%s[%w_]+%s$', 'end', "ruby")
+  Rule('until%s.+%s$',  'end', "ruby")
     :use_regex(true),
 })
+
+_G.completion_confirm=function()
+  if vim.fn.pumvisible() ~= 0  then
+    index = vim.call('complete_info', {'selected' }).selected or -1;
+
+    if index == -1 then
+      return npairs.autopairs_cr()
+    else
+      return vim.fn["compe#confirm"]('<cr>')
+    end
+  else
+    return npairs.autopairs_cr()
+  end
+end
+
+map('i' , '<CR>','v:lua.completion_confirm()', { expr = true })
