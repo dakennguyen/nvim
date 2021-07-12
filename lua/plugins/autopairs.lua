@@ -30,17 +30,12 @@ npairs.add_rules({
 })
 
 _G.completion_confirm=function()
-  if vim.fn.pumvisible() ~= 0  then
-    index = vim.call('complete_info', {'selected' }).selected or -1;
-
-    if index == -1 then
-      return npairs.autopairs_cr()
-    else
-      return vim.fn["compe#confirm"]('<cr>')
-    end
-  else
+  if vim.fn.pumvisible() == 0 or ((vim.call('complete_info', {'selected' }).selected or -1) == -1)
+  then
     return npairs.autopairs_cr()
+  else
+    return vim.fn["compe#confirm"]('<cr>')
   end
 end
 
-map('i' , '<CR>','v:lua.completion_confirm()', { expr = true })
+map('i' , '<CR>','v:lua.completion_confirm()', { silent = true, expr = true })
