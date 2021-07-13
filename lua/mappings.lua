@@ -13,7 +13,11 @@ map('v', 'k', 'gk')
 
 -- gq
 map('n', 'gq', ':q<cr><c-w><c-p>', { silent = true })
-vim.cmd[[autocmd BufReadPost quickfix nnoremap <buffer> gq :q<CR>]]
+vim.cmd[[
+augroup QuitQuickfix
+  autocmd BufReadPost quickfix nnoremap <buffer> gq :q<CR>
+augroup END
+]]
 
 -- gf
 map('', 'gff', 'gf')
