@@ -1,5 +1,4 @@
 local npairs = require('nvim-autopairs')
-local Rule = require('nvim-autopairs.rule')
 local endwise = require('nvim-autopairs.ts-rule').endwise
 
 npairs.setup{
@@ -7,27 +6,17 @@ npairs.setup{
 }
 
 npairs.add_rules({
-  endwise('%sdo$',         'end', 'ruby', nil),
-  endwise('%sdo%s|.*|$',   'end', 'ruby', nil),
-  endwise('begin$',        'end', 'ruby', nil),
-  endwise('def%s.+$',      'end', 'ruby', nil),
-  endwise('module%s.+$',   'end', 'ruby', nil),
-  endwise('class%s.+$',    'end', 'ruby', nil),
-  Rule('[%s=]%sif%s.',     'end', "ruby")
-    :use_regex(true)
-    :end_wise(),
-  Rule('[%s=]%sunless%s.', 'end', "ruby")
-    :use_regex(true)
-    :end_wise(),
-  Rule('[%s=]%scase%s.',   'end', "ruby")
-    :use_regex(true)
-    :end_wise(),
-  Rule('[%s=]%swhile%s.',  'end', "ruby")
-    :use_regex(true)
-    :end_wise(),
-  Rule('[%s=]%suntil%s.',  'end', "ruby")
-    :use_regex(true)
-    :end_wise(),
+  endwise('%sdo$',              'end', 'ruby', nil),
+  endwise('%sdo%s|.*|$',        'end', 'ruby', nil),
+  endwise('begin$',             'end', 'ruby', nil),
+  endwise('def%s.+$',           'end', 'ruby', nil),
+  endwise('module%s.+$',        'end', 'ruby', nil),
+  endwise('class%s.+$',         'end', 'ruby', nil),
+  endwise('[%s=]%sif%s.+$',     'end', 'ruby', nil),
+  endwise('[%s=]%sunless%s.+$', 'end', 'ruby', nil),
+  endwise('[%s=]%scase%s.+$',   'end', 'ruby', nil),
+  endwise('[%s=]%swhile%s.+$',  'end', 'ruby', nil),
+  endwise('[%s=]%suntil%s.+$',  'end', 'ruby', nil),
 })
 
 _G.completion_confirm=function()
