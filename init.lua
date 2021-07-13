@@ -49,9 +49,9 @@ require('packer').startup(function()
 
   -- Group: Git
   use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
   use 'junegunn/gv.vim'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }, config = "require('gitsigns').setup()" }
-  use { 'ruifm/gitlinker.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- Group: Miscellaneous
   use 'tpope/vim-obsession'
@@ -149,13 +149,6 @@ map('n', 't<C-l>', ':TestLast<CR>',    { noremap = false, silent = true })
 map('n', 't<C-g>', ':TestVisit<CR>',   { noremap = false, silent = true })
 
 -- ==========================================
--- use 'tpope/vim-fugitive'
--- ==========================================
-vim.opt.diffopt:append { 'vertical' }
-map('n', 'gb', ':Git blame<CR>', { silent = true })               -- Git Blame
-map('n', '<leader>gd', ':Gdiffsplit<CR>', { silent = true })      -- Git diff
-
--- ==========================================
 -- use 'junegunn/gv.vim'
 -- ==========================================
 map('n', '<leader>gv', ':GV!<CR>', { silent = true })             -- GV
@@ -171,7 +164,6 @@ map('n', '<leader>fp', [[:MarkdownPreview<CR>]], { silent = true })
 
 require('plugins/autopairs')
 require('plugins/compe')
-require('plugins/gitlinker')
 require('plugins/hop')
 require('plugins/lspconfig')
 require('plugins/navigator')
@@ -183,5 +175,6 @@ require('plugins/treesitter')
 
 require('plugins/vim-fzf')
 require('plugins/vim-projectionist')
+require('plugins/vim-fugitive')
 
 require('theme')
