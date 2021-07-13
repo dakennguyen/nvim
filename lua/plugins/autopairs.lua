@@ -7,26 +7,27 @@ npairs.setup{
 }
 
 npairs.add_rules({
-  endwise('do$',         'end', 'ruby', nil),
-  endwise('begin$',      'end', 'ruby', nil),
-  endwise('def%s.+$',    'end', 'ruby', nil),
-  endwise('module%s.+$', 'end', 'ruby', nil),
-  endwise('class%s.+$',  'end', 'ruby', nil),
-  -- endwise('if%s.+$',     'end', 'ruby', nil),
-  -- endwise('unless%s.+$', 'end', 'ruby', nil),
-  -- endwise('case%s.+$',   'end', 'ruby', nil),
-  -- endwise('while%s.+$',  'end', 'ruby', nil),
-  -- endwise('until%s.+$',  'end', 'ruby', nil),
-  Rule('if%s.+%s$',     'end', "ruby")
-    :use_regex(true),
-  Rule('unless%s.+%s$', 'end', "ruby")
-    :use_regex(true),
-  Rule('case%s.+%s$',   'end', "ruby")
-    :use_regex(true),
-  Rule('while%s.+%s$',  'end', "ruby")
-    :use_regex(true),
-  Rule('until%s.+%s$',  'end', "ruby")
-    :use_regex(true),
+  endwise('%sdo$',         'end', 'ruby', nil),
+  endwise('%sdo%s|.*|$',   'end', 'ruby', nil),
+  endwise('begin$',        'end', 'ruby', nil),
+  endwise('def%s.+$',      'end', 'ruby', nil),
+  endwise('module%s.+$',   'end', 'ruby', nil),
+  endwise('class%s.+$',    'end', 'ruby', nil),
+  Rule('[%s=]%sif%s.',     'end', "ruby")
+    :use_regex(true)
+    :end_wise(),
+  Rule('[%s=]%sunless%s.', 'end', "ruby")
+    :use_regex(true)
+    :end_wise(),
+  Rule('[%s=]%scase%s.',   'end', "ruby")
+    :use_regex(true)
+    :end_wise(),
+  Rule('[%s=]%swhile%s.',  'end', "ruby")
+    :use_regex(true)
+    :end_wise(),
+  Rule('[%s=]%suntil%s.',  'end', "ruby")
+    :use_regex(true)
+    :end_wise(),
 })
 
 _G.completion_confirm=function()
