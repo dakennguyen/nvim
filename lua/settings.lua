@@ -7,18 +7,16 @@ g.loaded_ruby_provider = 0
 -- filetype plugin indent on
 -- syntax on
 
-o.compatible = false
-
 o.swapfile = false
 o.number = true
 o.rnu = true
 o.re = 1
 o.expandtab = true
-o.tabstop = 2
+o.tabstop = 8
 o.softtabstop = 2
 o.shiftwidth= 2
 o.autoread = true
-o.smartindent = true
+-- o.smartindent = true
 o.autoindent = true
 o.cursorline = true
 o.wildmenu = true
