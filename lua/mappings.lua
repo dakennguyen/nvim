@@ -53,10 +53,10 @@ map('n', '<Left>',  ':10winc <<CR>')
 map('n', '<Right>', ':10winc ><CR>')
 
 -- File
-map('n', '<leader>fc',  [[ :saveas <C-R>=expand("%:p:h")<CR>/              ]] )                    -- File > Save As
-map('n', '<leader>fyy', [[ :let @+=expand("%") | echo @+<CR>               ]] , { silent = true }) -- File > Copy > Relative File Path
-map('n', '<leader>fyf', [[ ggVG"*y<c-o>                                    ]] , { silent = true }) -- File > Copy > File Content
-map('n', '<leader>fyn', [[ :let @+=expand("%:t:r") | echo @+<CR>           ]] , { silent = true }) -- File > Copy > File Name without extension
+map('n', '<leader>fc',  [[:saveas <C-R>=expand("%:p:h")<CR>/]])                        -- File > Save As
+map('n', '<leader>fyy', [[:let @+=expand("%") | echo @+<CR>]] ,     { silent = true }) -- File > Copy > Relative File Path
+map('n', '<leader>fyf', [[ggVG"*y<c-o>]] ,                          { silent = true }) -- File > Copy > File Content
+map('n', '<leader>fyn', [[:let @+=expand("%:t:r") | echo @+<CR>]] , { silent = true }) -- File > Copy > File Name without extension
 -- map('n', '<leader>fyd', [[ :let @+=expand("%:h") | echo @+<CR>             ]] , { silent = true }) -- File > Copy > Directory Path
 -- map('n', '<leader>fyl', [[ :let @+=expand("%").":".line(".") | echo @+<CR> ]] , { silent = true }) -- File > Copy > Relative File Path with Line number
 -- map('n', '<leader>fyY', [[ :let @+=expand("%:p") | echo @+<CR>             ]] , { silent = true }) -- File > Copy > Full File Path
