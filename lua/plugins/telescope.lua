@@ -20,7 +20,7 @@ require('telescope').setup{
       '--smart-case',
       '--hidden',
     },
-    file_ignore_patterns = { '.git', 'node_modules' },
+    file_ignore_patterns = { '%.git/.*', 'node_modules/.*' },
     mappings = {
       i = {
         ['<Esc>'] = actions.close,
