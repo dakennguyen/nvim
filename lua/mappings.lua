@@ -33,6 +33,15 @@ map('n', '<leader>c', ':copen<cr>', { silent = true })
 
 -- Tab
 map('n', '<leader>t', ':tabnew<cr>', { silent = true })
+map('n', '<leader>1', '1gt')
+map('n', '<leader>2', '2gt')
+map('n', '<leader>3', '3gt')
+map('n', '<leader>4', '4gt')
+map('n', '<leader>5', '5gt')
+map('n', '<leader>6', '6gt')
+map('n', '<leader>7', '7gt')
+map('n', '<leader>8', '8gt')
+map('n', '<leader>9', '9gt')
 map('n', '<C-N>', 'gt')
 map('n', '<C-T>', 'gT')
 
@@ -47,10 +56,10 @@ map('', '<leader>y', '"*y')
 -- map('n', '<leader>p', '"*p')
 
 -- resize panes
-map('n', '<Up>',    ':10winc +<CR>')
-map('n', '<Down>',  ':10winc -<CR>')
-map('n', '<Left>',  ':10winc <<CR>')
-map('n', '<Right>', ':10winc ><CR>')
+map('n', '<Up>',    ':10winc +<CR>', { silent = true })
+map('n', '<Down>',  ':10winc -<CR>', { silent = true })
+map('n', '<Left>',  ':10winc <<CR>', { silent = true })
+map('n', '<Right>', ':10winc ><CR>', { silent = true })
 
 -- File
 map('n', '<leader>fc',  [[:saveas <C-R>=expand("%:p:h")<CR>/]])                        -- File > Save As
@@ -73,14 +82,3 @@ map('n', '<leader>rr', ':call VimuxRunCommand(\'ruby\' . \' \' . expand(\"%\"))<
 
 -- debugger
 map('i', 'bb', 'debugger<esc>')
-
--- Tabs
-map('n', '<leader>1', '1gt')
-map('n', '<leader>2', '2gt')
-map('n', '<leader>3', '3gt')
-map('n', '<leader>4', '4gt')
-map('n', '<leader>5', '5gt')
-map('n', '<leader>6', '6gt')
-map('n', '<leader>7', '7gt')
-map('n', '<leader>8', '8gt')
-map('n', '<leader>9', '9gt')
