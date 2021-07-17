@@ -9,12 +9,12 @@ require('packer').startup(function()
 
   -- Group: Theme
   use { 'kyazdani42/nvim-web-devicons', config = "require'nvim-web-devicons'.setup {}" }
-  use 'dakennguyen/statusline'
+  use 'famiu/feline.nvim'
   use 'dakennguyen/iceberg.vim'
 
   -- Group: Development
   use 'tpope/vim-surround'
-  use 'tpope/vim-commentary'
+  use 'b3nj5m1n/kommentary'
   use 'tpope/vim-abolish'
   use 'ntpeters/vim-better-whitespace'
   use 'ludovicchabant/vim-gutentags'
@@ -51,7 +51,7 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'junegunn/gv.vim'
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }, config = "require('gitsigns').setup()" }
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Group: Miscellaneous
   use 'tpope/vim-obsession'
@@ -167,10 +167,12 @@ map('n', '<leader>fp', [[:MarkdownPreview<CR>]], { silent = true })
 require('plugins/autopairs')
 require('plugins/compe')
 require('plugins/hop')
+require('plugins/kommentary')
 require('plugins/lspconfig')
 require('plugins/navigator')
 require('plugins/nvim-tree')
-require('plugins/statusline')
+require('plugins/feline')
+require('plugins/gitsigns')
 require('plugins/telescope')
 require('plugins/toggleterm')
 require('plugins/treesitter')
