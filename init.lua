@@ -85,7 +85,7 @@ map('x', 'ga', '<Plug>(EasyAlign)', { noremap = false })
 -- ==========================================
 vim.g.notes_directories = { '~/Documents/Workspace/Thinkei/Notes' }
 vim.g.notes_tab_indents = 0
-map('n', 'gn', ':80vs note:home<cr>:MostRecentNote<cr><cr>', { silent = true })
+map('n', '<space>gn', ':80vs note:home<cr>:MostRecentNote<cr><cr>', { silent = true })
 
 -- ==========================================
 -- use 'gcmt/taboo.vim'

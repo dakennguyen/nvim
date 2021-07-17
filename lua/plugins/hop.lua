@@ -1,2 +1,2 @@
 require'hop'.setup()
-map('n', '<space>', [[<cmd>lua require'hop'.hint_words()<cr>]], {})
+map('n', 'f', ':HopChar1<CR>', { silent = true })

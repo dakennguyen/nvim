@@ -73,7 +73,7 @@ map('n', '<leader>fyn', [[:let @+=expand("%:t:r") | echo @+<CR>]] , { silent = t
 -- map('n', '<leader>fyN', [[ :let @+=expand("%:t") | echo @+<CR>             ]] , { silent = true }) -- File > Copy > File Name with extension
 
 -- open files
-map('n', 'gs', ':topleft 18 new ~/.dotfiles/scratch.vim<CR>', { silent = true })
+map('n', '<space>gs', ':topleft 18 new ~/.dotfiles/scratch.vim<CR>', { silent = true })
 map('n', '<leader>s', ':source ~/.config/nvim/init.lua<CR>:PackerCompile<cr>')
 -- map('n', '<leader>ev', ':vsplit ~/.config/nvim/init.lua<cr>')
 
