@@ -110,8 +110,8 @@ map('v', 'Zz', '<ESC>:MaximizerToggle<CR>gv', { silent = true })
 -- ==========================================
 -- use 'AndrewRadev/splitjoin.vim'
 -- ==========================================
-vim.g.splitjoin_split_mapping = 'gj'
-vim.g.splitjoin_join_mapping  = 'gk'
+vim.g.splitjoin_split_mapping = ']s'
+vim.g.splitjoin_join_mapping  = '[s'
 
 -- ==========================================
 -- use 'ntpeters/vim-better-whitespace'
