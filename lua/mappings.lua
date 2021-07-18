@@ -1,6 +1,4 @@
 -- General
-map('i', 'jk', '<esc>')
-map('i', 'kj', '<esc>')
 map('n', '<leader><space>', ':noh<cr>', { silent = true })
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 map('n', 'ss', ':w<cr>', { silent = true })
