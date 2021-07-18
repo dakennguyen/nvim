@@ -54,7 +54,7 @@ require('packer').startup(function()
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Group: Miscellaneous
-  use 'glepnir/dashboard-nvim'
+  use 'rmagatti/auto-session'
   use 'tpope/vim-unimpaired'
   use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
   use 'benmills/vimux'
@@ -164,9 +164,9 @@ map('n', '<leader>fp', [[:MarkdownPreview<CR>]], { silent = true })
 -- #############################################
 -- #############################################
 
+require('plugins/auto-session')
 require('plugins/autopairs')
 require('plugins/compe')
-require('plugins/dashboard')
 require('plugins/hop')
 require('plugins/kommentary')
 require('plugins/lspconfig')
