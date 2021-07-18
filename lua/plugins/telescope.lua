@@ -66,16 +66,17 @@ require('telescope').load_extension('fzy_native')
 vim.cmd[[command! -nargs=? Tgrep lua require 'telescope.builtin'.grep_string({ search = <q-args> })]]
 
 -- Files
-map('n', '<c-p>', '<CMD>Telescope find_files hidden=true follow=true<CR>')
-map('n', '<leader>ff', [[:lua require('telescope.builtin').find_files({search_dirs = {"%:p:h"}, follow = true})<CR>]])
-map('n', '<leader>b', '<CMD>Telescope buffers<CR>')
-map('n', '<leader>fq', '<CMD>Telescope quickfix<CR>')
-map('n', '<leader>fh', '<CMD>Telescope help_tags<CR>')
+map('n', '<space>ff', '<CMD>Telescope find_files hidden=true follow=true<CR>')
+map('n', '<space>fd', [[:lua require('telescope.builtin').find_files({search_dirs = {"%:p:h"}, follow = true})<CR>]])
+map('n', '<space>fb', '<CMD>Telescope buffers<CR>')
+map('n', '<space>fq', '<CMD>Telescope quickfix<CR>')
+map('n', '<space>fh', '<CMD>Telescope help_tags<CR>')
+map('n', '<space>fm', '<CMD>Telescope keymaps<CR>')
+map('n', '<space>fw', '<CMD>Telescope grep_string<CR>')
+map('v', '<space>fw', [[y:lua require('telescope.builtin').grep_string({search = '<C-R>=escape(@",'/\')<CR>'})<CR>]])
 
 -- Search
 map('n', '//', '<CMD>Telescope current_buffer_fuzzy_find<CR>', { silent = true })
-map('n', '<leader><leader>', ':Tgrep ')
 map('n', '\\', '<CMD>Telescope live_grep<CR>')
-map('n', '<leader>fw', '<CMD>Telescope grep_string<CR>')
-map('v', '<leader>fw', [[y:lua require('telescope.builtin').grep_string({search = '<C-R>=escape(@",'/\')<CR>'})<CR>]])
+map('n', '<space><space>', ':Tgrep ')
 map('n', '<C-]>', [[yiw<CMD>Telescope tags<CR><C-R>"<CR>]])
