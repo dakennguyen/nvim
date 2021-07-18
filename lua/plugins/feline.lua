@@ -108,21 +108,37 @@ local default_color = {
   error = "#ea6962"
 }
 
-local nord = {
-  default_fg = "#8FBCBB",
-  default_bg = "#3a4252",
+local iceberg = {
+  default_fg = "#8295B9",
+  default_bg = "#11131a",
   colors = {
     bg1 = "#3b4252",
-    bg2 = "#4c566a",
-    dark = "#2e3440",
-    light = "#d8dee9",
-    normal = "#87c0d0",
-    visual = "#a3be8c",
-    insert = "#5E81AC",
+    bg2 = "#292B36",
+    dark = "#17181E",
+    light = "#B3B5BE",
+    normal = "#8295B9",
+    visual = "#CB9F78",
+    insert = "#AEB482",
     replace = "#bf616a",
     command = "#B48EAD",
     op = "#D08770"
   }
+}
+local neon = {
+  default_fg = "#abb2bf",
+  default_bg = "#333644",
+  colors = {
+    bg1 = "#363a49",
+    bg2 = "#676E95",
+    dark = "#2b2d37",
+    light = "#c5cdd9",
+    normal = "#a9a1e1",
+    visual = "#ADD8E6",
+    insert = "#d38aea",
+    replace = "#ECBE7B",
+    command = "#4db5bd",
+    op = "#a9a1e1",
+  },
 }
 
 local vi_mode_provider = function()
@@ -161,8 +177,8 @@ local vi_mode_provider = function()
   return ' ' .. mode_alias[vim.fn.mode()] .. ' '
 end
 
-local c = nord
-local cc = nord.colors
+local c = iceberg
+local cc = iceberg.colors
 
 local components = {
   left = {active = {}, inactive = {}},
@@ -283,7 +299,7 @@ table.insert(components.right.active, {
 -- -- =======================================
 table.insert(components.left.inactive, {
   provider = 'custom_file_info',
-  hl = {fg = "insert", style = "bold"}
+  hl = {fg = "#393E56", style = "bold"}
 })
 
 -- right inactive
