@@ -1,4 +1,5 @@
 -- General
+map('v', 'p', '"_dP') -- Don't copy the replaced text after pasting in visual mode
 map('n', '<leader><space>', ':noh<cr>', { silent = true })
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 map('n', 'ss', ':w<cr>', { silent = true })
