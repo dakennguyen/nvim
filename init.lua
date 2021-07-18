@@ -54,7 +54,7 @@ require('packer').startup(function()
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Group: Miscellaneous
-  use 'tpope/vim-obsession'
+  use 'glepnir/dashboard-nvim'
   use 'tpope/vim-unimpaired'
   use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
   use 'benmills/vimux'
@@ -118,7 +118,7 @@ vim.g.splitjoin_join_mapping  = '[s'
 -- ==========================================
 vim.g.strip_whitespace_on_save = 1
 vim.g.strip_whitespace_confirm = 0
-vim.g.better_whitespace_enabled = 1
+vim.g.better_whitespace_enabled = 0
 vim.g.strip_max_file_size = 0
 
 -- ==========================================
@@ -166,6 +166,7 @@ map('n', '<leader>fp', [[:MarkdownPreview<CR>]], { silent = true })
 
 require('plugins/autopairs')
 require('plugins/compe')
+require('plugins/dashboard')
 require('plugins/hop')
 require('plugins/kommentary')
 require('plugins/lspconfig')
