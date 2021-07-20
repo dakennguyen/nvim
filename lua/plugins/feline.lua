@@ -124,6 +124,22 @@ local iceberg = {
     op = "#D08770"
   }
 }
+local blue_moon = {
+  default_fg = "#a2b6db",
+  default_bg = "#1f222e",
+  colors = {
+    bg1 = "#3b4252",
+    bg2 = "#292B36",
+    dark = "#17181E",
+    light = "#B3B5BE",
+    normal = "#a2b6db",
+    visual = "#CB9F78",
+    insert = "#AEB482",
+    replace = "#bf616a",
+    command = "#a9a1e1",
+    op = "#D08770"
+  }
+}
 local neon = {
   default_fg = "#abb2bf",
   default_bg = "#333644",
@@ -177,8 +193,8 @@ local vi_mode_provider = function()
   return ' ' .. mode_alias[vim.fn.mode()] .. ' '
 end
 
-local c = iceberg
-local cc = iceberg.colors
+local c = blue_moon
+local cc = blue_moon.colors
 
 local components = {
   left = {active = {}, inactive = {}},
