@@ -31,7 +31,6 @@ map('', 'gft', '<c-w>gf')
 map('n', '<leader>c', ':copen<cr>', { silent = true })
 
 -- Tab
-map('n', '<leader>t', ':tabnew<cr>', { silent = true })
 map('n', '<leader>1', '1gt')
 map('n', '<leader>2', '2gt')
 map('n', '<leader>3', '3gt')
@@ -41,18 +40,19 @@ map('n', '<leader>6', '6gt')
 map('n', '<leader>7', '7gt')
 map('n', '<leader>8', '8gt')
 map('n', '<leader>9', '9gt')
-map('n', 'gj', 'gt')
-map('n', 'gk', 'gT')
+map('n', 'gn', 'gt')
+map('n', 'gp', 'gT')
+map('n', 'gt', ':tabnew<cr>', { silent = true })
 
 -- Mark
 map('n', [[']], [["'" . nr2char(getchar()) . "zt"]], { expr = true })
 map('n', [[`]], [["`" . nr2char(getchar()) . "zt"]], { expr = true })
 
 -- registers
-map('', 'gp', '"0p')
-map('', 'gP', '"0P')
+-- map('', 'gp', '"0p')
+-- map('', 'gP', '"0P')
 map('', '<leader>y', '"*y')
--- map('n', '<leader>p', '"*p')
+map('n', '<leader>p', '"*p')
 
 -- resize panes
 map('n', '<Up>',    ':10winc +<CR>', { silent = true })

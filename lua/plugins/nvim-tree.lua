@@ -1,4 +1,4 @@
-map('n', '<leader>0', ':NvimTreeFindFile<CR>', { silent = true })
+map('n', '<space>0', ':NvimTreeFindFile<CR>', { silent = true })
 map('n', '<space>ft', ':NvimTreeToggle<CR>',   { silent = true })
 -- map('n', '<leader>nr', ':NvimTreeRefresh<CR>')
 
