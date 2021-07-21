@@ -1,2 +1,2 @@
 vim.opt.background = 'dark'
-vim.cmd([[colorscheme blue-moon]])
+vim.cmd([[colorscheme nord]])

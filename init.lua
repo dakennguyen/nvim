@@ -10,8 +10,9 @@ require('packer').startup(function()
   -- Group: Theme
   use { 'kyazdani42/nvim-web-devicons', config = "require'nvim-web-devicons'.setup {}" }
   use 'famiu/feline.nvim'
+  use 'shaunsingh/nord.nvim'
   -- use 'dakennguyen/iceberg.vim'
-  use 'dakennguyen/blue-moon'
+  -- use 'dakennguyen/blue-moon'
 
   -- Group: Development
   use 'tpope/vim-surround'
@@ -21,7 +22,7 @@ require('packer').startup(function()
   use 'ludovicchabant/vim-gutentags'
   use 'AndrewRadev/splitjoin.vim'
   use 'vim-test/vim-test'
-  use 'windwp/nvim-autopairs'
+  use { 'dakennguyen/nvim-autopairs', branch = 'ruby'}
   use 'kevinhwang91/nvim-bqf'
   use 'junegunn/vim-easy-align'
 
@@ -46,7 +47,7 @@ require('packer').startup(function()
   use 'arecarn/vim-fold-cycle'
   use 'gcmt/taboo.vim'
   use { 'norcalli/nvim-colorizer.lua', config = "require'colorizer'.setup()" }
-  use 'folke/lsp-colors.nvim'
+  -- use 'folke/lsp-colors.nvim'
 
   -- Group: Git
   use 'tpope/vim-fugitive'

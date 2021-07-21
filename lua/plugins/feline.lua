@@ -156,6 +156,22 @@ local neon = {
     op = "#a9a1e1",
   },
 }
+nord = {
+  default_fg = "#8FBCBB",
+  default_bg = "#3a4252",
+  colors = {
+    bg1 = "#3b4252",
+    bg2 = "#4c566a",
+    dark = "#2e3440",
+    light = "#d8dee9",
+    normal = "#87c0d0",
+    visual = "#a3be8c",
+    insert = "#5E81AC",
+    replace = "#bf616a",
+    command = "#B48EAD",
+    op = "#D08770",
+  },
+}
 
 local vi_mode_provider = function()
   local mode_alias = {
@@ -193,8 +209,8 @@ local vi_mode_provider = function()
   return ' ' .. mode_alias[vim.fn.mode()] .. ' '
 end
 
-local c = blue_moon
-local cc = blue_moon.colors
+local c = nord
+local cc = nord.colors
 
 local components = {
   left = {active = {}, inactive = {}},
