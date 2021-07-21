@@ -25,6 +25,10 @@ require('packer').startup(function()
   use { 'dakennguyen/nvim-autopairs', branch = 'ruby'}
   use 'kevinhwang91/nvim-bqf'
   use 'junegunn/vim-easy-align'
+  -- FE stuffs
+  use 'dense-analysis/ale'
+  use 'windwp/nvim-ts-autotag'
+  use 'galooshi/vim-import-js'
 
   -- Group: Language support
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -163,11 +167,19 @@ map('v', '<leader>gv', ':GV<CR>',  { silent = true })             -- GV in Visua
 -- ==========================================
 map('n', '<leader>fp', [[:MarkdownPreview<CR>]], { silent = true })
 
+-- ==========================================
+-- use 'galooshi/vim-import-js'
+-- ==========================================
+map('n', '<leader>ii', ':ImportJSWord<CR>')
+map('n', '<leader>if', ':ImportJSFix<CR>')
+map('n', '<leader>ig', ':ImportJSGoto<CR>')
+
 -- #############################################
 -- #############################################
 
 require('plugins/auto-session')
 require('plugins/autopairs')
+require('plugins/autotag')
 require('plugins/compe')
 require('plugins/hop')
 require('plugins/kommentary')
@@ -180,6 +192,7 @@ require('plugins/telescope')
 require('plugins/toggleterm')
 require('plugins/treesitter')
 
+require('plugins/vim-ale')
 require('plugins/vim-fzf')
 require('plugins/vim-projectionist')
 require('plugins/vim-fugitive')
