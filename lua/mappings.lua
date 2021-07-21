@@ -52,7 +52,7 @@ map('n', [[`]], [["`" . nr2char(getchar()) . "zt"]], { expr = true })
 -- map('', 'gp', '"0p')
 -- map('', 'gP', '"0P')
 map('', '<leader>y', '"*y')
-map('n', '<leader>p', '"*p')
+map('', '<leader>p', '"*p')
 
 -- resize panes
 map('n', '<Up>',    ':10winc +<CR>', { silent = true })
