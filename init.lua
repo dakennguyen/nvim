@@ -51,7 +51,6 @@ require('packer').startup(function()
   use 'arecarn/vim-fold-cycle'
   use 'gcmt/taboo.vim'
   use { 'norcalli/nvim-colorizer.lua', config = "require'colorizer'.setup()" }
-  -- use 'folke/lsp-colors.nvim'
 
   -- Group: Git
   use 'tpope/vim-fugitive'
