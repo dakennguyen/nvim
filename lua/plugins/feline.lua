@@ -331,7 +331,7 @@ table.insert(components.right.active, {
 -- -- =======================================
 table.insert(components.left.inactive, {
   provider = 'custom_file_info',
-  hl = {fg = "#393E56", style = "bold"}
+  hl = {fg = "insert", style = "bold"}
 })
 
 -- right inactive

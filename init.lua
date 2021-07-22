@@ -11,7 +11,7 @@ require('packer').startup(function()
   use { 'kyazdani42/nvim-web-devicons', config = "require'nvim-web-devicons'.setup {}" }
   use 'famiu/feline.nvim'
   use 'shaunsingh/nord.nvim'
-  -- use 'dakennguyen/iceberg.vim'
+  -- use 'cocopon/iceberg.vim'
   -- use 'dakennguyen/blue-moon'
 
   -- Group: Development
