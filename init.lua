@@ -22,7 +22,7 @@ require('packer').startup(function()
   use 'ludovicchabant/vim-gutentags'
   use 'AndrewRadev/splitjoin.vim'
   use 'vim-test/vim-test'
-  use { 'dakennguyen/nvim-autopairs', branch = 'ruby'}
+  use 'windwp/nvim-autopairs'
   use 'kevinhwang91/nvim-bqf'
   use 'junegunn/vim-easy-align'
   -- FE stuffs
