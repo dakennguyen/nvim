@@ -13,3 +13,5 @@ map('n', '<leader>gd', ':Gdiffsplit<CR>',      { silent = true }) -- Git diff
 map('n', '<leader>gt', ':0Gclog<CR>',          { silent = true }) -- Git time machine
 map('n', '<leader>gl', ':GBrowse<CR>',         { silent = true }) -- Git Browse
 map('v', '<leader>gl', [[:'<,'>.GBrowse<CR>]], { silent = true }) -- Git Browse in Visual mode
+
+map('n', '<space>gs', ':Glog -g stash<CR>',    { silent = true }) -- Git stash
