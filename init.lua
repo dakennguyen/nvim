@@ -27,7 +27,7 @@ require('packer').startup(function()
   use 'junegunn/vim-easy-align'
   -- FE stuffs
   use 'dense-analysis/ale'
-  use 'windwp/nvim-ts-autotag'
+  use 'alvan/vim-closetag'
   use 'galooshi/vim-import-js'
 
   -- Group: Language support
@@ -174,12 +174,16 @@ map('n', '<leader>ii', ':ImportJSWord<CR>')
 map('n', '<leader>if', ':ImportJSFix<CR>')
 map('n', '<leader>ig', ':ImportJSGoto<CR>')
 
+-----------------------------------------------
+-- use 'alvan/vim-closetag'
+-----------------------------------------------
+vim.g.closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb'
+
 -- #############################################
 -- #############################################
 
 require('plugins/auto-session')
 require('plugins/autopairs')
-require('plugins/autotag')
 require('plugins/bqf')
 require('plugins/compe')
 require('plugins/hop')
