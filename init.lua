@@ -39,8 +39,8 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'phaazon/hop.nvim'
-  use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
-  use 'junegunn/fzf.vim'
+  -- use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
+  -- use 'junegunn/fzf.vim'
   use 'tpope/vim-projectionist'
   use 'numToStr/Navigator.nvim'
   use 'kyazdani42/nvim-tree.lua'
@@ -194,7 +194,7 @@ require('plugins/toggleterm')
 require('plugins/treesitter')
 
 require('plugins/vim-ale')
-require('plugins/vim-fzf')
+-- require('plugins/vim-fzf')
 require('plugins/vim-projectionist')
 require('plugins/vim-fugitive')
 
