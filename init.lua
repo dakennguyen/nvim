@@ -43,7 +43,7 @@ require('packer').startup(function()
   -- use 'junegunn/fzf.vim'
   use 'tpope/vim-projectionist'
   use 'numToStr/Navigator.nvim'
-  use 'kyazdani42/nvim-tree.lua'
+  -- use 'kyazdani42/nvim-tree.lua'
 
   -- Group: Visual
   use 'arecarn/vim-clean-fold'
@@ -59,13 +59,15 @@ require('packer').startup(function()
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Group: Miscellaneous
-  use 'rmagatti/auto-session'
+  use 'glepnir/dashboard-nvim'
   use 'tpope/vim-unimpaired'
   use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
   use 'benmills/vimux'
   use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
   use 'akinsho/nvim-toggleterm.lua'
   use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
+  use 'karb94/neoscroll.nvim'
+  use 'tpope/vim-vinegar'
 end)
 
 require('settings')
@@ -125,7 +127,8 @@ vim.g.strip_whitespace_on_save = 1
 vim.g.strip_whitespace_confirm = 0
 vim.g.better_whitespace_enabled = 1
 vim.g.strip_max_file_size = 0
-vim.g.better_whitespace_filetypes_blacklist={ 'diff', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'TelescopePrompt' }
+vim.g.better_whitespace_filetypes_blacklist={ 'diff', 'gitcommit', 'unite', 'qf', 'help',
+                                              'markdown', 'TelescopePrompt', 'dashboard' }
 
 -- ==========================================
 -- use 'ludovicchabant/vim-gutentags'
@@ -157,6 +160,18 @@ map('n', 't<C-l>', ':TestLast<CR>',    { noremap = false, silent = true })
 map('n', 't<C-g>', ':TestVisit<CR>',   { noremap = false, silent = true })
 
 -- ==========================================
+-- use 'tpope/vim-fugitive'
+-- ==========================================
+vim.opt.diffopt:append { 'vertical' }
+map('n', 'gb', ':Git blame<CR>',               { silent = true }) -- Git Blame
+map('n', '<leader>gg', ':G<CR>',               { silent = true }) -- Git
+map('n', '<leader>gd', ':Gdiffsplit<CR>',      { silent = true }) -- Git diff
+map('n', '<leader>gs', ':Glog -g stash<CR>',   { silent = true }) -- Git stash
+map('n', '<leader>gt', ':0Gclog<CR>',          { silent = true }) -- Git time machine
+map('n', '<leader>gl', ':GBrowse<CR>',         { silent = true }) -- Git Browse
+map('v', '<leader>gl', [[:'<,'>.GBrowse<CR>]], { silent = true }) -- Git Browse in Visual mode
+
+-- ==========================================
 -- use 'junegunn/gv.vim'
 -- ==========================================
 map('n', '<leader>gv', ':GV!<CR>', { silent = true })             -- GV
@@ -174,23 +189,25 @@ map('n', '<leader>ii', ':ImportJSWord<CR>')
 map('n', '<leader>if', ':ImportJSFix<CR>')
 map('n', '<leader>ig', ':ImportJSGoto<CR>')
 
------------------------------------------------
+-- ==========================================
 -- use 'alvan/vim-closetag'
------------------------------------------------
+-- ==========================================
 vim.g.closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb'
 
 -- #############################################
 -- #############################################
 
-require('plugins/auto-session')
+-- require('plugins/auto-session')
 require('plugins/autopairs')
 require('plugins/bqf')
 require('plugins/compe')
+require('plugins/dashboard')
 require('plugins/hop')
 require('plugins/kommentary')
 require('plugins/lspconfig')
 require('plugins/navigator')
-require('plugins/nvim-tree')
+require('plugins/neoscroll')
+-- require('plugins/nvim-tree')
 require('plugins/feline')
 require('plugins/gitsigns')
 require('plugins/telescope')
@@ -200,6 +217,5 @@ require('plugins/treesitter')
 require('plugins/vim-ale')
 -- require('plugins/vim-fzf')
 require('plugins/vim-projectionist')
-require('plugins/vim-fugitive')
 
 require('theme')

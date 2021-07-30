@@ -10,7 +10,7 @@ g.loaded_ruby_provider = 0
 o.swapfile = false
 o.number = true
 o.rnu = true
-o.re = 1
+o.re = 0
 o.expandtab = true
 o.tabstop = 8
 o.softtabstop = 2
@@ -23,7 +23,7 @@ o.wildmenu = true
 o.splitbelow = true
 o.splitright = true
 o.exrc = true                  -- Enable reading local .nvimrc
-o.so = 5                       -- Scrolloff
+o.scrolloff = 5                -- Scrolloff
 o.mouse = 'a'                  -- Scroll with mouse
 
 -- buffer

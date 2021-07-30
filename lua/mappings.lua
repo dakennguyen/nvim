@@ -2,7 +2,10 @@
 map('v', 'p', '"_dP') -- Don't copy the replaced text after pasting in visual mode
 map('n', '<leader><space>', ':noh<cr>', { silent = true })
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
-map('n', 'ss', ':w<cr>', { silent = true })
+map('n', '<leader>s', ':w<cr>', { silent = true })
+map('n', '<leader>a', '<C-^>')
+map('i', '<c-h>', '<bs>', { noremap = false })
+map('i', '<c-l>', '<del>', { noremap = false })
 
 -- gj, gk
 map('n', 'j', 'gj')
@@ -61,20 +64,19 @@ map('n', '<Left>',  ':10winc <<CR>', { silent = true })
 map('n', '<Right>', ':10winc ><CR>', { silent = true })
 
 -- File
-map('n', '<leader>fc',  [[:saveas <C-R>=expand("%:p:h")<CR>/]])                        -- File > Save As
+map('n', '<leader>fc',  [[:saveas <C-R>=expand("%")<CR>]])                             -- File > Save As
 map('n', '<leader>fyy', [[:let @+=expand("%") | echo @+<CR>]] ,     { silent = true }) -- File > Copy > Relative File Path
-map('n', '<leader>fyY', [[ :let @+=expand("%:p") | echo @+<CR>]] ,  { silent = true }) -- File > Copy > Full File Path
+map('n', '<leader>fyY', [[:let @+=expand("%:p") | echo @+<CR>]] ,   { silent = true }) -- File > Copy > Full File Path
 map('n', '<leader>fyf', [[ggVG"*y<c-o>]] ,                          { silent = true }) -- File > Copy > File Content
 map('n', '<leader>fyn', [[:let @+=expand("%:t:r") | echo @+<CR>]] , { silent = true }) -- File > Copy > File Name without extension
+map('n', '<leader>fyN', [[:let @+=expand("%:t") | echo @+<CR>]] ,   { silent = true }) -- File > Copy > File Name with extension
 -- map('n', '<leader>fyd', [[ :let @+=expand("%:h") | echo @+<CR>             ]] , { silent = true }) -- File > Copy > Directory Path
 -- map('n', '<leader>fyl', [[ :let @+=expand("%").":".line(".") | echo @+<CR> ]] , { silent = true }) -- File > Copy > Relative File Path with Line number
--- map('n', '<leader>fyn', [[ :let @+=expand("%:t:r") | echo @+<CR>           ]] , { silent = true }) -- File > Copy > File Name without extension
--- map('n', '<leader>fyN', [[ :let @+=expand("%:t") | echo @+<CR>             ]] , { silent = true }) -- File > Copy > File Name with extension
 
 -- open files
 map('n', '<space>gs', ':topleft 18 new ~/.dotfiles/scratch.vim<CR>', { silent = true })
-map('n', '<leader>s', ':source ~/.config/nvim/init.lua<CR>:PackerCompile<cr>')
--- map('n', '<leader>ev', ':vsplit ~/.config/nvim/init.lua<cr>')
+map('n', '<space>vs', ':source ~/.config/nvim/init.lua<CR>:PackerCompile<cr>')
+map('n', '<space>gv', ':vsplit ~/.config/nvim/init.lua<cr>')
 
 -- Ruby
 map('n', '<leader>rr', ':call VimuxRunCommand(\'ruby\' . \' \' . expand(\"%\"))<CR>')

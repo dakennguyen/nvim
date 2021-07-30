@@ -23,3 +23,5 @@ vim.g.nvim_tree_show_icons = {
 vim.g.nvim_tree_disable_window_picker = 1
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_width = 50
+vim.g.nvim_tree_disable_netrw = 0
+vim.g.nvim_tree_hijack_netrw = 0

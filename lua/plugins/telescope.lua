@@ -81,5 +81,5 @@ map('v', '<space>fw', [[y:lua require('telescope.builtin').grep_string({search =
 -- Search
 map('n', '//', '<CMD>Telescope current_buffer_fuzzy_find<CR>', { silent = true })
 map('n', '\\', '<CMD>Telescope live_grep<CR>')
-map('n', '<space><space>', ':Tgrep ')
+map('n', '<leader><leader>', ':Tgrep ')
 map('n', '<C-]>', [[yiw<CMD>Telescope tags<CR><C-R>"<CR>]])

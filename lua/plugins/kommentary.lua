@@ -2,11 +2,6 @@ require('kommentary.config').configure_language("default", {
   prefer_single_line_comments = true,
 })
 
-vim.g.kommentary_create_default_mappings = false
-map("n", "gcc", "<Plug>kommentary_line_default",       { noremap = false })
-map("n", "gc", "<Plug>kommentary_motion_default",      { noremap = false })
-map("v", "gc", "<Plug>kommentary_visual_default<esc>", { noremap = false })
-
 --[[ This is our custom function for toggling comments with a custom commentstring,
 it's based on the default toggle_comment, but before calling the function for
 toggling ranges, it sets the commenstring to something else. After it is done,
@@ -26,17 +21,23 @@ function toggle_comment_custom_commentstring(...)
 end
 
 -- Set the extra mapping for toggling a single line in normal mode
-vim.api.nvim_set_keymap('n', 'gCC',
-'<cmd>lua require("kommentary");kommentary.go(' .. require('kommentary.config').context.line .. ', '
-.. "'toggle_comment_custom_commentstring'" .. ')<cr>',
-{ noremap = true, silent = true })
+map(
+  'n', 'gCC',
+  '<cmd>lua require("kommentary");kommentary.go(' .. require('kommentary.config').context.line .. ', '
+  .. "'toggle_comment_custom_commentstring'" .. ')<cr>',
+  { silent = true }
+)
 -- Set the extra mapping for toggling a range with a motion
-vim.api.nvim_set_keymap('n', 'gC',
-'v:lua.kommentary.go(' .. require('kommentary.config').context.init .. ', ' ..
-"'toggle_comment_custom_commentstring'" .. ')',
-{ noremap = true, expr = true })
+map(
+  'n', 'gC',
+  'v:lua.kommentary.go(' .. require('kommentary.config').context.init .. ', ' ..
+  "'toggle_comment_custom_commentstring'" .. ')',
+  { expr = true }
+)
 -- Set the extra mapping for toggling a range with a visual selection
-vim.api.nvim_set_keymap('v', 'gC',
-'<cmd>lua require("kommentary");kommentary.go(' .. require('kommentary.config').context.visual .. ', '
-.. "'toggle_comment_custom_commentstring'" .. ')<cr><esc>',
-{ noremap = true, silent = true })
+map(
+  'v', 'gC',
+  '<cmd>lua require("kommentary");kommentary.go(' .. require('kommentary.config').context.visual .. ', '
+  .. "'toggle_comment_custom_commentstring'" .. ')<cr><esc>',
+  { silent = true }
+)
