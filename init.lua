@@ -43,7 +43,7 @@ require('packer').startup(function()
   -- use 'junegunn/fzf.vim'
   use 'tpope/vim-projectionist'
   use 'numToStr/Navigator.nvim'
-  -- use 'kyazdani42/nvim-tree.lua'
+  use 'tpope/vim-vinegar'
 
   -- Group: Visual
   use 'arecarn/vim-clean-fold'
@@ -67,7 +67,6 @@ require('packer').startup(function()
   use 'akinsho/nvim-toggleterm.lua'
   use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
   use 'karb94/neoscroll.nvim'
-  use 'tpope/vim-vinegar'
 end)
 
 require('settings')
@@ -197,7 +196,6 @@ vim.g.closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb'
 -- #############################################
 -- #############################################
 
--- require('plugins/auto-session')
 require('plugins/autopairs')
 require('plugins/bqf')
 require('plugins/compe')
@@ -207,7 +205,6 @@ require('plugins/kommentary')
 require('plugins/lspconfig')
 require('plugins/navigator')
 require('plugins/neoscroll')
--- require('plugins/nvim-tree')
 require('plugins/feline')
 require('plugins/gitsigns')
 require('plugins/telescope')
