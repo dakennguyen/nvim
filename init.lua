@@ -12,48 +12,51 @@ require('packer').startup(function()
   use 'famiu/feline.nvim'
   use 'shaunsingh/nord.nvim'
 
-  -- Group: Development
+  -- Group: TPope
   use 'tpope/vim-surround'
-  use 'b3nj5m1n/kommentary'
-  use 'ludovicchabant/vim-gutentags'
-  use 'AndrewRadev/splitjoin.vim'
-  use 'vim-test/vim-test'
-  use 'windwp/nvim-autopairs'
-  use 'junegunn/vim-easy-align'
-  -- FE stuffs
-  use 'dense-analysis/ale'
-  use 'alvan/vim-closetag'
-  use 'galooshi/vim-import-js'
+  use 'tpope/vim-projectionist'
+  use 'tpope/vim-vinegar'
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
+  use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
+  use 'dakennguyen/vim-unimpaired'
 
   -- Group: Language support
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-compe'
+  use 'dense-analysis/ale'
+  use 'ludovicchabant/vim-gutentags'
+
+  -- Group: Framework support
+  use 'vim-test/vim-test'
+  use 'galooshi/vim-import-js'
+
+  -- Group: Text
+  use 'b3nj5m1n/kommentary'
+  use 'windwp/nvim-autopairs'
+  use 'alvan/vim-closetag'
+  use 'AndrewRadev/splitjoin.vim'
+  use 'junegunn/vim-easy-align'
 
   -- Group: Navigator
   use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'phaazon/hop.nvim'
-  use 'tpope/vim-projectionist'
   use 'numToStr/Navigator.nvim'
-  use 'tpope/vim-vinegar'
 
   -- Group: Visual
-  use 'arecarn/vim-clean-fold'
   use 'szw/vim-maximizer'
+  use 'arecarn/vim-clean-fold'
   use 'arecarn/vim-fold-cycle'
   use 'gcmt/taboo.vim'
   use { 'norcalli/nvim-colorizer.lua', config = "require'colorizer'.setup()" }
 
   -- Group: Git
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Group: Miscellaneous
   use 'glepnir/dashboard-nvim'
-  use 'dakennguyen/vim-unimpaired'
-  use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
   use 'benmills/vimux'
   use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
 end)
@@ -141,13 +144,13 @@ map('n', 't<C-g>', ':TestVisit<CR>',   { noremap = false, silent = true })
 -- use 'tpope/vim-fugitive'
 -- ==========================================
 vim.opt.diffopt:append { 'vertical' }
-map('n', 'gb', ':Git blame<CR>',               { silent = true }) -- Git Blame
-map('n', '<leader>gg', ':G<CR>',               { silent = true }) -- Git
-map('n', '<leader>gd', ':Gdiffsplit<CR>',      { silent = true }) -- Git diff
-map('n', '<leader>gs', ':Glog -g stash<CR>',   { silent = true }) -- Git stash
-map('n', '<leader>gt', ':0Gclog<CR>',          { silent = true }) -- Git time machine
-map('n', '<leader>gl', ':GBrowse<CR>',         { silent = true }) -- Git Browse
-map('v', '<leader>gl', [[:'<,'>.GBrowse<CR>]], { silent = true }) -- Git Browse in Visual mode
+map('n', 'gb', ':Git blame<CR>',             { silent = true }) -- Git Blame
+map('n', '<leader>gg', ':G<CR>',             { silent = true }) -- Git
+map('n', '<leader>gd', ':Gdiffsplit<CR>',    { silent = true }) -- Git diff
+map('n', '<leader>gs', ':Glog -g stash<CR>', { silent = true }) -- Git stash
+map('n', '<leader>gt', ':0Gclog<CR>',        { silent = true }) -- Git time machine
+map('n', '<leader>gl', ':GBrowse<CR>',       { silent = true }) -- Git Browse
+map('v', '<leader>gl', ':GBrowse<CR>',       { silent = true }) -- Git Browse in Visual mode
 map('n', '<leader>gf', ':diffget //2<cr>')
 map('n', '<leader>gj', ':diffget //3<cr>')
 
