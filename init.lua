@@ -11,8 +11,6 @@ require('packer').startup(function()
   use { 'kyazdani42/nvim-web-devicons', config = "require'nvim-web-devicons'.setup {}" }
   use 'famiu/feline.nvim'
   use 'shaunsingh/nord.nvim'
-  -- use 'cocopon/iceberg.vim'
-  -- use 'dakennguyen/blue-moon'
 
   -- Group: Development
   use 'tpope/vim-surround'
@@ -39,8 +37,6 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'phaazon/hop.nvim'
-  -- use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
-  -- use 'junegunn/fzf.vim'
   use 'tpope/vim-projectionist'
   use 'numToStr/Navigator.nvim'
   use 'tpope/vim-vinegar'
@@ -212,7 +208,6 @@ require('plugins/toggleterm')
 require('plugins/treesitter')
 
 require('plugins/vim-ale')
--- require('plugins/vim-fzf')
 require('plugins/vim-projectionist')
 
 require('theme')

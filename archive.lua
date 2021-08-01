@@ -10,3 +10,9 @@ use {
     }
   end,
 }
+
+use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
+use 'junegunn/fzf.vim'
+
+use 'cocopon/iceberg.vim'
+use 'dakennguyen/blue-moon'
