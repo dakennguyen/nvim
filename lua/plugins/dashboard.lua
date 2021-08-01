@@ -3,9 +3,9 @@ vim.g.dashboard_disable_statusline = 1
 vim.g.dashboard_default_executive = "telescope"
 
 vim.g.dashboard_custom_section = {
-  a = {description = {"  Find File                 SPC f f"}, command = "Telescope find_files"},
-  c = {description = {"  Find Word                 SPC f w"}, command = "Telescope live_grep"},
-  f = {description = {"  Load Last Session         SPC s l"}, command = "SessionLoad"}
+  a = {description = {"  Load Last Session         SPC s l"}, command = "SessionLoad"},
+  b = {description = {"  Find File                 SPC f f"}, command = "Telescope find_files"},
+  c = {description = {"  Find Word                 SPC f w"}, command = "Telescope live_grep"}
 }
 
 vim.g.dashboard_custom_header = {

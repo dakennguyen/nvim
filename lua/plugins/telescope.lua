@@ -57,6 +57,10 @@ require('telescope').setup{
       theme = "dropdown",
       previewer = false,
     },
+    git_branches = {
+      theme = "dropdown",
+      previewer = false,
+    },
     current_buffer_fuzzy_find = {
       previewer = false,
     }
@@ -87,6 +91,9 @@ map('n', '<space>fm', '<CMD>Telescope keymaps<CR>')
 map('n', '<space>fw', '<CMD>Telescope grep_string<CR>')
 map('v', '<space>fw', [[y:lua require('telescope.builtin').grep_string({search = '<C-R>=escape(@",'/\')<CR>'})<CR>]])
 map('n', '<space>f]', [[yiw<CMD>Telescope tags<CR><C-R>"<CR>]])
+
+-- Git
+map('n', '<leader>gc', '<CMD>Telescope git_branches<CR>')
 
 -- Search
 map('n', '//', '<CMD>Telescope current_buffer_fuzzy_find<CR>', { silent = true })

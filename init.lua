@@ -60,7 +60,7 @@ require('packer').startup(function()
   use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
   use 'benmills/vimux'
   use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
-  use 'akinsho/nvim-toggleterm.lua'
+  -- use 'akinsho/nvim-toggleterm.lua'
   use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
   use 'karb94/neoscroll.nvim'
 end)
@@ -165,6 +165,8 @@ map('n', '<leader>gs', ':Glog -g stash<CR>',   { silent = true }) -- Git stash
 map('n', '<leader>gt', ':0Gclog<CR>',          { silent = true }) -- Git time machine
 map('n', '<leader>gl', ':GBrowse<CR>',         { silent = true }) -- Git Browse
 map('v', '<leader>gl', [[:'<,'>.GBrowse<CR>]], { silent = true }) -- Git Browse in Visual mode
+map('n', '<leader>gf', ':diffget //2<cr>')
+map('n', '<leader>gj', ':diffget //3<cr>')
 
 -- ==========================================
 -- use 'junegunn/gv.vim'
@@ -204,7 +206,7 @@ require('plugins/lspconfig')
 require('plugins/navigator')
 require('plugins/neoscroll')
 require('plugins/telescope')
-require('plugins/toggleterm')
+-- require('plugins/toggleterm')
 require('plugins/treesitter')
 
 require('plugins/vim-ale')
