@@ -16,6 +16,7 @@ vim.g.ale_linters = {
   typescriptreact = {'eslint'},
 }
 vim.g.ale_fixers = {
+  ['*'] = { 'remove_trailing_lines', 'trim_whitespace' },
   javascript = {'prettier'},
   typescriptreact = {'eslint'},
 }

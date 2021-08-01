@@ -15,13 +15,10 @@ require('packer').startup(function()
   -- Group: Development
   use 'tpope/vim-surround'
   use 'b3nj5m1n/kommentary'
-  use 'tpope/vim-abolish'
-  use 'ntpeters/vim-better-whitespace'
   use 'ludovicchabant/vim-gutentags'
   use 'AndrewRadev/splitjoin.vim'
   use 'vim-test/vim-test'
   use 'windwp/nvim-autopairs'
-  use 'kevinhwang91/nvim-bqf'
   use 'junegunn/vim-easy-align'
   -- FE stuffs
   use 'dense-analysis/ale'
@@ -51,7 +48,6 @@ require('packer').startup(function()
   -- Group: Git
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
-  use 'junegunn/gv.vim'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Group: Miscellaneous
@@ -60,9 +56,6 @@ require('packer').startup(function()
   use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
   use 'benmills/vimux'
   use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
-  -- use 'akinsho/nvim-toggleterm.lua'
-  use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
-  use 'karb94/neoscroll.nvim'
 end)
 
 require('settings')
@@ -116,16 +109,6 @@ vim.g.splitjoin_split_mapping = ']s'
 vim.g.splitjoin_join_mapping  = '[s'
 
 -- ==========================================
--- use 'ntpeters/vim-better-whitespace'
--- ==========================================
-vim.g.strip_whitespace_on_save = 1
-vim.g.strip_whitespace_confirm = 0
-vim.g.better_whitespace_enabled = 1
-vim.g.strip_max_file_size = 0
-vim.g.better_whitespace_filetypes_blacklist={ 'diff', 'gitcommit', 'unite', 'qf', 'help',
-                                              'markdown', 'TelescopePrompt', 'dashboard' }
-
--- ==========================================
 -- use 'ludovicchabant/vim-gutentags'
 -- ==========================================
 --vim.g.gutentags_cache_dir = get(g:, 'gutentags_cache_dir', expand('~/.cache/tags'))
@@ -169,17 +152,6 @@ map('n', '<leader>gf', ':diffget //2<cr>')
 map('n', '<leader>gj', ':diffget //3<cr>')
 
 -- ==========================================
--- use 'junegunn/gv.vim'
--- ==========================================
-map('n', '<leader>gv', ':GV!<CR>', { silent = true })             -- GV
-map('v', '<leader>gv', ':GV<CR>',  { silent = true })             -- GV in Visual mode
-
--- ==========================================
--- use 'iamcco/markdown-preview.nvim'
--- ==========================================
-map('n', '<leader>fp', [[:MarkdownPreview<CR>]], { silent = true })
-
--- ==========================================
 -- use 'galooshi/vim-import-js'
 -- ==========================================
 map('n', '<leader>ii', ':ImportJSWord<CR>')
@@ -195,7 +167,6 @@ vim.g.closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb'
 -- #############################################
 
 require('plugins/autopairs')
-require('plugins/bqf')
 require('plugins/compe')
 require('plugins/dashboard')
 require('plugins/feline')
@@ -204,9 +175,7 @@ require('plugins/hop')
 require('plugins/kommentary')
 require('plugins/lspconfig')
 require('plugins/navigator')
-require('plugins/neoscroll')
 require('plugins/telescope')
--- require('plugins/toggleterm')
 require('plugins/treesitter')
 
 require('plugins/vim-ale')
