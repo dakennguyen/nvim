@@ -56,7 +56,7 @@ require('packer').startup(function()
 
   -- Group: Miscellaneous
   use 'glepnir/dashboard-nvim'
-  use 'tpope/vim-unimpaired'
+  use 'dakennguyen/vim-unimpaired'
   use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
   use 'benmills/vimux'
   use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
@@ -196,13 +196,13 @@ require('plugins/autopairs')
 require('plugins/bqf')
 require('plugins/compe')
 require('plugins/dashboard')
+require('plugins/feline')
+require('plugins/gitsigns')
 require('plugins/hop')
 require('plugins/kommentary')
 require('plugins/lspconfig')
 require('plugins/navigator')
 require('plugins/neoscroll')
-require('plugins/feline')
-require('plugins/gitsigns')
 require('plugins/telescope')
 require('plugins/toggleterm')
 require('plugins/treesitter')

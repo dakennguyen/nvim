@@ -6,6 +6,7 @@ map('n', '<leader>s', ':w<cr>', { silent = true })
 map('n', '<leader>a', '<C-^>')
 map('i', '<c-h>', '<bs>', { noremap = false })
 map('i', '<c-l>', '<del>', { noremap = false })
+map('n', 'Y', 'y$')
 
 -- gj, gk
 map('n', 'j', 'gj')
@@ -14,7 +15,7 @@ map('v', 'j', 'gj')
 map('v', 'k', 'gk')
 
 -- gq
-map('n', 'gq', ':q<cr><c-w><c-p>', { silent = true })
+map('n', 'gq', ':close<cr><c-w><c-p>', { silent = true })
 vim.cmd[[
 augroup QuitQuickfix
   autocmd BufReadPost quickfix nnoremap <buffer> gq :q<CR>
@@ -47,9 +48,14 @@ map('n', 'gn', 'gt')
 map('n', 'gp', 'gT')
 map('n', 'gt', ':tabnew<cr>', { silent = true })
 
--- Mark
+-- keep center
 map('n', [[']], [["'" . nr2char(getchar()) . "zt"]], { expr = true })
 map('n', [[`]], [["`" . nr2char(getchar()) . "zt"]], { expr = true })
+map('n', 'J', 'mzJ`z')
+
+-- jumplist mutations
+vim.cmd[[ nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k' ]]
+vim.cmd[[ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j' ]]
 
 -- registers
 -- map('', 'gp', '"0p')
@@ -83,3 +89,17 @@ map('n', '<leader>rr', ':call VimuxRunCommand(\'ruby\' . \' \' . expand(\"%\"))<
 
 -- debugger
 map('i', 'bb', 'debugger<esc>')
+
+-- netrw
+vim.cmd[[
+  augroup netrw_mapping
+    autocmd!
+    autocmd filetype netrw call NetrwMapping()
+  augroup END
+
+  function! NetrwMapping()
+    nnoremap ? :help netrw-quickmap<CR>
+    nmap <buffer> <leader>0 <Plug>NetrwRefresh
+    silent! unmap <buffer> <c-l>
+  endfunction
+]]
