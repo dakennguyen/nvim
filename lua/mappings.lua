@@ -4,6 +4,7 @@ map('n', '<leader><space>', ':noh<cr>', { silent = true })
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 map('n', '<leader>s', ':w<cr>', { silent = true })
 map('n', '<leader>a', '<C-^>')
+map('n', '<leader>`', '`^')
 map('i', '<c-h>', '<bs>', { noremap = false })
 map('i', '<c-l>', '<del>', { noremap = false })
 map('n', 'Y', 'y$')
@@ -31,22 +32,19 @@ map('', 'gft', '<c-w>gf')
 -- gd
 -- map('', 'gdd', 'gd')
 
--- quickfix
+-- quickfix and loclist
 map('n', '<leader>c', ':copen<cr>', { silent = true })
+map('n', '<leader>l', ':lopen<cr>', { silent = true })
 
--- Tab
-map('n', '<leader>1', '1gt')
-map('n', '<leader>2', '2gt')
-map('n', '<leader>3', '3gt')
-map('n', '<leader>4', '4gt')
-map('n', '<leader>5', '5gt')
-map('n', '<leader>6', '6gt')
-map('n', '<leader>7', '7gt')
-map('n', '<leader>8', '8gt')
-map('n', '<leader>9', '9gt')
-map('n', 'gn', 'gt')
-map('n', 'gp', 'gT')
-map('n', 'gt', ':tabnew<cr>', { silent = true })
+-- tag
+map('n', '<c-]>', 'g<c-]>')
+map('n', '<c-w><c-]>', '<c-w>g<c-]>')
+map('n', '<c-w>}', '<c-w>g}')
+
+-- tab
+map('n', ']<tab>', 'gt')
+map('n', '[<tab>', 'gT')
+map('n', '<leader>t', ':tabnew<cr>', { silent = true })
 
 -- keep center
 map('n', [[']], [["'" . nr2char(getchar()) . "zt"]], { expr = true })

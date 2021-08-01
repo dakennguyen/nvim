@@ -1,7 +1,7 @@
 require("toggleterm").setup{}
-map('n', '`', ':ToggleTerm size=50<CR>')
-map('t', '`', '<C-\\><C-N>:ToggleTerm<CR>')
-map('t', '`', '<C-\\><C-N>')
+map('n', '<leader>z', ':ToggleTerm<CR>')
+map('t', '<leader>z', '<C-\\><C-N>:ToggleTerm<CR>')
+-- map('t', '`', '<C-\\><C-N>')
 
 local Terminal  = require('toggleterm.terminal').Terminal
 
