@@ -56,6 +56,7 @@ require('packer').startup(function()
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Group: Miscellaneous
+  use 'akinsho/nvim-toggleterm.lua'
   use 'kevinhwang91/nvim-bqf'
   use 'glepnir/dashboard-nvim'
   use 'benmills/vimux'
@@ -181,6 +182,7 @@ require('plugins/kommentary')
 require('plugins/lspconfig')
 require('plugins/navigator')
 require('plugins/telescope')
+require('plugins/toggleterm')
 require('plugins/treesitter')
 
 require('plugins/vim-ale')
