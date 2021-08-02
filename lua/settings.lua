@@ -25,6 +25,7 @@ o.splitright = true
 o.exrc = true                  -- Enable reading local .nvimrc
 o.scrolloff = 5                -- Scrolloff
 o.mouse = 'a'                  -- Scroll with mouse
+o.wrap = false
 
 -- buffer
 o.switchbuf:append { 'useopen' }

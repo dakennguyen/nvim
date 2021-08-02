@@ -10,10 +10,10 @@ map('i', '<c-l>', '<del>', { noremap = false })
 map('n', 'Y', 'y$')
 
 -- gj, gk
-map('n', 'j', 'gj')
-map('n', 'k', 'gk')
-map('v', 'j', 'gj')
-map('v', 'k', 'gk')
+-- map('n', 'j', 'gj')
+-- map('n', 'k', 'gk')
+-- map('v', 'j', 'gj')
+-- map('v', 'k', 'gk')
 
 -- gq
 map('n', 'gq', ':close<cr><c-w><c-p>', { silent = true })
