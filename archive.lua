@@ -21,7 +21,6 @@ use 'dakennguyen/blue-moon'
 
 use 'tpope/vim-abolish'
 use 'ntpeters/vim-better-whitespace'
-use 'kevinhwang91/nvim-bqf'
 use 'akinsho/nvim-toggleterm.lua'
 use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
 use 'karb94/neoscroll.nvim'
@@ -42,7 +41,6 @@ vim.g.better_whitespace_filetypes_blacklist={ 'diff', 'gitcommit', 'unite', 'qf'
 -- ==========================================
 map('n', '<leader>fp', [[:MarkdownPreview<CR>]], { silent = true })
 
-require('plugins/bqf')
 require('plugins/neoscroll')
 require('plugins/toggleterm')
 

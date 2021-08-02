@@ -56,6 +56,7 @@ require('packer').startup(function()
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Group: Miscellaneous
+  use 'kevinhwang91/nvim-bqf'
   use 'glepnir/dashboard-nvim'
   use 'benmills/vimux'
   use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
@@ -170,6 +171,7 @@ vim.g.closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb'
 -- #############################################
 
 require('plugins/autopairs')
+require('plugins/bqf')
 require('plugins/compe')
 require('plugins/dashboard')
 require('plugins/feline')
