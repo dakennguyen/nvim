@@ -1,5 +1,11 @@
 local actions = require('telescope.actions')
 
+local custom_actions = {}
+function custom_actions.send_and_open_qf(prompt_bufnr)
+  actions.send_selected_to_qflist(prompt_bufnr)
+  actions.open_qflist()
+end
+
 require('telescope').setup{
   defaults = {
     layout_config = {
@@ -26,7 +32,7 @@ require('telescope').setup{
         ['<Esc>'] = actions.close,
         ['<C-j>'] = actions.move_selection_next,
         ['<C-k>'] = actions.move_selection_previous,
-        ['<C-q>'] = actions.smart_send_to_qflist,
+        ['<C-q>'] = custom_actions.send_and_open_qf,
         ['<C-s>'] = actions.select_horizontal,
       }
     },
@@ -97,5 +103,5 @@ map('n', '<leader>gc', '<CMD>Telescope git_branches<CR>')
 
 -- Search
 map('n', '//', '<CMD>Telescope current_buffer_fuzzy_find<CR>', { silent = true })
-map('n', '\\', '<CMD>Telescope live_grep<CR>')
-map('n', '<leader><leader>', ':Tgrep ')
+-- map('n', '\\', '<CMD>Telescope live_grep<CR>')
+map('n', '\\', ':Tgrep ')
