@@ -1,5 +1,5 @@
 -- General
-map('v', 'p', '"_dP') -- Don't copy the replaced text after pasting in visual mode
+-- map('v', 'p', '"_dP') -- Don't copy the replaced text after pasting in visual mode
 map('n', '<leader><space>', ':noh<cr>', { silent = true })
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 map('n', '<leader>s', ':w<cr>', { silent = true })
@@ -56,8 +56,8 @@ vim.cmd[[ nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k' ]]
 vim.cmd[[ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j' ]]
 
 -- registers
--- map('', 'gp', '"0p')
--- map('', 'gP', '"0P')
+map('', 'cp', '"0p')
+map('', 'cP', '"0P')
 map('', '<leader>y', '"*y')
 map('', '<leader>p', '"*p')
 

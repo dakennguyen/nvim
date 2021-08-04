@@ -19,7 +19,7 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
-  use 'dakennguyen/vim-unimpaired'
+  use { 'dakennguyen/vim-unimpaired', branch = 'minimal' }
 
   -- Group: Language support
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }

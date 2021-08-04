@@ -4,8 +4,8 @@ vim.g.dashboard_default_executive = "telescope"
 
 vim.g.dashboard_custom_section = {
   a = {description = {"  Load Last Session         SPC s l"}, command = "SessionLoad"},
-  b = {description = {"  Find File                 SPC f f"}, command = "Telescope find_files"},
-  c = {description = {"  Find Word                 SPC f w"}, command = "Telescope live_grep"}
+  -- b = {description = {"  Find File                 SPC f f"}, command = "Telescope find_files"},
+  -- c = {description = {"  Find Word                 SPC f w"}, command = "Telescope live_grep"}
 }
 
 vim.g.dashboard_custom_header = {
@@ -42,10 +42,12 @@ vim.g.dashboard_custom_header = {
 "%###&@&&&&%/**...    ..     %%%%%#%%%#######(**///#%%#%%%%%%##%%%%%%%%%%%%%%%&&%",
 }
 
--- vim.g.dashboard_custom_footer = {
---   "   ",
---   "dakennguyen"
--- }
+local plugins_count = vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
+
+vim.g.dashboard_custom_footer = {
+  "   ",
+  "Loaded " .. plugins_count .. " plugins"
+}
 
 map("n", "<space>sl", [[<cmd>SessionLoad<CR>]], { silent = true })
 map("n", "<space>ss", [[<cmd>SessionSave<CR>]], { silent = true })

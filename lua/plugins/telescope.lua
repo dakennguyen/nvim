@@ -95,7 +95,8 @@ map('n', '<space>fq', '<CMD>Telescope quickfix<CR>')
 map('n', '<space>fh', '<CMD>Telescope help_tags<CR>')
 map('n', '<space>fm', '<CMD>Telescope keymaps<CR>')
 map('n', '<space>fw', '<CMD>Telescope grep_string<CR>')
-map('v', '<space>fw', [[y:lua require('telescope.builtin').grep_string({search = '<C-R>=escape(@",'/\')<CR>'})<CR>]])
+-- map('v', '<space>fw', [[y:lua require('telescope.builtin').grep_string({search = '<C-R>=escape(@",'/\')<CR>'})<CR>]])
+map('v', '<space>fw', [[y:Tgrep <C-R>"]])
 map('n', '<space>f]', [[yiw<CMD>Telescope tags<CR><C-R>"<CR>]])
 
 -- Git
