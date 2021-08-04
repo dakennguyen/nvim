@@ -33,7 +33,7 @@ require('packer').startup(function()
   use 'galooshi/vim-import-js'
 
   -- Group: Text
-  use 'b3nj5m1n/kommentary'
+  use 'tomtom/tcomment_vim'
   use 'windwp/nvim-autopairs'
   use 'alvan/vim-closetag'
   use 'AndrewRadev/splitjoin.vim'
@@ -180,6 +180,11 @@ map('n', '<leader>ig', ':ImportJSGoto<CR>')
 -- ==========================================
 vim.g.closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb'
 
+-- ==========================================
+-- use 'tomtom/tcomment_vim'
+-- ==========================================
+vim.g["tcomment#filetype#guess_typescriptreact"] = 1
+
 -- #############################################
 -- #############################################
 
@@ -190,7 +195,6 @@ require('plugins/dashboard')
 require('plugins/feline')
 require('plugins/gitsigns')
 require('plugins/hop')
-require('plugins/kommentary')
 require('plugins/lspconfig')
 require('plugins/navigator')
 require('plugins/telescope')
