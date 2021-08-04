@@ -27,6 +27,7 @@ require('packer').startup(function()
   use 'hrsh7th/nvim-compe'
   use 'dense-analysis/ale'
   use 'ludovicchabant/vim-gutentags'
+  use 'andymass/vim-matchup'
 
   -- Group: Framework support
   use 'vim-test/vim-test'
@@ -184,6 +185,11 @@ vim.g.closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb'
 -- use 'tomtom/tcomment_vim'
 -- ==========================================
 vim.g["tcomment#filetype#guess_typescriptreact"] = 1
+
+-- ==========================================
+-- use 'andymass/vim-matchup'
+-- ==========================================
+vim.g.matchup_matchparen_offscreen = {}
 
 -- #############################################
 -- #############################################
