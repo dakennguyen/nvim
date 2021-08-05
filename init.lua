@@ -47,9 +47,6 @@ require('packer').startup(function()
   use 'numToStr/Navigator.nvim'
 
   -- Group: Visual
-  use 'szw/vim-maximizer'
-  use 'arecarn/vim-clean-fold'
-  use 'arecarn/vim-fold-cycle'
   use 'gcmt/taboo.vim'
   use { 'norcalli/nvim-colorizer.lua', config = "require'colorizer'.setup()" }
 
@@ -95,18 +92,6 @@ vim.opt.sessionoptions:append { 'tabpages', 'globals' }
 vim.g.taboo_tab_format = ' %N-%f%m '
 vim.g.taboo_renamed_tab_format = ' %N-[%l]%m '
 map('n', '<leader>rn', ':TabooRename ')
-
--- ==========================================
--- use 'arecarn/vim-clean-fold'
--- ==========================================
-vim.opt.foldtext = [[clean_fold#fold_text('_')]]
-
--- ==========================================
--- use 'szw/vim-maximizer'
--- ==========================================
-vim.g.maximizer_set_default_mapping = 0
-map('n', 'Zz', ':MaximizerToggle<CR>', { silent = true })
-map('v', 'Zz', '<ESC>:MaximizerToggle<CR>gv', { silent = true })
 
 -- ==========================================
 -- use 'AndrewRadev/splitjoin.vim'

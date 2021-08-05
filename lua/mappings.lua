@@ -36,6 +36,12 @@ map('', 'gft', '<c-w>gf')
 map('n', '<leader>c', ':copen<cr>', { silent = true })
 map('n', '<leader>l', ':lopen<cr>', { silent = true })
 
+-- fold
+map('n', '<cr>', 'za')
+
+-- maximzer
+map('n', 'Zz', '<C-W>_<C-W><Bar>')
+
 -- tag
 map('n', '<c-]>', 'g<c-]>')
 map('n', '<c-w><c-]>', '<c-w>g<c-]>')

@@ -17,13 +17,14 @@ use 'junegunn/fzf.vim'
 use 'cocopon/iceberg.vim'
 use 'dakennguyen/blue-moon'
 
--------------------
-
 use 'tpope/vim-abolish'
 use 'ntpeters/vim-better-whitespace'
 use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
 use 'karb94/neoscroll.nvim'
 use 'junegunn/gv.vim'
+use 'arecarn/vim-clean-fold'
+use 'arecarn/vim-fold-cycle'
+use 'szw/vim-maximizer'
 
 -- ==========================================
 -- use 'ntpeters/vim-better-whitespace'
@@ -47,3 +48,15 @@ require('plugins/neoscroll')
 -- ==========================================
 map('n', '<leader>gv', ':GV!<CR>', { silent = true })             -- GV
 map('v', '<leader>gv', ':GV<CR>',  { silent = true })             -- GV in Visual mode
+
+-- ==========================================
+-- use 'arecarn/vim-clean-fold'
+-- ==========================================
+vim.opt.foldtext = [[clean_fold#fold_text('_')]]
+
+-- ==========================================
+-- use 'szw/vim-maximizer'
+-- ==========================================
+vim.g.maximizer_set_default_mapping = 0
+map('n', 'Zz', ':MaximizerToggle<CR>', { silent = true })
+map('v', 'Zz', '<ESC>:MaximizerToggle<CR>gv', { silent = true })
