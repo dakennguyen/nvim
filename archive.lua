@@ -25,6 +25,7 @@ use 'junegunn/gv.vim'
 use 'arecarn/vim-clean-fold'
 use 'arecarn/vim-fold-cycle'
 use 'szw/vim-maximizer'
+use 'benmills/vimux'
 
 -- ==========================================
 -- use 'ntpeters/vim-better-whitespace'
@@ -60,3 +61,10 @@ vim.opt.foldtext = [[clean_fold#fold_text('_')]]
 vim.g.maximizer_set_default_mapping = 0
 map('n', 'Zz', ':MaximizerToggle<CR>', { silent = true })
 map('v', 'Zz', '<ESC>:MaximizerToggle<CR>gv', { silent = true })
+
+-- ==========================================
+-- use 'benmills/vimux'
+-- ==========================================
+vim.g.VimuxOrientation = "h"
+vim.g.VimuxHeight = "30"
+map('n', '!', ':VimuxPromptCommand<CR>')

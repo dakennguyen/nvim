@@ -58,7 +58,6 @@ require('packer').startup(function()
   use 'akinsho/nvim-toggleterm.lua'
   use 'kevinhwang91/nvim-bqf'
   use 'glepnir/dashboard-nvim'
-  use 'benmills/vimux'
   use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
 end)
 
@@ -105,12 +104,6 @@ vim.g.splitjoin_join_mapping  = '[s'
 -- ==========================================
 --vim.g.gutentags_cache_dir = get(g:, 'gutentags_cache_dir', expand('~/.cache/tags'))
 vim.g.gutentags_ctags_exclude = { '*.min.js', '*.min.css', 'build', 'vendor', '.git', 'node_modules', '*.vim/bundle/*' }
-
--- ==========================================
--- use 'benmills/vimux'
--- ==========================================
-vim.g.VimuxOrientation = "h"
-vim.g.VimuxHeight = "30"
 
 -- ==========================================
 -- use 'vim-test/vim-test'
