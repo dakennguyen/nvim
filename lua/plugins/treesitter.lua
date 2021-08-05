@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { 'ruby', 'dockerfile', 'yaml', 'lua', 'bash', 'json', 'javascript', 'typescript',
+  ensure_installed = { 'ruby', 'dockerfile', 'yaml', 'lua', 'bash', 'json', 'javascript', 'tsx', 'typescript',
                        'scss', 'css' },
   highlight = {
     enable = true,
@@ -19,4 +19,7 @@ require'nvim-treesitter.configs'.setup {
   matchup = {
     enable = true,
   },
+  context_commentstring = {
+    enable = true,
+  }
 }

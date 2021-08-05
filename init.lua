@@ -18,6 +18,7 @@ require('packer').startup(function()
   use 'tpope/vim-vinegar'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
+  use 'tpope/vim-commentary'
   use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
   use { 'dakennguyen/vim-unimpaired', branch = 'minimal' }
 
@@ -27,6 +28,7 @@ require('packer').startup(function()
   use 'hrsh7th/nvim-compe'
   use 'dense-analysis/ale'
   use 'ludovicchabant/vim-gutentags'
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'andymass/vim-matchup'
 
   -- Group: Framework support
@@ -34,7 +36,6 @@ require('packer').startup(function()
   use 'galooshi/vim-import-js'
 
   -- Group: Text
-  use 'tomtom/tcomment_vim'
   use 'windwp/nvim-autopairs'
   use 'alvan/vim-closetag'
   use 'AndrewRadev/splitjoin.vim'
@@ -165,11 +166,6 @@ map('n', '<leader>ig', ':ImportJSGoto<CR>')
 -- use 'alvan/vim-closetag'
 -- ==========================================
 vim.g.closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb'
-
--- ==========================================
--- use 'tomtom/tcomment_vim'
--- ==========================================
-vim.g["tcomment#filetype#guess_typescriptreact"] = 1
 
 -- ==========================================
 -- use 'andymass/vim-matchup'
