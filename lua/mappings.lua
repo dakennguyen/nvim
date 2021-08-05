@@ -8,6 +8,7 @@ map('n', '<leader>`', '`^')
 map('i', '<c-h>', '<bs>', { noremap = false })
 map('i', '<c-l>', '<del>', { noremap = false })
 map('n', 'Y', 'y$')
+map('n', '!', ':!')
 
 -- gj, gk
 -- map('n', 'j', 'gj')

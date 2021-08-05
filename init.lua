@@ -108,8 +108,8 @@ vim.g.gutentags_ctags_exclude = { '*.min.js', '*.min.css', 'build', 'vendor', '.
 -- ==========================================
 -- use 'vim-test/vim-test'
 -- ==========================================
-vim.g["test#strategy"] = "vimux"
-vim.g['test#preserve_screen'] = 1
+vim.g["test#strategy"] = "neovim"
+vim.g["test#neovim#term_position"] = "vert"
 
 vim.g['test#ruby#bundle_exec'] = 1
 vim.g['test#ruby#use_binstubs'] = 0
