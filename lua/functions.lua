@@ -9,3 +9,9 @@ augroup END
 -- WIPE ALL REGISTERS {{{
 vim.cmd [[command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor]]
 -- }}}
+
+vim.cmd[[
+augroup General
+  autocmd TermOpen * startinsert
+augroup END
+]]

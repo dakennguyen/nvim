@@ -33,6 +33,11 @@ map('', 'gft', '<c-w>gf')
 -- gd
 -- map('', 'gdd', 'gd')
 
+-- term
+map('t', '<c-o>', '<C-\\><C-n>',   { noremap = false })
+map('n', '<c-w>\\', ':vs +te<cr>', { silent = true })
+map('n', '<c-w>-', ':sp +te<cr>',  { silent = true })
+
 -- quickfix and loclist
 map('n', '<leader>c', ':copen<cr>', { silent = true })
 map('n', '<leader>l', ':lopen<cr>', { silent = true })
