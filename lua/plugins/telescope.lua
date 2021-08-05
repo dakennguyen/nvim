@@ -50,7 +50,13 @@ require('telescope').setup{
       }
     },
     find_files = {
-      -- theme = "ivy"
+      theme = "ivy"
+    },
+    help_tags = {
+      theme = "ivy"
+    },
+    keymaps = {
+      theme = "ivy"
     },
     tags = {
       theme = "ivy"
