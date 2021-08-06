@@ -45,7 +45,6 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'phaazon/hop.nvim'
-  use 'numToStr/Navigator.nvim'
 
   -- Group: Visual
   use 'gcmt/taboo.vim'
@@ -176,7 +175,6 @@ require('plugins/feline')
 require('plugins/gitsigns')
 require('plugins/hop')
 require('plugins/lspconfig')
-require('plugins/navigator')
 require('plugins/telescope')
 require('plugins/toggleterm')
 require('plugins/treesitter')
