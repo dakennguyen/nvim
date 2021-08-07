@@ -124,13 +124,16 @@ map('n', 't<C-g>', ':TestVisit<CR>',   { noremap = false, silent = true })
 -- use 'tpope/vim-fugitive'
 -- ==========================================
 vim.opt.diffopt:append { 'vertical' }
-map('n', 'gb', ':Git blame<CR>',             { silent = true }) -- Git Blame
-map('n', '<leader>gg', ':G<CR>',             { silent = true }) -- Git
-map('n', '<leader>gd', ':Gdiffsplit<CR>',    { silent = true }) -- Git diff
-map('n', '<leader>gs', ':Glog -g stash<CR>', { silent = true }) -- Git stash
-map('n', '<leader>gt', ':0Gclog<CR>',        { silent = true }) -- Git time machine
-map('n', '<leader>gl', ':GBrowse<CR>',       { silent = true }) -- Git Browse
-map('v', '<leader>gl', ':GBrowse<CR>',       { silent = true }) -- Git Browse in Visual mode
+map('n', 'gb', ':Git blame<CR>',                { silent = true }) -- Git Blame
+map('n', '<leader>gg', ':vertical G<CR>',       { silent = true }) -- Git
+map('n', '<leader>gl<cr>', ':Gclog -n 100<CR>', { silent = true }) -- Git log
+map('n', '<leader>gl<space>', ':Gdiffbranch ')                     -- Git log diff with branch of choie
+map('n', '<leader>glg', ':tab Git log --oneline --graph --all --decorate --abbrev-commit<CR>', { silent = true }) -- Git log
+map('n', '<leader>gd', ':tab Git diff')                            -- Git diff
+map('n', '<leader>gs', ':Glog -g stash<CR>',    { silent = true }) -- Git stash
+map('n', '<leader>gt', ':0Gclog<CR>',           { silent = true }) -- Git time machine
+map('n', '<leader>gx', ':GBrowse<CR>',          { silent = true }) -- Git Browse
+map('v', '<leader>gx', ':GBrowse<CR>',          { silent = true }) -- Git Browse in Visual mode
 map('n', '<leader>gf', ':diffget //2<cr>')
 map('n', '<leader>gj', ':diffget //3<cr>')
 vim.cmd[[
@@ -145,6 +148,7 @@ vim.cmd[[
     nnoremap <buffer> cP<space> :Git push<space>
   endfunction
 ]]
+vim.cmd[[command! -nargs=? Gdiffbranch exec "Gclog -n 100 " . <q-args> . ".." . fugitive#head()]]
 
 -- ==========================================
 -- use 'galooshi/vim-import-js'
