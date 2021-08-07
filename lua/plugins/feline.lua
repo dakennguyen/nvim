@@ -337,6 +337,18 @@ table.insert(components.left.inactive, {
 -- right inactive
 -- =======================================
 
+properties = {
+  force_inactive = {
+    filetypes = {
+      'packer',
+      'fugitive',
+      'fugitiveblame',
+    },
+    buftypes = {},
+    bufnames = {}
+  }
+}
+
 require("feline").setup({
   default_fg = c.default_fg,
   default_bg = c.default_bg,
@@ -368,5 +380,6 @@ require("feline").setup({
     TERM = "op",
     NONE = "dark"
   },
-  components = components
+  components = components,
+  properties = properties
 })
