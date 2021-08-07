@@ -69,8 +69,8 @@ map('n', '[<tab>', 'gT')
 map('n', '<leader>t', ':tabnew<cr>', { silent = true })
 
 -- keep center
-map('n', [[']], [["'" . nr2char(getchar()) . "zt"]], { expr = true })
-map('n', [[`]], [["`" . nr2char(getchar()) . "zt"]], { expr = true })
+-- map('n', [[']], [["'" . nr2char(getchar()) . "zt"]], { expr = true })
+-- map('n', [[`]], [["`" . nr2char(getchar()) . "zt"]], { expr = true })
 map('n', 'J', 'mzJ`z')
 
 -- jumplist mutations
@@ -78,8 +78,8 @@ vim.cmd[[ nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k' ]]
 vim.cmd[[ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j' ]]
 
 -- registers
-map('', 'cp', '"0p')
-map('', 'cP', '"0P')
+map('', 'gp', '"0p')
+map('', 'gP', '"0P')
 map('', '<leader>y', '"*y')
 map('', '<leader>p', '"*p')
 
