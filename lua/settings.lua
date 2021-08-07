@@ -9,8 +9,8 @@ g.loaded_ruby_provider = 0
 
 o.swapfile = false
 o.number = true
-o.rnu = true
-o.re = 0
+o.relativenumber = true
+o.regexpengine = 0
 o.expandtab = true
 o.tabstop = 8
 o.softtabstop = 2
@@ -57,13 +57,14 @@ augroup General
 augroup END
 ]]
 
--- coc
 o.hidden = true
+o.signcolumn = 'yes'
+o.cmdheight = 1
+
+-- coc
 o.backup = false
 o.writebackup = false
-o.cmdheight = 1
 o.updatetime = 300
 o.shortmess:append { c = true }         -- set shortmess+=c
-o.signcolumn = 'yes'
 
 g.mapleader = ','
