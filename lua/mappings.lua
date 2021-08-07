@@ -36,13 +36,6 @@ map('', 'gft', '<c-w>gf')
 -- gd
 -- map('', 'gdd', 'gd')
 
--- navigator
-map('n', '<c-h>', '<c-w>h')
-map('n', '<c-j>', '<c-w>j')
-map('n', '<c-k>', '<c-w>k')
-map('n', '<c-l>', '<c-w>l')
-
-
 -- term
 map('t', '<c-o>', '<C-\\><C-n>',        { noremap = false })
 map('n', '<c-w>\\', ':vs +te<cr>',      { silent = true })
