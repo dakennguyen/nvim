@@ -18,9 +18,11 @@ map('n', '!', ':!')
 
 -- gq
 map('n', 'gq', ':close<cr><c-w><c-p>', { silent = true })
+map('t', 'gq', '<C-\\><C-N>:bd!<CR><c-w>p')
 vim.cmd[[
-augroup QuitQuickfix
+augroup Quit
   autocmd BufReadPost quickfix nnoremap <buffer> gq :q<CR>
+  autocmd TermOpen * nnoremap <buffer> gq :bd!<CR><c-w><c-p>
 augroup END
 ]]
 

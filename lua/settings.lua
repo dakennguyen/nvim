@@ -49,6 +49,14 @@ o.inccommand = 'split'
 o.ignorecase = true
 o.smartcase = true
 
+-- term
+vim.cmd[[
+augroup General
+  autocmd TermOpen * startinsert
+  autocmd TermOpen * setlocal nonumber norelativenumber
+augroup END
+]]
+
 -- coc
 o.hidden = true
 o.backup = false
