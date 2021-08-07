@@ -27,6 +27,7 @@ use 'arecarn/vim-fold-cycle'
 use 'szw/vim-maximizer'
 use 'benmills/vimux'
 use 'numToStr/Navigator.nvim'
+use 'akinsho/nvim-toggleterm.lua'
 
 -- ==========================================
 -- use 'ntpeters/vim-better-whitespace'

@@ -45,6 +45,9 @@ map('t', '<c-o>', '<C-\\><C-n>',   { noremap = false })
 map('n', '<c-w>\\', ':vs +te<cr>', { silent = true })
 map('n', '<c-w>-', ':sp +te<cr>',  { silent = true })
 
+map('n', '<space>gg', ':tabnew | term lazygit<cr>')
+map('n', '<space>gm', ':tabnew | term spt<cr>')
+
 -- quickfix and loclist
 map('n', '<leader>c', ':copen<cr>', { silent = true })
 map('n', '<leader>l', ':lopen<cr>', { silent = true })
