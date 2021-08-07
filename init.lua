@@ -127,8 +127,7 @@ map('n', 't<C-g>', ':TestVisit<CR>',   { noremap = false, silent = true })
 vim.opt.diffopt:append { 'vertical' }
 map('n', 'gb', ':Git blame<CR>',                { silent = true }) -- Git Blame
 map('n', '<leader>gg', ':vertical G<CR>',       { silent = true }) -- Git
-map('n', '<leader>gl<cr>', ':Gclog -n 100<CR>', { silent = true }) -- Git log
-map('n', '<leader>gl<space>', ':Gdiffbranch ')                     -- Git log diff with branch of choie
+map('n', '<leader>gl', ':Gclog -n 100',         { silent = true }) -- Git log
 map('n', '<leader>glg', ':tab Git log --oneline --graph --all --decorate --abbrev-commit<CR>', { silent = true }) -- Git log
 map('n', '<leader>gd', ':tab Git diff')                            -- Git diff
 map('n', '<leader>gs', ':Glog -g stash<CR>',    { silent = true }) -- Git stash
@@ -149,7 +148,6 @@ vim.cmd[[
     nnoremap <buffer> cP<space> :Git push<space>
   endfunction
 ]]
-vim.cmd[[command! -nargs=? Gdiffbranch exec "Gclog -n 100 " . <q-args> . ".." . fugitive#head()]]
 
 -- ==========================================
 -- use 'galooshi/vim-import-js'
