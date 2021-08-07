@@ -16,13 +16,13 @@ map('n', '!', ':!')
 -- map('v', 'j', 'gj')
 -- map('v', 'k', 'gk')
 
--- gq
-map('n', 'gq', ':close<cr><c-w><c-p>', { silent = true })
-map('t', 'gq', '<C-\\><C-N>:bd!<CR><c-w>p')
+-- quit
+map('n', '<leader>q', ':close<cr><c-w><c-p>', { silent = true })
+map('t', '<leader>q', '<C-\\><C-N>:bd!<CR>',  { silent = true })
 vim.cmd[[
 augroup Quit
-  autocmd BufReadPost quickfix nnoremap <buffer> gq :q<CR>
-  autocmd TermOpen * nnoremap <buffer> gq :bd!<CR><c-w><c-p>
+  autocmd BufReadPost quickfix nnoremap <silent> <buffer> <leader>q :q<CR>
+  autocmd TermOpen * nnoremap <silent> <buffer> <leader>q :bd!<CR><c-w><c-p>
   autocmd FileType fugitive nnoremap <silent> <buffer> <leader>q :bd<CR><c-w><c-p>
 augroup END
 ]]
