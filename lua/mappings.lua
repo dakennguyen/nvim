@@ -44,9 +44,14 @@ map('n', '<c-l>', '<c-w>l')
 
 
 -- term
-map('t', '<c-o>', '<C-\\><C-n>',   { noremap = false })
-map('n', '<c-w>\\', ':vs +te<cr>', { silent = true })
-map('n', '<c-w>-', ':sp +te<cr>',  { silent = true })
+map('t', '<c-o>', '<C-\\><C-n>',        { noremap = false })
+map('n', '<c-w>\\', ':vs +te<cr>',      { silent = true })
+map('n', '<c-w>-', ':sp +te<cr>',       { silent = true })
+
+map('t', '<c-h>', '<C-\\><C-n>G<c-w>h', { noremap = false })
+map('t', '<c-j>', '<C-\\><C-n>G<c-w>j', { noremap = false })
+map('t', '<c-k>', '<C-\\><C-n>G<c-w>k', { noremap = false })
+map('t', '<c-l>', '<C-\\><C-n>G<c-w>l', { noremap = false })
 
 map('n', '<space>gg', ':tabnew | term lazygit<cr>')
 map('n', '<space>gm', ':tabnew | term spt<cr>')
