@@ -64,112 +64,6 @@ require('settings')
 require('mappings')
 require('functions')
 
-
-
-
--- #############################################
--- Section: Plugins
--- #############################################
-
--- ==========================================
--- use 'junegunn/vim-easy-align'
--- ==========================================
-map('n', 'ga', '<Plug>(EasyAlign)', { noremap = false })
-map('x', 'ga', '<Plug>(EasyAlign)', { noremap = false })
-
--- ==========================================
--- use 'xolox/vim-notes'
--- ==========================================
-vim.g.notes_directories = { '~/Documents/Workspace/Thinkei/Notes' }
-vim.g.notes_tab_indents = 0
-map('n', '<space>gn', ':80vs note:home<cr>:MostRecentNote<cr><cr>', { silent = true })
-
--- ==========================================
--- use 'gcmt/taboo.vim'
--- ==========================================
-vim.opt.sessionoptions:append { 'tabpages', 'globals' }
-vim.g.taboo_tab_format = ' %N-%f%m '
-vim.g.taboo_renamed_tab_format = ' %N-[%l]%m '
-map('n', '<leader>rn', ':TabooRename ')
-
--- ==========================================
--- use 'AndrewRadev/splitjoin.vim'
--- ==========================================
-vim.g.splitjoin_split_mapping = ']s'
-vim.g.splitjoin_join_mapping  = '[s'
-
--- ==========================================
--- use 'ludovicchabant/vim-gutentags'
--- ==========================================
---vim.g.gutentags_cache_dir = get(g:, 'gutentags_cache_dir', expand('~/.cache/tags'))
-vim.g.gutentags_ctags_exclude = { '*.min.js', '*.min.css', 'build', 'vendor', '.git', 'node_modules', '*.vim/bundle/*' }
-
--- ==========================================
--- use 'vim-test/vim-test'
--- ==========================================
-vim.g["test#strategy"] = "neovim"
-
-vim.g['test#ruby#bundle_exec'] = 1
-vim.g['test#ruby#use_binstubs'] = 0
-vim.g['test#javascript#runner'] = 'jest'
-vim.g['test#javascript#jest#executable'] = 'yarn test'
-
-map('n', 't<C-n>', ':TestNearest<CR><C-\\><C-n>G<c-w>p', { noremap = false, silent = true })
-map('n', 't<C-f>', ':TestFile<CR><C-\\><C-n>G<c-w>p',    { noremap = false, silent = true })
-map('n', 't<C-s>', ':TestSuite<CR><C-\\><C-n>G<c-w>p',   { noremap = false, silent = true })
-map('n', 't<C-l>', ':TestLast<CR><C-\\><C-n>G<c-w>p',    { noremap = false, silent = true })
-map('n', 't<C-g>', ':TestVisit<CR><C-\\><C-n>G<c-w>p',   { noremap = false, silent = true })
-
--- ==========================================
--- use 'tpope/vim-fugitive'
--- ==========================================
-vim.opt.diffopt:append { 'vertical' }
-map('n', 'gs', ':-1Gtabedit :<CR>',             { silent = true }) -- Git status
-map('n', 'gb', ':Git blame<CR>',                { silent = true }) -- Git blame
-map('n', '<leader>gl', ':Gclog -n 100',         { silent = true }) -- Git log
-map('n', '<leader>glg', ':tab Git log --oneline --graph --all --decorate --abbrev-commit<CR>', { silent = true }) -- Git log
-map('n', '<leader>gd', ':tab Git diff')                            -- Git diff
-map('n', '<leader>gs', ':Gclog -g stash<CR>',   { silent = true }) -- Git stash
-map('n', '<leader>gt', ':0Gclog<CR>',           { silent = true }) -- Git time machine
-map('n', '<leader>gx', ':GBrowse<CR>',          { silent = true }) -- Git Browse
-map('v', '<leader>gx', ':GBrowse<CR>',          { silent = true }) -- Git Browse in Visual mode
-map('n', '<leader>gf', ':diffget //2<cr>')
-map('n', '<leader>gj', ':diffget //3<cr>')
-vim.cmd[[
-  augroup fugitive_mapping
-    autocmd!
-    autocmd filetype fugitive,git call Fugitive()
-  augroup END
-
-  function! Fugitive()
-    set foldmethod=syntax
-
-    silent! unmap <buffer> cp
-    nnoremap <buffer> cp<space> :Git pull<space>
-    nnoremap <buffer> cP<space> :Git push<space>
-  endfunction
-]]
-
--- ==========================================
--- use 'galooshi/vim-import-js'
--- ==========================================
-map('n', '<leader>ii', ':ImportJSWord<CR>')
-map('n', '<leader>if', ':ImportJSFix<CR>')
-map('n', '<leader>ig', ':ImportJSGoto<CR>')
-
--- ==========================================
--- use 'alvan/vim-closetag'
--- ==========================================
-vim.g.closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb'
-
--- ==========================================
--- use 'andymass/vim-matchup'
--- ==========================================
-vim.g.matchup_matchparen_offscreen = {}
-
--- #############################################
--- #############################################
-
 require('plugins/autopairs')
 require('plugins/bqf')
 require('plugins/compe')
@@ -183,6 +77,16 @@ require('plugins/telescope')
 require('plugins/treesitter')
 
 require('plugins/vim-ale')
+require('plugins/vim-closetag')
+require('plugins/vim-easy-align')
+require('plugins/vim-fugitive')
+require('plugins/vim-gutentags')
+require('plugins/vim-import-js')
+require('plugins/vim-matchup')
+require('plugins/vim-notes')
 require('plugins/vim-projectionist')
+require('plugins/vim-splitjoin')
+require('plugins/vim-taboo')
+require('plugins/vim-test')
 
 require('theme')
