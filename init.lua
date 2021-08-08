@@ -125,12 +125,12 @@ map('n', 't<C-g>', ':TestVisit<CR>',   { noremap = false, silent = true })
 -- use 'tpope/vim-fugitive'
 -- ==========================================
 vim.opt.diffopt:append { 'vertical' }
-map('n', 'gb', ':Git blame<CR>',                { silent = true }) -- Git Blame
-map('n', '<leader>gg', ':vertical G<CR>',       { silent = true }) -- Git
+map('n', 'gs', ':-1Gtabedit :<CR>',             { silent = true }) -- Git status
+map('n', 'gb', ':Git blame<CR>',                { silent = true }) -- Git blame
 map('n', '<leader>gl', ':Gclog -n 100',         { silent = true }) -- Git log
 map('n', '<leader>glg', ':tab Git log --oneline --graph --all --decorate --abbrev-commit<CR>', { silent = true }) -- Git log
 map('n', '<leader>gd', ':tab Git diff')                            -- Git diff
-map('n', '<leader>gs', ':Glog -g stash<CR>',    { silent = true }) -- Git stash
+map('n', '<leader>gs', ':Gclog -g stash<CR>',   { silent = true }) -- Git stash
 map('n', '<leader>gt', ':0Gclog<CR>',           { silent = true }) -- Git time machine
 map('n', '<leader>gx', ':GBrowse<CR>',          { silent = true }) -- Git Browse
 map('v', '<leader>gx', ':GBrowse<CR>',          { silent = true }) -- Git Browse in Visual mode
@@ -139,10 +139,12 @@ map('n', '<leader>gj', ':diffget //3<cr>')
 vim.cmd[[
   augroup fugitive_mapping
     autocmd!
-    autocmd filetype fugitive call FugitiveMapping()
+    autocmd filetype fugitive,git call Fugitive()
   augroup END
 
-  function! FugitiveMapping()
+  function! Fugitive()
+    set foldmethod=syntax
+
     silent! unmap <buffer> cp
     nnoremap <buffer> cp<space> :Git pull<space>
     nnoremap <buffer> cP<space> :Git push<space>
