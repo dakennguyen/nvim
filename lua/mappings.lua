@@ -8,7 +8,7 @@ map('n', '<leader>`', '`^')
 map('i', '<c-h>', '<bs>', { noremap = false })
 map('i', '<c-l>', '<del>', { noremap = false })
 map('n', 'Y', 'y$')
-map('n', '!', ':!')
+-- map('n', '!', ':!')
 
 -- gj, gk
 -- map('n', 'j', 'gj')
@@ -54,7 +54,7 @@ map('n', '<leader>c', ':copen<cr>', { silent = true })
 map('n', '<leader>l', ':lopen<cr>', { silent = true })
 
 -- fold
-map('n', '<cr>', 'za')
+-- map('n', '<cr>', 'za')
 
 -- maximzer
 map('n', 'Zz', '<C-W>_<C-W><Bar>')
