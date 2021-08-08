@@ -37,17 +37,17 @@ map('', 'gft', '<c-w>gf')
 -- map('', 'gdd', 'gd')
 
 -- term
-map('t', '<c-o>', '<C-\\><C-n>',        { noremap = false })
 map('n', '<c-w>\\', ':vs +te<cr>',      { silent = true })
 map('n', '<c-w>-', ':sp +te<cr>',       { silent = true })
 
-map('t', '<c-h>', '<C-\\><C-n>G<c-h>', { noremap = false })
-map('t', '<c-j>', '<C-\\><C-n>G<c-j>', { noremap = false })
-map('t', '<c-k>', '<C-\\><C-n>G<c-k>', { noremap = false })
-map('t', '<c-l>', '<C-\\><C-n>G<c-l>', { noremap = false })
+map('t', '<c-h>', '<C-\\><C-n><c-h>', { noremap = false })
+map('t', '<c-j>', '<C-\\><C-n><c-j>', { noremap = false })
+map('t', '<c-k>', '<C-\\><C-n><c-k>', { noremap = false })
+map('t', '<c-l>', '<C-\\><C-n><c-l>', { noremap = false })
 
-map('n', '<space>gg', ':tabnew | term lazygit<cr>')
-map('n', '<space>gm', ':tabnew | term spt<cr>')
+map('n', '<space>gg', ':-1tabnew | term lazygit<cr>')
+map('n', '<space>gm', ':-1tabnew | term spt<cr>')
+map('n', '<space>trc', ':botright new | term bundle exec spring stop && bundle exec rails c<cr>')
 
 -- quickfix and loclist
 map('n', '<leader>c', ':copen<cr>', { silent = true })
