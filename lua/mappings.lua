@@ -114,17 +114,3 @@ map('n', '<leader>rr', ':call VimuxRunCommand(\'ruby\' . \' \' . expand(\"%\"))<
 
 -- debugger
 map('i', 'bb', 'debugger<esc>')
-
--- netrw
-vim.cmd[[
-  augroup netrw_mapping
-    autocmd!
-    autocmd filetype netrw call NetrwMapping()
-  augroup END
-
-  function! NetrwMapping()
-    nnoremap ? :help netrw-quickmap<CR>
-    nmap <buffer> <leader>0 <Plug>NetrwRefresh
-    silent! unmap <buffer> <c-l>
-  endfunction
-]]

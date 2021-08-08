@@ -1,4 +1,6 @@
 use 'tpope/vim-endwise'
+use 'tpope/vim-vinegar'
+use 'tpope/vim-abolish'
 
 use 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 
@@ -17,7 +19,6 @@ use 'junegunn/fzf.vim'
 use 'cocopon/iceberg.vim'
 use 'dakennguyen/blue-moon'
 
-use 'tpope/vim-abolish'
 use 'ntpeters/vim-better-whitespace'
 use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
 use 'karb94/neoscroll.nvim'
@@ -69,3 +70,17 @@ map('v', 'Zz', '<ESC>:MaximizerToggle<CR>gv', { silent = true })
 vim.g.VimuxOrientation = "h"
 vim.g.VimuxHeight = "30"
 map('n', '!', ':VimuxPromptCommand<CR>')
+
+-- netrw
+vim.cmd[[
+  augroup netrw_mapping
+    autocmd!
+    autocmd filetype netrw call NetrwMapping()
+  augroup END
+
+  function! NetrwMapping()
+    nnoremap ? :help netrw-quickmap<CR>
+    nmap <buffer> <leader>0 <Plug>NetrwRefresh
+    silent! unmap <buffer> <c-l>
+  endfunction
+]]

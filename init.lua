@@ -15,7 +15,6 @@ require('packer').startup(function()
   -- Group: TPope
   use 'tpope/vim-surround'
   use 'tpope/vim-projectionist'
-  use 'tpope/vim-vinegar'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-commentary'
@@ -41,9 +40,12 @@ require('packer').startup(function()
   use 'AndrewRadev/splitjoin.vim'
   use 'junegunn/vim-easy-align'
 
-  -- Group: Navigator
+  -- Group: Files manager
   use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'justinmk/vim-dirvish'
+
+  -- Group: Navigator
   use 'phaazon/hop.nvim'
   use 'numToStr/Navigator.nvim'
 
@@ -78,6 +80,7 @@ require('plugins/treesitter')
 
 require('plugins/vim-ale')
 require('plugins/vim-closetag')
+require('plugins/vim-dirvish')
 require('plugins/vim-easy-align')
 require('plugins/vim-fugitive')
 require('plugins/vim-gutentags')

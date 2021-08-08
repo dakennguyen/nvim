@@ -341,6 +341,7 @@ properties = {
   force_inactive = {
     filetypes = {
       'packer',
+      'dirvish',
       'fugitive',
       'fugitiveblame',
     },
