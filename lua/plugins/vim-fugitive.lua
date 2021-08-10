@@ -10,17 +10,3 @@ map('n', '<leader>gx', ':GBrowse<CR>',          { silent = true }) -- Git Browse
 map('v', '<leader>gx', ':GBrowse<CR>',          { silent = true }) -- Git Browse in Visual mode
 map('n', '<leader>gf', ':diffget //2<cr>')
 map('n', '<leader>gj', ':diffget //3<cr>')
-vim.cmd[[
-  augroup fugitive_mapping
-    autocmd!
-    autocmd filetype fugitive,git call Fugitive()
-  augroup END
-
-  function! Fugitive()
-    set foldmethod=syntax
-
-    silent! unmap <buffer> cp
-    nnoremap <buffer> cp<space> :Git pull<space>
-    nnoremap <buffer> cP<space> :Git push<space>
-  endfunction
-]]
