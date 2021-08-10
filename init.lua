@@ -36,7 +36,7 @@ require('packer').startup(function()
 
   -- Group: Text
   use 'windwp/nvim-autopairs'
-  use 'alvan/vim-closetag'
+  use 'windwp/nvim-ts-autotag'
   use 'AndrewRadev/splitjoin.vim'
   use 'junegunn/vim-easy-align'
 
@@ -79,7 +79,6 @@ require('plugins/telescope')
 require('plugins/treesitter')
 
 require('plugins/vim-ale')
-require('plugins/vim-closetag')
 require('plugins/vim-dirvish')
 require('plugins/vim-easy-align')
 require('plugins/vim-fugitive')
