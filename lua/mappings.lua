@@ -4,11 +4,10 @@ map('n', '<leader><space>', ':noh<cr>', { silent = true })
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 map('n', '<leader>s', ':w<cr>', { silent = true })
 map('n', '<leader>a', '<C-^>')
-map('n', '<leader>`', '`^')
 map('i', '<c-h>', '<bs>', { noremap = false })
 map('i', '<c-l>', '<del>', { noremap = false })
 map('n', 'Y', 'y$')
--- map('n', '!', ':!')
+map('n', '!', ':botright 1 new | term<cr>')
 
 -- gj, gk
 -- map('n', 'j', 'gj')
@@ -23,7 +22,7 @@ vim.cmd[[
 augroup Quit
   autocmd BufReadPost quickfix nnoremap <silent> <buffer> <leader>q :q<CR>
   autocmd TermOpen * nnoremap <silent> <buffer> <leader>q :bd!<CR><c-w><c-p>
-  autocmd FileType fugitive nnoremap <silent> <buffer> <leader>q :bd<CR><c-w><c-p>
+  autocmd FileType fugitive nmap <buffer> <leader>q gq
 augroup END
 ]]
 
@@ -56,8 +55,9 @@ map('n', '<leader>l', ':lopen<cr>', { silent = true })
 -- fold
 -- map('n', '<cr>', 'za')
 
--- maximzer
-map('n', 'Zz', '<C-W>_<C-W><Bar>')
+-- zoom
+map('n', '<leader>z', '<C-W>_<C-W><Bar>')
+map('t', '<leader>z', '<C-\\><C-N><C-W>_<C-W><Bar>i')
 
 -- tag
 map('n', '<c-]>]',     'g<c-]>')
@@ -79,8 +79,8 @@ map('n', '<leader>t', ':tabnew<cr>', { silent = true })
 map('n', 'J', 'mzJ`z')
 
 -- jumplist mutations
-vim.cmd[[ nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k' ]]
-vim.cmd[[ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j' ]]
+map('n', 'k', [[ (v:count > 5 ? "m'" . v:count : "") . 'k' ]], { expr = true })
+map('n', 'j', [[ (v:count > 5 ? "m'" . v:count : "") . 'j' ]], { expr = true })
 
 -- registers
 map('', 'gp', '"0p')
@@ -107,7 +107,9 @@ map('n', '<leader>fyN', [[:let @+=expand("%:t") | echo @+<CR>]] ,   { silent = t
 -- open files
 map('n', '<space>gs', ':topleft 18 new ~/.dotfiles/scratch.vim<CR>', { silent = true })
 map('n', '<space>vs', ':source ~/.config/nvim/init.lua<CR>:PackerCompile<cr>')
-map('n', '<space>gv', ':vsplit ~/.config/nvim/init.lua<cr>')
+map('n', '<space>gvv', ':botright vsplit ~/.config/nvim/init.lua<cr>')
+map('n', '<space>gvm', ':botright vsplit ~/.config/nvim/lua/mappings.lua<cr>')
+map('n', '<space>gvs', ':botright vsplit ~/.config/nvim/lua/settings.lua<cr>')
 
 -- Ruby
 map('n', '<leader>rr', ':call VimuxRunCommand(\'ruby\' . \' \' . expand(\"%\"))<CR>')
