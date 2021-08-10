@@ -1,3 +1,12 @@
+local job = require("plenary.job")
+_G.open_in_browser = function(url)
+  local command = vim.loop.os_uname().sysname == "Darwin" and "open"
+    or "xdg-open"
+  job:new({ command = command, args = { url } }):start()
+end
+
+vim.cmd[[ command! -nargs=? Browse lua _G.open_in_browser(<q-args>) ]]
+
 vim.opt.diffopt:append { 'vertical' }
 map('n', 'gs', ':-1Gtabedit :<CR>',             { silent = true }) -- Git status
 map('n', 'gb', ':Git blame<CR>',                { silent = true }) -- Git blame

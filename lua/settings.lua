@@ -49,6 +49,10 @@ o.inccommand = 'split'
 o.ignorecase = true
 o.smartcase = true
 
+-- netrw
+vim.g.loaded_netrw       = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- term
 vim.cmd[[
 augroup General
