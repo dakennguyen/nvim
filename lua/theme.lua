@@ -1,5 +1,6 @@
 vim.opt.background = 'dark'
-vim.cmd([[colorscheme nord]])
+vim.g.nord_italic = false
+require('nord').set()
 
 vim.cmd[[
 augroup Theme
