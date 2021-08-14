@@ -1,19 +1,22 @@
 -- General
 -- map('v', 'p', '"_dP') -- Don't copy the replaced text after pasting in visual mode
+map('n', '<space>so', ':source %<CR>:PackerCompile<cr>')
 map('n', '<leader><space>', ':noh<cr>', { silent = true })
-map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 map('n', '<leader>s', ':w<cr>', { silent = true })
 map('n', '<leader>a', '<C-^>')
 map('i', '<c-h>', '<bs>', { noremap = false })
 map('i', '<c-l>', '<del>', { noremap = false })
 map('n', 'Y', 'y$')
-map('n', '!', ':botright 1 new | term<cr>')
+map('n', '!', ':botright 20 new | term<cr>')
 
 -- gj, gk
 -- map('n', 'j', 'gj')
 -- map('n', 'k', 'gk')
 -- map('v', 'j', 'gj')
 -- map('v', 'k', 'gk')
+
+-- search
+map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 
 -- quit
 map('n', '<leader>q', ':close<cr><c-w><c-p>', { silent = true })
@@ -46,7 +49,6 @@ map('t', '<c-l>', '<C-\\><C-n><c-l>', { noremap = false })
 
 map('n', '<space>gg', ':-1tabnew | term lazygit<cr>')
 map('n', '<space>gm', ':-1tabnew | term spt<cr>')
-map('n', '<space>trc', ':botright new | term bundle exec spring stop && bundle exec rails c<cr>')
 
 -- quickfix and loclist
 map('n', '<leader>c', ':copen<cr>', { silent = true })
@@ -106,13 +108,6 @@ map('n', '<leader>fyN', [[:let @+=expand("%:t") | echo @+<CR>]] ,   { silent = t
 
 -- open files
 map('n', '<space>gs', ':topleft 18 new ~/.dotfiles/scratch.vim<CR>', { silent = true })
-map('n', '<space>vs', ':source ~/.config/nvim/init.lua<CR>:PackerCompile<cr>')
 map('n', '<space>gvv', ':botright vsplit ~/.config/nvim/init.lua<cr>')
 map('n', '<space>gvm', ':botright vsplit ~/.config/nvim/lua/mappings.lua<cr>')
 map('n', '<space>gvs', ':botright vsplit ~/.config/nvim/lua/settings.lua<cr>')
-
--- Ruby
-map('n', '<leader>rr', ':call VimuxRunCommand(\'ruby\' . \' \' . expand(\"%\"))<CR>')
-
--- debugger
-map('i', 'bb', 'debugger<esc>')
