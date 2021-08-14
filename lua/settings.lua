@@ -71,4 +71,13 @@ o.writebackup = false
 o.updatetime = 300
 o.shortmess:append { c = true }         -- set shortmess+=c
 
+-- nvr
+vim.cmd[[
+if has('nvim')
+  let $GIT_EDITOR = 'nvr -cc vsplit --remote-wait'
+endif
+
+autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+]]
+
 g.mapleader = ','
