@@ -20,4 +20,4 @@ map('v', '<leader>gx', ':GBrowse<CR>',                                          
 map('n', '<leader>gf', ':diffget //2<cr>')
 map('n', '<leader>gj', ':diffget //3<cr>')
 
-vim.cmd[[autocmd User Fugitive command! -buffer -nargs=? -complete=customlist,fugitive#CompleteObject Gu Git branch -u <args>]]
+-- vim.cmd[[autocmd User Fugitive command! -buffer -nargs=? -complete=customlist,fugitive#CompleteObject Gu Git branch -u <args>]]
