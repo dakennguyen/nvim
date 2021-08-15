@@ -42,7 +42,7 @@ local on_attach = function(client, bufnr)
   -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
 end
 
-require'lspconfig'.solargraph.setup{
+nvim_lsp.solargraph.setup{
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
@@ -56,14 +56,14 @@ require'lspconfig'.solargraph.setup{
   }
 }
 
-require'lspconfig'.tsserver.setup{
+nvim_lsp.tsserver.setup{
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
   },
 }
 
-require'lspconfig'.jsonls.setup {
+nvim_lsp.jsonls.setup {
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
