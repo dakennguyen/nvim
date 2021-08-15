@@ -9,7 +9,7 @@ require('packer').startup(function()
 
   -- Group: Theme
   use { 'kyazdani42/nvim-web-devicons', config = "require'nvim-web-devicons'.setup {}" }
-  use 'famiu/feline.nvim'
+  use 'shadmansaleh/lualine.nvim'
   use 'shaunsingh/nord.nvim'
 
   -- Group: TPope
@@ -71,10 +71,10 @@ require('plugins/autopairs')
 require('plugins/bqf')
 require('plugins/compe')
 require('plugins/dashboard')
-require('plugins/feline')
 require('plugins/gitsigns')
 require('plugins/hop')
 require('plugins/lspconfig')
+require('plugins/lualine')
 require('plugins/navigator')
 require('plugins/telescope')
 require('plugins/treesitter')
