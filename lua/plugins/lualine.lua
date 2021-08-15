@@ -87,6 +87,7 @@ end
 
 require('lualine').setup {
   options = {
+    component_separators = {'', ''},
     theme = theme,
     disabled_filetypes = {
       'packer',
@@ -111,11 +112,7 @@ require('lualine').setup {
     lualine_x = {
       {
         'diagnostics',
-        sources = {'nvim_lsp'},
-        symbols = {error = ' ', warn = ' ', info = ' '},
-        color_error = { fg = colors.red },
-        color_warn = { fg = colors.yellow },
-        color_info = { fg = colors.cyan },
+        sources = { 'nvim_lsp', 'ale' },
       },
       lspserver,
     },
