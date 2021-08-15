@@ -9,9 +9,7 @@ icons = {
   plus = "+",
   minus = "-",
   tilde = "~",
-  vertical_bar = "|",
-  vertical_bar_thick = "┃",
-  vertical_bar_thin = "│",
+  hint = '' -- xf838
 }
 
 local function custom_position(component)
@@ -88,75 +86,13 @@ require('feline.providers').add_provider('custom_file_type', custom_file_type)
 require('feline.providers').add_provider('lsp_connected', lsp_connected)
 
 local default_color = {
-  bg = "#1F1F23",
-  black = "#1B1B1B",
-  skyblue = "#50B0F0",
-  cyan = "#009090",
-  fg = "#D0D0D0",
-  green = "#60A040",
-  oceanblue = "#0066cc",
-  connected = "#b8bb26",
-  magenta = "#C26BDB",
-  orange = "#FF9000",
-  red = "#ea6962",
-  violet = "#9E93E8",
-  white = "#FFFFFF",
-  yellow = "#E1E120",
-  warning = "#fabd2f",
-  hint = "#83a598",
-  info = "#a0c980",
-  error = "#ea6962"
+  green = "#A3BE8C",
+  red = "#BF616A",
+  yellow = "#EBCB8B",
+  blue = "#81A1C1",
 }
 
-local iceberg = {
-  default_fg = "#8295B9",
-  default_bg = "#11131a",
-  colors = {
-    bg1 = "#3b4252",
-    bg2 = "#292B36",
-    dark = "#17181E",
-    light = "#B3B5BE",
-    normal = "#8295B9",
-    visual = "#CB9F78",
-    insert = "#AEB482",
-    replace = "#bf616a",
-    command = "#B48EAD",
-    op = "#D08770"
-  }
-}
-local blue_moon = {
-  default_fg = "#a2b6db",
-  default_bg = "#1f222e",
-  colors = {
-    bg1 = "#3b4252",
-    bg2 = "#292B36",
-    dark = "#17181E",
-    light = "#B3B5BE",
-    normal = "#a2b6db",
-    visual = "#CB9F78",
-    insert = "#AEB482",
-    replace = "#bf616a",
-    command = "#a9a1e1",
-    op = "#D08770"
-  }
-}
-local neon = {
-  default_fg = "#abb2bf",
-  default_bg = "#333644",
-  colors = {
-    bg1 = "#363a49",
-    bg2 = "#676E95",
-    dark = "#2b2d37",
-    light = "#c5cdd9",
-    normal = "#a9a1e1",
-    visual = "#ADD8E6",
-    insert = "#d38aea",
-    replace = "#ECBE7B",
-    command = "#4db5bd",
-    op = "#a9a1e1",
-  },
-}
-nord = {
+local nord = {
   default_fg = "#8FBCBB",
   default_bg = "#3a4252",
   colors = {
@@ -272,25 +208,26 @@ table.insert(components.left.active, {
 table.insert(components.right.active, {
   provider = 'diagnostic_errors',
   enabled = function() return lsp.diagnostics_exist('Error') end,
-  hl = {fg = default_color.error}
+  hl = {fg = default_color.red}
 })
 
 table.insert(components.right.active, {
   provider = 'diagnostic_warnings',
   enabled = function() return lsp.diagnostics_exist('Warning') end,
-  hl = {fg = default_color.warning}
+  hl = {fg = default_color.yellow}
 })
 
 table.insert(components.right.active, {
   provider = 'diagnostic_hints',
+  icon = ' ' .. icons.hint .. ' ',
   enabled = function() return lsp.diagnostics_exist('Hint') end,
-  hl = {fg = default_color.hint}
+  hl = {fg = default_color.blue}
 })
 
 table.insert(components.right.active, {
   provider = 'diagnostic_info',
   enabled = function() return lsp.diagnostics_exist('Information') end,
-  hl = {fg = default_color.info}
+  hl = {fg = default_color.green}
 })
 
 table.insert(components.right.active, {
@@ -310,7 +247,7 @@ table.insert(components.right.active, {
 
 table.insert(components.right.active, {
   provider = "lsp_connected",
-  hl = {style = "bold", fg = default_color.connected}
+  hl = {style = "bold", fg = default_color.yellow}
 })
 
 table.insert(components.right.active, {
