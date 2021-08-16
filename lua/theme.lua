@@ -1,5 +1,5 @@
 vim.opt.background = 'dark'
-vim.g.nord_italic = false
+vim.g.nord_italic = true
 require('nord').set()
 
 vim.cmd[[
