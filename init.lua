@@ -25,14 +25,12 @@ require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-compe'
-  use 'dense-analysis/ale'
   use 'ludovicchabant/vim-gutentags'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'andymass/vim-matchup'
 
   -- Group: Framework support
   use 'vim-test/vim-test'
-  use 'galooshi/vim-import-js'
 
   -- Group: Text
   use 'windwp/nvim-autopairs'
@@ -79,12 +77,10 @@ require('plugins/navigator')
 require('plugins/telescope')
 require('plugins/treesitter')
 
-require('plugins/vim-ale')
 require('plugins/vim-dirvish')
 require('plugins/vim-easy-align')
 require('plugins/vim-fugitive')
 require('plugins/vim-gutentags')
-require('plugins/vim-import-js')
 require('plugins/vim-matchup')
 require('plugins/vim-notes')
 require('plugins/vim-projectionist')

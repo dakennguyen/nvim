@@ -112,7 +112,7 @@ require('lualine').setup {
     lualine_x = {
       {
         'diagnostics',
-        sources = { 'nvim_lsp', 'ale' },
+        sources = { 'nvim_lsp' },
       },
       lspserver,
     },

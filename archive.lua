@@ -26,6 +26,8 @@ use 'szw/vim-maximizer'
 use 'benmills/vimux'
 use 'akinsho/nvim-toggleterm.lua'
 use 'famiu/feline.nvim'
+use 'dense-analysis/ale'
+use 'galooshi/vim-import-js'
 
 -- ==========================================
 -- use 'ntpeters/vim-better-whitespace'
@@ -68,3 +70,15 @@ map('v', 'Zz', '<ESC>:MaximizerToggle<CR>gv', { silent = true })
 vim.g.VimuxOrientation = "h"
 vim.g.VimuxHeight = "30"
 map('n', '!', ':VimuxPromptCommand<CR>')
+
+-- autocmd ColorScheme * hi ALEWarning guifg=#EBCB8B
+-- autocmd ColorScheme * hi ALEError guifg=#BF616A
+-- autocmd ColorScheme * hi ALEWarningSign guifg=#EBCB8B
+-- autocmd ColorScheme * hi ALEErrorSign guifg=#BF616A
+
+-- autocmd ColorScheme * hi CocWarningHighlight guifg=#EBCB8B
+-- autocmd ColorScheme * hi CocErrorHighlight guifg=#BF616A
+-- autocmd ColorScheme * hi CocWarningSign guifg=#EBCB8B
+-- autocmd ColorScheme * hi CocErrorSign guifg=#BF616A
+-- autocmd ColorScheme * hi CocInfoSign guifg=#88C0D0
+-- autocmd ColorScheme * hi CocHintSign guifg=#5E81AC
