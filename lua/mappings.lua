@@ -64,10 +64,16 @@ map('t', '<leader>z', '<C-\\><C-N><C-W>_<C-W><Bar>i')
 -- tag
 map('n', '<c-]>]',     'g<c-]>')
 map('n', '<c-]><c-]>', 'g<c-]>')
+
 map('n', '<c-]>v',     '<c-w>vg<c-]>')
 map('n', '<c-]><c-v>', '<c-w>vg<c-]>')
+
 map('n', '<c-]>s',     '<c-w>g<c-]>')
 map('n', '<c-]><c-s>', '<c-w>g<c-]>')
+
+map('n', '<c-]>t',     '<c-w>g<c-]><c-w>T')
+map('n', '<c-]><c-t>', '<c-w>g<c-]><c-w>T')
+
 map('n', '<c-w>}',     '<c-w>g}')
 
 -- tab
