@@ -9,7 +9,7 @@ require('packer').startup(function()
 
   -- Group: Theme
   use { 'kyazdani42/nvim-web-devicons', config = "require'nvim-web-devicons'.setup {}" }
-  use 'shadmansaleh/lualine.nvim'
+  use 'famiu/feline.nvim'
   use 'shaunsingh/nord.nvim'
 
   -- Group: TPope
@@ -64,15 +64,16 @@ end)
 require('settings')
 require('mappings')
 require('functions')
+require('theme')
 
 require('plugins/autopairs')
 require('plugins/bqf')
 require('plugins/compe')
 require('plugins/dashboard')
+require('plugins/feline')
 require('plugins/gitsigns')
 require('plugins/hop')
 require('plugins/lspconfig')
-require('plugins/lualine')
 require('plugins/navigator')
 require('plugins/telescope')
 require('plugins/treesitter')
@@ -87,5 +88,3 @@ require('plugins/vim-projectionist')
 require('plugins/vim-splitjoin')
 require('plugins/vim-taboo')
 require('plugins/vim-test')
-
-require('theme')

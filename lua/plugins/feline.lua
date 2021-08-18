@@ -94,18 +94,18 @@ local default_color = {
 
 local nord = {
   default_fg = "#8FBCBB",
-  default_bg = "#3a4252",
+  default_bg = "#3A4252",
   colors = {
-    bg1 = "#3b4252",
-    bg2 = "#4c566a",
-    dark = "#2e3440",
-    light = "#d8dee9",
-    normal = "#87c0d0",
-    visual = "#a3be8c",
+    bg1 = "#3B4252",
+    bg2 = "#4C566A",
+    dark = "#2E3440",
+    light = "#D8DEE9",
+    normal = "#87C0D0",
+    visual = "#D08770",
     insert = "#5E81AC",
-    replace = "#bf616a",
+    replace = "#BF616A",
     command = "#B48EAD",
-    op = "#D08770",
+    op = "#A3BE8C",
   },
 }
 
