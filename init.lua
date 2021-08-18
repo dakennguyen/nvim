@@ -26,7 +26,10 @@ require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-compe'
   use 'ludovicchabant/vim-gutentags'
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    event = 'FileType javascript,javascriptreact,typescript,typescriptreact',
+  }
   use 'andymass/vim-matchup'
 
   -- Group: Framework support
@@ -34,7 +37,10 @@ require('packer').startup(function()
 
   -- Group: Text
   use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
+  use {
+    'windwp/nvim-ts-autotag',
+    event = 'FileType javascript,javascriptreact,typescript,typescriptreact',
+  }
   use 'AndrewRadev/splitjoin.vim'
   use 'junegunn/vim-easy-align'
 
