@@ -23,6 +23,7 @@ map('n', '<leader>q', ':close<cr><c-w><c-p>', { silent = true })
 map('t', '<leader>q', '<C-\\><C-N>:bd!<CR>',  { silent = true })
 vim.cmd[[
 augroup Quit
+  autocmd!
   autocmd BufReadPost quickfix nnoremap <silent> <buffer> <leader>q :q<CR>
   autocmd TermOpen * nnoremap <silent> <buffer> <leader>q :bd!<CR><c-w><c-p>
   autocmd FileType fugitive nmap <buffer> <leader>q gq

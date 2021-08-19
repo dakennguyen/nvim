@@ -4,6 +4,7 @@ require('nord').set()
 
 vim.cmd[[
 augroup Theme
+  autocmd!
   autocmd ColorScheme * hi Folded guifg=#4C566A guibg=NONE gui=italic
   autocmd ColorScheme * hi IncSearch guifg=white guibg=NONE
   autocmd ColorScheme * hi Search guifg=white guibg=NONE gui=underline,bold

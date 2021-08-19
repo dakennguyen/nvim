@@ -77,6 +77,7 @@ o.smartcase = true
 -- term
 vim.cmd[[
 augroup General
+  autocmd!
   autocmd TermOpen * startinsert
   autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
@@ -98,7 +99,10 @@ if has('nvim')
   let $GIT_EDITOR = 'nvr -cc vsplit --remote-wait'
 endif
 
-autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+augroup Nvr
+  autocmd!
+  autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+augroup END
 ]]
 
 g.mapleader = ','
