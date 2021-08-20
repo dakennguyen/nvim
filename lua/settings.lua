@@ -59,6 +59,7 @@ o.switchbuf:append { 'useopen' }
 o.encoding = 'UTF-8'
 o.laststatus=2
 o.termguicolors = true
+o.showmode = false
 
 -- Fold
 o.foldenable = true

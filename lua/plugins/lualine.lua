@@ -3,37 +3,18 @@
 -- Credit: glepnir
 local lualine = require 'lualine'
 
--- Color table for highlights
-local colors = {
-  bg = '#2E3440',
-  fg = '#bbc2cf',
-  yellow = '#ECBE7B',
-  cyan = '#008080',
-  darkblue = '#081633',
-  green = '#98be65',
-  orange = '#FF8800',
-  violet = '#a9a1e1',
-  magenta = '#c678dd',
-  blue = '#51afef',
-  red = '#ec5f67'
-}
-
 local nord = {
-  default_fg = "#8FBCBB",
-  default_bg = "#3a4252",
-  bg1 = "#3b4252",
-  bg2 = "#4c566a",
-  dark = "#2e3440",
-  light = "#d8dee9",
-  normal = "#87c0d0",
-  visual = "#a3be8c",
+  default_fg = "#87C0D0",
+  default_bg = "#2E3440",
+  light = "#BBC2CF",
+  visual = "#D08770",
   insert = "#5E81AC",
-  replace = "#bf616a",
+  replace = "#BF616A",
   command = "#B48EAD",
-  op = "#D08770",
+  op = "#A3BE8C",
   yellow = "#EBCB8B",
-  white = "#ECEFF4",
-  dark = "#2E3440"
+  inactive = "#616E88",
+  white = "#FFFFFF"
 }
 
 local conditions = {
@@ -56,9 +37,21 @@ local config = {
       -- We are going to use lualine_c an lualine_x as left and
       -- right section. Both are highlighted by c theme .  So we
       -- are just setting default looks o statusline
-      normal = {c = {fg = nord.light, bg = nord.dark}},
-      inactive = {c = {fg = nord.light, bg = nord.dark}}
-    }
+      normal = {c = {fg = nord.default_fg, bg = nord.default_bg}},
+      insert = {c = {fg = nord.insert, bg = nord.default_bg}},
+      visual = {c = {fg = nord.visual, bg = nord.default_bg}},
+      replace = {c = {fg = nord.replace, bg = nord.default_bg}},
+      command = {c = {fg = nord.command, bg = nord.default_bg}},
+      terminal = {c = {fg = nord.op, bg = nord.default_bg}},
+      inactive = {c = {fg = nord.inactive, bg = nord.default_bg}}
+    },
+    disabled_filetypes = {
+      'packer',
+      'dashboard',
+      'dirvish',
+      'fugitive',
+      'fugitiveblame',
+    },
   },
   sections = {
     -- these are to remove the defaults
@@ -86,12 +79,10 @@ local config = {
 --#############################################
 table.insert(config.inactive_sections.lualine_c, {
   function() return '▊' end,
-  color = {fg = nord.insert},
   left_padding = 0 -- We don't need space before this
 })
 table.insert(config.inactive_sections.lualine_c, {
   'filename',
-  color = {fg = nord.insert, gui = 'bold'}
 })
 
 --#############################################
@@ -110,41 +101,11 @@ end
 
 ins_left {
   function() return '▊' end,
-  color = {fg = nord.insert}, -- Sets highlighting of component
   left_padding = 0 -- We don't need space before this
 }
 
 ins_left {
-  -- mode component
-  function()
-    -- auto change color according to neovims mode
-    local mode_color = {
-      n = nord.normal,
-      i = nord.insert,
-      [''] = nord.visual,
-      V = nord.visual,
-      c = nord.command,
-      no = colors.red,
-      s = colors.orange,
-      S = colors.orange,
-      [''] = colors.orange,
-      ic = colors.yellow,
-      R = nord.replace,
-      Rv = colors.violet,
-      cv = colors.red,
-      ce = colors.red,
-      r = colors.cyan,
-      rm = colors.cyan,
-      ['r?'] = colors.cyan,
-      ['!'] = colors.red,
-      t = colors.red
-    }
-    vim.api.nvim_command(
-        'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..
-            nord.dark)
-    return '⚫'
-  end,
-  color = "LualineMode",
+  'mode',
   left_padding = 0
 }
 
@@ -166,26 +127,23 @@ ins_left {
     if string.len(file) == 0 then return '' end
     return format_file_size(file)
   end,
+  color = {fg = nord.light},
   condition = conditions.buffer_not_empty
 }
 
 ins_left {
   'filename',
   condition = conditions.buffer_not_empty,
-  color = {fg = nord.default_fg, gui = 'bold'}
 }
 
-ins_left {'location'}
-
-ins_left {'progress', color = {fg = colors.fg, gui = 'bold'}}
+ins_left {
+  'location',
+  color = {fg = nord.light},
+}
 
 ins_left {
-  'diagnostics',
-  sources = {'nvim_lsp'},
-  symbols = {error = ' ', warn = ' ', info = ' '},
-  color_error = colors.red,
-  color_warn = colors.yellow,
-  color_info = colors.cyan
+  'progress',
+  color = {fg = nord.white, gui = 'bold'}
 }
 
 -- Insert mid section. You can make any number of sections in neovim :)
@@ -195,20 +153,27 @@ ins_left {function() return '%=' end}
 ins_left {
   -- Lsp server name .
   function()
-    local msg = 'N/A'
+    local icon = '  '
     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
     local clients = vim.lsp.get_active_clients()
-    if next(clients) == nil then return msg end
+    if next(clients) == nil then return '' end
     for _, client in ipairs(clients) do
       local filetypes = client.config.filetypes
       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
+        return icon .. client.name
       end
     end
-    return msg
+    return ''
   end,
-  icon = ' ',
-  color = {fg = '#ffffff', gui = 'bold'}
+  color = {fg = nord.light, gui = 'bold'}
+}
+ins_left {
+  'diagnostics',
+  sources = {'nvim_lsp'},
+  symbols = {error = ' ', warn = ' ', info = ' '},
+  color_error = { fg = nord.replace },
+  color_warn = { fg = nord.yellow },
+  color_info = { fg = nord.op },
 }
 
 -- Add components to right sections
@@ -222,7 +187,7 @@ ins_right {
 ins_right {
   'filetype',
   colored = false,
-  icons_enabled = false,
+  icons_enabled = true,
   color = { fg = nord.yellow, gui = 'bold' }
 }
 
@@ -242,18 +207,11 @@ ins_right {
 
 ins_right {
   'diff',
-  -- Is it me or the symbol for modified us really weird
   symbols = {added = ' ', modified = '柳', removed = ' '},
-  color_added = nord.visual,
-  color_modified = nord.yellow,
-  color_removed = nord.replace,
-  condition = conditions.hide_in_width
-}
-
-ins_right {
-  function() return '▊' end,
-  color = {fg = nord.insert},
-  right_padding = 0
+  color_added = { fg = nord.op },
+  color_modified = { fg = nord.yellow },
+  color_removed = { fg = nord.replace },
+  condition = conditions.hide_in_width,
 }
 
 -- Now don't forget to initialize lualine

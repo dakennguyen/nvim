@@ -25,7 +25,7 @@ use 'arecarn/vim-fold-cycle'
 use 'szw/vim-maximizer'
 use 'benmills/vimux'
 use 'akinsho/nvim-toggleterm.lua'
-use 'shadmansaleh/lualine.nvim'
+use 'famiu/feline.nvim'
 use 'dense-analysis/ale'
 use 'galooshi/vim-import-js'
 
