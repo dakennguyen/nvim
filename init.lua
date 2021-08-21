@@ -55,7 +55,7 @@ require('packer').startup(function()
 
   -- Group: Visual
   use 'gcmt/taboo.vim'
-  use { 'norcalli/nvim-colorizer.lua', config = "require'colorizer'.setup()" }
+  use 'norcalli/nvim-colorizer.lua'
 
   -- Group: Git
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
@@ -74,6 +74,7 @@ require('theme')
 
 require('plugins/autopairs')
 require('plugins/bqf')
+require('plugins/colorizer')
 require('plugins/compe')
 require('plugins/dashboard')
 require('plugins/gitsigns')
