@@ -25,7 +25,7 @@ vim.cmd[[
 augroup Quit
   autocmd!
   autocmd BufReadPost quickfix nnoremap <silent> <buffer> <leader>q :q<CR>
-  autocmd TermOpen * nnoremap <silent> <buffer> <leader>q :bd!<CR><c-w><c-p>
+  autocmd TermOpen * nnoremap <silent> <buffer> <leader>q <C-^>:bd!#<CR><c-w>p
   autocmd FileType fugitive nmap <buffer> <leader>q gq
 augroup END
 ]]
