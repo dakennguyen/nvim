@@ -104,9 +104,6 @@ map('n', '<space>fw', '<CMD>Telescope grep_string<CR>')
 map('v', '<space>fw', [[y:Tgrep <C-R>"<cr>]])
 map('n', '<space>f]', [[yiw<CMD>Telescope tags<CR><C-R>"<CR>]])
 
--- Git
-map('n', '<leader>gc', '<CMD>Telescope git_branches<CR>')
-
 -- Search
 map('n', '//', '<CMD>Telescope current_buffer_fuzzy_find<CR>', { silent = true })
 -- map('n', '\\', '<CMD>Telescope live_grep<CR>')
