@@ -137,12 +137,12 @@ ins_left {
 }
 
 ins_left {
-  'location',
+  'progress',
   color = {fg = nord.light},
 }
 
 ins_left {
-  'progress',
+  'location',
   color = {fg = nord.white, gui = 'bold'}
 }
 
@@ -171,9 +171,6 @@ ins_left {
   'diagnostics',
   sources = {'nvim_lsp'},
   symbols = {error = ' ', warn = ' ', info = ' '},
-  color_error = { fg = nord.replace },
-  color_warn = { fg = nord.yellow },
-  color_info = { fg = nord.op },
 }
 
 -- Add components to right sections
