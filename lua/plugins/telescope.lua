@@ -44,12 +44,14 @@ require('telescope').setup{
       previewer = false,
       mappings = {
         i = {
-          ["<cr>"] = "select_horizontal",
           ["<c-d>"] = "delete_buffer",
         },
       }
     },
     find_files = {
+      theme = "ivy"
+    },
+    git_files = {
       theme = "ivy"
     },
     help_tags = {
@@ -65,10 +67,6 @@ require('telescope').setup{
       theme = "ivy",
     },
     tagstack = {
-      theme = "dropdown",
-      previewer = false,
-    },
-    git_branches = {
       theme = "dropdown",
       previewer = false,
     },
@@ -91,7 +89,7 @@ require('telescope').load_extension('fzf')
 vim.cmd[[command! -nargs=? Tgrep lua require 'telescope.builtin'.grep_string({ search = <q-args> })]]
 
 -- Files
-map('n', '<space>ff', '<CMD>Telescope find_files hidden=true follow=true<CR>')
+map('n', '<space>ff', '<CMD>Telescope git_files<CR>')
 map('n', '<space>fd', [[:lua require('telescope.builtin').find_files({search_dirs = {"%:p:h"}, follow = true})<CR>]])
 map('n', '<space>fb', '<CMD>Telescope buffers<CR>')
 map('n', '<space>fo', '<CMD>Telescope oldfiles<CR>')
@@ -100,11 +98,9 @@ map('n', '<space>fq', '<CMD>Telescope quickfix<CR>')
 map('n', '<space>fh', '<CMD>Telescope help_tags<CR>')
 map('n', '<space>fm', '<CMD>Telescope keymaps<CR>')
 map('n', '<space>fw', '<CMD>Telescope grep_string<CR>')
--- map('v', '<space>fw', [[y:lua require('telescope.builtin').grep_string({search = '<C-R>=escape(@",'/\')<CR>'})<CR>]])
 map('v', '<space>fw', [[y:Tgrep <C-R>"<cr>]])
 map('n', '<space>f]', [[yiw<CMD>Telescope tags<CR><C-R>"<CR>]])
 
 -- Search
 map('n', '//', '<CMD>Telescope current_buffer_fuzzy_find<CR>', { silent = true })
--- map('n', '\\', '<CMD>Telescope live_grep<CR>')
 map('n', '\\', ':Tgrep ')
