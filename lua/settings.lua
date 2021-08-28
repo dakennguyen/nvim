@@ -2,10 +2,10 @@ local o = vim.opt
 local g = vim.g
 
 local disabled_built_ins = {
-   "netrw",
-   "netrwPlugin",
-   "netrwSettings",
-   "netrwFileHandlers",
+   -- "netrw",
+   -- "netrwPlugin",
+   -- "netrwSettings",
+   -- "netrwFileHandlers",
    "gzip",
    "zip",
    "zipPlugin",
@@ -93,6 +93,9 @@ o.backup = false
 o.writebackup = false
 o.updatetime = 300
 o.shortmess:append { c = true }         -- set shortmess+=c
+
+-- netrw
+g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
 -- nvr
 vim.cmd[[

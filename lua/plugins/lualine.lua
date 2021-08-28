@@ -48,7 +48,7 @@ local config = {
     disabled_filetypes = {
       'packer',
       'dashboard',
-      'dirvish',
+      'netrw',
       'fugitive',
       'fugitiveblame',
     },

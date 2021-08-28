@@ -18,6 +18,7 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-commentary'
+  use 'tpope/vim-vinegar'
   use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
   use { 'dakennguyen/vim-unimpaired', branch = 'minimal' }
 
@@ -47,7 +48,6 @@ require('packer').startup(function()
   -- Group: Files manager
   use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'justinmk/vim-dirvish'
 
   -- Group: Navigator
   use 'phaazon/hop.nvim'
@@ -85,7 +85,6 @@ require('plugins/navigator')
 require('plugins/telescope')
 require('plugins/treesitter')
 
-require('plugins/vim-dirvish')
 require('plugins/vim-easy-align')
 require('plugins/vim-fugitive')
 require('plugins/vim-gutentags')
