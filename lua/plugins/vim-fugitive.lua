@@ -13,7 +13,7 @@ map('n', 'gb', ':Git blame<CR>',                                                
 map('n', '<leader>gl', ':Gclog! -n 50<cr>',                                             { silent = true }) -- Git log
 map('n', '<leader>gg', ':tab Git log --oneline --graph --decorate --abbrev-commit<CR>', { silent = true }) -- Git log
 map('n', '<leader>gd', ':Gdiffsplit<CR>')                                                                  -- Git diff
-map('n', '<leader>gs', ':Gclog! -g stash<CR>',                                          { silent = true }) -- Git stash
+map('n', '<leader>gz', ':Gclog! -g stash<CR>',                                          { silent = true }) -- Git stash
 map('n', '<leader>gt', ':0Gclog!<CR>',                                                  { silent = true }) -- Git time machine
 map('n', '<leader>gx', ':GBrowse<CR>',                                                  { silent = true }) -- Git Browse
 map('v', '<leader>gx', ':GBrowse<CR>',                                                  { silent = true }) -- Git Browse in Visual mode
