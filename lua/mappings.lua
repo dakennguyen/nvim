@@ -4,8 +4,6 @@ map('n', '<space>so', ':source %<CR>:PackerCompile<cr>')
 map('n', '<leader><space>', ':noh<cr>', { silent = true })
 map('n', '<leader>s', ':w<cr>', { silent = true })
 map('n', '<leader>a', '<C-^>')
-map('i', '<c-h>', '<bs>', { noremap = false })
-map('i', '<c-l>', '<del>', { noremap = false })
 map('n', 'Y', 'y$')
 map('n', '!', ':botright 20 new | term<cr>')
 
