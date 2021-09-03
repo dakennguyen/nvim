@@ -65,7 +65,6 @@ require('packer').startup(function()
   use 'kevinhwang91/nvim-bqf'
   use 'glepnir/dashboard-nvim'
   use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
-  use 'tweekmonster/startuptime.vim'
 end)
 
 require('settings')
