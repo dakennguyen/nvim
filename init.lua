@@ -29,7 +29,7 @@ require('packer').startup(function()
   use 'ludovicchabant/vim-gutentags'
   use {
     'JoosepAlviste/nvim-ts-context-commentstring',
-    event = 'FileType javascript,javascriptreact,typescript,typescriptreact',
+    ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' }
   }
   use 'andymass/vim-matchup'
 
@@ -40,7 +40,7 @@ require('packer').startup(function()
   use 'windwp/nvim-autopairs'
   use {
     'windwp/nvim-ts-autotag',
-    event = 'FileType javascript,javascriptreact,typescript,typescriptreact',
+    ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' }
   }
   use 'AndrewRadev/splitjoin.vim'
   use 'junegunn/vim-easy-align'
