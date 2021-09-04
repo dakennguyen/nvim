@@ -6,6 +6,7 @@ nnoremap <buffer> cH<space> :Git fetch --all<space>
 nnoremap <buffer> [ou :Git branch -u origin/<c-r>=system('git branch --show-current')<CR><BS><CR>
 nnoremap <buffer> ]ou :Git branch -u origin/HEAD<CR>
 
-nnoremap <buffer><nowait> gc :Merginal<CR>
+nnoremap <buffer><nowait> go :Merginal<CR>
 nnoremap <buffer><silent> <leader>gz :Gclog -g stash<CR>
-nnoremap <buffer><silent> <leader>gl :Gclog -n 50<CR>
+nnoremap <buffer><silent> <leader>gc :Gclog -n 50<CR>
+nnoremap <buffer><silent> <leader>gd :Git diff origin/HEAD..HEAD<CR>
