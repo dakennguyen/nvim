@@ -1,5 +1,5 @@
-nnoremap <buffer> cp<space> :Git pull<space>
-nnoremap <buffer> cP<space> :Git push<space>
+nnoremap <buffer> cl<space> :Git pull<space>
+nnoremap <buffer> cp<space> :Git push<space>
 nnoremap <buffer> ch<space> :Git fetch<space>
 nnoremap <buffer> cH<space> :Git fetch --all<space>
 
