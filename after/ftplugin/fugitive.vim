@@ -7,6 +7,6 @@ nnoremap <buffer> [ou :Git branch -u origin/<c-r>=system('git branch --show-curr
 nnoremap <buffer> ]ou :Git branch -u origin/HEAD<CR>
 
 nnoremap <buffer><nowait> go :Merginal<CR>
-nnoremap <buffer><silent> <leader>gz :Gclog -g stash<CR>
-nnoremap <buffer><silent> <leader>gc :Gclog -n 50<CR>
-nnoremap <buffer><silent> <leader>gd :Git diff origin/HEAD..HEAD<CR>
+nnoremap <buffer><silent> <leader>gz <c-w>v:Gclog -g stash<CR><c-w>p
+nnoremap <buffer><silent> <leader>gc <c-w>v:Gclog -n 50<CR><c-w>p
+nnoremap <buffer><silent> <leader>gd :vert Git diff origin/HEAD..HEAD<CR>
