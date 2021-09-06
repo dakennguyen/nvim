@@ -5,7 +5,7 @@ map('n', '<leader><space>', ':noh<cr>', { silent = true })
 map('n', '<leader>s', ':w<cr>', { silent = true })
 map('n', '<leader>a', '<C-^>')
 map('n', 'Y', 'y$')
-map('n', '!', ':botright 20 new | term<cr>')
+map('n', '!', ':R !')
 
 -- gj, gk
 -- map('n', 'j', 'gj')
