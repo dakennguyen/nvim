@@ -10,11 +10,11 @@
 vim.opt.diffopt:append { 'vertical' }
 map('n', 'gs', ':tab G | tabmove -1<CR>',                                               { silent = true }) -- Git status
 map('n', 'gb', ':Git blame<CR>',                                                        { silent = true }) -- Git blame
-map('n', '<leader>gc', ':Gclog! -n 50<cr>',                                             { silent = true }) -- Git log
+map('n', '<leader>gc', ':Gclog! -n 50<cr><c-w>p',                                       { silent = true }) -- Git log
 map('n', '<leader>gg', ':tab Git log --oneline --graph --decorate --abbrev-commit<CR>', { silent = true }) -- Git log
 map('n', '<leader>gd', ':Gdiffsplit<CR>')                                                                  -- Git diff
-map('n', '<leader>gz', ':Gclog! -g stash<CR>',                                          { silent = true }) -- Git stash
-map('n', '<leader>gt', ':0Gclog!<CR>',                                                  { silent = true }) -- Git time machine
+map('n', '<leader>gz', ':Gclog! -g stash<CR><c-w>p',                                    { silent = true }) -- Git stash
+map('n', '<leader>gt', ':0Gclog!<CR><c-w>p',                                            { silent = true }) -- Git time machine
 map('n', '<leader>gx', ':GBrowse<CR>',                                                  { silent = true }) -- Git Browse
 map('v', '<leader>gx', ':GBrowse<CR>',                                                  { silent = true }) -- Git Browse in Visual mode
 
