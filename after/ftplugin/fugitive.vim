@@ -2,6 +2,7 @@ nnoremap <buffer> cl<space> :Git pull<space>
 nnoremap <buffer> cp<space> :Git push<space>
 nnoremap <buffer> ch<space> :Git fetch<space>
 nnoremap <buffer> cH<space> :Git fetch --all<space>
+nnoremap <buffer> cd<space> :vert Git diff<space>
 
 nnoremap <buffer> [ou :Git branch -u origin/<c-r>=system('git branch --show-current')<CR><BS><CR>
 nnoremap <buffer> ]ou :Git branch -u origin/HEAD<CR>
