@@ -1,6 +1,5 @@
 local npairs = require('nvim-autopairs')
 local Rule   = require'nvim-autopairs.rule'
-local endwise = require('nvim-autopairs.ts-rule').endwise
 
 npairs.setup{
   ignored_next_char = "[%w%:%.]"
@@ -33,9 +32,6 @@ npairs.add_rules {
 }
 
 npairs.add_rules(require('nvim-autopairs.rules.endwise-ruby'))
-npairs.add_rules({
-  endwise('@', '@end', 'norg', nil),
-})
 
 require('nvim-autopairs.completion.compe').setup({
   map_cr = true,

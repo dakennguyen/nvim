@@ -64,7 +64,7 @@ require('packer').startup(function()
   -- Group: Miscellaneous
   use 'kevinhwang91/nvim-bqf'
   use 'glepnir/dashboard-nvim'
-  use 'vhyrro/neorg'
+  use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
 end)
 
 require('settings')
@@ -82,7 +82,6 @@ require('plugins/hop')
 require('plugins/lspconfig')
 require('plugins/lualine')
 require('plugins/navigator')
-require('plugins/neorg')
 require('plugins/telescope')
 require('plugins/treesitter')
 
@@ -91,6 +90,7 @@ require('plugins/vim-fugitive')
 require('plugins/vim-gutentags')
 require('plugins/vim-matchup')
 require('plugins/vim-merginal')
+require('plugins/vim-notes')
 require('plugins/vim-projectionist')
 require('plugins/vim-splitjoin')
 require('plugins/vim-taboo')

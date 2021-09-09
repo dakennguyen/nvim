@@ -17,7 +17,6 @@ require('compe').setup({
     path = true,
     buffer = true,
     nvim_lsp = true,
-    neorg = true,
   },
 })
 
