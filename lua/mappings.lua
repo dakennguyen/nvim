@@ -110,6 +110,3 @@ map('n', '<leader>fyN', [[:let @+=expand("%:t") | echo @+<CR>]] ,   { silent = t
 
 -- open files
 map('n', '<space>gs', ':topleft 18 new ~/.dotfiles/scratch.vim<CR>', { silent = true })
-map('n', '<space>gvv', ':botright vsplit ~/.config/nvim/init.lua<cr>')
-map('n', '<space>gvm', ':botright vsplit ~/.config/nvim/lua/mappings.lua<cr>')
-map('n', '<space>gvs', ':botright vsplit ~/.config/nvim/lua/settings.lua<cr>')

@@ -45,13 +45,7 @@ local config = {
       terminal = {c = {fg = nord.op, bg = nord.default_bg}},
       inactive = {c = {fg = nord.inactive, bg = nord.default_bg}}
     },
-    disabled_filetypes = {
-      'packer',
-      'dashboard',
-      'netrw',
-      'fugitive',
-      'fugitiveblame',
-    },
+    disabled_filetypes = {},
   },
   sections = {
     -- these are to remove the defaults
