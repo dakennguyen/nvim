@@ -109,4 +109,7 @@ augroup Nvr
 augroup END
 ]]
 
+-- markdown
+g.markdown_fenced_languages = { 'ruby', 'sql', 'bash' }
+
 g.mapleader = ','

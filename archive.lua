@@ -28,6 +28,7 @@ use 'akinsho/nvim-toggleterm.lua'
 use 'famiu/feline.nvim'
 use 'dense-analysis/ale'
 use 'galooshi/vim-import-js'
+use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
 
 -- ==========================================
 -- use 'ntpeters/vim-better-whitespace'

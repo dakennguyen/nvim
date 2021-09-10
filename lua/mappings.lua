@@ -109,4 +109,8 @@ map('n', '<leader>fyN', [[:let @+=expand("%:t") | echo @+<CR>]] ,   { silent = t
 -- map('n', '<leader>fyl', [[ :let @+=expand("%").":".line(".") | echo @+<CR> ]] , { silent = true }) -- File > Copy > Relative File Path with Line number
 
 -- open files
-map('n', '<space>gs', ':topleft 18 new ~/.dotfiles/scratch.vim<CR>', { silent = true })
+map('n', '<space>gs', ':topleft 18 new ~/Library/Mobile Documents/com~apple~CloudDocs/Notes/scratch.vim<CR>', { silent = true })
+map('n', '<space>gn', ':vert botright 80 new ~/Library/Mobile Documents/com~apple~CloudDocs/Notes/<cr>', { silent = true })
+
+-- open files in chrome
+map('n', '<leader>fp', [[<cmd>!open -a 'google chrome' '%:p'<cr>]], { silent = true })
