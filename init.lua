@@ -21,6 +21,7 @@ require('packer').startup(function()
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-commentary'
   use 'tpope/vim-vinegar'
+  use 'tpope/vim-bundler'
   use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
   use { 'dakennguyen/vim-unimpaired', branch = 'minimal' }
 
