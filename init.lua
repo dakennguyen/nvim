@@ -1,3 +1,5 @@
+local start_time = vim.fn.reltime()
+
 function map(mode, lhs, rhs, opts)
   local options = { noremap = true }
   if opts then options = vim.tbl_extend('force', options, opts) end
@@ -93,3 +95,5 @@ require('plugins/vim-projectionist')
 require('plugins/vim-splitjoin')
 require('plugins/vim-taboo')
 require('plugins/vim-test')
+
+print('Loaded in ' .. vim.fn.printf('%.3f', vim.fn.reltimefloat(vim.fn.reltime(start_time))) .. ' seconds.')
