@@ -44,3 +44,15 @@ map('i', '<c-x><c-k>',
   "}))",
   { expr = true }
 )
+
+map('n', '<space>ff', [[:call fzf#vim#files('.', {'options': g:fzf_preview_source})<CR>]])
+map('n', '<space>fd', [[:Files %:p:h<CR>]])
+map('n', '<space>fb', [[:Buffers<CR>]])
+map('n', '<space>fo', [[:History<CR>]])
+map('n', '<space>fh', [[:Helptags<CR>]])
+map('n', '<space>fm', [[:Maps<CR>]])
+map('n', '<space>fw', [[:Rg <C-R><C-W><CR>]])
+map('v', '<space>fw', [[y:Rg <C-R>=escape(@",'/\')<CR><CR>]])
+
+map('n', '//', ':BLines<CR>')
+map('n', '\\', ':Rg')
