@@ -1,5 +1,3 @@
-use 'tpope/vim-endwise'
-use 'tpope/vim-vinegar'
 use 'tpope/vim-abolish'
 
 use 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
@@ -18,15 +16,8 @@ use 'junegunn/fzf.vim'
 
 use 'ntpeters/vim-better-whitespace'
 use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
-use 'karb94/neoscroll.nvim'
 use 'junegunn/gv.vim'
-use 'arecarn/vim-clean-fold'
-use 'arecarn/vim-fold-cycle'
-use 'szw/vim-maximizer'
 use 'benmills/vimux'
-use 'akinsho/nvim-toggleterm.lua'
-use 'famiu/feline.nvim'
-use 'dense-analysis/ale'
 use 'galooshi/vim-import-js'
 use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
 
@@ -45,25 +36,11 @@ vim.g.better_whitespace_filetypes_blacklist={ 'diff', 'gitcommit', 'unite', 'qf'
 -- ==========================================
 map('n', '<leader>fp', [[:MarkdownPreview<CR>]], { silent = true })
 
-require('plugins/neoscroll')
-
 -- ==========================================
 -- use 'junegunn/gv.vim'
 -- ==========================================
 map('n', '<leader>gv', ':GV!<CR>', { silent = true })             -- GV
 map('v', '<leader>gv', ':GV<CR>',  { silent = true })             -- GV in Visual mode
-
--- ==========================================
--- use 'arecarn/vim-clean-fold'
--- ==========================================
-vim.opt.foldtext = [[clean_fold#fold_text('_')]]
-
--- ==========================================
--- use 'szw/vim-maximizer'
--- ==========================================
-vim.g.maximizer_set_default_mapping = 0
-map('n', 'Zz', ':MaximizerToggle<CR>', { silent = true })
-map('v', 'Zz', '<ESC>:MaximizerToggle<CR>gv', { silent = true })
 
 -- ==========================================
 -- use 'benmills/vimux'
