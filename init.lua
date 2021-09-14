@@ -71,7 +71,7 @@ end)
 
 require('settings')
 require('mappings')
-require('functions')
+require('commands')
 require('theme')
 
 require('plugins/autopairs')
