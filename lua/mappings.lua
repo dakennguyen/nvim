@@ -53,10 +53,6 @@ map('n', '<leader>l', ':lopen<cr>', { silent = true })
 -- fold
 -- map('n', '<cr>', 'za')
 
--- zoom
-map('n', '<leader>z', '<C-W>_<C-W><Bar>')
-map('t', '<leader>z', '<C-\\><C-N><C-W>_<C-W><Bar>i')
-
 -- tag
 map('n', '<c-]>]',     'g<c-]>')
 map('n', '<c-]><c-]>', 'g<c-]>')
