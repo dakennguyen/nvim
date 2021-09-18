@@ -1,5 +1,5 @@
 vim.g["test#strategy"] = "neovim"
-vim.g["test#neovim#term_position"] = 'vert'
+vim.g["test#neovim#term_position"] = 'botright 10'
 
 vim.g['test#ruby#bundle_exec'] = 1
 vim.g['test#ruby#use_binstubs'] = 0

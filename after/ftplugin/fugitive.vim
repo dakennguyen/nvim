@@ -1,7 +1,9 @@
+unmap <buffer> q
+
 nnoremap <buffer> cl<space> :Git pull<space>
 nnoremap <buffer> cp<space> :Git push<space>
 nnoremap <buffer> ch<space> :Git fetch<space>
-nnoremap <buffer> cH<space> :Git fetch --all<space>
+nnoremap <buffer> cH<space> :Git remote update origin --prune<space>
 nnoremap <buffer> cd<space> :vert Git diff<space>
 
 nnoremap <buffer> [ou :Git branch -u origin/<c-r>=system('git branch --show-current')<CR><BS><CR>

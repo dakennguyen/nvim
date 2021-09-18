@@ -70,6 +70,10 @@ require('packer').startup(function()
   use 'glepnir/dashboard-nvim'
 end)
 
+map('n', '<space>ps', ':PackerSync<cr>')
+map('n', '<space>pi', ':PackerInstall<cr>')
+map('n', '<space>pc', ':PackerClean<cr>')
+
 require('settings')
 require('mappings')
 require('commands')
