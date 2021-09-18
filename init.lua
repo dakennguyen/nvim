@@ -63,6 +63,7 @@ require('packer').startup(function()
   -- Group: Git
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use 'idanarye/vim-merginal'
+  use 'junegunn/gv.vim'
 
   -- Group: Miscellaneous
   use 'kevinhwang91/nvim-bqf'
@@ -90,6 +91,7 @@ require('plugins/treesitter')
 require('plugins/vim-easy-align')
 require('plugins/vim-fugitive')
 require('plugins/vim-gutentags')
+require('plugins/vim-gv')
 require('plugins/vim-matchup')
 require('plugins/vim-merginal')
 require('plugins/vim-projectionist')

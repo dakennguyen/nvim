@@ -16,7 +16,6 @@ use 'junegunn/fzf.vim'
 
 use 'ntpeters/vim-better-whitespace'
 use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
-use 'junegunn/gv.vim'
 use 'benmills/vimux'
 use 'galooshi/vim-import-js'
 use { 'xolox/vim-notes', requires = 'xolox/vim-misc' }
@@ -35,12 +34,6 @@ vim.g.better_whitespace_filetypes_blacklist={ 'diff', 'gitcommit', 'unite', 'qf'
 -- use 'iamcco/markdown-preview.nvim'
 -- ==========================================
 map('n', '<leader>fp', [[:MarkdownPreview<CR>]], { silent = true })
-
--- ==========================================
--- use 'junegunn/gv.vim'
--- ==========================================
-map('n', '<leader>gv', ':GV!<CR>', { silent = true })             -- GV
-map('v', '<leader>gv', ':GV<CR>',  { silent = true })             -- GV in Visual mode
 
 -- ==========================================
 -- use 'benmills/vimux'
