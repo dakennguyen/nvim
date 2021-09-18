@@ -73,7 +73,7 @@ local config = {
 --#############################################
 table.insert(config.inactive_sections.lualine_c, {
   function() return '▊' end,
-  left_padding = 0 -- We don't need space before this
+  padding = { left = 0 }
 })
 table.insert(config.inactive_sections.lualine_c, {
   'filename',
@@ -95,12 +95,12 @@ end
 
 ins_left {
   function() return '▊' end,
-  left_padding = 0 -- We don't need space before this
+  padding = { left = 0 }
 }
 
 ins_left {
   'mode',
-  left_padding = 0
+  padding = { left = 0 }
 }
 
 ins_left {
@@ -122,12 +122,12 @@ ins_left {
     return format_file_size(file)
   end,
   color = {fg = nord.light},
-  condition = conditions.buffer_not_empty
+  cond = conditions.buffer_not_empty
 }
 
 ins_left {
   'filename',
-  condition = conditions.buffer_not_empty,
+  cond = conditions.buffer_not_empty,
 }
 
 ins_left {
@@ -170,8 +170,8 @@ ins_left {
 -- Add components to right sections
 ins_right {
   'o:encoding', -- option component same as &encoding in viml
-  upper = true, -- I'm not sure why it's upper case either ;)
-  condition = conditions.hide_in_width,
+  fmt = string.upper,
+  cond = conditions.hide_in_width,
   color = {fg = nord.default_fg, gui = 'bold'}
 }
 
@@ -184,7 +184,7 @@ ins_right {
 
 ins_right {
   'fileformat',
-  upper = true,
+  fmt = string.upper,
   icons_enabled = true,
   color = {fg = nord.default_fg, gui = 'bold'}
 }
@@ -192,17 +192,19 @@ ins_right {
 ins_right {
   'branch',
   icon = '',
-  condition = conditions.check_git_workspace,
+  cond = conditions.check_git_workspace,
   color = {fg = nord.replace, gui = 'bold'}
 }
 
 ins_right {
   'diff',
   symbols = {added = ' ', modified = '柳', removed = ' '},
-  color_added = { fg = nord.op },
-  color_modified = { fg = nord.yellow },
-  color_removed = { fg = nord.replace },
-  condition = conditions.hide_in_width,
+  diff_color = {
+    added = { fg = nord.op },
+    modified = { fg = nord.yellow },
+    removed = { fg = nord.replace },
+  },
+  cond = conditions.hide_in_width,
 }
 
 -- Now don't forget to initialize lualine
