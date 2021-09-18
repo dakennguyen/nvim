@@ -1,3 +1,6 @@
+" Redirect the output of a Vim or external command into a scratch buffer
+" Maintainer:   romainl - https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
+
 function! Redir(cmd, rng, start, end)
   for win in range(1, winnr('$'))
     if getwinvar(win, 'scratch')
