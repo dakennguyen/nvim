@@ -69,6 +69,7 @@ require('packer').startup(function()
   use 'kevinhwang91/nvim-bqf'
   use 'glepnir/dashboard-nvim'
   use { 'szw/vim-maximizer', config = "vim.g.maximizer_default_mapping_key = '<leader>z'" }
+  use 'diepm/vim-rest-console'
 end)
 
 map('n', '<space>ps', ':PackerSync<cr>')
@@ -100,6 +101,7 @@ require('plugins/vim-gv')
 require('plugins/vim-matchup')
 require('plugins/vim-merginal')
 require('plugins/vim-projectionist')
+require('plugins/vim-rest-console')
 require('plugins/vim-splitjoin')
 require('plugins/vim-taboo')
 require('plugins/vim-test')
