@@ -77,6 +77,7 @@ map('n', '<leader>t', ':tabnew<cr>', { silent = true })
 -- map('n', [[']], [["'" . nr2char(getchar()) . "zt"]], { expr = true })
 -- map('n', [[`]], [["`" . nr2char(getchar()) . "zt"]], { expr = true })
 map('n', 'J', 'mzJ`z')
+map('n', 'K', 'i<CR><ESC>l', { silent = true })
 
 -- jumplist mutations
 map('n', 'k', [[ (v:count > 5 ? "m'" . v:count : "") . 'k' ]], { expr = true })
@@ -105,7 +106,8 @@ map('n', '<leader>fyN', [[:let @+=expand("%:t") | echo @+<CR>]] ,   { silent = t
 -- map('n', '<leader>fyl', [[ :let @+=expand("%").":".line(".") | echo @+<CR> ]] , { silent = true }) -- File > Copy > Relative File Path with Line number
 
 -- open files
-map('n', '<space>gs', ':topleft 18 new ~/Library/Mobile Documents/com~apple~CloudDocs/Notes/scratch.vim<CR>', { silent = true })
+map('n', '<space>gs', ':topleft 18 new ~/Library/Mobile Documents/com~apple~CloudDocs/Notes/scratch.rb<CR>', { silent = true })
+map('n', '<space>gt', ':botright 10 new ~/Library/Mobile Documents/com~apple~CloudDocs/Notes/todo.md<CR>', { silent = true })
 map('n', '<space>gn', ':vert botright 80 new ~/Library/Mobile Documents/com~apple~CloudDocs/Notes/<cr>', { silent = true })
 map('n', '<space>gr', ':vert botright 80 new ~/Library/Mobile Documents/com~apple~CloudDocs/Rests/<cr>', { silent = true })
 

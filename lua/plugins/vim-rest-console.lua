@@ -5,4 +5,4 @@ vim.g.vrc_auto_format_response_patterns = {
 }
 vim.g.vrc_body_preprocessor = 'yaml2json | jq -c .'
 vim.g.vrc_allow_get_request_body = 1
-vim.g.vrc_horizontal_split = 1
+vim.g.vrc_horizontal_split = 0
