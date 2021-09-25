@@ -15,14 +15,14 @@ require('packer').startup(function()
   use 'shaunsingh/nord.nvim'
 
   -- Group: TPope
-  use 'tpope/vim-surround'
-  use 'tpope/vim-projectionist'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-vinegar'
-  use 'tpope/vim-bundler'
-  use { 'tpope/vim-repeat', branch = 'no-feedkeys' }
+  use 'https://tpope.io/vim/surround.git'
+  use 'https://tpope.io/vim/projectionist.git'
+  use 'https://tpope.io/vim/fugitive.git'
+  use 'https://tpope.io/vim/rhubarb.git'
+  use 'https://tpope.io/vim/commentary.git'
+  use 'https://tpope.io/vim/vinegar.git'
+  use 'https://tpope.io/vim/bundler.git'
+  use { 'https://tpope.io/vim/repeat.git', branch = 'no-feedkeys' }
   use { 'dakennguyen/vim-unimpaired', branch = 'minimal' }
 
   -- Group: Language support
