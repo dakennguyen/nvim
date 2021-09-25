@@ -70,6 +70,7 @@ require('packer').startup(function()
   use 'glepnir/dashboard-nvim'
   use { 'szw/vim-maximizer', config = "vim.g.maximizer_default_mapping_key = '<leader>z'" }
   use 'diepm/vim-rest-console'
+  use 'ntpeters/vim-better-whitespace'
 end)
 
 map('n', '<space>ps', ':PackerSync<cr>')
@@ -94,6 +95,7 @@ require('plugins/navigator')
 require('plugins/telescope')
 require('plugins/treesitter')
 
+require('plugins/vim-better-whitespace')
 require('plugins/vim-easy-align')
 require('plugins/vim-fugitive')
 require('plugins/vim-gutentags')
