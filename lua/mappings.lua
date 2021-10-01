@@ -110,7 +110,7 @@ map('n', '<leader>fyN', [[:let @+=expand("%:t") | echo @+<CR>]] ,   { silent = t
 map('n', '<space>gs', ':topleft 18 new ~/Library/Mobile Documents/com~apple~CloudDocs/Notes/scratch.rb<CR>', { silent = true })
 map('n', '<space>gt', ':botright 10 new ~/Library/Mobile Documents/com~apple~CloudDocs/Notes/todo.md<CR>', { silent = true })
 map('n', '<space>gn', ':vert botright 80 new ~/Library/Mobile Documents/com~apple~CloudDocs/Notes/<cr>', { silent = true })
-map('n', '<space>gr', ':vert botright 80 new ~/Library/Mobile Documents/com~apple~CloudDocs/Rests/<cr>', { silent = true })
+map('n', '<space>gr', ':-1tabnew ~/Library/Mobile Documents/com~apple~CloudDocs/Rests/<cr>', { silent = true })
 
 -- open files in chrome
 map('n', '<leader>fp', [[<cmd>!open -a 'google chrome' '%:p'<cr>]], { silent = true })
