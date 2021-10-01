@@ -71,6 +71,7 @@ require('packer').startup(function()
   use { 'szw/vim-maximizer', config = "vim.g.maximizer_default_mapping_key = '<leader>z'" }
   use 'diepm/vim-rest-console'
   use 'ntpeters/vim-better-whitespace'
+  use 'benmills/vimux'
 end)
 
 map('n', '<space>ps', ':PackerSync<cr>')
@@ -107,5 +108,6 @@ require('plugins/vim-rest-console')
 require('plugins/vim-splitjoin')
 require('plugins/vim-taboo')
 require('plugins/vim-test')
+require('plugins/vim-vimux')
 
 print('Loaded in ' .. vim.fn.printf('%.3f', vim.fn.reltimefloat(vim.fn.reltime(start_time))) .. ' seconds.')
