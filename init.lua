@@ -72,7 +72,6 @@ require('packer').startup(function()
   use 'norcalli/nvim-colorizer.lua'
   use 'kevinhwang91/nvim-bqf'
   use 'glepnir/dashboard-nvim'
-  use { 'szw/vim-maximizer', config = "vim.g.maximizer_default_mapping_key = '<leader>z'" }
   use 'diepm/vim-rest-console'
   use 'benmills/vimux'
 end)
