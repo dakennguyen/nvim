@@ -47,7 +47,6 @@ o.cursorline = true
 o.wildmenu = true
 o.splitbelow = true
 o.splitright = true
-o.exrc = true                  -- Enable reading local .nvimrc
 o.scrolloff = 5                -- Scrolloff
 o.mouse = 'a'                  -- Scroll with mouse
 o.wrap = true

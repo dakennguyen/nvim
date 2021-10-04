@@ -1,5 +1,10 @@
 local start_time = vim.fn.reltime()
 
+local local_vimrc = vim.fn.getcwd() .. '/.nvimrc'
+if vim.loop.fs_stat(local_vimrc) then
+  vim.cmd('source ' .. local_vimrc)
+end
+
 function map(mode, lhs, rhs, opts)
   local options = { noremap = true }
   if opts then options = vim.tbl_extend('force', options, opts) end
