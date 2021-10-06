@@ -44,7 +44,7 @@ require('packer').startup(function()
   -- Group: Framework support
   use 'vim-test/vim-test'
 
-  -- Group: Text
+  -- Group: Editing support
   use 'windwp/nvim-autopairs'
   use {
     'windwp/nvim-ts-autotag',
@@ -52,6 +52,7 @@ require('packer').startup(function()
   }
   use 'AndrewRadev/splitjoin.vim'
   use 'junegunn/vim-easy-align'
+  use 'ntpeters/vim-better-whitespace'
 
   -- Group: Files manager
   use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
@@ -61,21 +62,18 @@ require('packer').startup(function()
   use 'phaazon/hop.nvim'
   use 'numToStr/Navigator.nvim'
 
-  -- Group: Visual
-  use 'gcmt/taboo.vim'
-  use 'norcalli/nvim-colorizer.lua'
-
   -- Group: Git
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use 'idanarye/vim-merginal'
   use 'junegunn/gv.vim'
 
   -- Group: Miscellaneous
+  use 'gcmt/taboo.vim'
+  use 'norcalli/nvim-colorizer.lua'
   use 'kevinhwang91/nvim-bqf'
   use 'glepnir/dashboard-nvim'
   use { 'szw/vim-maximizer', config = "vim.g.maximizer_default_mapping_key = '<leader>z'" }
   use 'diepm/vim-rest-console'
-  use 'ntpeters/vim-better-whitespace'
   use 'benmills/vimux'
 end)
 
