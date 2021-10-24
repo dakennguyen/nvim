@@ -16,7 +16,7 @@ require('packer').startup(function()
 
   -- Group: Theme
   use { 'kyazdani42/nvim-web-devicons', config = "require'nvim-web-devicons'.setup {}" }
-  use 'shadmansaleh/lualine.nvim'
+  use 'nvim-lualine/lualine.nvim'
   use 'shaunsingh/nord.nvim'
 
   -- Group: TPope
