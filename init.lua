@@ -1,4 +1,5 @@
 local start_time = vim.fn.reltime()
+require 'impatient'
 
 local local_vimrc = vim.fn.getcwd() .. '/.nvimrc'
 if vim.loop.fs_stat(local_vimrc) then
@@ -74,6 +75,7 @@ require('packer').startup(function()
   use 'glepnir/dashboard-nvim'
   use 'diepm/vim-rest-console'
   use 'benmills/vimux'
+  use 'lewis6991/impatient.nvim'
 end)
 
 map('n', '<space>ps', ':PackerSync<cr>')
