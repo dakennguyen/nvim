@@ -62,6 +62,7 @@ require('packer').startup(function()
   use 'diepm/vim-rest-console'
   use 'benmills/vimux'
   use 'lewis6991/impatient.nvim'
+  use 'github/copilot.vim'
 end)
 
 require('plugins.lua.autopairs')
