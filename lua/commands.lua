@@ -8,16 +8,14 @@ augroup END
 ]]
 -- }}}
 
--- RAILS SCHEMA {{{
-vim.cmd[[ command! So edit db/schema.rb ]]
-vim.cmd[[ command! Ss split db/schema.rb ]]
-vim.cmd[[ command! Sv vsplit db/schema.rb ]]
-vim.cmd[[ command! St tabedit db/schema.rb ]]
--- }}}
+-- OPEN FILE {{{
+function open_file(cmd_char, file)
+  vim.cmd(string.format('command! %so edit %s', cmd_char, file))
+  vim.cmd(string.format('command! %ss split %s', cmd_char, file))
+  vim.cmd(string.format('command! %sv vsplit %s', cmd_char, file))
+  vim.cmd(string.format('command! %st tabedit %s', cmd_char, file))
+end
 
--- RAILS CONFIG {{{
-vim.cmd[[ command! Co edit config/application.yml ]]
-vim.cmd[[ command! Cs split config/application.yml ]]
-vim.cmd[[ command! Cv vsplit config/application.yml ]]
-vim.cmd[[ command! Ct tabedit config/application.yml ]]
+open_file('S', 'db/schema.rb')           -- rails schema
+open_file('C', 'config/application.yml') -- rails config
 -- }}}
