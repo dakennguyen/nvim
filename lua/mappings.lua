@@ -1,5 +1,9 @@
+-- Packer
+map('n', '<space>ps', ':PackerSync<cr>')
+map('n', '<space>pi', ':PackerInstall<cr>')
+map('n', '<space>pc', ':PackerClean<cr>')
+
 -- General
--- map('v', 'p', '"_dP') -- Don't copy the replaced text after pasting in visual mode
 map('n', '<space>so', ':source %<CR>:PackerCompile<cr>')
 map('n', '<leader><space>', ':noh<cr>', { silent = true })
 map('n', '<leader>s', ':w<cr>', { silent = true })
@@ -89,6 +93,7 @@ map('n', 'k', [[ (v:count > 5 ? "m'" . v:count : "") . 'k' ]], { expr = true })
 map('n', 'j', [[ (v:count > 5 ? "m'" . v:count : "") . 'j' ]], { expr = true })
 
 -- registers
+-- map('v', 'p', '"_dP') -- Don't copy the replaced text after pasting in visual mode
 map('', 'gp', '"0p')
 map('', 'gP', '"0P')
 map('', '<leader>y', '"*y')
