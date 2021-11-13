@@ -1,4 +1,4 @@
-vim.g.dashboard_disable_at_vimenter = 1 -- dashboard is disabled by default
+vim.g.dashboard_disable_at_vimenter = 0
 vim.g.dashboard_disable_statusline = 1
 vim.g.dashboard_default_executive = "telescope"
 
@@ -42,12 +42,12 @@ vim.g.dashboard_custom_header = {
 "%###&@&&&&%/**...    ..     %%%%%#%%%#######(**///#%%#%%%%%%##%%%%%%%%%%%%%%%&&%",
 }
 
-local plugins_count = vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
+-- local plugins_count = vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
 
-vim.g.dashboard_custom_footer = {
-  "   ",
-  "Loaded " .. plugins_count .. " plugins"
-}
+-- vim.g.dashboard_custom_footer = {
+--   "   ",
+--   "Loaded " .. plugins_count .. " plugins"
+-- }
 
 map("n", "<space>sl", [[<cmd>SessionLoad<CR>]], { silent = true })
 map("n", "<space>ss", [[<cmd>SessionSave<CR>]], { silent = true })
