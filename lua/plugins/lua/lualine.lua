@@ -75,7 +75,7 @@ table.insert(config.inactive_sections.lualine_c, {
   function() return '▊' end,
   padding = { left = 0 }
 })
-table.insert(config.inactive_sections.lualine_c, {
+table.insert(config.inactive_sections.lualine_x, {
   'filename',
 })
 
@@ -126,8 +126,20 @@ ins_left {
 }
 
 ins_left {
-  'filename',
-  cond = conditions.buffer_not_empty,
+  'branch',
+  icon = '',
+  cond = conditions.check_git_workspace,
+}
+
+ins_left {
+  'diff',
+  symbols = {added = ' ', modified = '柳', removed = ' '},
+  diff_color = {
+    added = { fg = nord.op },
+    modified = { fg = nord.yellow },
+    removed = { fg = nord.replace },
+  },
+  cond = conditions.hide_in_width,
 }
 
 ins_left {
@@ -190,21 +202,9 @@ ins_right {
 }
 
 ins_right {
-  'branch',
-  icon = '',
-  cond = conditions.check_git_workspace,
+  'filename',
+  cond = conditions.buffer_not_empty,
   color = {fg = nord.replace, gui = 'bold'}
-}
-
-ins_right {
-  'diff',
-  symbols = {added = ' ', modified = '柳', removed = ' '},
-  diff_color = {
-    added = { fg = nord.op },
-    modified = { fg = nord.yellow },
-    removed = { fg = nord.replace },
-  },
-  cond = conditions.hide_in_width,
 }
 
 -- Now don't forget to initialize lualine
