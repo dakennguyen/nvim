@@ -5,8 +5,8 @@ function map(mode, lhs, rhs, opts)
 end
 
 function open_file_command(cmd_char, file)
-  vim.cmd(string.format('command! %so edit %s', cmd_char, file))
-  vim.cmd(string.format('command! %ss split %s', cmd_char, file))
-  vim.cmd(string.format('command! %sv vsplit %s', cmd_char, file))
-  vim.cmd(string.format('command! %st tabedit %s', cmd_char, file))
+  vim.cmd(string.format('command! E%s edit %s', cmd_char, file))
+  vim.cmd(string.format('command! S%s split %s', cmd_char, file))
+  vim.cmd(string.format('command! V%s vsplit %s', cmd_char, file))
+  vim.cmd(string.format('command! T%s tabedit %s', cmd_char, file))
 end
