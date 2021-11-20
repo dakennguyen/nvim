@@ -56,6 +56,7 @@ map('n', '<leader>l', ':lopen<cr>', { silent = true })
 
 -- fold
 -- map('n', '<cr>', 'za')
+map('n', 'zV', ':normal zMzvzz<CR>', { silent = true })
 
 -- zoom
 map('n', '<leader>z', '<C-W>_<C-W><Bar>')
