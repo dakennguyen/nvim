@@ -79,6 +79,7 @@ require('plugins.lua.telescope')
 require('plugins.lua.treesitter')
 
 require('plugins.vimscript.better-whitespace')
+require('plugins.vimscript.copilot')
 require('plugins.vimscript.easy-align')
 require('plugins.vimscript.fugitive')
 require('plugins.vimscript.gutentags')
