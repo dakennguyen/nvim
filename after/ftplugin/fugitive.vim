@@ -1,4 +1,3 @@
-unmap <buffer> q
 nmap <buffer><nowait> <c-s> o
 nmap <buffer><nowait> <c-v> gO
 nmap <buffer><nowait> <c-t> O
