@@ -1,1 +1,1 @@
-nnoremap <buffer> p :lua require('bqf.jump').open(false)<cr><c-w>p
+nnoremap <buffer> p :lua require('bqf.qfwin.handler').open(false)<cr><c-w>p
