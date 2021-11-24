@@ -13,7 +13,7 @@ local nord = {
   command = "#B48EAD",
   op = "#A3BE8C",
   yellow = "#EBCB8B",
-  inactive = "#616E88",
+  inactive = "#81879C",
   white = "#FFFFFF"
 }
 
@@ -72,11 +72,12 @@ local config = {
 -- Inactive sections
 --#############################################
 table.insert(config.inactive_sections.lualine_c, {
-  function() return '▊' end,
+  function() return '▊INACTIVE' end,
   padding = { left = 0 }
 })
 table.insert(config.inactive_sections.lualine_x, {
   'filename',
+  color = { gui = 'italic' }
 })
 
 --#############################################
@@ -191,7 +192,7 @@ ins_right {
   'filetype',
   colored = false,
   icons_enabled = true,
-  color = { fg = nord.yellow, gui = 'bold' }
+  color = { fg = nord.command, gui = 'bold' }
 }
 
 ins_right {
@@ -204,7 +205,7 @@ ins_right {
 ins_right {
   'filename',
   cond = conditions.buffer_not_empty,
-  color = {fg = nord.replace, gui = 'bold'}
+  color = { fg = nord.yellow, gui = 'italic' }
 }
 
 -- Now don't forget to initialize lualine
