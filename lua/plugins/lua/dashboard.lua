@@ -1,11 +1,11 @@
 vim.g.dashboard_disable_at_vimenter = 0
-vim.g.dashboard_disable_statusline = 1
+vim.g.dashboard_disable_statusline = 0
 vim.g.dashboard_default_executive = "telescope"
 
 vim.g.dashboard_custom_section = {
   a = {description = {"  Load Last Session         SPC s l"}, command = "SessionLoad"},
-  -- b = {description = {"  Find File                 SPC f f"}, command = "Telescope find_files"},
-  -- c = {description = {"  Find Word                 SPC f w"}, command = "Telescope live_grep"}
+  b = {description = {"  File Explorer                   -"}, command = "e."},
+  c = {description = {"  Git status                     gs"}, command = "tab G | bd #"},
 }
 
 vim.g.dashboard_custom_header = {
