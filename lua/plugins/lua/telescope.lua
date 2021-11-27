@@ -89,7 +89,7 @@ require('telescope').load_extension('fzf')
 vim.cmd[[command! -nargs=? Tgrep lua require 'telescope.builtin'.grep_string({ search = <q-args> })]]
 
 -- Files
-map('n', '<space>ff', '<CMD>Telescope git_files<CR>')
+map('n', '<space>ff', '<CMD>Telescope find_files hidden=true follow=true<CR>')
 map('n', '<space>fd', [[:lua require('telescope.builtin').find_files({search_dirs = {"%:p:h"}, follow = true})<CR>]])
 map('n', '<space>fb', '<CMD>Telescope buffers<CR>')
 map('n', '<space>fo', '<CMD>Telescope oldfiles<CR>')
