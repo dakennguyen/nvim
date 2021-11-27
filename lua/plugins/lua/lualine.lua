@@ -1,6 +1,3 @@
--- Eviline config for lualine
--- Author: shadmansaleh
--- Credit: glepnir
 local lualine = require 'lualine'
 
 local nord = {
@@ -27,16 +24,11 @@ local conditions = {
   end
 }
 
--- Config
 local config = {
   options = {
-    -- Disable sections and component separators
     component_separators = "",
     section_separators = "",
     theme = {
-      -- We are going to use lualine_c an lualine_x as left and
-      -- right section. Both are highlighted by c theme .  So we
-      -- are just setting default looks o statusline
       normal = {c = {fg = nord.default_fg, bg = nord.default_bg}},
       insert = {c = {fg = nord.insert, bg = nord.default_bg}},
       visual = {c = {fg = nord.visual, bg = nord.default_bg}},
@@ -48,23 +40,20 @@ local config = {
     disabled_filetypes = {},
   },
   sections = {
-    -- these are to remove the defaults
     lualine_a = {},
     lualine_b = {},
-    lualine_y = {},
-    lualine_z = {},
-    -- These will be filled later
     lualine_c = {},
-    lualine_x = {}
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
   },
   inactive_sections = {
-    -- these are to remove the defaults
     lualine_a = {},
     lualine_b = {},
-    lualine_y = {},
-    lualine_z = {},
     lualine_c = {},
-    lualine_x = {}
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
   }
 }
 
@@ -84,16 +73,15 @@ table.insert(config.inactive_sections.lualine_x, {
 -- Active sections
 --#############################################
 
--- Inserts a component in lualine_c at left section
 local function ins_left(component)
   table.insert(config.sections.lualine_c, component)
 end
 
--- Inserts a component in lualine_x ot right section
 local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
+-- LEFT
 ins_left {
   function() return '▊' end,
   padding = { left = 0 }
@@ -105,7 +93,6 @@ ins_left {
 }
 
 ins_left {
-  -- filesize component
   function()
     local function format_file_size(file)
       local size = vim.fn.getfsize(file)
@@ -153,12 +140,10 @@ ins_left {
   color = {fg = nord.white, gui = 'bold'}
 }
 
--- Insert mid section. You can make any number of sections in neovim :)
--- for lualine it's any number greater then 2
+-- MIDDLE
 ins_left {function() return '%=' end}
 
 ins_left {
-  -- Lsp server name .
   function()
     local icon = '  '
     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
@@ -174,6 +159,7 @@ ins_left {
   end,
   color = {fg = nord.light, gui = 'bold'}
 }
+
 ins_left {
   'diagnostics',
   sources = {'nvim_lsp'},
@@ -186,9 +172,9 @@ ins_left {
   },
 }
 
--- Add components to right sections
+-- RIGHT
 ins_right {
-  'o:encoding', -- option component same as &encoding in viml
+  'o:encoding',
   fmt = string.upper,
   cond = conditions.hide_in_width,
   color = {fg = nord.default_fg, gui = 'bold'}
@@ -214,5 +200,8 @@ ins_right {
   color = { fg = nord.yellow, gui = 'italic' }
 }
 
--- Now don't forget to initialize lualine
+--#############################################
 lualine.setup(config)
+
+vim.cmd("highlight StatusLine guibg=" .. nord.default_bg)
+vim.cmd("highlight StatusLineNC guibg=" .. nord.default_bg)

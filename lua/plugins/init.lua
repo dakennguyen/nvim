@@ -42,7 +42,7 @@ require('packer').startup(function()
   use 'ntpeters/vim-better-whitespace'
 
   -- Group: Files manager
-  use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
+  use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Group: Navigator
@@ -50,7 +50,7 @@ require('packer').startup(function()
   use 'numToStr/Navigator.nvim'
 
   -- Group: Git
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
   use 'idanarye/vim-merginal'
   use 'junegunn/gv.vim'
 
@@ -65,30 +65,36 @@ require('packer').startup(function()
   use 'github/copilot.vim'
 end)
 
-require('plugins.lua.autopairs')
-require('plugins.lua.bqf')
-require('plugins.lua.colorizer')
-require('plugins.lua.compe')
-require('plugins.lua.dashboard')
-require('plugins.lua.gitsigns')
-require('plugins.lua.hop')
-require('plugins.lua.lspconfig')
-require('plugins.lua.lualine')
-require('plugins.lua.navigator')
-require('plugins.lua.telescope')
-require('plugins.lua.treesitter')
+local import = function()
+  require('plugins.lua.autopairs')
+  require('plugins.lua.bqf')
+  require('plugins.lua.colorizer')
+  require('plugins.lua.compe')
+  require('plugins.lua.dashboard')
+  require('plugins.lua.gitsigns')
+  require('plugins.lua.hop')
+  require('plugins.lua.lspconfig')
+  require('plugins.lua.lualine')
+  require('plugins.lua.navigator')
+  require('plugins.lua.telescope')
+  require('plugins.lua.treesitter')
 
-require('plugins.vimscript.better-whitespace')
-require('plugins.vimscript.copilot')
-require('plugins.vimscript.easy-align')
-require('plugins.vimscript.fugitive')
-require('plugins.vimscript.gutentags')
-require('plugins.vimscript.gv')
-require('plugins.vimscript.matchup')
-require('plugins.vimscript.merginal')
-require('plugins.vimscript.projectionist')
-require('plugins.vimscript.rest-console')
-require('plugins.vimscript.splitjoin')
-require('plugins.vimscript.taboo')
-require('plugins.vimscript.test')
-require('plugins.vimscript.vimux')
+  require('plugins.vimscript.better-whitespace')
+  require('plugins.vimscript.copilot')
+  require('plugins.vimscript.easy-align')
+  require('plugins.vimscript.fugitive')
+  require('plugins.vimscript.gutentags')
+  require('plugins.vimscript.gv')
+  require('plugins.vimscript.matchup')
+  require('plugins.vimscript.merginal')
+  require('plugins.vimscript.projectionist')
+  require('plugins.vimscript.rest-console')
+  require('plugins.vimscript.splitjoin')
+  require('plugins.vimscript.taboo')
+  require('plugins.vimscript.test')
+  require('plugins.vimscript.vimux')
+end
+
+return {
+  import = import
+}
