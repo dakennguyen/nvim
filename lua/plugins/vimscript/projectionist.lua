@@ -1,5 +1,9 @@
 vim.g.projectionist_heuristics = {
   ['*'] = {
+    -- http
+    ['*.http'] = {
+      alternate = '.env'
+    },
     -- rails
     ['lib/*.rb'] = {
       alternate = 'spec/lib/{}_spec.rb',

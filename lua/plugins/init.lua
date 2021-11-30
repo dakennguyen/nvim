@@ -42,7 +42,7 @@ require('packer').startup(function()
   use 'ntpeters/vim-better-whitespace'
 
   -- Group: Files manager
-  use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { 'nvim-telescope/telescope.nvim', requires = 'dakennguyen/plenary.nvim' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Group: Navigator
@@ -50,7 +50,7 @@ require('packer').startup(function()
   use 'numToStr/Navigator.nvim'
 
   -- Group: Git
-  use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { 'lewis6991/gitsigns.nvim', requires = 'dakennguyen/plenary.nvim' }
   use 'idanarye/vim-merginal'
   use 'junegunn/gv.vim'
 
@@ -59,7 +59,7 @@ require('packer').startup(function()
   use 'norcalli/nvim-colorizer.lua'
   use 'kevinhwang91/nvim-bqf'
   use 'glepnir/dashboard-nvim'
-  use 'diepm/vim-rest-console'
+  use { 'NTBBloodbath/rest.nvim', requires = { 'dakennguyen/plenary.nvim' } }
   use 'benmills/vimux'
   use 'lewis6991/impatient.nvim'
   use 'github/copilot.vim'
@@ -88,7 +88,6 @@ local import = function()
   require('plugins.vimscript.matchup')
   require('plugins.vimscript.merginal')
   require('plugins.vimscript.projectionist')
-  require('plugins.vimscript.rest-console')
   require('plugins.vimscript.splitjoin')
   require('plugins.vimscript.taboo')
   require('plugins.vimscript.test')
