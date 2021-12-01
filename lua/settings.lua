@@ -26,6 +26,7 @@ for _, plugin in pairs(disabled_built_ins) do
    g["loaded_" .. plugin] = 1
 end
 
+g.mapleader = ','
 g.loaded_ruby_provider = 0
 -- set tags=./tags;,tags;
 
@@ -33,30 +34,33 @@ g.loaded_ruby_provider = 0
 -- syntax on
 
 o.swapfile = false
+o.signcolumn = 'yes'
 o.number = true
 o.relativenumber = true
-o.regexpengine = 0
+-- o.regexpengine = 0
 o.expandtab = true
-o.tabstop = 8
+-- o.tabstop = 8
 o.softtabstop = 2
 o.shiftwidth= 2
-o.autoread = true
+-- o.autoread = true
 -- o.smartindent = true
-o.autoindent = true
+-- o.autoindent = true
 o.cursorline = true
-o.wildmenu = true
+-- o.wildmenu = true
 o.splitbelow = true
 o.splitright = true
-o.scrolloff = 5                -- Scrolloff
-o.mouse = 'a'                  -- Scroll with mouse
-o.wrap = true
+o.scrolloff = 5
+o.mouse = 'a'
+-- o.wrap = true
+-- o.hidden = true
+-- o.cmdheight = 1
 
 -- buffer
 o.switchbuf:append { 'useopen' }
 
 -- Theme
 o.encoding = 'UTF-8'
-o.laststatus=2
+-- o.laststatus=2
 o.termguicolors = true
 o.showmode = false
 
@@ -68,9 +72,9 @@ o.foldmethod= 'indent'
 -- o.foldexpr= 'nvim_treesitter#foldexpr()'
 
 -- Search
-o.incsearch = true
-o.hlsearch = true
-o.inccommand = 'split'
+-- o.incsearch = true
+-- o.hlsearch = true
+-- o.inccommand = 'nosplit'
 o.ignorecase = true
 o.smartcase = true
 
@@ -82,16 +86,6 @@ augroup General
   autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
 ]]
-
-o.hidden = true
-o.signcolumn = 'yes'
-o.cmdheight = 1
-
--- coc
-o.backup = false
-o.writebackup = false
-o.updatetime = 300
-o.shortmess:append { c = true }         -- set shortmess+=c
 
 -- netrw
 g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
@@ -110,5 +104,3 @@ augroup END
 
 -- markdown
 g.markdown_fenced_languages = { 'ruby', 'sql', 'bash' }
-
-g.mapleader = ','
