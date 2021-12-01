@@ -74,7 +74,8 @@ map('n', '<c-]><c-s>', '<c-w>g<c-]>')
 map('n', '<c-]>t',     '<c-w>g<c-]><c-w>T')
 map('n', '<c-]><c-t>', '<c-w>g<c-]><c-w>T')
 
-map('n', '<c-w>}',     '<c-w>g}')
+map('n', '<c-]>p',     '<c-w>g}')
+map('n', '<c-]><c-p>', '<c-w>g}')
 
 -- tab
 map('n', ']<tab>', 'gt')
