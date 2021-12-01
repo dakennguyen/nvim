@@ -165,10 +165,10 @@ ins_left {
   sources = {'nvim_lsp'},
   symbols = {error = ' ', warn = ' ', info = ' ', hint = ''},
   diagnostics_color = {
-    error = 'LspDiagnosticsDefaultError',
-    warn  = 'LspDiagnosticsDefaultWarning',
-    info  = 'LspDiagnosticsDefaultInformation',
-    hint  = 'LspDiagnosticsDefaultHint',
+    error = 'DiagnosticError',
+    warn  = 'DiagnosticWarn',
+    info  = 'DiagnosticInfo',
+    hint  = 'DiagnosticHint',
   },
 }
 
