@@ -28,39 +28,24 @@ end
 
 g.mapleader = ','
 g.loaded_ruby_provider = 0
--- set tags=./tags;,tags;
-
--- filetype plugin indent on
--- syntax on
-
 o.swapfile = false
 o.signcolumn = 'yes'
 o.number = true
 o.relativenumber = true
--- o.regexpengine = 0
 o.expandtab = true
--- o.tabstop = 8
 o.softtabstop = 2
 o.shiftwidth= 2
--- o.autoread = true
--- o.smartindent = true
--- o.autoindent = true
 o.cursorline = true
--- o.wildmenu = true
 o.splitbelow = true
 o.splitright = true
 o.scrolloff = 5
 o.mouse = 'a'
--- o.wrap = true
--- o.hidden = true
--- o.cmdheight = 1
 
 -- buffer
 o.switchbuf:append { 'useopen' }
 
 -- Theme
 o.encoding = 'UTF-8'
--- o.laststatus=2
 o.termguicolors = true
 o.showmode = false
 
@@ -72,9 +57,6 @@ o.foldmethod= 'indent'
 -- o.foldexpr= 'nvim_treesitter#foldexpr()'
 
 -- Search
--- o.incsearch = true
--- o.hlsearch = true
--- o.inccommand = 'nosplit'
 o.ignorecase = true
 o.smartcase = true
 

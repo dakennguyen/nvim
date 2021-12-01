@@ -1,3 +1,24 @@
+-- settings
+set tags=./tags;,tags;
+
+filetype plugin indent on
+syntax on
+
+o.regexpengine = 0
+o.tabstop = 8
+o.autoread = true
+o.smartindent = true
+o.autoindent = true
+o.wildmenu = true
+o.wrap = true
+o.hidden = true
+o.cmdheight = 1
+o.laststatus=2
+o.incsearch = true
+o.hlsearch = true
+o.inccommand = 'nosplit'
+---------------------------------------
+
 use 'tpope/vim-abolish'
 
 use 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
