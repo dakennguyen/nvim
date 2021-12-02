@@ -9,7 +9,7 @@ require 'utils'
 require 'settings'
 require 'mappings'
 require 'commands'
-require 'theme'
+require 'theme_onenord'
 
 require 'rails'
 

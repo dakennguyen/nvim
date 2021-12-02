@@ -4,7 +4,8 @@ require('packer').startup(function()
   -- Group: Theme
   use { 'kyazdani42/nvim-web-devicons', config = "require'nvim-web-devicons'.setup {}" }
   use 'nvim-lualine/lualine.nvim'
-  use 'shaunsingh/nord.nvim'
+  -- use 'shaunsingh/nord.nvim'
+  use 'rmehri01/onenord.nvim'
 
   -- Group: TPope
   use 'https://tpope.io/vim/surround.git'
