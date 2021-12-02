@@ -4,6 +4,12 @@ function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+function buf_map(mode, lhs, rhs, opts)
+  local options = { noremap = true }
+  if opts then options = vim.tbl_extend('force', options, opts) end
+  vim.api.nvim_buf_set_keymap(0, mode, lhs, rhs, options)
+end
+
 function open_file_command(cmd_char, file)
   vim.cmd(string.format('command! %so edit %s', cmd_char, file))
   vim.cmd(string.format('command! %ss split %s', cmd_char, file))
