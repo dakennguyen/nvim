@@ -6,6 +6,7 @@ require('packer').startup(function()
   use 'nvim-lualine/lualine.nvim'
   -- use 'shaunsingh/nord.nvim'
   use 'rmehri01/onenord.nvim'
+  use 'seblj/nvim-tabline'
 
   -- Group: TPope
   use 'https://tpope.io/vim/surround.git'
@@ -56,7 +57,6 @@ require('packer').startup(function()
   use 'junegunn/gv.vim'
 
   -- Group: Miscellaneous
-  use 'gcmt/taboo.vim'
   use 'norcalli/nvim-colorizer.lua'
   use 'kevinhwang91/nvim-bqf'
   use 'glepnir/dashboard-nvim'
@@ -77,6 +77,7 @@ local import = function()
   require('plugins.lua.lspconfig')
   require('plugins.lua.lualine')
   require('plugins.lua.navigator')
+  require('plugins.lua.tabline')
   require('plugins.lua.telescope')
   require('plugins.lua.treesitter')
 
@@ -90,7 +91,6 @@ local import = function()
   require('plugins.vimscript.merginal')
   require('plugins.vimscript.projectionist')
   require('plugins.vimscript.splitjoin')
-  require('plugins.vimscript.taboo')
   require('plugins.vimscript.test')
   require('plugins.vimscript.vimux')
 end

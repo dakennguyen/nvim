@@ -13,5 +13,10 @@ require('onenord').setup({
     Folded = { fg = '#4C566A', style = 'italic' },
     Identifier = { fg = onenord.blue, style = 'italic' },
     QuickFixLine = { style = 'italic' },
+    -- tabline
+    TabLineSeparatorActive = { fg = onenord.cyan, bg = onenord.bg },
+    TabLineSeparatorInactive = { fg = onenord.light_gray, bg = onenord.active },
+    TabLineModifiedSeparatorActive = { fg = onenord.cyan, bg = onenord.bg },
+    TabLineModifiedSeparatorInactive = { fg = onenord.light_gray, bg = onenord.bg },
   },
 })
