@@ -21,3 +21,23 @@ augroup('AutoReload', {
     end,
   }
 })
+
+augroup('Cursorline', {
+  {
+    event = 'VimEnter,WinEnter,BufWinEnter',
+    pattern = '*',
+    command = function()
+      local ft = vim.api.nvim_buf_get_option(0, 'filetype')
+      if ft ~= '' and ft ~= 'dashboard' then
+        vim.opt_local.cursorline = true
+      end
+    end,
+  },
+  {
+    event = 'WinLeave',
+    pattern = '*',
+    command = function()
+      vim.opt_local.cursorline = false
+    end,
+  }
+})
