@@ -30,6 +30,9 @@ map('', 'gft', '<c-w>gf')
 -- gd
 -- map('', 'gdd', 'gd')
 
+-- macro
+map('x', '@', ':<C-u>:lua require("utils").visual_macro()<CR>')
+
 -- term
 map('n', '<c-w>\\', ':vs +te<cr>',      { silent = true })
 map('n', '<c-w>-', ':sp +te<cr>',       { silent = true })
