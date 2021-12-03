@@ -1,3 +1,5 @@
+buf_map('n', '<leader>q', 'gq', { noremap = false })
+
 buf_map('n', '<c-s>', 'o',  { noremap = false, nowait = true })
 buf_map('n', '<c-v>', 'gO', { noremap = false, nowait = true })
 buf_map('n', '<c-t>', 'O',  { noremap = false, nowait = true })

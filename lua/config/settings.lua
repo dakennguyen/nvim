@@ -60,17 +60,6 @@ o.foldmethod= 'indent'
 o.ignorecase = true
 o.smartcase = true
 
--- term
-augroup('Terminal', {
-  event = 'TermOpen',
-  pattern = 'term://*',
-  command = function()
-    vim.cmd('startinsert')
-    vim.opt_local.number = false
-    vim.opt_local.relativenumber = false
-  end,
-})
-
 -- netrw
 g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
@@ -80,14 +69,6 @@ if has('nvim')
   let $GIT_EDITOR = 'nvr -cc vsplit --remote-wait'
 endif
 ]]
-
-augroup('Nvr', {
-  event = 'FileType',
-  pattern = 'gitcommit,gitrebase,gitconfig',
-  command = function()
-    vim.opt.bufhidden = 'delete'
-  end,
-})
 
 -- markdown
 g.markdown_fenced_languages = { 'ruby', 'sql', 'bash' }

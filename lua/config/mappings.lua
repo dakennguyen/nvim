@@ -22,29 +22,6 @@ map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 -- quit
 map('n', '<leader>q', ':close<cr><c-w><c-p>', { silent = true })
 map('t', '<leader>q', '<C-\\><C-N>:bd!<CR>',  { silent = true })
-augroup('Quit', {
-  {
-    event = 'BufReadPost',
-    pattern = 'quickfix',
-    command = function()
-      buf_map('n', '<leader>q', ':q<CR>', { silent = true })
-    end,
-  },
-  {
-    event = 'TermOpen',
-    pattern = '*',
-    command = function()
-      buf_map('n', '<leader>q', ':bd!<CR><c-w><c-p>', { silent = true })
-    end,
-  },
-  {
-    event = 'FileType',
-    pattern = 'fugitive',
-    command = function()
-      buf_map('n', '<leader>q', 'gq', { noremap = false })
-    end,
-  }
-})
 
 -- gf
 map('', 'gff', 'gf')

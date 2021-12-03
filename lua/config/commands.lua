@@ -41,3 +41,23 @@ augroup('Cursorline', {
     end,
   }
 })
+
+augroup('Terminal', {
+  event = 'TermOpen',
+  pattern = 'term://*',
+  command = function()
+    vim.cmd('startinsert')
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+
+    buf_map('n', '<leader>q', ':bd!<CR><c-w><c-p>', { silent = true })
+  end,
+})
+
+augroup('Nvr', {
+  event = 'FileType',
+  pattern = 'gitcommit,gitrebase,gitconfig',
+  command = function()
+    vim.opt.bufhidden = 'delete'
+  end,
+})
