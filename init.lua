@@ -7,13 +7,13 @@ end
 local plugins = require('plugins')
 
 pcall(require, 'impatient')
-require 'utils'
-require 'settings'
-require 'mappings'
-require 'commands'
-require 'theme_onenord'
+require 'config.globals'
+require 'config.settings'
+require 'config.mappings'
+require 'config.commands'
+require 'config.theme_onenord'
 
-require 'rails'
+require 'config.rails'
 
 plugins.import()
 
