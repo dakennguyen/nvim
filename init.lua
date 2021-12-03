@@ -1,10 +1,12 @@
--- Install packer
--- git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
 local start_time = vim.fn.reltime()
+
+if require('utils.first_load')() then
+  return
+end
+
 local plugins = require('plugins')
 
-require 'impatient'
+pcall(require, 'impatient')
 require 'utils'
 require 'settings'
 require 'mappings'
