@@ -10,11 +10,9 @@ map('n', '<leader>s', ':w<cr>', { silent = true })
 map('n', '<leader>a', '<C-^>')
 map('n', '!', ':!')
 
--- gj, gk
--- map('n', 'j', 'gj')
--- map('n', 'k', 'gk')
--- map('v', 'j', 'gj')
--- map('v', 'k', 'gk')
+-- jk
+map('n', 'j', ':lua require("utils").jump("j")<cr>', { silent = true })
+map('n', 'k', ':lua require("utils").jump("k")<cr>', { silent = true })
 
 -- search
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
@@ -80,10 +78,6 @@ map('n', '<leader>w', ':tabclose<cr>', { silent = true })
 -- map('n', [[`]], [["`" . nr2char(getchar()) . "zt"]], { expr = true })
 map('n', 'J', 'mzJ`z')
 map('n', 'K', 'i<CR><ESC>l', { silent = true })
-
--- jumplist mutations
-map('n', 'k', [[ (v:count > 5 ? "m'" . v:count : "") . 'k' ]], { expr = true })
-map('n', 'j', [[ (v:count > 5 ? "m'" . v:count : "") . 'j' ]], { expr = true })
 
 -- registers
 -- map('v', 'p', '"_dP') -- Don't copy the replaced text after pasting in visual mode
