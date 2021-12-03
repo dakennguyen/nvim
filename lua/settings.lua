@@ -61,13 +61,15 @@ o.ignorecase = true
 o.smartcase = true
 
 -- term
-vim.cmd[[
-augroup General
-  autocmd!
-  autocmd TermOpen * startinsert
-  autocmd TermOpen * setlocal nonumber norelativenumber
-augroup END
-]]
+augroup('Terminal', {
+  event = 'TermOpen',
+  pattern = 'term://*',
+  command = function()
+    vim.cmd('startinsert')
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+  end,
+})
 
 -- netrw
 g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
@@ -77,12 +79,15 @@ vim.cmd[[
 if has('nvim')
   let $GIT_EDITOR = 'nvr -cc vsplit --remote-wait'
 endif
-
-augroup Nvr
-  autocmd!
-  autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
-augroup END
 ]]
+
+augroup('Nvr', {
+  event = 'FileType',
+  pattern = 'gitcommit,gitrebase,gitconfig',
+  command = function()
+    vim.opt.bufhidden = 'delete'
+  end,
+})
 
 -- markdown
 g.markdown_fenced_languages = { 'ruby', 'sql', 'bash' }

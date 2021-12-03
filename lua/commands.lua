@@ -5,12 +5,19 @@ if vim.loop.fs_stat(local_vimrc) then
 end
 -- }}}
 
--- AUTO RELOAD {{{
-vim.cmd [[
-augroup AutoReload
-  autocmd!
-  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
-  autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-augroup END
-]]
--- }}}
+augroup('AutoReload', {
+  {
+    event = 'FileChangedShellPost',
+    pattern = '*',
+    command = function()
+      vim.cmd('echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None')
+    end,
+  },
+  {
+    event = 'FocusGained,BufEnter,CursorHold,CursorHoldI',
+    pattern = '*',
+    command = function()
+      vim.cmd[[ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif ]]
+    end,
+  }
+})
