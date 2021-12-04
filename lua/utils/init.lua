@@ -36,4 +36,12 @@ M.jump = function(letter)
   vim.cmd(string.format([[call execute('normal! %s%s', )]], count, letter))
 end
 
+-- Does: close and focus on previous tab
+M.tabclose = function()
+  pcall(vim.cmd, 'call execute("-1tabmove")')
+  if not pcall(vim.cmd, 'call execute("tabclose")') then
+    vim.api.nvim_echo({ { 'E784: Cannot close last tab page', 'ErrorMsg' } }, true, {})
+  end
+end
+
 return M

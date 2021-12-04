@@ -74,7 +74,7 @@ map('n', '<c-]><c-p>', '<c-w>g}')
 map('n', ']<tab>', 'gt')
 map('n', '[<tab>', 'gT')
 map('n', '<leader>t', ':tabnew<cr>', { silent = true })
-map('n', '<leader>w', ':tabclose<cr>', { silent = true })
+map('n', '<leader>w', ':lua require("utils").tabclose()<CR>', { silent = true })
 
 -- keep center
 -- map('n', [[']], [["'" . nr2char(getchar()) . "zt"]], { expr = true })
