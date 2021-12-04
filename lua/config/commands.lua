@@ -50,7 +50,7 @@ augroup('Terminal', {
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
 
-    buf_map('n', '<leader>q', ':bd!<CR><c-w><c-p>', { silent = true })
+    vim.opt.bufhidden = 'delete'
   end,
 })
 

@@ -19,7 +19,7 @@ map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 
 -- quit
 map('n', '<leader>q', ':close<cr><c-w><c-p>', { silent = true })
-map('t', '<leader>q', '<C-\\><C-N>:bd!<CR>',  { silent = true })
+map('t', '<leader>q', '<C-\\><C-N>:q<CR>',    { silent = true })
 
 -- gf
 map('', 'gff', 'gf')
