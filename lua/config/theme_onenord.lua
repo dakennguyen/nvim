@@ -10,7 +10,7 @@ require('onenord').setup({
     variables = false,
   },
   custom_highlights = {
-    Folded = { fg = '#4C566A', style = 'italic' },
+    Folded = { fg = onenord.light_gray, style = onenord.none },
     Identifier = { fg = onenord.blue, style = 'italic' },
     QuickFixLine = { style = 'italic' },
     -- tabline
