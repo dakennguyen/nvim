@@ -4,7 +4,7 @@ map('n', '<space>pi', ':PackerInstall<cr>')
 map('n', '<space>pc', ':PackerClean<cr>')
 
 -- General
-map('n', '<space>rl', ':lua require("utils").reload_config()<cr>')
+map('n', '<space>rl', '<cmd>lua require("utils").reload_config()<cr>')
 map('n', '<space>so', ':source %<CR>:PackerCompile<cr>')
 map('n', '<leader><space>', ':noh<cr>', { silent = true })
 map('n', '<leader>s', ':w<cr>', { silent = true })
@@ -12,8 +12,8 @@ map('n', '<leader>a', '<C-^>')
 map('n', '!', ':!')
 
 -- jk
-map('n', 'j', ':lua require("utils").jump("j")<cr>', { silent = true })
-map('n', 'k', ':lua require("utils").jump("k")<cr>', { silent = true })
+map('n', 'j', '<cmd>lua require("utils").jump("j")<cr>', { silent = true })
+map('n', 'k', '<cmd>lua require("utils").jump("k")<cr>', { silent = true })
 
 -- search
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
@@ -32,7 +32,7 @@ map('', 'gft', '<c-w>gf')
 -- map('', 'gdd', 'gd')
 
 -- macro
-map('x', '@', ':<C-u>:lua require("utils").visual_macro()<CR>')
+map('x', '@', ':<C-u><cmd>lua require("utils").visual_macro()<CR>')
 
 -- term
 map('n', '<c-w>\\', ':vs +te<cr>',      { silent = true })
@@ -75,7 +75,7 @@ map('n', '<c-]><c-p>', '<c-w>g}')
 map('n', ']<tab>', 'gt')
 map('n', '[<tab>', 'gT')
 map('n', '<leader>t', ':tabnew<cr>', { silent = true })
-map('n', '<leader>w', ':lua require("utils").tabclose()<CR>', { silent = true })
+map('n', '<leader>w', '<cmd>lua require("utils").tabclose()<CR>', { silent = true })
 
 -- keep center
 -- map('n', [[']], [["'" . nr2char(getchar()) . "zt"]], { expr = true })
