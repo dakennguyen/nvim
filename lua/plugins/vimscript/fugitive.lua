@@ -19,9 +19,9 @@ map('n', '<leader>gx', ':GBrowse<CR>',                                          
 map('v', '<leader>gx', ':GBrowse<CR>',                                                  { silent = true }) -- Git Browse in Visual mode
 
 -- vimdiff
-map('n', '<leader>gh', ':diffget //2<cr>')
-map('n', '<leader>gl', ':diffget //3<cr>')
-map('', '<leader>gj', ':diffput<cr>')
-map('', '<leader>go', ':diffget<cr>')
+map('n', '<leader>gh', ':diffget //2 | diffupdate<cr>')
+map('n', '<leader>gl', ':diffget //3 | diffupdate<cr>')
+map('', '<leader>gj', ':diffput | diffupdate<cr>')
+map('', '<leader>go', ':diffget | diffupdate<cr>')
 
 -- vim.cmd[[autocmd User Fugitive command! -buffer -nargs=? -complete=customlist,fugitive#CompleteObject Gu Git branch -u <args>]]
