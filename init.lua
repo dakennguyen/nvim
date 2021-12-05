@@ -11,7 +11,7 @@ require 'config.globals'
 require 'config.settings'
 require 'config.mappings'
 require 'config.commands'
-require 'config.theme_onenord'
+require 'config.theme'
 
 require 'config.rails'
 

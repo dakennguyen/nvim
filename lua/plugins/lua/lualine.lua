@@ -1,18 +1,5 @@
 local lualine = require 'lualine'
-
-local nord = {
-  default_fg = "#87C0D0",
-  default_bg = "#2E3440",
-  light = "#BBC2CF",
-  visual = "#D08770",
-  insert = "#5E81AC",
-  replace = "#BF616A",
-  command = "#B48EAD",
-  op = "#A3BE8C",
-  yellow = "#EBCB8B",
-  inactive = "#81879C",
-  white = "#FFFFFF"
-}
+local colors = require('config.theme').lualine
 
 local conditions = {
   buffer_not_empty = function() return vim.fn.empty(vim.fn.expand('%:t')) ~= 1 end,
@@ -29,13 +16,13 @@ local config = {
     component_separators = "",
     section_separators = "",
     theme = {
-      normal = {c = {fg = nord.default_fg, bg = nord.default_bg}},
-      insert = {c = {fg = nord.insert, bg = nord.default_bg}},
-      visual = {c = {fg = nord.visual, bg = nord.default_bg}},
-      replace = {c = {fg = nord.replace, bg = nord.default_bg}},
-      command = {c = {fg = nord.command, bg = nord.default_bg}},
-      terminal = {c = {fg = nord.op, bg = nord.default_bg}},
-      inactive = {c = {fg = nord.inactive, bg = nord.default_bg}}
+      normal = {c = {fg = colors.default_fg, bg = colors.default_bg}},
+      insert = {c = {fg = colors.insert, bg = colors.default_bg}},
+      visual = {c = {fg = colors.visual, bg = colors.default_bg}},
+      replace = {c = {fg = colors.replace, bg = colors.default_bg}},
+      command = {c = {fg = colors.command, bg = colors.default_bg}},
+      terminal = {c = {fg = colors.op, bg = colors.default_bg}},
+      inactive = {c = {fg = colors.inactive, bg = colors.default_bg}}
     },
     disabled_filetypes = {},
   },
@@ -109,7 +96,7 @@ ins_left {
     if string.len(file) == 0 then return '' end
     return format_file_size(file)
   end,
-  color = {fg = nord.light},
+  color = {fg = colors.light},
   cond = conditions.buffer_not_empty
 }
 
@@ -123,21 +110,21 @@ ins_left {
   'diff',
   symbols = {added = ' ', modified = '柳', removed = ' '},
   diff_color = {
-    added = { fg = nord.op },
-    modified = { fg = nord.yellow },
-    removed = { fg = nord.replace },
+    added = { fg = colors.op },
+    modified = { fg = colors.yellow },
+    removed = { fg = colors.replace },
   },
   cond = conditions.hide_in_width,
 }
 
 ins_left {
   'progress',
-  color = {fg = nord.light},
+  color = {fg = colors.light},
 }
 
 ins_left {
   'location',
-  color = {fg = nord.white, gui = 'bold'}
+  color = {fg = colors.dark, gui = 'bold'}
 }
 
 -- MIDDLE
@@ -157,7 +144,7 @@ ins_left {
     end
     return ''
   end,
-  color = {fg = nord.light, gui = 'bold'}
+  color = {fg = colors.light, gui = 'bold'}
 }
 
 ins_left {
@@ -177,31 +164,31 @@ ins_right {
   'o:encoding',
   fmt = string.upper,
   cond = conditions.hide_in_width,
-  color = {fg = nord.default_fg, gui = 'bold'}
+  color = {fg = colors.default_fg, gui = 'bold'}
 }
 
 ins_right {
   'filetype',
   colored = false,
   icons_enabled = true,
-  color = { fg = nord.command, gui = 'bold' }
+  color = { fg = colors.command, gui = 'bold' }
 }
 
 ins_right {
   'fileformat',
   fmt = string.upper,
   icons_enabled = true,
-  color = {fg = nord.default_fg, gui = 'bold'}
+  color = {fg = colors.default_fg, gui = 'bold'}
 }
 
 ins_right {
   'filename',
   cond = conditions.buffer_not_empty,
-  color = { fg = nord.yellow, gui = 'italic' }
+  color = { fg = colors.yellow, gui = 'italic' }
 }
 
 --#############################################
 lualine.setup(config)
 
-vim.cmd("highlight StatusLine guibg=" .. nord.default_bg)
-vim.cmd("highlight StatusLineNC guibg=" .. nord.default_bg)
+vim.cmd("highlight StatusLine guibg=" .. colors.default_bg)
+vim.cmd("highlight StatusLineNC guibg=" .. colors.default_bg)
