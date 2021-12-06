@@ -124,7 +124,7 @@ ins_left {
 
 ins_left {
   'location',
-  color = {fg = colors.dark, gui = 'bold'}
+  color = {fg = colors.strong, gui = 'bold'}
 }
 
 -- MIDDLE
