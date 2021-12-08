@@ -74,6 +74,10 @@ map('n', '<c-]><c-p>', '<c-w>g}')
 -- tab
 map('n', ']<tab>', 'gt')
 map('n', '[<tab>', 'gT')
+map('n', '<c-w><c-l>', '<cmd>+1tabmove<cr>')
+map('n', '<c-w>l',     '<cmd>+1tabmove<cr>')
+map('n', '<c-w><c-h>', '<cmd>-1tabmove<cr>')
+map('n', '<c-w>h',     '<cmd>-1tabmove<cr>')
 map('n', '<leader>t', ':tabnew<cr>', { silent = true })
 map('n', '<leader>w', '<cmd>lua require("utils").tabclose()<CR>', { silent = true })
 
