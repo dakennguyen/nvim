@@ -19,6 +19,7 @@ end
 
 require('onenord').setup({
   borders = false,
+  fade_nc = false,
   italics = {
     comments = false,
     strings = false,
