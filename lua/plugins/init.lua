@@ -62,7 +62,6 @@ require('packer').startup(function()
   -- Group: Miscellaneous
   use 'norcalli/nvim-colorizer.lua'
   use 'kevinhwang91/nvim-bqf'
-  use 'glepnir/dashboard-nvim'
   use { 'NTBBloodbath/rest.nvim', requires = { 'dakennguyen/plenary.nvim' } }
   use 'benmills/vimux'
   use 'lewis6991/impatient.nvim'
@@ -74,7 +73,6 @@ local import = function()
   require('plugins.lua.bqf')
   require('plugins.lua.colorizer')
   require('plugins.lua.compe')
-  require('plugins.lua.dashboard')
   require('plugins.lua.gitsigns')
   require('plugins.lua.hop')
   require('plugins.lua.lspconfig')

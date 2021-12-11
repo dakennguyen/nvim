@@ -17,4 +17,9 @@ require 'config.rails'
 
 plugins.import()
 
-vim.g.dashboard_custom_footer = { vim.fn.printf('Loaded in %.0fms', vim.fn.reltimefloat(vim.fn.reltime(start_time))*1000) }
+print(
+  vim.fn.printf(
+    'Loaded in %.0fms',
+    vim.fn.reltimefloat(vim.fn.reltime(start_time)) * 1000
+  )
+)

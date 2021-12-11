@@ -31,6 +31,10 @@ map('', 'gft', '<c-w>gf')
 -- gd
 -- map('', 'gdd', 'gd')
 
+-- session
+map('n', '<space>sq', ':mksession! Session.vim<CR>:qa<CR>')
+map('n', '<space>sl', ':source Session.vim<CR>', { silent = true })
+
 -- macro
 map('x', '@', ':<C-u><cmd>lua require("utils").visual_macro()<CR>')
 
