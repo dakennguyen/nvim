@@ -8,7 +8,7 @@
 -- vim.cmd[[ command! -nargs=? Browse lua _G.open_in_browser(<q-args>) ]]
 
 vim.opt.diffopt:append { 'vertical' }
-map('n', 'gs', ':tab G | tabmove -1<CR>',                                               { silent = true }) -- Git status
+map('n', 'gs', ':tab G<CR>',                                                            { silent = true }) -- Git status
 map('n', 'gb', ':Git blame<CR>',                                                        { silent = true }) -- Git blame
 map('n', '<leader>gc', ':Gclog! -n 50<cr><c-w>p',                                       { silent = true }) -- Git log
 map('n', '<leader>gg', ':tab Git log --oneline --graph --decorate --abbrev-commit<CR>', { silent = true }) -- Git log
