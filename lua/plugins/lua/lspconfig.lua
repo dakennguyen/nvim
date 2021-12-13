@@ -133,6 +133,8 @@ nvim_lsp.solargraph.setup {
   }
 }
 
+-- `npm install -g typescript`
+-- `npm install -g typescript-language-server`
 nvim_lsp.tsserver.setup {
   on_attach = function(client, bufnr)
     if client.config.flags then
