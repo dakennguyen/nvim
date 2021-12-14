@@ -47,8 +47,8 @@ require('packer').startup(function()
   use 'ntpeters/vim-better-whitespace'
 
   -- Group: Files manager
-  use { 'nvim-telescope/telescope.nvim', requires = 'dakennguyen/plenary.nvim' }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
+  use 'junegunn/fzf.vim'
 
   -- Group: Navigator
   use 'phaazon/hop.nvim'
@@ -79,13 +79,13 @@ local import = function()
   require('plugins.lua.lualine')
   require('plugins.lua.navigator')
   require('plugins.lua.tabline')
-  require('plugins.lua.telescope')
   require('plugins.lua.treesitter')
 
   require('plugins.vimscript.better-whitespace')
   require('plugins.vimscript.copilot')
   require('plugins.vimscript.easy-align')
   require('plugins.vimscript.fugitive')
+  require('plugins.vimscript.fzf')
   require('plugins.vimscript.gutentags')
   require('plugins.vimscript.gv')
   require('plugins.vimscript.matchup')

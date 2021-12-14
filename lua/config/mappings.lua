@@ -42,11 +42,6 @@ map('x', '@', ':<C-u><cmd>lua require("utils").visual_macro()<CR>')
 map('n', '<c-w>\\', ':vs +te<cr>',      { silent = true })
 map('n', '<c-w>-', ':sp +te<cr>',       { silent = true })
 
-map('t', '<c-h>', '<C-\\><C-n><c-h>', { noremap = false })
-map('t', '<c-j>', '<C-\\><C-n><c-j>', { noremap = false })
-map('t', '<c-k>', '<C-\\><C-n><c-k>', { noremap = false })
-map('t', '<c-l>', '<C-\\><C-n><c-l>', { noremap = false })
-
 -- quickfix and loclist
 map('n', '<leader>c', ':copen<cr>', { silent = true })
 map('n', '<leader>l', ':lopen<cr>', { silent = true })
