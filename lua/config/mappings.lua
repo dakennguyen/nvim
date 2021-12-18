@@ -110,10 +110,10 @@ map('n', '<leader>fyl', [[:let @+=expand("%").":".line(".") | echo @+<CR>]], { s
 -- map('n', '<leader>fyd', [[ :let @+=expand("%:h") | echo @+<CR>             ]] , { silent = true }) -- File > Copy > Directory Path
 
 -- open files
-map('n', '<space>gs', ':vert botright 80 new ~/Library/Mobile Documents/com~apple~CloudDocs/Notes/scratch.md<CR>', { silent = true })
-map('n', '<space>gt', ':botright 10 new ~/Library/Mobile Documents/com~apple~CloudDocs/Notes/todo.md<CR>', { silent = true })
-map('n', '<space>gn', ':vert botright 80 new ~/Library/Mobile Documents/com~apple~CloudDocs/Notes/<cr>', { silent = true })
-map('n', '<space>gr', ':-1tabnew ~/Library/Mobile Documents/com~apple~CloudDocs/Rests/<cr>', { silent = true })
+map('n', '<space>gs', ':vert botright 80 new $CLOUD/Notes/scratch.md<CR>', { silent = true })
+map('n', '<space>gt', ':botright 10 new $CLOUD/Notes/todo.md<CR>', { silent = true })
+map('n', '<space>gn', ':vert botright 80 new $CLOUD/Notes/<cr>', { silent = true })
+map('n', '<space>gr', ':-1tabnew $CLOUD/Rests/<cr>', { silent = true })
 
 -- open files in chrome
 map('n', '<leader>fp', [[<cmd>!open -a 'google chrome' '%:p'<cr>]], { silent = true })
