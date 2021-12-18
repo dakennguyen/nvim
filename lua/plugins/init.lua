@@ -57,7 +57,7 @@ require('packer').startup(function()
   -- Group: Git
   use { 'lewis6991/gitsigns.nvim', requires = 'dakennguyen/plenary.nvim' }
   use 'idanarye/vim-merginal'
-  use 'junegunn/gv.vim'
+  use 'dakennguyen/gv.vim'
 
   -- Group: Miscellaneous
   use 'norcalli/nvim-colorizer.lua'

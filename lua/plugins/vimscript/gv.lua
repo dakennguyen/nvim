@@ -1,2 +1,4 @@
-map('n', '<leader>gv', ':GV!<CR>', { silent = true })             -- GV
-map('v', '<leader>gv', ':GV<CR>',  { silent = true })             -- GV in Visual mode
+map('n', '<leader>gv', ':GV!<CR>', { silent = true })
+map('v', '<leader>gv', ':GV<CR>',  { silent = true })
+
+map('n', '<space>gg', ':GV -n 200<cr>', { silent = true })
