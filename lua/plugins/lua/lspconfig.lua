@@ -14,34 +14,6 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagn
   update_in_insert = false,
 })
 
-require('vim.lsp.protocol').CompletionItemKind = {
-  ' Text', -- Text
-  ' Method', -- Method
-  ' Function', -- Function
-  ' Constructor', -- Constructor
-  ' Field', -- Field
-  ' Variable', -- Variable
-  ' Class', -- Class
-  'ﰮ Interface', -- Interface
-  ' Module', -- Module
-  ' Property', -- Property
-  ' Unit', -- Unit
-  ' Value', -- Value
-  '了Enum', -- Enum
-  ' Keyword', -- Keyword
-  '﬌ Snippet', -- Snippet
-  ' Color', -- Color
-  ' File', -- File
-  ' Reference', -- Reference
-  ' Folder', -- Folder
-  ' EnumMember', -- EnumMember
-  ' Constant', -- Constant
-  ' Struct', -- Struct
-  ' Event', -- Event
-  'ﬦ Operator', -- Operator
-  ' TypeParameter', -- TypeParameter
-}
-
 -- Linters
 -- ======================================
 
@@ -74,6 +46,10 @@ local eslint = {
 
 --   return false
 -- end
+
+-- cmp
+-- ======================================
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Servers config
 -- ======================================
@@ -120,6 +96,7 @@ local on_attach = function(client, bufnr)
 end
 
 nvim_lsp.solargraph.setup {
+  capabilities = capabilities,
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
@@ -136,6 +113,7 @@ nvim_lsp.solargraph.setup {
 -- `npm install -g typescript`
 -- `npm install -g typescript-language-server`
 nvim_lsp.tsserver.setup {
+  capabilities = capabilities,
   on_attach = function(client, bufnr)
     if client.config.flags then
       client.config.flags.allow_incremental_sync = true
@@ -151,6 +129,7 @@ nvim_lsp.tsserver.setup {
 -- `npm install -g eslint_d`
 -- `npm install -g prettier`
 nvim_lsp.efm.setup {
+  capabilities = capabilities,
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = true
     client.resolved_capabilities.goto_definition = false

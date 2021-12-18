@@ -25,13 +25,19 @@ require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-compe'
   use 'ludovicchabant/vim-gutentags'
   use {
     'JoosepAlviste/nvim-ts-context-commentstring',
     ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' }
   }
   use 'andymass/vim-matchup'
+
+  -- Group: Completion
+  use 'github/copilot.vim'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
 
   -- Group: Framework support
   use 'vim-test/vim-test'
@@ -65,14 +71,13 @@ require('packer').startup(function()
   use { 'NTBBloodbath/rest.nvim', requires = { 'dakennguyen/plenary.nvim' } }
   use 'benmills/vimux'
   use 'lewis6991/impatient.nvim'
-  use 'github/copilot.vim'
 end)
 
 local import = function()
   require('plugins.lua.autopairs')
   require('plugins.lua.bqf')
+  require('plugins.lua.cmp')
   require('plugins.lua.colorizer')
-  require('plugins.lua.compe')
   require('plugins.lua.gitsigns')
   require('plugins.lua.hop')
   require('plugins.lua.lspconfig')
