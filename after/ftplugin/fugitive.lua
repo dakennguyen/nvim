@@ -14,6 +14,15 @@ buf_map('n', '[ou', [[:Git branch -u origin/<c-r>=system('git branch --show-curr
 buf_map('n', ']ou', [[:Git branch -u origin/HEAD<CR>]])
 
 buf_map('n', 'go', ':Merginal<CR>', { nowait = true })
-buf_map('n', '<leader>gz', ':Gclog! -g stash<CR>:close<cr><c-w><c-p>', { silent = true })
-buf_map('n', '<leader>gc', ':Gclog! -n 50<CR>:close<cr><c-w><c-p>',    { silent = true })
 buf_map('n', '<leader>gd', ':vert Git diff origin/HEAD..HEAD<CR>',     { silent = true })
+
+vim.cmd[[
+function! s:open(cmd)
+  call execute(a:cmd)
+  quit
+  wincmd p
+endfunction
+
+nnoremap <silent><buffer> <leader>gz :call <sid>open('Gclog! -g stash')<CR>
+nnoremap <silent><buffer> <leader>gc :call <sid>open('Gclog! -n 50')<CR>
+]]
