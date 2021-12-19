@@ -3,5 +3,4 @@ vim.g.copilot_filetypes = {
 }
 
 vim.g.copilot_no_tab_map = true
-vim.g.copilot_assume_mapped = true
-vim.g.copilot_tab_fallback = ""
+map('i', '<c-space>', 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
