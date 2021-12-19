@@ -19,7 +19,7 @@ map('n', 'k', '<cmd>lua require("utils").jump("k")<cr>', { silent = true })
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 
 -- quit
-map('n', '<leader>q', ':close<cr><c-w><c-p>', { silent = true })
+map('n', '<leader>q', '<cmd>lua require("utils").smart_quit()<cr>', { silent = true })
 map('t', '<leader>q', '<C-\\><C-N>:q<CR>',    { silent = true })
 
 -- gf

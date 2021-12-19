@@ -44,4 +44,19 @@ M.tabclose = function()
   end
 end
 
+-- Does: quit and focus on previous buffer
+M.smart_quit = function()
+  local filetype = vim.bo.filetype
+  if filetype == 'qf' then
+    vim.cmd('quit')
+  elseif filetype == 'fugitive' then
+    vim.cmd('norm gq')
+  else
+    if not pcall(vim.cmd, 'close') then
+      vim.api.nvim_echo({ { 'E444: Cannot close last window', 'ErrorMsg' } }, true, {})
+    end
+    vim.cmd('wincmd p')
+  end
+end
+
 return M
