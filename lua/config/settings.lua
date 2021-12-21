@@ -54,6 +54,7 @@ o.foldenable = true
 o.foldlevelstart = 5
 o.foldnestmax = 5
 o.foldmethod= 'indent'
+o.foldopen:remove('search')
 -- o.foldexpr= 'nvim_treesitter#foldexpr()'
 
 -- Search
