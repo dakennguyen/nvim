@@ -29,7 +29,7 @@ end
 g.mapleader = ','
 g.loaded_ruby_provider = 0
 o.swapfile = false
-o.signcolumn = 'yes'
+o.signcolumn = 'auto'
 o.number = true
 o.relativenumber = true
 o.expandtab = true
