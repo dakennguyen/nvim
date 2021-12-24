@@ -113,7 +113,7 @@ map('n', '<leader>fyl', [[:let @+=expand("%").":".line(".") | echo @+<CR>]], { s
 map('n', '<space>gs', ':vert botright 80 new $CLOUD/Notes/scratch.md<CR>', { silent = true })
 map('n', '<space>gt', ':botright 10 new $CLOUD/Notes/todo.md<CR>', { silent = true })
 map('n', '<space>gn', ':vert botright 80 new $CLOUD/Notes/<cr>', { silent = true })
-map('n', '<space>gr', ':-1tabnew $CLOUD/Rests/<cr>', { silent = true })
+map('n', '<space>gr', ':tabnew $CLOUD/Rests/<cr>', { silent = true })
 
 -- open files in chrome
 map('n', '<leader>fp', [[<cmd>!open -a 'google chrome' '%:p'<cr>]], { silent = true })
