@@ -55,4 +55,12 @@ return {
     inactive_fg = onenord.light_gray,
     separator = onenord.light_gray,
   },
+  gitsigns = {
+    add_fg = onenord.diff_add,
+    add_bg = onenord.diff_add_bg,
+    change_fg = onenord.diff_change,
+    change_bg = onenord.diff_change_bg,
+    delete_fg = onenord.diff_remove,
+    delete_bg = onenord.diff_remove_bg,
+  }
 }
