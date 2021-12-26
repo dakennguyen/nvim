@@ -148,6 +148,8 @@ nvim_lsp.tsserver.setup {
   },
 }
 
+-- `npm install -g eslint_d`
+-- `npm install -g prettier`
 nvim_lsp.efm.setup {
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = true
