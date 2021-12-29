@@ -53,7 +53,8 @@ table.insert(config.inactive_sections.lualine_c, {
 })
 table.insert(config.inactive_sections.lualine_x, {
   'filename',
-  color = { gui = 'italic' }
+  path = 1,
+  color = { fg = colors.yellow, gui = 'italic' }
 })
 
 --#############################################
@@ -130,22 +131,22 @@ ins_left {
 -- MIDDLE
 ins_left {function() return '%=' end}
 
-ins_left {
-  function()
-    local icon = '  '
-    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-    local clients = vim.lsp.get_active_clients()
-    if next(clients) == nil then return '' end
-    for _, client in ipairs(clients) do
-      local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return icon .. client.name
-      end
-    end
-    return ''
-  end,
-  color = {fg = colors.light, gui = 'bold'}
-}
+-- ins_left {
+--   function()
+--     local icon = '  '
+--     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+--     local clients = vim.lsp.get_active_clients()
+--     if next(clients) == nil then return '' end
+--     for _, client in ipairs(clients) do
+--       local filetypes = client.config.filetypes
+--       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+--         return icon .. client.name
+--       end
+--     end
+--     return ''
+--   end,
+--   color = {fg = colors.light, gui = 'bold'}
+-- }
 
 ins_left {
   'diagnostics',
@@ -160,12 +161,12 @@ ins_left {
 }
 
 -- RIGHT
-ins_right {
-  'o:encoding',
-  fmt = string.upper,
-  cond = conditions.hide_in_width,
-  color = {fg = colors.default_fg, gui = 'bold'}
-}
+-- ins_right {
+--   'o:encoding',
+--   fmt = string.upper,
+--   cond = conditions.hide_in_width,
+--   color = {fg = colors.default_fg, gui = 'bold'}
+-- }
 
 ins_right {
   'filetype',
@@ -183,6 +184,7 @@ ins_right {
 
 ins_right {
   'filename',
+  path = 1,
   cond = conditions.buffer_not_empty,
   color = { fg = colors.yellow, gui = 'italic' }
 }
