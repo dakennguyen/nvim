@@ -75,21 +75,5 @@ vim.g.projectionist_heuristics = {
       alternate = 'app/controllers/{}_controller.rb',
       type = 'test'
     },
-    -- javascript
-    ['*.js'] = {
-      alternate = {
-        '{dirname}/__tests__/{basename}.spec.js',
-        '{dirname}/__tests__/integration.spec.js'
-      },
-      type = 'source',
-    },
-    ['*/integration.spec.js'] = {
-      alternate = '{dirname}/index.js',
-      type = 'test',
-    },
-    ['*.spec.js'] = {
-      alternate = '{dirname}/../{basename}.js',
-      type = 'test',
-    }
   }
 }
