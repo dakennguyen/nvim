@@ -95,6 +95,7 @@ local on_attach = function(client, bufnr)
   -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
 end
 
+-- `gem install solargraph`
 nvim_lsp.solargraph.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -128,6 +129,7 @@ nvim_lsp.tsserver.setup {
 
 -- `npm install -g eslint_d`
 -- `npm install -g prettier`
+-- `brew install efm-langserver`
 nvim_lsp.efm.setup {
   capabilities = capabilities,
   on_attach = function(client, bufnr)
