@@ -49,12 +49,6 @@ return {
     inactive = onenord.light_gray,
     strong = custom_colors.strong,
   },
-  tabline = {
-    default_bg = onenord.active,
-    active_fg = onenord.cyan,
-    inactive_fg = onenord.light_gray,
-    separator = onenord.light_gray,
-  },
   gitsigns = {
     add_fg = onenord.diff_add,
     add_bg = onenord.diff_add_bg,

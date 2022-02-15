@@ -4,7 +4,6 @@ require('packer').startup(function()
   -- Group: Theme
   use { 'kyazdani42/nvim-web-devicons', config = "require'nvim-web-devicons'.setup {}" }
   use 'nvim-lualine/lualine.nvim'
-  use 'seblj/nvim-tabline'
   use 'rmehri01/onenord.nvim'
   -- use 'shaunsingh/nord.nvim'
   -- use 'Th3Whit3Wolf/one-nvim'
@@ -83,7 +82,6 @@ local import = function()
   require('plugins.lua.lspconfig')
   require('plugins.lua.lualine')
   require('plugins.lua.navigator')
-  require('plugins.lua.tabline')
   require('plugins.lua.treesitter')
 
   require('plugins.vimscript.better-whitespace')

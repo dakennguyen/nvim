@@ -13,12 +13,5 @@ return {
     yellow = "#d19a66",
     inactive = "#81879C",
     dark = "#000000"
-  },
-  tabline = {
-    default_bg = '#f0f0f0',
-    active_bg = '#ffffff',
-    active_fg = '#5E81AC',
-    inactive_fg = '#7a7a7a',
-    separator = '#d0d0d0',
-  },
+  }
 }

@@ -41,6 +41,21 @@ local config = {
     lualine_x = {},
     lualine_y = {},
     lualine_z = {}
+  },
+  tabline = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {{
+      'tabs',
+      max_length = vim.o.columns / 2,
+      mode = 2,
+      tabs_color = {
+        active = { fg = colors.default_fg },
+      }
+    }}
   }
 }
 
@@ -54,7 +69,7 @@ table.insert(config.inactive_sections.lualine_c, {
 table.insert(config.inactive_sections.lualine_x, {
   'filename',
   path = 1,
-  color = { fg = colors.yellow, gui = 'italic' }
+  color = { fg = colors.yellow }
 })
 
 --#############################################
@@ -186,7 +201,7 @@ ins_right {
   'filename',
   path = 1,
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.yellow, gui = 'italic' }
+  color = { fg = colors.yellow }
 }
 
 --#############################################
@@ -194,3 +209,5 @@ lualine.setup(config)
 
 vim.cmd("highlight StatusLine guibg=" .. colors.default_bg)
 vim.cmd("highlight StatusLineNC guibg=" .. colors.default_bg)
+
+map('n', '<leader>rn', ':LualineRenameTab ')
