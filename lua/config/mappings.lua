@@ -32,6 +32,7 @@ map('', 'gft', '<c-w>gf')
 -- map('', 'gdd', 'gd')
 
 -- session
+map('n', '<space>ss', ':mksession! Session.vim<CR>')
 map('n', '<space>sq', ':mksession! Session.vim<CR>:qa<CR>')
 map('n', '<space>sl', ':source Session.vim<CR>', { silent = true })
 
