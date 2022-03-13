@@ -40,6 +40,7 @@ require('packer').startup(function()
 
   -- Group: Framework support
   use 'vim-test/vim-test'
+  use { 'fatih/vim-go', ft = 'go' }
 
   -- Group: Editing support
   use 'windwp/nvim-autopairs'

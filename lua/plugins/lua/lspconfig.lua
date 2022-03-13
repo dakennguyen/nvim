@@ -31,6 +31,11 @@ local eslint = {
   formatStdin = true
 }
 
+local golangci_lint = {
+  lintCommand = "golangci-lint run ${INPUT}",
+  lintStdin = true,
+}
+
 -- local function eslint_config_exists()
 --   local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
 
@@ -111,6 +116,16 @@ nvim_lsp.solargraph.setup {
   }
 }
 
+-- go install golang.org/x/tools/gopls@latest
+-- go install github.com/go-delve/delve/cmd/dlv@latest
+nvim_lsp.gopls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+}
+
 -- `npm install -g typescript`
 -- `npm install -g typescript-language-server`
 nvim_lsp.tsserver.setup {
@@ -130,6 +145,7 @@ nvim_lsp.tsserver.setup {
 -- `npm install -g eslint_d`
 -- `npm install -g prettier`
 -- `brew install efm-langserver`
+-- `go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest`
 nvim_lsp.efm.setup {
   capabilities = capabilities,
   on_attach = function(client, bufnr)
@@ -151,8 +167,9 @@ nvim_lsp.efm.setup {
       typescript = { eslint },
       typescriptreact = { eslint },
       json = { prettier },
+      go = { golangci_lint },
     }
   },
-  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json" },
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "go" },
   init_options = { documentFormatting = true, codeAction = true },
 }
