@@ -62,4 +62,9 @@ M.smart_quit = function()
   end
 end
 
+M.vsplit = function(cmd)
+  vim.cmd('wincmd v')
+  vim.cmd(string.format([[call execute('normal! %s')]], cmd))
+end
+
 return M

@@ -24,7 +24,7 @@ map('t', '<leader>q', '<C-\\><C-N>:q<CR>',    { silent = true })
 
 -- gf
 map('', 'gff', 'gf')
-map('', 'gfv', '<c-w>vgf')
+map('', 'gfv', '<cmd>lua require("utils").vsplit("gf")<cr>')
 map('', 'gfs', '<c-w>f')
 map('', 'gft', '<c-w>gf')
 
@@ -59,8 +59,8 @@ map('t', '<leader>z', '<C-\\><C-N><C-W>_<C-W><Bar>i')
 map('n', '<c-]>]',     'g<c-]>')
 map('n', '<c-]><c-]>', 'g<c-]>')
 
-map('n', '<c-]>v',     '<c-w>vg<c-]>')
-map('n', '<c-]><c-v>', '<c-w>vg<c-]>')
+map('n', '<c-]>v',     '<cmd>lua require("utils").vsplit("g<c-]>")<cr>')
+map('n', '<c-]><c-v>', '<cmd>lua require("utils").vsplit("g<c-]>")<cr>')
 
 map('n', '<c-]>s',     '<c-w>g<c-]>')
 map('n', '<c-]><c-s>', '<c-w>g<c-]>')
