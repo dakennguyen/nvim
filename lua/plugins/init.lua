@@ -60,14 +60,14 @@ require('packer').startup(function()
   use 'numToStr/Navigator.nvim'
 
   -- Group: Git
-  use { 'lewis6991/gitsigns.nvim', requires = 'dakennguyen/plenary.nvim' }
+  use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
   use 'idanarye/vim-merginal'
   use 'dakennguyen/gv.vim'
 
   -- Group: Miscellaneous
   use 'norcalli/nvim-colorizer.lua'
   use 'kevinhwang91/nvim-bqf'
-  use { 'NTBBloodbath/rest.nvim', requires = { 'dakennguyen/plenary.nvim' } }
+  use { 'NTBBloodbath/rest.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use 'benmills/vimux'
   use 'lewis6991/impatient.nvim'
 end)
