@@ -67,7 +67,11 @@ require('packer').startup(function()
   -- Group: Miscellaneous
   use 'norcalli/nvim-colorizer.lua'
   use 'kevinhwang91/nvim-bqf'
-  use { 'NTBBloodbath/rest.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use {
+    'NTBBloodbath/rest.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    ft = 'http'
+  }
   use 'benmills/vimux'
   use 'lewis6991/impatient.nvim'
 end)
