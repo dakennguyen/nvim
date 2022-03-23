@@ -16,6 +16,7 @@ map('n', 'j', '<cmd>lua require("utils").jump("j")<cr>', { silent = true })
 map('n', 'k', '<cmd>lua require("utils").jump("k")<cr>', { silent = true })
 
 -- search
+map('v', '#', [[y?\V<C-R>=escape(@",'/\')<CR><CR>]])
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 
 -- quit
