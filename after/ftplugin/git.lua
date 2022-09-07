@@ -12,7 +12,7 @@ buf_map('n', '<leader>ft', 'f/lvt<space>gft', { noremap = false })
 buf_map('n', 'cl<space>', ':Git pull<space>')
 buf_map('n', 'cp<space>', ':Git push<space>')
 buf_map('n', 'ch<space>', ':Git fetch<space>')
-buf_map('n', 'cH<space>', ':Git remote update origin --prune<space>')
+buf_map('n', 'cH<space>', ':Git remote update origin --prune')
 buf_map('n', 'cd<space>', ':vert Git diff<space>')
 
 buf_map('n', ']f', '/^diff --git<cr>zV', { noremap = false, silent = true })
