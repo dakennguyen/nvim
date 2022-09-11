@@ -6,7 +6,7 @@ buf_map('n', '<c-t>', 'O',  { noremap = false, nowait = true })
 
 buf_map('n', '<leader>fo', 'f/lvt<space>gff', { noremap = false })
 buf_map('n', '<leader>fs', 'f/lvt<space>gfs', { noremap = false })
-buf_map('n', '<leader>fv', 'f/lvt<space>gfv', { noremap = false })
+buf_map('n', '<leader>fv', '<cmd>lua require("utils").vsplit("f/lvt<space>gf")<cr>')
 buf_map('n', '<leader>ft', 'f/lvt<space>gft', { noremap = false })
 
 buf_map('n', 'cl<space>', ':Git pull<space>')
