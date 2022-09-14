@@ -18,12 +18,12 @@ buf_map('n', 'go', ':Merginal<CR>', { nowait = true })
 buf_map('n', '<leader>gd', ':vert Git diff origin/HEAD..HEAD<CR>',     { silent = true })
 
 vim.cmd[[
-function! s:open(cmd)
-  call execute(a:cmd)
-  quit
-  wincmd p
-endfunction
+"function! s:open(cmd)
+"  call execute(a:cmd)
+"  quit
+"  wincmd p
+"endfunction
 
-nnoremap <silent><buffer> <leader>gz :call <sid>open('Gclog! -g stash')<CR>
-nnoremap <silent><buffer> <leader>gc :call <sid>open('Gclog! -n 50')<CR>
+nnoremap <silent><buffer> <leader>gz :vsplit <bar> Gclog -g stash<CR>
+nnoremap <silent><buffer> <leader>gc :vsplit <bar> Gclog -n 50<CR>
 ]]
