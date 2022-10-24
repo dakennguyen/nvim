@@ -49,7 +49,7 @@ local eslint = {
 
 -- cmp
 -- ======================================
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Servers config
 -- ======================================
@@ -87,9 +87,9 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>l', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
   -- Set some keybinds conditional on server capabilities
-  if client.resolved_capabilities.document_formatting
-    or client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", "<space>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  if client.server_capabilities.documentFormattingProvider
+    or client.server_capabilities.documentRangeFormattingProvider then
+    buf_set_keymap("n", "<space>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
   end
 
   -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
@@ -119,7 +119,7 @@ nvim_lsp.tsserver.setup {
     if client.config.flags then
       client.config.flags.allow_incremental_sync = true
     end
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
     on_attach(client, bufnr)
   end,
   flags = {
@@ -133,8 +133,8 @@ nvim_lsp.tsserver.setup {
 nvim_lsp.efm.setup {
   capabilities = capabilities,
   on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = true
-    client.resolved_capabilities.goto_definition = false
+    client.server_capabilities.documentFormattingProvider = true
+    -- client.resolved_capabilities.goto_definition = false
 
     on_attach(client, bufnr)
   end,
