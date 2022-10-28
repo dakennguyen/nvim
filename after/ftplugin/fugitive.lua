@@ -2,7 +2,6 @@ buf_map('n', '<c-s>', 'o',  { noremap = false, nowait = true })
 buf_map('n', '<c-v>', 'gO', { noremap = false, nowait = true })
 buf_map('n', '<c-t>', 'O',  { noremap = false, nowait = true })
 
-buf_map('n', '<leader>0', ':e<cr>')
 buf_map('n', 'cl<space>', ':Git pull<space>')
 buf_map('n', 'cp<space>', ':Git push<space>')
 buf_map('n', 'ch<space>', ':Git fetch<space>')

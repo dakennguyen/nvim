@@ -4,6 +4,7 @@ map('n', '<space>pi', ':PackerInstall<cr>')
 map('n', '<space>pc', ':PackerClean<cr>')
 
 -- General
+map('n', '<leader>0', ':e<cr>')
 map('n', '<space>rl', '<cmd>lua require("utils").reload_config()<cr>')
 map('n', '<space>so', ':source %<CR>:PackerCompile<cr>')
 map('n', '<leader><space>', ':noh<cr>', { silent = true })
