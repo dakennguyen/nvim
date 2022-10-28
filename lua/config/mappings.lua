@@ -21,6 +21,9 @@ map('n', 'k', '<cmd>lua require("utils").jump("k")<cr>', { silent = true })
 map('v', '#', [[y?\V<C-R>=escape(@",'/\')<CR><CR>]])
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 
+-- replace
+map('v', '<leader>er', [[y/\V<C-R>=escape(@",'/\')<CR><CR>:%s/<C-r>"/]])
+
 -- quit
 map('n', '<leader>q', '<cmd>lua require("utils").smart_quit()<cr>', { silent = true })
 map('t', '<leader>q', '<C-\\><C-N>:q<CR>',    { silent = true })

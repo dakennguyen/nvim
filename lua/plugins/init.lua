@@ -18,7 +18,7 @@ require('packer').startup(function()
   use 'https://tpope.io/vim/vinegar.git'
   use 'https://tpope.io/vim/bundler.git'
   use { 'https://tpope.io/vim/repeat.git', branch = 'no-feedkeys' }
-  use { 'dakennguyen/vim-unimpaired', branch = 'minimal' }
+  use 'dakennguyen/vim-unimpaired'
 
   -- Group: Language support
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -32,7 +32,7 @@ require('packer').startup(function()
   use 'andymass/vim-matchup'
 
   -- Group: Completion
-  use 'github/copilot.vim'
+  -- use 'github/copilot.vim'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'

@@ -28,6 +28,7 @@ end
 
 g.mapleader = ','
 g.loaded_ruby_provider = 0
+g.loaded_perl_provider = 0
 o.swapfile = false
 o.signcolumn = 'auto'
 o.number = true
@@ -39,6 +40,7 @@ o.cursorline = true
 o.splitbelow = true
 o.splitright = true
 o.scrolloff = 5
+o.modeline = false
 o.mouse = 'a'
 
 -- buffer
