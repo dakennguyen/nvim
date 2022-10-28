@@ -126,6 +126,16 @@ nvim_lsp.gopls.setup {
   },
 }
 
+-- https://download.eclipse.org/jdtls/snapshots/?d
+-- Link bin folder to PATH
+nvim_lsp.jdtls.setup{
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+}
+
 -- `npm install -g typescript`
 -- `npm install -g typescript-language-server`
 nvim_lsp.tsserver.setup {
