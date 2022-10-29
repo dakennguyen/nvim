@@ -1,4 +1,11 @@
-vim.g["test#strategy"] = "vimux"
+vim.cmd([[
+  function! BufferStrategy(cmd)
+    execute 'R !' . a:cmd
+  endfunction
+]])
+
+vim.g['test#custom_strategies'] = { buffer = vim.fn['BufferStrategy'] }
+vim.g['test#strategy'] = "basic"
 -- vim.g["test#neovim#term_position"] = 'botright 10'
 
 vim.g['test#ruby#bundle_exec'] = 1
