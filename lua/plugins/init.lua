@@ -5,9 +5,11 @@ require('packer').startup(function()
   use { 'kyazdani42/nvim-web-devicons', config = "require'nvim-web-devicons'.setup {}" }
   use 'nvim-lualine/lualine.nvim'
   use 'rmehri01/onenord.nvim'
+  -- use 'EdenEast/nightfox.nvim'
   -- use 'shaunsingh/nord.nvim'
   -- use 'Th3Whit3Wolf/one-nvim'
   -- use 'romgrk/github-light.vim'
+  -- use 'NTBBloodbath/doom-one.nvim'
 
   -- Group: TPope
   use 'https://tpope.io/vim/surround.git'

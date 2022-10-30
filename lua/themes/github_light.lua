@@ -1,9 +1,10 @@
 vim.cmd 'colorscheme github-light'
+highlight('Identifier', { style = 'italic' })
 
 return {
   lualine = {
     default_fg = "#5E81AC",
-    default_bg = "#eeeeee",
+    default_bg = "#ffffff",
     light = "#494b53",
     visual = "#E45649",
     insert = "#61afef",
