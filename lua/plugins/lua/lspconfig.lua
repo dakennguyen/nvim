@@ -100,13 +100,15 @@ local on_attach = function(client, bufnr)
   -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
 end
 
+local lsp_flags = {
+  debounce_text_changes = 150,
+}
+
 -- `gem install solargraph`
 nvim_lsp.solargraph.setup {
   capabilities = capabilities,
   on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 150,
-  },
+  flags = lsp_flags,
   settings = {
     solargraph = {
       useBundler = true,
@@ -121,9 +123,7 @@ nvim_lsp.solargraph.setup {
 nvim_lsp.gopls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 150,
-  },
+  flags = lsp_flags,
 }
 
 -- https://download.eclipse.org/jdtls/snapshots/?d
@@ -131,9 +131,7 @@ nvim_lsp.gopls.setup {
 nvim_lsp.jdtls.setup{
   capabilities = capabilities,
   on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 150,
-  },
+  flags = lsp_flags,
 }
 
 -- `npm install -g typescript`
@@ -147,9 +145,7 @@ nvim_lsp.tsserver.setup {
     client.server_capabilities.documentFormattingProvider = false
     on_attach(client, bufnr)
   end,
-  flags = {
-    debounce_text_changes = 150,
-  },
+  flags = lsp_flags,
 }
 
 -- `npm install -g eslint_d`
