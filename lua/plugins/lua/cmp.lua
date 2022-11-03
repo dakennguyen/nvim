@@ -43,6 +43,12 @@ local select_prev_item = function()
 end
 
 cmp.setup({
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
   formatting = {
     format = function(entry, vim_item)
       vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
@@ -68,7 +74,8 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'buffer' },
-    { name = 'path' }
+    { name = 'path' },
+    { name = 'vsnip' }
   })
 })
 

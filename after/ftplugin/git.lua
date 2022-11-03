@@ -4,10 +4,10 @@ buf_map('n', '<c-s>', 'o',  { noremap = false, nowait = true })
 buf_map('n', '<c-v>', 'gO', { noremap = false, nowait = true })
 buf_map('n', '<c-t>', 'O',  { noremap = false, nowait = true })
 
-buf_map('n', '<leader>fo', 'f/lvt<space>gff', { noremap = false })
-buf_map('n', '<leader>fs', 'f/lvt<space>gfs', { noremap = false })
+buf_map('n', '<leader>fo', 'f/lvt<space>gf')
+buf_map('n', '<leader>fs', 'f/lvt<space><c-w>f')
 buf_map('n', '<leader>fv', '<cmd>lua require("utils").vsplit("f/lvt<space>gf")<cr>')
-buf_map('n', '<leader>ft', 'f/lvt<space>gft', { noremap = false })
+buf_map('n', '<leader>ft', 'f/lvt<space><c-w>gf')
 
 buf_map('n', 'cl', ':Git pull')
 buf_map('n', 'cp', ':Git push')
