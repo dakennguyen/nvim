@@ -122,7 +122,16 @@ nvim_lsp.solargraph.setup {
 -- go install github.com/go-delve/delve/cmd/dlv@latest
 nvim_lsp.gopls.setup {
   capabilities = capabilities,
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    local opts = { noremap=true, silent=true }
+    on_attach(client, bufnr)
+    buf_set_keymap('n', 'gdd', '<Cmd>:GoDef<CR>', opts)
+    buf_set_keymap('n', 'gdv', [[<Cmd>vs | GoDef<CR>]], opts)
+    buf_set_keymap('n', 'gds', [[<Cmd>split | GoDef<CR>]], opts)
+    buf_set_keymap('n', 'gdt', [[<Cmd>tab split | GoDef<CR>]], opts)
+  end,
   flags = lsp_flags,
 }
 
@@ -157,8 +166,6 @@ nvim_lsp.efm.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
     -- client.resolved_capabilities.goto_definition = false
-
-    on_attach(client, bufnr)
   end,
   -- root_dir = function()
   --   if not eslint_config_exists() then
