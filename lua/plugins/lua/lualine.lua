@@ -50,7 +50,7 @@ local config = {
     lualine_y = {},
     lualine_z = {{
       'tabs',
-      max_length = vim.o.columns / 2,
+      max_length = vim.o.columns,
       mode = 2,
       tabs_color = {
         active = { fg = colors.default_fg },
