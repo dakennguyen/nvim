@@ -34,7 +34,6 @@ require('packer').startup(function()
   use 'andymass/vim-matchup'
 
   -- Group: Completion
-  -- use 'github/copilot.vim'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
@@ -92,7 +91,6 @@ local import = function()
   require('plugins.lua.treesitter')
 
   require('plugins.vimscript.better-whitespace')
-  require('plugins.vimscript.copilot')
   require('plugins.vimscript.easy-align')
   require('plugins.vimscript.fugitive')
   require('plugins.vimscript.fzf')
