@@ -74,7 +74,6 @@ require('packer').startup(function()
     requires = { 'nvim-lua/plenary.nvim' },
     ft = 'http'
   }
-  use 'benmills/vimux'
   use 'lewis6991/impatient.nvim'
 end)
 
@@ -101,7 +100,6 @@ local import = function()
   require('plugins.vimscript.projectionist')
   require('plugins.vimscript.splitjoin')
   require('plugins.vimscript.test')
-  require('plugins.vimscript.vimux')
 end
 
 return {
