@@ -24,7 +24,7 @@ function! Redir(cmd, rng, start, end)
     redir END
     let output = split(output, "\n")
   endif
-  new
+  vert new
   let w:scratch = 1
   setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
   call setline(1, output)
