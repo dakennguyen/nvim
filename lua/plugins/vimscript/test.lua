@@ -13,6 +13,8 @@ vim.g['test#ruby#use_binstubs'] = 0
 vim.g['test#javascript#runner'] = 'jest'
 vim.g['test#javascript#jest#executable'] = 'yarn test'
 
+vim.g['test#java#gradletest#options'] = '--info'
+
 map('n', 't<C-n>', ':TestNearest<CR>', { noremap = false, silent = true })
 map('n', 't<C-f>', ':TestFile<CR>',    { noremap = false, silent = true })
 map('n', 't<C-s>', ':TestSuite<CR>',   { noremap = false, silent = true })
