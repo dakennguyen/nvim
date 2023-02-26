@@ -118,6 +118,12 @@ nvim_lsp.solargraph.setup {
   }
 }
 
+nvim_lsp.sourcekit.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
 -- go install golang.org/x/tools/gopls@latest
 -- go install github.com/go-delve/delve/cmd/dlv@latest
 nvim_lsp.gopls.setup {
@@ -166,6 +172,7 @@ nvim_lsp.efm.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
     -- client.resolved_capabilities.goto_definition = false
+    on_attach(client, bufnr)
   end,
   -- root_dir = function()
   --   if not eslint_config_exists() then
