@@ -32,3 +32,4 @@ npairs.add_rules {
 }
 
 npairs.add_rules(require('nvim-autopairs.rules.endwise-ruby'))
+npairs.add_rules(require('nvim-autopairs.rules.endwise-lua'))
