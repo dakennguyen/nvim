@@ -12,6 +12,7 @@ require('packer').startup(function()
   -- use 'NTBBloodbath/doom-one.nvim'
 
   -- Group: TPope
+  use { 'https://tpope.io/vim/dadbod.git', cmd = 'DB' }
   use 'https://tpope.io/vim/surround.git'
   use 'https://tpope.io/vim/projectionist.git'
   use 'https://tpope.io/vim/fugitive.git'
@@ -90,6 +91,7 @@ local import = function()
   require('plugins.lua.navigator')
   require('plugins.lua.treesitter')
 
+  require('plugins.vimscript.dadbod')
   require('plugins.vimscript.easy-align')
   require('plugins.vimscript.fugitive')
   require('plugins.vimscript.fzf')
