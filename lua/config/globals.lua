@@ -17,22 +17,26 @@ function buf_map(mode, lhs, rhs, opts)
 end
 
 function open_file_command(cmd_char, files)
-  if type(files) == 'string' then
-    vim.cmd(string.format('command! %so edit %s', cmd_char, files))
-    vim.cmd(string.format('command! %ss split %s', cmd_char, files))
-    vim.cmd(string.format('command! %sv vsplit %s', cmd_char, files))
-    vim.cmd(string.format('command! %st tabedit %s', cmd_char, files))
-    return
-  end
-
-  for _, file in ipairs(files) do
+  local assign = function(file)
     if vim.fn.filereadable(file) == 1 then
       vim.cmd(string.format('command! %so edit %s', cmd_char, file))
       vim.cmd(string.format('command! %ss split %s', cmd_char, file))
       vim.cmd(string.format('command! %sv vsplit %s', cmd_char, file))
       vim.cmd(string.format('command! %st tabedit %s', cmd_char, file))
-      return
+
+      return true
     end
+
+    return false
+  end
+
+  if type(files) == 'string' then
+    assign(files)
+    return
+  end
+
+  for _, file in ipairs(files) do
+    if assign(file) then return end
   end
 end
 
