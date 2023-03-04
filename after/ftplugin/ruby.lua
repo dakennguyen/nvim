@@ -5,4 +5,4 @@ vim.cmd[[
   iabbrev <buffer> rbundler <cmd>r ~/.dotfiles/snippet/rbundler.rb<cr><cmd>norm kdd<cr>
 ]]
 
-buf_map('n', '<leader>rr', ':vsplit term://ruby <c-r>=expand("%")<CR><CR>')
+buf_map('n', '`<cr>', ':vsplit term://ruby <c-r>=expand("%")<CR><CR>')

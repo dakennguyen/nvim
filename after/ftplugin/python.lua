@@ -1,1 +1,1 @@
-buf_map('n', '<leader>rr', ':vsplit term://python <c-r>=expand("%")<CR><CR>')
+buf_map('n', '`<cr>', ':vsplit term://python <c-r>=expand("%")<CR><CR>')
