@@ -47,6 +47,12 @@ augroup('Terminal', {
   end,
 })
 
+augroup('RemoveTrailingWhitespace', {
+  event = 'BufWritePre',
+  pattern = '*',
+  command = ':%s/\\s\\+$//e',
+})
+
 augroup('Nvr', {
   event = 'FileType',
   pattern = 'gitcommit,gitrebase,gitconfig',

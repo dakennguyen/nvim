@@ -53,7 +53,6 @@ require('packer').startup(function()
   }
   use 'AndrewRadev/splitjoin.vim'
   use 'junegunn/vim-easy-align'
-  use 'ntpeters/vim-better-whitespace'
 
   -- Group: Files manager
   use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
@@ -91,7 +90,6 @@ local import = function()
   require('plugins.lua.navigator')
   require('plugins.lua.treesitter')
 
-  require('plugins.vimscript.better-whitespace')
   require('plugins.vimscript.easy-align')
   require('plugins.vimscript.fugitive')
   require('plugins.vimscript.fzf')
