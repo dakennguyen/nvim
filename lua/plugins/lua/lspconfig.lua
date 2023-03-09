@@ -40,6 +40,16 @@ return {
       lintStdin = true,
     }
 
+    local flake8 = {
+      lintCommand = "flake8 ${INPUT}",
+      lintStdin = true,
+    }
+
+    local black = {
+      formatCommand = "black --quiet -",
+      formatStdin = true,
+    }
+
     -- local function eslint_config_exists()
     --   local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
 
@@ -153,6 +163,13 @@ return {
       flags = lsp_flags,
     }
 
+    -- pip install pyright
+    nvim_lsp.pyright.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      flags = lsp_flags,
+    }
+
     -- `npm install -g typescript`
     -- `npm install -g typescript-language-server`
     nvim_lsp.tsserver.setup {
@@ -171,6 +188,7 @@ return {
     -- `npm install -g prettier`
     -- `brew install efm-langserver`
     -- `go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest`
+    -- `pip install flake8`
     nvim_lsp.efm.setup {
       capabilities = capabilities,
       on_attach = function(client, bufnr)
@@ -185,6 +203,7 @@ return {
       --   return vim.fn.getcwd()
       -- end,
       settings = {
+        rootMarkers = {"README.md"},
         languages = {
           javascript = { eslint },
           javascriptreact = { eslint },
@@ -192,9 +211,10 @@ return {
           typescriptreact = { eslint },
           json = { prettier },
           go = { golangci_lint },
+          python = { flake8, black },
         }
       },
-      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "go" },
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "go", "python" },
       init_options = { documentFormatting = true, codeAction = true },
     }
   end,
