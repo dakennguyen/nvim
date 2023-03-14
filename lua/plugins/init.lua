@@ -1,110 +1,114 @@
-require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
-
+local plugins = {
   -- Group: Theme
-  use { 'kyazdani42/nvim-web-devicons', config = "require'nvim-web-devicons'.setup {}" }
-  use 'nvim-lualine/lualine.nvim'
-  use 'rmehri01/onenord.nvim'
-  -- use 'EdenEast/nightfox.nvim'
-  -- use 'shaunsingh/nord.nvim'
-  -- use 'Th3Whit3Wolf/one-nvim'
-  -- use 'romgrk/github-light.vim'
-  -- use 'NTBBloodbath/doom-one.nvim'
+  { 'kyazdani42/nvim-web-devicons', config = true },
+  require('plugins.lua.lualine'),
+  'rmehri01/onenord.nvim',
+  -- 'EdenEast/nightfox.nvim',
+  -- 'shaunsingh/nord.nvim',
+  -- 'Th3Whit3Wolf/one-nvim',
+  -- 'romgrk/github-light.vim',
+  -- 'NTBBloodbath/doom-one.nvim',
 
   -- Group: TPope
-  use { 'https://tpope.io/vim/dadbod.git', cmd = 'DB' }
-  use 'https://tpope.io/vim/surround.git'
-  use 'https://tpope.io/vim/projectionist.git'
-  use 'https://tpope.io/vim/fugitive.git'
-  use 'https://tpope.io/vim/rhubarb.git'
-  use 'https://tpope.io/vim/commentary.git'
-  use 'https://tpope.io/vim/vinegar.git'
-  use 'https://tpope.io/vim/bundler.git'
-  use { 'https://tpope.io/vim/repeat.git', branch = 'no-feedkeys' }
-  use 'dakennguyen/vim-unimpaired'
+  require 'plugins.tpope.misc',
+  require 'plugins.tpope.dadbod',
+  require 'plugins.tpope.fugitive',
+  require 'plugins.tpope.projectionist',
 
   -- Group: Language support
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'neovim/nvim-lspconfig'
-  use 'ludovicchabant/vim-gutentags'
-  use {
-    'JoosepAlviste/nvim-ts-context-commentstring',
-    ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' }
-  }
-  use 'andymass/vim-matchup'
+  require('plugins.lua.treesitter'),
+  { 'nvim-treesitter/nvim-treesitter-textobjects', init = lazy_load "nvim-treesitter-textobjects" },
+  require('plugins.lua.lspconfig'),
+  require('plugins.vimscript.gutentags'),
+  { 'JoosepAlviste/nvim-ts-context-commentstring', ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' } },
+  require('plugins.vimscript.matchup'),
 
   -- Group: Completion
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
+  require('plugins.lua.cmp'),
+  require('plugins.vimscript.vsnip'),
 
   -- Group: Framework support
-  use 'vim-test/vim-test'
-  use { 'fatih/vim-go', ft = 'go' }
+  require('plugins.vimscript.test'),
+  { 'fatih/vim-go', ft = 'go' },
 
   -- Group: Editing support
-  use 'windwp/nvim-autopairs'
-  use {
-    'windwp/nvim-ts-autotag',
-    ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' }
-  }
-  use 'AndrewRadev/splitjoin.vim'
-  use 'junegunn/vim-easy-align'
+  require('plugins.lua.autopairs'),
+  { 'windwp/nvim-ts-autotag', ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' } },
+  require('plugins.lua.treesj'),
+  require('plugins.vimscript.easy-align'),
 
   -- Group: Files manager
-  use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
-  use 'junegunn/fzf.vim'
+  require('plugins.vimscript.fzf'),
 
   -- Group: Navigator
-  use 'phaazon/hop.nvim'
-  use 'numToStr/Navigator.nvim'
+  require('plugins.lua.hop'),
+  require('plugins.lua.navigator'),
 
   -- Group: Git
-  use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use 'idanarye/vim-merginal'
-  use 'dakennguyen/gv.vim'
+  require('plugins.lua.gitsigns'),
+  require('plugins.vimscript.merginal'),
+  require('plugins.vimscript.gv'),
 
   -- Group: Miscellaneous
-  use 'norcalli/nvim-colorizer.lua'
-  use 'kevinhwang91/nvim-bqf'
-  use {
+  require('plugins.lua.colorizer'),
+  require('plugins.lua.bqf'),
+  {
     'NTBBloodbath/rest.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
+    dependencies = { 'nvim-lua/plenary.nvim' },
     ft = 'http'
   }
-  use 'lewis6991/impatient.nvim'
-end)
-
-local import = function()
-  require('plugins.lua.autopairs')
-  require('plugins.lua.bqf')
-  require('plugins.lua.cmp')
-  require('plugins.lua.colorizer')
-  require('plugins.lua.gitsigns')
-  require('plugins.lua.hop')
-  require('plugins.lua.lspconfig')
-  require('plugins.lua.lualine')
-  require('plugins.lua.navigator')
-  require('plugins.lua.treesitter')
-
-  require('plugins.vimscript.dadbod')
-  require('plugins.vimscript.easy-align')
-  require('plugins.vimscript.fugitive')
-  require('plugins.vimscript.fzf')
-  require('plugins.vimscript.gutentags')
-  require('plugins.vimscript.gv')
-  require('plugins.vimscript.matchup')
-  require('plugins.vimscript.merginal')
-  require('plugins.vimscript.projectionist')
-  require('plugins.vimscript.splitjoin')
-  require('plugins.vimscript.test')
-  require('plugins.vimscript.vsnip')
-end
-
-return {
-  import = import
 }
+
+local lazy_configs = {
+  defaults = { lazy = true },
+  ui = {
+    icons = {
+      ft = "",
+      cmd = "⌘",
+      lazy = "鈴 ",
+      event = "",
+      start = "",
+      loaded = "",
+      not_loaded = "",
+    },
+  },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "2html_plugin",
+        "tohtml",
+        "getscript",
+        "getscriptPlugin",
+        "gzip",
+        "logipat",
+        -- "netrw",
+        -- "netrwPlugin",
+        -- "netrwSettings",
+        -- "netrwFileHandlers",
+        "matchit",
+        "tar",
+        "tarPlugin",
+        "rrhelper",
+        "spellfile_plugin",
+        "vimball",
+        "vimballPlugin",
+        "zip",
+        "zipPlugin",
+        "tutor",
+        "rplugin",
+        "syntax",
+        "synmenu",
+        "optwin",
+        "compiler",
+        "bugreport",
+        "ftplugin",
+      },
+    },
+  },
+}
+
+map('n', '<space>ps', ':Lazy sync<cr>')
+map('n', '<space>pi', ':Lazy install<cr>')
+map('n', '<space>pc', ':Lazy clean<cr>')
+
+require("lazy").setup(plugins, lazy_configs)

@@ -1,21 +1,15 @@
 local start_time = vim.fn.reltime()
 
-if require('utils.first_load')() then
-  return
-end
-
-local plugins = require('plugins')
-
-pcall(require, 'impatient')
-require 'config.globals'
+require 'utils.first_load'
+require 'utils.globals'
 require 'config.settings'
+require 'plugins'
+
 require 'config.mappings'
 require 'config.commands'
 require 'config.theme'
 
 require 'config.rails'
-
-plugins.import()
 
 if vim.fn.filereadable('.nvimrc') == 1 then
   vim.cmd('source .nvimrc')

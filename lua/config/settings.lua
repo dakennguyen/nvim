@@ -1,30 +1,30 @@
 local o = vim.opt
 local g = vim.g
 
-local disabled_built_ins = {
-   -- "netrw",
-   -- "netrwPlugin",
-   -- "netrwSettings",
-   -- "netrwFileHandlers",
-   "gzip",
-   "zip",
-   "zipPlugin",
-   "tar",
-   "tarPlugin",
-   "getscript",
-   "getscriptPlugin",
-   "vimball",
-   "vimballPlugin",
-   "2html_plugin",
-   "logipat",
-   "rrhelper",
-   "spellfile_plugin",
-   "matchit",
-}
+-- local disabled_built_ins = {
+--    "netrw",
+--    "netrwPlugin",
+--    "netrwSettings",
+--    "netrwFileHandlers",
+--    "gzip",
+--    "zip",
+--    "zipPlugin",
+--    "tar",
+--    "tarPlugin",
+--    "getscript",
+--    "getscriptPlugin",
+--    "vimball",
+--    "vimballPlugin",
+--    "2html_plugin",
+--    "logipat",
+--    "rrhelper",
+--    "spellfile_plugin",
+--    "matchit",
+-- }
 
-for _, plugin in pairs(disabled_built_ins) do
-   g["loaded_" .. plugin] = 1
-end
+-- for _, plugin in pairs(disabled_built_ins) do
+--    g["loaded_" .. plugin] = 1
+-- end
 
 g.mapleader = ','
 g.loaded_ruby_provider = 0
@@ -48,7 +48,6 @@ o.switchbuf:append { 'useopen' }
 
 -- Theme
 o.encoding = 'UTF-8'
-o.termguicolors = true
 o.showmode = false
 
 -- Fold
