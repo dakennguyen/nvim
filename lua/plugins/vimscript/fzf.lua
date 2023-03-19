@@ -58,7 +58,7 @@ return {
     map('n', '<space>fb', ':Buffers<CR>',                         { silent = true })
     map('n', '<space>fo', ':History<CR>',                         { silent = true })
     map('n', '<space>fh', ':Helptags<CR>',                        { silent = true })
-    map('n', '<space>fm', ':Maps<CR>',                            { silent = true })
+    map('n', '<space>fk', ':Maps<CR>',                            { silent = true })
     map('n', '<space>fw', ':Rg <C-R><C-W><CR>',                   { silent = true })
     map('v', '<space>fw', [[y:Rg <C-R>=escape(@",'/\')<CR><CR>]], { silent = true })
 
