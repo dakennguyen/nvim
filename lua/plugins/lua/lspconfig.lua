@@ -163,6 +163,20 @@ return {
       flags = lsp_flags,
     }
 
+    -- npm install -g @microsoft/compose-language-service
+    nvim_lsp.docker_compose_language_service.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      flags = lsp_flags,
+    }
+
+    -- npm install -g dockerfile-language-server-nodejs
+    nvim_lsp.dockerls.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      flags = lsp_flags,
+    }
+
     -- pip install pyright
     nvim_lsp.pyright.setup {
       capabilities = capabilities,
