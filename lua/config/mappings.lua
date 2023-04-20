@@ -119,6 +119,7 @@ map('n', '<space>gs', ':vert botright 80 new $CLOUD/Notes/scratch.md<CR>', { sil
 map('n', '<space>gt', ':botright 10 new $CLOUD/Notes/todo.md<CR>', { silent = true })
 map('n', '<space>gn', ':vert botright 80 new $CLOUD/Notes/<cr>', { silent = true })
 map('n', '<space>gr', ':tabnew $CLOUD/Rests/<cr>', { silent = true })
+map('n', '<space>gh', ':vnew local.http<cr>', { silent = true })
 
 -- open files in chrome
 map('n', '<leader>fp', [[<cmd>!open -a 'google chrome' '%:p'<cr>]], { silent = true })
