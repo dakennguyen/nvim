@@ -19,6 +19,7 @@ return {
     vim.g['test#javascript#jest#executable'] = 'yarn test'
 
     vim.g['test#java#gradletest#options'] = '--info'
+    vim.g['test#python#pytest#options'] = '-vv'
 
     map('n', 't<C-n>', ':TestNearest<CR>', { noremap = false, silent = true })
     map('n', 't<C-f>', ':TestFile<CR>',    { noremap = false, silent = true })
