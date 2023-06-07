@@ -5,7 +5,7 @@ return {
   build = ":TSUpdate",
   opts = {
     ensure_installed = { 'ruby', 'go', 'dockerfile', 'yaml', 'lua', 'bash', 'json', 'javascript', 'tsx', 'typescript',
-                         'scss', 'css', 'http', 'markdown', 'java', 'python', 'haskell', 'c', 'cpp', 'help' },
+                         'scss', 'css', 'http', 'markdown', 'java', 'python', 'haskell', 'c', 'cpp' },
     highlight = {
       enable = true,
     },
