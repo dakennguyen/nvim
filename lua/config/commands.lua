@@ -39,7 +39,6 @@ augroup('Terminal', {
   event = 'TermOpen',
   pattern = 'term://*',
   command = function()
-    vim.cmd('startinsert')
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
 
