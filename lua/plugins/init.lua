@@ -42,7 +42,7 @@ local plugins = {
   require('plugins.vimscript.fzf'),
 
   -- Group: Navigator
-  require('plugins.lua.hop'),
+  require('plugins.lua.flash'),
   require('plugins.lua.navigator'),
 
   -- Group: Git
