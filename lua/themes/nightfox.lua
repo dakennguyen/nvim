@@ -5,10 +5,16 @@ if vim.o.background == 'light' then
   custom_colors = {
     light = '#494b53',
     strong = '#000000',
+    diff_add = "#287980",
+    diff_add_bg = "#a4c1c2",
+    diff_change = "#ba793e",
+    diff_change_bg = "#e7d2be",
+    diff_remove = "#b95d76",
+    diff_remove_bg = "#824d5b",
   }
   vim.cmd("colorscheme dayfox")
 else
-  palette = require('nightfox.palette').load().nordfox
+  palette = require('nightfox.palette').load().nightfox
   custom_colors = {
     light = '#BBC2CF',
     strong = '#FFFFFF',
@@ -19,7 +25,7 @@ else
     diff_remove = "#b95d76",
     diff_remove_bg = "#4D2B2E",
   }
-  vim.cmd("colorscheme nordfox")
+  vim.cmd("colorscheme nightfox")
 end
 
 return {
