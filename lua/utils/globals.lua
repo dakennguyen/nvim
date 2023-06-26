@@ -5,19 +5,15 @@ _G.global = {
 }
 
 local map = function(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 local buf_map = function(mode, lhs, rhs, opts)
-  local options = { noremap = true }
+  local options = { buffer = true }
   if opts then
     options = vim.tbl_extend("force", options, opts)
   end
-  vim.api.nvim_buf_set_keymap(0, mode, lhs, rhs, options)
+  vim.keymap.set(mode, lhs, rhs, options)
 end
 
 local open_file_command = function(cmd_char, files)

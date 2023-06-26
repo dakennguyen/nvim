@@ -23,10 +23,10 @@ return {
     vim.g["test#java#gradletest#options"] = "--info"
     vim.g["test#python#pytest#options"] = "-vv"
 
-    map("n", "t<C-n>", ":TestNearest<CR>", { noremap = false, silent = true })
-    map("n", "t<C-f>", ":TestFile<CR>", { noremap = false, silent = true })
-    map("n", "t<C-s>", ":TestSuite<CR>", { noremap = false, silent = true })
-    map("n", "t<C-l>", ":TestLast<CR>", { noremap = false, silent = true })
-    map("n", "t<C-g>", ":TestVisit<CR>", { noremap = false, silent = true })
+    map("n", "t<C-n>", ":TestNearest<CR>", { remap = true, silent = true })
+    map("n", "t<C-f>", ":TestFile<CR>", { remap = true, silent = true })
+    map("n", "t<C-s>", ":TestSuite<CR>", { remap = true, silent = true })
+    map("n", "t<C-l>", ":TestLast<CR>", { remap = true, silent = true })
+    map("n", "t<C-g>", ":TestVisit<CR>", { remap = true, silent = true })
   end,
 }

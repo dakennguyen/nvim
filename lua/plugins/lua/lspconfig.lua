@@ -86,45 +86,38 @@ return {
     local nvim_lsp = require "lspconfig"
 
     local on_attach = function(client, bufnr)
-      local function buf_set_keymap(...)
-        vim.api.nvim_buf_set_keymap(bufnr, ...)
-      end
-      local function buf_set_option(...)
-        vim.api.nvim_buf_set_option(bufnr, ...)
-      end
-
       --Enable completion triggered by <c-x><c-o>
-      buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+      vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
       -- Mappings.
-      local opts = { noremap = true, silent = true }
+      local opts = { buffer = bufnr, silent = true }
 
-      buf_set_keymap("n", "gdd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-      buf_set_keymap("n", "gdv", [[<Cmd>vs | lua vim.lsp.buf.definition()<CR>]], opts)
-      buf_set_keymap("n", "gds", [[<Cmd>split | lua vim.lsp.buf.definition()<CR>]], opts)
-      buf_set_keymap("n", "gdt", [[<Cmd>tab split | lua vim.lsp.buf.definition()<CR>]], opts)
-      buf_set_keymap("n", "gh", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-      buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-      -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-      -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-      -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-      -- buf_set_keymap('n', '<space>li', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-      -- buf_set_keymap('n', '<space>ld', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-      -- buf_set_keymap('n', '<space>ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-      -- buf_set_keymap('n', '<space>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-      buf_set_keymap("n", "<space>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-      buf_set_keymap("n", "<space>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-      buf_set_keymap("n", "<space>ll", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-      buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-      buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-      buf_set_keymap("n", "<leader>l", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+      map("n", "gdd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+      map("n", "gdv", [[<Cmd>vs | lua vim.lsp.buf.definition()<CR>]], opts)
+      map("n", "gds", [[<Cmd>split | lua vim.lsp.buf.definition()<CR>]], opts)
+      map("n", "gdt", [[<Cmd>tab split | lua vim.lsp.buf.definition()<CR>]], opts)
+      map("n", "gh", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+      map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+      -- map('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+      -- map('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+      -- map('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+      -- map('n', '<space>li', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+      -- map('n', '<space>ld', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+      -- map('n', '<space>ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+      -- map('n', '<space>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+      map("n", "<space>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+      map("n", "<space>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+      map("n", "<space>ll", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+      map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+      map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+      map("n", "<leader>l", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
       -- Set some keybinds conditional on server capabilities
       if
         client.server_capabilities.documentFormattingProvider
         or client.server_capabilities.documentRangeFormattingProvider
       then
-        buf_set_keymap("n", "<space>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
+        map("n", "<space>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
       end
 
       -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
@@ -159,15 +152,12 @@ return {
     nvim_lsp.gopls.setup {
       capabilities = capabilities,
       on_attach = function(client, bufnr)
-        local function buf_set_keymap(...)
-          vim.api.nvim_buf_set_keymap(bufnr, ...)
-        end
-        local opts = { noremap = true, silent = true }
+        local opts = { buffer = bufnr, silent = true }
         on_attach(client, bufnr)
-        buf_set_keymap("n", "gdd", "<Cmd>:GoDef<CR>", opts)
-        buf_set_keymap("n", "gdv", [[<Cmd>vs | GoDef<CR>]], opts)
-        buf_set_keymap("n", "gds", [[<Cmd>split | GoDef<CR>]], opts)
-        buf_set_keymap("n", "gdt", [[<Cmd>tab split | GoDef<CR>]], opts)
+        map("n", "gdd", "<Cmd>:GoDef<CR>", opts)
+        map("n", "gdv", [[<Cmd>vs | GoDef<CR>]], opts)
+        map("n", "gds", [[<Cmd>split | GoDef<CR>]], opts)
+        map("n", "gdt", [[<Cmd>tab split | GoDef<CR>]], opts)
       end,
       flags = lsp_flags,
     }

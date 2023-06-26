@@ -3,6 +3,10 @@ return {
   event = "InsertEnter",
   keys = { "<leader>v", { "<leader>v", mode = "x" } },
   config = function()
+    local function map(mode, lhs, rhs, opts)
+      vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+    end
+
     map("n", "<leader>v", "<Plug>(vsnip-select-text)", { noremap = false })
     map("x", "<leader>v", "<Plug>(vsnip-select-text)", { noremap = false })
     map(

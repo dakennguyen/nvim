@@ -1,6 +1,6 @@
-buf_map("n", "<c-s>", "o", { noremap = false, nowait = true })
-buf_map("n", "<c-v>", "gO", { noremap = false, nowait = true })
-buf_map("n", "<c-t>", "O", { noremap = false, nowait = true })
+buf_map("n", "<c-s>", "o", { remap = true, nowait = true })
+buf_map("n", "<c-v>", "gO", { remap = true, nowait = true })
+buf_map("n", "<c-t>", "O", { remap = true, nowait = true })
 
 buf_map("n", "cl", ":Git pull")
 buf_map("n", "cp", ":Git push")
