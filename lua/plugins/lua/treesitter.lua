@@ -5,7 +5,7 @@ return {
   build = ":TSUpdate",
   opts = {
     ensure_installed = { 'ruby', 'go', 'dockerfile', 'yaml', 'lua', 'bash', 'json', 'javascript', 'tsx', 'typescript',
-                         'scss', 'css', 'http', 'markdown', 'java', 'python', 'haskell', 'c', 'cpp' },
+                         'scss', 'css', 'http', 'markdown', 'java', 'python', 'haskell', 'c', 'cpp', 'html' },
     highlight = {
       enable = true,
     },
@@ -21,9 +21,6 @@ return {
     indent = {
       enable = true,
       disable = { 'ruby', 'go' },
-    },
-    autotag = {
-      enable = true,
     },
     matchup = {
       enable = true,

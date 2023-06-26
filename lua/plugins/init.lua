@@ -34,7 +34,7 @@ local plugins = {
 
   -- Group: Editing support
   require('plugins.lua.autopairs'),
-  { 'windwp/nvim-ts-autotag', ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' } },
+  require('plugins.lua.autotag'),
   require('plugins.lua.treesj'),
   require('plugins.vimscript.easy-align'),
 
