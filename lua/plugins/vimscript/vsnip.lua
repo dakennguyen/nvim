@@ -1,7 +1,7 @@
 return {
   'hrsh7th/vim-vsnip',
   event = 'InsertEnter',
-  keys = '<leader>v',
+  keys = { '<leader>v', { '<leader>v', mode = 'x' } },
   config = function()
     map('n', '<leader>v', '<Plug>(vsnip-select-text)', { noremap = false })
     map('x', '<leader>v', '<Plug>(vsnip-select-text)', { noremap = false })

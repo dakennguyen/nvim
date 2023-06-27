@@ -1,6 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
-  lazy = false,
+  event = "VeryLazy",
   config = function()
     local lualine = require 'lualine'
     local colors = require('config.theme').lualine
