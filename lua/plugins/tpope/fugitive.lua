@@ -1,6 +1,6 @@
 return {
   "https://tpope.io/vim/fugitive.git",
-  event = "VeryLazy",
+  lazy = false,
   config = function()
     -- local job = require("plenary.job")
     -- _G.open_in_browser = function(url)
