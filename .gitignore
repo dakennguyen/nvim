@@ -1,3 +1,4 @@
 plugin/
 !/*/plugin/
 lazy-lock.json
+lua/config/mode.lua
