@@ -1,5 +1,5 @@
-vim.cmd 'colorscheme github-light'
-highlight('Identifier', { style = 'italic' })
+vim.cmd "colorscheme github-light"
+highlight("Identifier", { style = "italic" })
 
 return {
   lualine = {
@@ -13,6 +13,6 @@ return {
     op = "#98c379",
     yellow = "#d19a66",
     inactive = "#81879C",
-    dark = "#000000"
-  }
+    dark = "#000000",
+  },
 }

@@ -32,8 +32,8 @@ return {
       },
       char = {
         highlight = { backdrop = false },
-      }
-    }
+      },
+    },
   },
   config = true,
 }

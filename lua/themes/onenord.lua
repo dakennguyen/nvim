@@ -1,23 +1,23 @@
 local onenord = {}
 local custom_colors = {}
-if vim.o.background == 'light' then
-  onenord = require('onenord.colors.onenordlight')
+if vim.o.background == "light" then
+  onenord = require "onenord.colors.onenordlight"
   custom_colors = {
-    light = '#494b53',
-    strong = '#000000',
+    light = "#494b53",
+    strong = "#000000",
     diff_add_bg = "#e6ffed",
     diff_remove_bg = "#ffeef0",
-    diff_text_bg = "#BEC9D4"
+    diff_text_bg = "#BEC9D4",
   }
 else
-  onenord = require('onenord.colors.onenord')
+  onenord = require "onenord.colors.onenord"
   custom_colors = {
-    light = '#BBC2CF',
-    strong = '#FFFFFF',
+    light = "#BBC2CF",
+    strong = "#FFFFFF",
   }
 end
 
-require('onenord').setup({
+require("onenord").setup {
   borders = false,
   fade_nc = false,
   italics = {
@@ -29,11 +29,11 @@ require('onenord').setup({
   },
   custom_highlights = {
     Folded = { fg = onenord.light_gray, style = onenord.none },
-    Identifier = { fg = onenord.blue, style = 'italic' },
-    QuickFixLine = { style = 'italic' },
+    Identifier = { fg = onenord.blue, style = "italic" },
+    QuickFixLine = { style = "italic" },
   },
   custom_colors = custom_colors,
-})
+}
 
 return {
   lualine = {
@@ -56,5 +56,5 @@ return {
     change_bg = onenord.diff_change_bg,
     delete_fg = onenord.diff_remove,
     delete_bg = onenord.diff_remove_bg,
-  }
+  },
 }

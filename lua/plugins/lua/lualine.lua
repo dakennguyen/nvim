@@ -1,18 +1,22 @@
 return {
-  'nvim-lualine/lualine.nvim',
+  "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
   config = function()
-    local lualine = require 'lualine'
-    local colors = require('config.theme').lualine
+    local lualine = require "lualine"
+    local colors = require("config.theme").lualine
 
     local conditions = {
-      buffer_not_empty = function() return vim.fn.empty(vim.fn.expand('%:t')) ~= 1 end,
-      hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
+      buffer_not_empty = function()
+        return vim.fn.empty(vim.fn.expand "%:t") ~= 1
+      end,
+      hide_in_width = function()
+        return vim.fn.winwidth(0) > 80
+      end,
       check_git_workspace = function()
-        local filepath = vim.fn.expand('%:p:h')
-        local gitdir = vim.fn.finddir('.git', filepath .. ';')
+        local filepath = vim.fn.expand "%:p:h"
+        local gitdir = vim.fn.finddir(".git", filepath .. ";")
         return gitdir and #gitdir > 0 and #gitdir < #filepath
-      end
+      end,
     }
 
     local config = {
@@ -20,13 +24,13 @@ return {
         component_separators = "",
         section_separators = "",
         theme = {
-          normal = {c = {fg = colors.default_fg, bg = colors.default_bg}},
-          insert = {c = {fg = colors.insert, bg = colors.default_bg}},
-          visual = {c = {fg = colors.visual, bg = colors.default_bg}},
-          replace = {c = {fg = colors.replace, bg = colors.default_bg}},
-          command = {c = {fg = colors.command, bg = colors.default_bg}},
-          terminal = {c = {fg = colors.op, bg = colors.default_bg}},
-          inactive = {c = {fg = colors.inactive, bg = colors.default_bg}}
+          normal = { c = { fg = colors.default_fg, bg = colors.default_bg } },
+          insert = { c = { fg = colors.insert, bg = colors.default_bg } },
+          visual = { c = { fg = colors.visual, bg = colors.default_bg } },
+          replace = { c = { fg = colors.replace, bg = colors.default_bg } },
+          command = { c = { fg = colors.command, bg = colors.default_bg } },
+          terminal = { c = { fg = colors.op, bg = colors.default_bg } },
+          inactive = { c = { fg = colors.inactive, bg = colors.default_bg } },
         },
         disabled_filetypes = {},
       },
@@ -36,7 +40,7 @@ return {
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
       },
       inactive_sections = {
         lualine_a = {},
@@ -44,7 +48,7 @@ return {
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
       },
       tabline = {
         lualine_a = {},
@@ -52,28 +56,32 @@ return {
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {{
-          'tabs',
-          max_length = vim.o.columns,
-          mode = 2,
-          tabs_color = {
-            active = { fg = colors.default_fg },
-          }
-        }}
-      }
+        lualine_z = {
+          {
+            "tabs",
+            max_length = vim.o.columns,
+            mode = 2,
+            tabs_color = {
+              active = { fg = colors.default_fg },
+            },
+          },
+        },
+      },
     }
 
     --#############################################
     -- Inactive sections
     --#############################################
     table.insert(config.inactive_sections.lualine_c, {
-      function() return '▊INACTIVE' end,
-      padding = { left = 0 }
+      function()
+        return "▊INACTIVE"
+      end,
+      padding = { left = 0 },
     })
     table.insert(config.inactive_sections.lualine_x, {
-      'filename',
+      "filename",
       path = 1,
-      color = { fg = colors.yellow }
+      color = { fg = colors.yellow },
     })
 
     --#############################################
@@ -90,45 +98,51 @@ return {
 
     -- LEFT
     ins_left {
-      function() return '▊' end,
-      padding = { left = 0 }
+      function()
+        return "▊"
+      end,
+      padding = { left = 0 },
     }
 
     ins_left {
-      'mode',
-      padding = { left = 0 }
+      "mode",
+      padding = { left = 0 },
     }
 
     ins_left {
       function()
         local function format_file_size(file)
           local size = vim.fn.getfsize(file)
-          if size <= 0 then return '' end
-          local sufixes = {'b', 'k', 'm', 'g'}
+          if size <= 0 then
+            return ""
+          end
+          local sufixes = { "b", "k", "m", "g" }
           local i = 1
           while size > 1024 do
             size = size / 1024
             i = i + 1
           end
-          return string.format('%.1f%s', size, sufixes[i])
+          return string.format("%.1f%s", size, sufixes[i])
         end
-        local file = vim.fn.expand('%:p')
-        if string.len(file) == 0 then return '' end
+        local file = vim.fn.expand "%:p"
+        if string.len(file) == 0 then
+          return ""
+        end
         return format_file_size(file)
       end,
-      color = {fg = colors.light},
-      cond = conditions.buffer_not_empty
+      color = { fg = colors.light },
+      cond = conditions.buffer_not_empty,
     }
 
     ins_left {
-      'branch',
-      icon = '',
+      "branch",
+      icon = "",
       cond = conditions.check_git_workspace,
     }
 
     ins_left {
-      'diff',
-      symbols = {added = ' ', modified = '柳', removed = ' '},
+      "diff",
+      symbols = { added = " ", modified = "柳", removed = " " },
       diff_color = {
         added = { fg = colors.op },
         modified = { fg = colors.yellow },
@@ -138,17 +152,21 @@ return {
     }
 
     ins_left {
-      'progress',
-      color = {fg = colors.light},
+      "progress",
+      color = { fg = colors.light },
     }
 
     ins_left {
-      'location',
-      color = {fg = colors.strong, gui = 'bold'}
+      "location",
+      color = { fg = colors.strong, gui = "bold" },
     }
 
     -- MIDDLE
-    ins_left {function() return '%=' end}
+    ins_left {
+      function()
+        return "%="
+      end,
+    }
 
     -- ins_left {
     --   function()
@@ -168,14 +186,14 @@ return {
     -- }
 
     ins_left {
-      'diagnostics',
-      sources = { 'nvim_diagnostic' },
-      symbols = { error = ' ', warn = ' ', info = ' ', hint = '' },
+      "diagnostics",
+      sources = { "nvim_diagnostic" },
+      symbols = { error = " ", warn = " ", info = " ", hint = "" },
       diagnostics_color = {
-        error = 'DiagnosticError',
-        warn  = 'DiagnosticWarn',
-        info  = 'DiagnosticInfo',
-        hint  = 'DiagnosticHint',
+        error = "DiagnosticError",
+        warn = "DiagnosticWarn",
+        info = "DiagnosticInfo",
+        hint = "DiagnosticHint",
       },
     }
 
@@ -188,24 +206,24 @@ return {
     -- }
 
     ins_right {
-      'filetype',
+      "filetype",
       colored = false,
       icons_enabled = true,
-      color = { fg = colors.command, gui = 'bold' }
+      color = { fg = colors.command, gui = "bold" },
     }
 
     ins_right {
-      'fileformat',
+      "fileformat",
       fmt = string.upper,
       icons_enabled = true,
-      color = {fg = colors.default_fg, gui = 'bold'}
+      color = { fg = colors.default_fg, gui = "bold" },
     }
 
     ins_right {
-      'filename',
+      "filename",
       path = 1,
       cond = conditions.buffer_not_empty,
-      color = { fg = colors.yellow }
+      color = { fg = colors.yellow },
     }
 
     --#############################################
@@ -214,6 +232,6 @@ return {
     vim.cmd("highlight StatusLine guibg=" .. colors.default_bg)
     vim.cmd("highlight StatusLineNC guibg=" .. colors.default_bg)
 
-    map('n', '<leader>rn', ':LualineRenameTab ')
+    map("n", "<leader>rn", ":LualineRenameTab ")
   end,
 }

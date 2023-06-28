@@ -1,6 +1,6 @@
 return {
-  'neovim/nvim-lspconfig',
-  init = lazy_load 'nvim-lspconfig',
+  "neovim/nvim-lspconfig",
+  init = lazy_load "nvim-lspconfig",
   config = function()
     -- Preference
     -- ======================================
@@ -11,7 +11,7 @@ return {
     --   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     -- end
 
-    vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
       virtual_text = false,
       signs = false,
       underline = true,
@@ -22,7 +22,7 @@ return {
     -- ======================================
 
     local prettier = {
-      formatCommand = 'prettier --stdin-filepath ${INPUT}',
+      formatCommand = "prettier --stdin-filepath ${INPUT}",
       formatStdin = true,
     }
 
@@ -32,7 +32,7 @@ return {
       lintFormats = { "%f(%l,%c): %tarning %m", "%f(%l,%c): %rror %m" },
       lintIgnoreExitCode = true,
       formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
-      formatStdin = true
+      formatStdin = true,
     }
 
     local golangci_lint = {
@@ -73,29 +73,33 @@ return {
 
     -- cmp
     -- ======================================
-    local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
     -- Servers config
     -- ======================================
 
-    local nvim_lsp = require('lspconfig')
+    local nvim_lsp = require "lspconfig"
 
     local on_attach = function(client, bufnr)
-      local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-      local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+      local function buf_set_keymap(...)
+        vim.api.nvim_buf_set_keymap(bufnr, ...)
+      end
+      local function buf_set_option(...)
+        vim.api.nvim_buf_set_option(bufnr, ...)
+      end
 
       --Enable completion triggered by <c-x><c-o>
-      buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+      buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
       -- Mappings.
-      local opts = { noremap=true, silent=true }
+      local opts = { noremap = true, silent = true }
 
-      buf_set_keymap('n', 'gdd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-      buf_set_keymap('n', 'gdv', [[<Cmd>vs | lua vim.lsp.buf.definition()<CR>]], opts)
-      buf_set_keymap('n', 'gds', [[<Cmd>split | lua vim.lsp.buf.definition()<CR>]], opts)
-      buf_set_keymap('n', 'gdt', [[<Cmd>tab split | lua vim.lsp.buf.definition()<CR>]], opts)
-      buf_set_keymap('n', 'gh', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-      buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+      buf_set_keymap("n", "gdd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+      buf_set_keymap("n", "gdv", [[<Cmd>vs | lua vim.lsp.buf.definition()<CR>]], opts)
+      buf_set_keymap("n", "gds", [[<Cmd>split | lua vim.lsp.buf.definition()<CR>]], opts)
+      buf_set_keymap("n", "gdt", [[<Cmd>tab split | lua vim.lsp.buf.definition()<CR>]], opts)
+      buf_set_keymap("n", "gh", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+      buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
       -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
       -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
       -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
@@ -103,16 +107,18 @@ return {
       -- buf_set_keymap('n', '<space>ld', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
       -- buf_set_keymap('n', '<space>ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
       -- buf_set_keymap('n', '<space>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-      buf_set_keymap('n', '<space>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-      buf_set_keymap('n', '<space>lr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-      buf_set_keymap('n', '<space>ll', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-      buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-      buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-      buf_set_keymap('n', '<leader>l', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+      buf_set_keymap("n", "<space>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+      buf_set_keymap("n", "<space>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+      buf_set_keymap("n", "<space>ll", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+      buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+      buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+      buf_set_keymap("n", "<leader>l", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
       -- Set some keybinds conditional on server capabilities
-      if client.server_capabilities.documentFormattingProvider
-        or client.server_capabilities.documentRangeFormattingProvider then
+      if
+        client.server_capabilities.documentFormattingProvider
+        or client.server_capabilities.documentRangeFormattingProvider
+      then
         buf_set_keymap("n", "<space>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
       end
 
@@ -132,9 +138,9 @@ return {
         solargraph = {
           useBundler = true,
           formatting = true,
-          autoformat = true
-        }
-      }
+          autoformat = true,
+        },
+      },
     }
 
     nvim_lsp.sourcekit.setup {
@@ -148,14 +154,18 @@ return {
     nvim_lsp.gopls.setup {
       capabilities = capabilities,
       on_attach = function(client, bufnr)
-        local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-        local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-        local opts = { noremap=true, silent=true }
+        local function buf_set_keymap(...)
+          vim.api.nvim_buf_set_keymap(bufnr, ...)
+        end
+        local function buf_set_option(...)
+          vim.api.nvim_buf_set_option(bufnr, ...)
+        end
+        local opts = { noremap = true, silent = true }
         on_attach(client, bufnr)
-        buf_set_keymap('n', 'gdd', '<Cmd>:GoDef<CR>', opts)
-        buf_set_keymap('n', 'gdv', [[<Cmd>vs | GoDef<CR>]], opts)
-        buf_set_keymap('n', 'gds', [[<Cmd>split | GoDef<CR>]], opts)
-        buf_set_keymap('n', 'gdt', [[<Cmd>tab split | GoDef<CR>]], opts)
+        buf_set_keymap("n", "gdd", "<Cmd>:GoDef<CR>", opts)
+        buf_set_keymap("n", "gdv", [[<Cmd>vs | GoDef<CR>]], opts)
+        buf_set_keymap("n", "gds", [[<Cmd>split | GoDef<CR>]], opts)
+        buf_set_keymap("n", "gdt", [[<Cmd>tab split | GoDef<CR>]], opts)
       end,
       flags = lsp_flags,
     }
@@ -213,11 +223,11 @@ return {
         Lua = {
           runtime = {
             -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-            version = 'LuaJIT',
+            version = "LuaJIT",
           },
           diagnostics = {
             -- Get the language server to recognize the `vim` global
-            globals = {'vim'},
+            globals = { "vim" },
           },
           workspace = {
             -- Make the server aware of Neovim runtime files
@@ -251,7 +261,7 @@ return {
       --   return vim.fn.getcwd()
       -- end,
       settings = {
-        rootMarkers = {"README.md", ".gitignore"},
+        rootMarkers = { "README.md", ".gitignore" },
         languages = {
           javascript = { eslint },
           javascriptreact = { eslint },
@@ -261,7 +271,7 @@ return {
           go = { golangci_lint },
           python = { flake8, black },
           lua = { stylua },
-        }
+        },
       },
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "go", "python", "lua" },
       init_options = { documentFormatting = true, codeAction = true },

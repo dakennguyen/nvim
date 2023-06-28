@@ -1,11 +1,31 @@
 return {
-  'nvim-treesitter/nvim-treesitter',
+  "nvim-treesitter/nvim-treesitter",
   init = lazy_load "nvim-treesitter",
   cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
   build = ":TSUpdate",
   opts = {
-    ensure_installed = { 'ruby', 'go', 'dockerfile', 'yaml', 'lua', 'bash', 'json', 'javascript', 'tsx', 'typescript',
-                         'scss', 'css', 'http', 'markdown', 'java', 'python', 'haskell', 'c', 'cpp', 'html' },
+    ensure_installed = {
+      "ruby",
+      "go",
+      "dockerfile",
+      "yaml",
+      "lua",
+      "bash",
+      "json",
+      "javascript",
+      "tsx",
+      "typescript",
+      "scss",
+      "css",
+      "http",
+      "markdown",
+      "java",
+      "python",
+      "haskell",
+      "c",
+      "cpp",
+      "html",
+    },
     highlight = {
       enable = true,
     },
@@ -20,7 +40,7 @@ return {
     },
     indent = {
       enable = true,
-      disable = { 'ruby', 'go' },
+      disable = { "ruby", "go" },
     },
     matchup = {
       enable = true,
@@ -70,7 +90,7 @@ return {
       },
       lsp_interop = {
         enable = false,
-        border = 'single',
+        border = "single",
         peek_definition_code = {
           ["<leader>df"] = "@function.outer",
           ["<leader>dF"] = "@class.outer",
@@ -79,6 +99,6 @@ return {
     },
   },
   config = function(_, opts)
-    require('nvim-treesitter.configs').setup(opts)
+    require("nvim-treesitter.configs").setup(opts)
   end,
 }

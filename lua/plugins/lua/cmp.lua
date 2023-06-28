@@ -1,14 +1,14 @@
 return {
-  'hrsh7th/nvim-cmp',
+  "hrsh7th/nvim-cmp",
   dependencies = {
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-vsnip',
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-vsnip",
   },
   event = "InsertEnter",
   opts = function()
-    local cmp = require'cmp'
+    local cmp = require "cmp"
     local kind_icons = {
       Text = "",
       Method = "",
@@ -34,7 +34,7 @@ return {
       Struct = "",
       Event = "",
       Operator = "",
-      TypeParameter = ""
+      TypeParameter = "",
     }
 
     local select_next_item = function(fallback)
@@ -60,7 +60,7 @@ return {
       },
       formatting = {
         format = function(entry, vim_item)
-          vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+          vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
           vim_item.menu = ({
             buffer = "[Buffer]",
             nvim_lsp = "[LSP]",
@@ -69,23 +69,23 @@ return {
             latex_symbols = "[LaTeX]",
           })[entry.source.name]
           return vim_item
-        end
+        end,
       },
       mapping = {
-        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+        ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+        ["<CR>"] = cmp.mapping.confirm { select = false },
         ["<Tab>"] = cmp.mapping(select_next_item, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(select_prev_item, { "i", "s" }),
         ["<C-N>"] = cmp.mapping(select_next_item, { "i", "s" }),
         ["<C-P>"] = cmp.mapping(select_prev_item, { "i", "s" }),
       },
-      sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'buffer' },
-        { name = 'path' },
-        { name = 'vsnip' }
-      })
+      sources = cmp.config.sources {
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+        { name = "path" },
+        { name = "vsnip" },
+      },
     }
   end,
   config = true,

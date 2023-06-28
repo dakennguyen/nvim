@@ -1,9 +1,9 @@
-theme_mode = require 'config.mode'
+theme_mode = require "config.mode"
 
-if vim.o.background == 'light' then
-  return require('themes.' .. theme_mode.light_theme)
+if vim.o.background == "light" then
+  return require("themes." .. theme_mode.light_theme)
 else
-  return require('themes.' .. theme_mode.dark_theme)
+  return require("themes." .. theme_mode.dark_theme)
 end
 
 -- ### mode.lua example

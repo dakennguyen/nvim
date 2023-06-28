@@ -1,5 +1,5 @@
-vim.cmd("colorscheme doom-one")
-highlight('Identifier', { fg = '#FFA8FF', style = 'italic' })
+vim.cmd "colorscheme doom-one"
+highlight("Identifier", { fg = "#FFA8FF", style = "italic" })
 
 return {
   lualine = {
@@ -13,7 +13,7 @@ return {
     op = "#98be65",
     yellow = "#ECBE7B",
     inactive = "#4e4f67",
-    dark = "#efefef"
+    dark = "#efefef",
   },
   -- gitsigns = {
   --   add_fg = '#a6bf8f',

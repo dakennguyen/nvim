@@ -1,4 +1,4 @@
-vim.cmd 'colorscheme one-nvim'
+vim.cmd "colorscheme one-nvim"
 
 return {
   lualine = {
@@ -12,6 +12,6 @@ return {
     op = "#98c379",
     yellow = "#d19a66",
     inactive = "#81879C",
-    dark = "#000000"
-  }
+    dark = "#000000",
+  },
 }

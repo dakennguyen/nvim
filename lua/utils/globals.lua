@@ -6,23 +6,27 @@ _G.global = {
 
 function map(mode, lhs, rhs, opts)
   local options = { noremap = true }
-  if opts then options = vim.tbl_extend('force', options, opts) end
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 function buf_map(mode, lhs, rhs, opts)
   local options = { noremap = true }
-  if opts then options = vim.tbl_extend('force', options, opts) end
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
   vim.api.nvim_buf_set_keymap(0, mode, lhs, rhs, options)
 end
 
 function open_file_command(cmd_char, files)
   local assign = function(file)
     if vim.fn.filereadable(file) == 1 then
-      vim.cmd(string.format('command! %so edit %s', cmd_char, file))
-      vim.cmd(string.format('command! %ss split %s', cmd_char, file))
-      vim.cmd(string.format('command! %sv vsplit %s', cmd_char, file))
-      vim.cmd(string.format('command! %st tabedit %s', cmd_char, file))
+      vim.cmd(string.format("command! %so edit %s", cmd_char, file))
+      vim.cmd(string.format("command! %ss split %s", cmd_char, file))
+      vim.cmd(string.format("command! %sv vsplit %s", cmd_char, file))
+      vim.cmd(string.format("command! %st tabedit %s", cmd_char, file))
 
       return true
     end
@@ -30,19 +34,21 @@ function open_file_command(cmd_char, files)
     return false
   end
 
-  if type(files) == 'string' then
+  if type(files) == "string" then
     assign(files)
     return
   end
 
   for _, file in ipairs(files) do
-    if assign(file) then return end
+    if assign(file) then
+      return
+    end
   end
 end
 
 function augroup(name, commands)
-  vim.cmd('augroup ' .. name)
-  vim.cmd('au!')
+  vim.cmd("augroup " .. name)
+  vim.cmd "au!"
   if #commands > 0 then
     for _, c in ipairs(commands) do
       autocmd(c)
@@ -50,36 +56,36 @@ function augroup(name, commands)
   else
     autocmd(commands)
   end
-  vim.cmd('augroup END')
+  vim.cmd "augroup END"
 end
 
 function autocmd(c)
   local command = c.command
-  if type(command) == 'function' then
+  if type(command) == "function" then
     table.insert(global._store, command)
     local fn_id = #global._store
-    command = string.format('lua global._store[%s](args)', fn_id)
+    command = string.format("lua global._store[%s](args)", fn_id)
   end
   local event = c.event
-  if type(c.event) == 'table' then
-    event = table.concat(c.event, ',')
+  if type(c.event) == "table" then
+    event = table.concat(c.event, ",")
   end
 
-  local pattern = c.pattern or ''
-  if type(c.pattern) == 'table' then
-    pattern = table.concat(c.pattern, ',')
+  local pattern = c.pattern or ""
+  if type(c.pattern) == "table" then
+    pattern = table.concat(c.pattern, ",")
   end
 
-  local once = ''
+  local once = ""
   if c.once == true then
-    once = '++once '
+    once = "++once "
   end
-  local nested = ''
+  local nested = ""
   if c.nested == true then
-    nested = '++nested '
+    nested = "++nested "
   end
 
-  vim.cmd(string.format('autocmd %s %s %s %s %s', event, pattern, once, nested, command))
+  vim.cmd(string.format("autocmd %s %s %s %s %s", event, pattern, once, nested, command))
 end
 
 function highlight(group, colors)
