@@ -50,6 +50,11 @@ return {
       formatStdin = true,
     }
 
+    local luacheck = {
+      lintCommand = "luacheck --filename ${INPUT} --formatter plain -",
+      lintStdin = true,
+    }
+
     local stylua = {
       formatCommand = "stylua --search-parent-directories -",
       formatStdin = true,
@@ -245,6 +250,7 @@ return {
     -- `npm install -g prettier`
     -- `brew install efm-langserver`
     -- `brew install stylua`
+    -- `brew install luacheck`
     -- `go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest`
     -- `pip install flake8`
     nvim_lsp.efm.setup {
@@ -270,7 +276,7 @@ return {
           json = { prettier },
           go = { golangci_lint },
           python = { flake8, black },
-          lua = { stylua },
+          lua = { luacheck, stylua },
         },
       },
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "go", "python", "lua" },
