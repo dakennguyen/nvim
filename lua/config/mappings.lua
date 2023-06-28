@@ -19,6 +19,7 @@ map("v", "*", [[y/\V<C-R>=escape(@",'/\')<CR><CR><S-N>]])
 
 -- replace
 map("v", "<leader>er", [[y/\V<C-R>=escape(@",'/\')<CR><CR>:%s/<C-r>"/]])
+map("v", "<space>er", [[y/\V<C-R>=escape(@",'/\')<CR><CR>:cfdo %s/<C-r>"/]])
 
 -- quit
 map("n", "<leader>q", '<cmd>lua require("utils").smart_quit()<cr>', { silent = true })
@@ -88,6 +89,8 @@ map("n", "<leader>w", '<cmd>lua require("utils").tabclose()<CR>', { silent = tru
 -- keep center
 -- map('n', [[']], [["'" . nr2char(getchar()) . "zt"]], { expr = true })
 -- map('n', [[`]], [["`" . nr2char(getchar()) . "zt"]], { expr = true })
+
+-- join and break line
 map("n", "J", "mzJ`z")
 map("n", "K", "i<CR><ESC>l", { silent = true })
 
