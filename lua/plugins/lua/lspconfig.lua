@@ -50,6 +50,11 @@ return {
       formatStdin = true,
     }
 
+    local stylua = {
+      formatCommand = "stylua --search-parent-directories -",
+      formatStdin = true,
+    }
+
     -- local function eslint_config_exists()
     --   local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
 
@@ -229,6 +234,7 @@ return {
     -- `npm install -g eslint_d`
     -- `npm install -g prettier`
     -- `brew install efm-langserver`
+    -- `brew install stylua`
     -- `go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest`
     -- `pip install flake8`
     nvim_lsp.efm.setup {
@@ -245,7 +251,7 @@ return {
       --   return vim.fn.getcwd()
       -- end,
       settings = {
-        rootMarkers = {"README.md"},
+        rootMarkers = {"README.md", ".gitignore"},
         languages = {
           javascript = { eslint },
           javascriptreact = { eslint },
@@ -254,9 +260,10 @@ return {
           json = { prettier },
           go = { golangci_lint },
           python = { flake8, black },
+          lua = { stylua },
         }
       },
-      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "go", "python" },
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "go", "python", "lua" },
       init_options = { documentFormatting = true, codeAction = true },
     }
   end,
