@@ -1,4 +1,4 @@
-o = vim.opt_local
+local o = vim.opt_local
 
 o.expandtab = false
 o.softtabstop = 8

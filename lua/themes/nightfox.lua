@@ -1,5 +1,5 @@
-local palette = {}
-local custom_colors = {}
+local palette
+local custom_colors
 if vim.o.background == "light" then
   palette = require("nightfox.palette").load().dayfox
   custom_colors = {

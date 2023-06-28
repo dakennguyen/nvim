@@ -4,7 +4,7 @@ _G.global = {
   _store = __global_callbacks,
 }
 
-function map(mode, lhs, rhs, opts)
+local map = function(mode, lhs, rhs, opts)
   local options = { noremap = true }
   if opts then
     options = vim.tbl_extend("force", options, opts)
@@ -12,7 +12,7 @@ function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-function buf_map(mode, lhs, rhs, opts)
+local buf_map = function(mode, lhs, rhs, opts)
   local options = { noremap = true }
   if opts then
     options = vim.tbl_extend("force", options, opts)
@@ -20,7 +20,7 @@ function buf_map(mode, lhs, rhs, opts)
   vim.api.nvim_buf_set_keymap(0, mode, lhs, rhs, options)
 end
 
-function open_file_command(cmd_char, files)
+local open_file_command = function(cmd_char, files)
   local assign = function(file)
     if vim.fn.filereadable(file) == 1 then
       vim.cmd(string.format("command! %so edit %s", cmd_char, file))
@@ -46,20 +46,7 @@ function open_file_command(cmd_char, files)
   end
 end
 
-function augroup(name, commands)
-  vim.cmd("augroup " .. name)
-  vim.cmd "au!"
-  if #commands > 0 then
-    for _, c in ipairs(commands) do
-      autocmd(c)
-    end
-  else
-    autocmd(commands)
-  end
-  vim.cmd "augroup END"
-end
-
-function autocmd(c)
+local autocmd = function(c)
   local command = c.command
   if type(command) == "function" then
     table.insert(global._store, command)
@@ -88,7 +75,20 @@ function autocmd(c)
   vim.cmd(string.format("autocmd %s %s %s %s %s", event, pattern, once, nested, command))
 end
 
-function highlight(group, colors)
+local augroup = function(name, commands)
+  vim.cmd("augroup " .. name)
+  vim.cmd "au!"
+  if #commands > 0 then
+    for _, c in ipairs(commands) do
+      autocmd(c)
+    end
+  else
+    autocmd(commands)
+  end
+  vim.cmd "augroup END"
+end
+
+local highlight = function(group, colors)
   local style = colors.style and "gui=" .. colors.style or "gui=NONE"
   local fg = colors.fg and "guifg=" .. colors.fg or "guifg=NONE"
   local bg = colors.bg and "guibg=" .. colors.bg or "guibg=NONE"
@@ -102,7 +102,7 @@ function highlight(group, colors)
   end
 end
 
-lazy_load = function(plugin)
+local lazy_load = function(plugin)
   vim.api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
     group = vim.api.nvim_create_augroup("BeLazyOnFileOpen" .. plugin, {}),
     callback = function()
@@ -129,3 +129,10 @@ lazy_load = function(plugin)
     end,
   })
 end
+
+_G.map = map
+_G.buf_map = buf_map
+_G.lazy_load = lazy_load
+_G.open_file_command = open_file_command
+_G.augroup = augroup
+_G.highlight = highlight

@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  init = lazy_load "nvim-lspconfig",
+  init = _G.lazy_load "nvim-lspconfig",
   config = function()
     -- Preference
     -- ======================================
@@ -161,9 +161,6 @@ return {
       on_attach = function(client, bufnr)
         local function buf_set_keymap(...)
           vim.api.nvim_buf_set_keymap(bufnr, ...)
-        end
-        local function buf_set_option(...)
-          vim.api.nvim_buf_set_option(bufnr, ...)
         end
         local opts = { noremap = true, silent = true }
         on_attach(client, bufnr)

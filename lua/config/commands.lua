@@ -1,4 +1,4 @@
-augroup("AutoReload", {
+_G.augroup("AutoReload", {
   {
     event = "FileChangedShellPost",
     pattern = "*",
@@ -15,7 +15,7 @@ augroup("AutoReload", {
   },
 })
 
-augroup("Cursorline", {
+_G.augroup("Cursorline", {
   {
     event = "VimEnter,WinEnter,BufWinEnter",
     pattern = "*",
@@ -35,7 +35,7 @@ augroup("Cursorline", {
   },
 })
 
-augroup("Terminal", {
+_G.augroup("Terminal", {
   event = "TermOpen",
   pattern = "term://*",
   command = function()
@@ -46,13 +46,13 @@ augroup("Terminal", {
   end,
 })
 
-augroup("RemoveTrailingWhitespace", {
+_G.augroup("RemoveTrailingWhitespace", {
   event = "BufWritePre",
   pattern = "*",
   command = ":%s/\\s\\+$//e",
 })
 
-augroup("Nvr", {
+_G.augroup("Nvr", {
   event = "FileType",
   pattern = "gitcommit,gitrebase,gitconfig",
   command = function()

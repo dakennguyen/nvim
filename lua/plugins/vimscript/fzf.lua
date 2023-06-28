@@ -9,8 +9,8 @@ return {
   event = "VeryLazy",
   config = function()
     vim.env.FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*"'
-    vim.env.FZF_DEFAULT_OPTS =
-      "--bind ctrl-e:preview-down,ctrl-y:preview-up,ctrl-d:preview-page-down,ctrl-u:preview-page-up,tab:toggle-out,shift-tab:toggle-in"
+    vim.env.FZF_DEFAULT_OPTS = "--bind ctrl-e:preview-down,ctrl-y:preview-up,ctrl-d:preview-page-down,"
+      .. "ctrl-u:preview-page-up,tab:toggle-out,shift-tab:toggle-in"
 
     vim.cmd [[
       function! BuildQuickfixList(lines)

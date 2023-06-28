@@ -1,6 +1,6 @@
 return {
   "https://tpope.io/vim/projectionist.git",
-  init = lazy_load "projectionist",
+  init = _G.lazy_load "projectionist",
   config = function()
     vim.g.projectionist_heuristics = {
       ["*"] = {

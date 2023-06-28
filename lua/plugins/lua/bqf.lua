@@ -1,6 +1,6 @@
 return {
   "kevinhwang91/nvim-bqf",
-  init = lazy_load "nvim-bqf",
+  init = _G.lazy_load "nvim-bqf",
   opts = {
     preview = {
       auto_preview = false,

@@ -17,7 +17,7 @@ local plugins = {
 
   -- Group: Language support
   require "plugins.lua.treesitter",
-  { "nvim-treesitter/nvim-treesitter-textobjects", init = lazy_load "nvim-treesitter-textobjects" },
+  { "nvim-treesitter/nvim-treesitter-textobjects", init = _G.lazy_load "nvim-treesitter-textobjects" },
   require "plugins.lua.lspconfig",
   require "plugins.vimscript.gutentags",
   {

@@ -27,6 +27,7 @@ return {
     map("", "<leader>gj", ":diffput | diffupdate<cr>")
     map("", "<leader>go", ":diffget | diffupdate<cr>")
 
+    -- luacheck:ignore 631
     -- vim.cmd[[autocmd User Fugitive command! -buffer -nargs=? -complete=customlist,fugitive#CompleteObject Gu Git branch -u <args>]]
   end,
 }

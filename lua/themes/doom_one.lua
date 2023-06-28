@@ -1,5 +1,5 @@
 vim.cmd "colorscheme doom-one"
-highlight("Identifier", { fg = "#FFA8FF", style = "italic" })
+_G.highlight("Identifier", { fg = "#FFA8FF", style = "italic" })
 
 return {
   lualine = {

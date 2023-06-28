@@ -1,5 +1,5 @@
 vim.cmd "colorscheme github-light"
-highlight("Identifier", { style = "italic" })
+_G.highlight("Identifier", { style = "italic" })
 
 return {
   lualine = {

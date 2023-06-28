@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  init = lazy_load "nvim-treesitter",
+  init = _G.lazy_load "nvim-treesitter",
   cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
   build = ":TSUpdate",
   opts = {

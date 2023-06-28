@@ -1,5 +1,5 @@
-local onenord = {}
-local custom_colors = {}
+local onenord
+local custom_colors
 if vim.o.background == "light" then
   onenord = require "onenord.colors.onenordlight"
   custom_colors = {

@@ -1,7 +1,7 @@
 return {
   "lewis6991/gitsigns.nvim",
   dependencies = "nvim-lua/plenary.nvim",
-  init = lazy_load "gitsigns.nvim",
+  init = _G.lazy_load "gitsigns.nvim",
   opts = {
     signs = {
       add = { hl = "GitSignsAdd", text = "┃", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
@@ -49,9 +49,9 @@ return {
     local colors = require("config.theme").gitsigns
 
     if colors then
-      highlight("GitSignsAddNr", { fg = colors.add_fg, bg = colors.add_bg })
-      highlight("GitSignsChangeNr", { fg = colors.change_fg, bg = colors.change_bg })
-      highlight("GitSignsDeleteNr", { fg = colors.delete_fg, bg = colors.delete_bg })
+      _G.highlight("GitSignsAddNr", { fg = colors.add_fg, bg = colors.add_bg })
+      _G.highlight("GitSignsChangeNr", { fg = colors.change_fg, bg = colors.change_bg })
+      _G.highlight("GitSignsDeleteNr", { fg = colors.delete_fg, bg = colors.delete_bg })
     end
   end,
 }

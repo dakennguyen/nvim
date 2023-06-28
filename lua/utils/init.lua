@@ -9,6 +9,7 @@ end
 -- Does:
 --   For wrapped lines, does gj/gk
 --   For large jumps, adds a spot on the jump list
+-- luacheck:ignore 631
 -- https://github.com/tjdevries/config_manager/blob/b9490fe7eb47e2bf21e828474787d8b8e8ed5314/xdg_config/nvim/autoload/tj.vim#L161
 M.jump = function(letter)
   local count = vim.api.nvim_eval "v:count"
