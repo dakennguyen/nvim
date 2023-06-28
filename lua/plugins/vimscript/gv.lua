@@ -1,6 +1,6 @@
 return {
   "dakennguyen/gv.vim",
-  keys = "<space>gg",
+  keys = { "<space>gg", "<leader>gv", { "<leader>gv", mode = "v" } },
   cmd = "GV",
   config = function()
     map("n", "<leader>gv", ":GV!<CR>", { silent = true })

@@ -1,6 +1,6 @@
 return {
   "kevinhwang91/nvim-bqf",
-  init = _G.lazy_load "nvim-bqf",
+  event = "BufWinEnter quickfix",
   opts = {
     preview = {
       auto_preview = false,

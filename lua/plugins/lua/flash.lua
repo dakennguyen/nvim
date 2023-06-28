@@ -1,6 +1,6 @@
 return {
   "folke/flash.nvim",
-  event = "VeryLazy",
+  init = _G.lazy_load "flash.nvim",
   keys = {
     {
       "s",
@@ -23,7 +23,7 @@ return {
     },
     highlight = {
       groups = {
-        label = "HopNextKey",
+        label = "HopNextKey1",
       },
     },
     modes = {
