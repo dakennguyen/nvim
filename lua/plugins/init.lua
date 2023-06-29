@@ -12,6 +12,7 @@ local plugins = {
   -- Group: TPope
   require "plugins.tpope.misc",
   require "plugins.tpope.dadbod",
+  require "plugins.tpope.dispatch",
   require "plugins.tpope.fugitive",
   require "plugins.tpope.projectionist",
 

@@ -1,19 +1,19 @@
 return {
   "vim-test/vim-test",
-  keys = { "t<c-f>", "t<c-n>" },
+  keys = { "t<c-f>", "t<c-n>", "t<c-d>" },
   dependencies = "https://tpope.io/vim/projectionist.git",
   config = function()
-    vim.cmd [[
-      function! BufferStrategy(cmd)
-        execute 'R !' . a:cmd
-        execute 'set filetype=sh'
-      endfunction
-    ]]
+    -- vim.cmd [[
+    --   function! BufferStrategy(cmd)
+    --     execute 'R !' . a:cmd
+    --     execute 'set filetype=sh'
+    --   endfunction
+    -- ]]
 
-    vim.g["test#custom_strategies"] = { buffer = vim.fn["BufferStrategy"] }
-    vim.g["test#strategy"] = "neovim"
+    -- vim.g["test#custom_strategies"] = { buffer = vim.fn["BufferStrategy"] }
+    vim.g["test#strategy"] = "dispatch_background"
     vim.g["test#neovim#term_position"] = "vert"
-    vim.g["test#neovim#start_normal"] = 1
+    vim.g["test#neovim#start_normal"] = 0
 
     vim.g["test#ruby#bundle_exec"] = 1
     vim.g["test#ruby#use_binstubs"] = 0
@@ -24,6 +24,7 @@ return {
     vim.g["test#python#pytest#options"] = "-vv"
 
     map("n", "t<C-n>", ":TestNearest<CR>", { remap = true, silent = true })
+    map("n", "t<C-d>", ":TestNearest -strategy=neovim<CR>", { remap = true, silent = true })
     map("n", "t<C-f>", ":TestFile<CR>", { remap = true, silent = true })
     map("n", "t<C-s>", ":TestSuite<CR>", { remap = true, silent = true })
     map("n", "t<C-l>", ":TestLast<CR>", { remap = true, silent = true })

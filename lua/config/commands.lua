@@ -41,8 +41,6 @@ _G.augroup("Terminal", {
   command = function()
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
-
-    vim.opt.bufhidden = "delete"
   end,
 })
 
