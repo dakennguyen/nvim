@@ -27,8 +27,8 @@ end
 
 -- Does: close and focus on previous tab
 M.tabclose = function()
-  pcall(vim.cmd, 'call execute("-1tabmove")')
-  if not pcall(vim.cmd, 'call execute("tabclose")') then
+  pcall(vim.cmd.call, 'execute("-1tabmove")')
+  if not pcall(vim.cmd.call, 'execute("tabclose")') then
     vim.api.nvim_echo({ { "E784: Cannot close last tab page", "ErrorMsg" } }, true, {})
   end
 end
@@ -46,7 +46,7 @@ M.smart_quit = function()
       vim.cmd "quit"
     end
   else
-    if not pcall(vim.cmd, "close") then
+    if not pcall(vim.cmd.close) then
       vim.api.nvim_echo({ { "E444: Cannot close last window", "ErrorMsg" } }, true, {})
     end
     vim.cmd "wincmd p"
