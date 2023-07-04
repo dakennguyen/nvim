@@ -49,7 +49,7 @@ M.smart_quit = function()
     if not pcall(vim.cmd.close) then
       vim.api.nvim_echo({ { "E444: Cannot close last window", "ErrorMsg" } }, true, {})
     end
-    vim.cmd "wincmd p"
+    pcall(vim.cmd.wincmd, "p")
   end
 end
 
