@@ -1,12 +1,11 @@
 local plugins = {
   -- Group: Theme
-  { "kyazdani42/nvim-web-devicons", config = true },
+  { "nvim-tree/nvim-web-devicons", config = true },
   require "plugins.lua.lualine",
-  "rmehri01/onenord.nvim",
+  "folke/tokyonight.nvim",
+  -- "rmehri01/onenord.nvim",
   -- 'EdenEast/nightfox.nvim',
-  -- 'shaunsingh/nord.nvim',
   -- 'Th3Whit3Wolf/one-nvim',
-  -- 'romgrk/github-light.vim',
   -- 'NTBBloodbath/doom-one.nvim',
 
   -- Group: TPope
@@ -89,7 +88,7 @@ local lazy_configs = {
         -- "netrwPlugin",
         -- "netrwSettings",
         -- "netrwFileHandlers",
-        "matchit",
+        -- "matchit",
         "tar",
         "tarPlugin",
         "rrhelper",
@@ -103,14 +102,15 @@ local lazy_configs = {
         "syntax",
         "synmenu",
         "optwin",
-        "compiler",
+        -- "compiler",
         "bugreport",
-        "ftplugin",
+        -- "ftplugin",
       },
     },
   },
 }
 
+map("n", "<space>ph", ":Lazy<cr>")
 map("n", "<space>ps", ":Lazy sync<cr>")
 map("n", "<space>pi", ":Lazy install<cr>")
 map("n", "<space>pc", ":Lazy clean<cr>")
