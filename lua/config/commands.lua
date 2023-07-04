@@ -59,10 +59,3 @@ _G.augroup("Nvr", {
     vim.opt.bufhidden = "delete"
   end,
 })
-
-vim.cmd [[
-  silent :!test -n "$(ls -a | grep ^.git$)"
-  if !v:shell_error
-      autocmd UIEnter * ++nested :tab Git | tabo
-  endif
-]]
