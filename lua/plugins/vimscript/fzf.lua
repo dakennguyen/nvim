@@ -152,6 +152,8 @@ return {
     map("v", "<space>fw", [[y:Rg <C-R>=escape(@",'/\')<CR><CR>]], { silent = true })
     map("n", "<space>fc", ":History:<CR>")
 
+    map("n", "<space>fs", ":Files local_scripts<CR>", { silent = true })
+
     map("n", "//", ":BLines<CR>")
     map("n", "\\", ":Rg ")
   end,
