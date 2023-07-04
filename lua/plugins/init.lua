@@ -50,7 +50,6 @@ local plugins = {
 
   -- Group: Git
   require "plugins.lua.gitsigns",
-  require "plugins.vimscript.merginal",
   require "plugins.vimscript.gv",
 
   -- Group: Miscellaneous

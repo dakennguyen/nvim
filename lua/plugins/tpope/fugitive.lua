@@ -14,6 +14,8 @@ return {
     vim.opt.diffopt:append { "vertical" }
     map("n", "gs", ":tab G<CR>", { silent = true }) -- Git status
     map("n", "gb", ":Git blame<CR>", { silent = true }) -- Git blame
+    map("n", "go", ":Git branch<CR>", { silent = true }) -- Git blame
+    map("n", "<leader>gr", ":Git branch --remote<CR>", { silent = true }) -- Git blame
     map("n", "<leader>gc", ":Gclog! -n 50 | copen<cr>", { silent = true }) -- Git log
     map("n", "<leader>gd", ":Gdiffsplit<CR>") -- Git diff
     map("n", "<leader>gz", ":Gclog! -g stash | copen<CR>", { silent = true }) -- Git stash
