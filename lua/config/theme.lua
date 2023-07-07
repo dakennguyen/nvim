@@ -1,8 +1,7 @@
-vim.opt.background = 'dark'
-return require 'themes.onenord'
+local theme_mode = require "config.mode"
 
--- if vim.o.background == 'light' then
---   return require 'themes.onenord_light'
--- else
---   return require 'themes.onenord'
--- end
+if vim.o.background == "light" then
+  return require("themes." .. theme_mode.light_theme)
+else
+  return require("themes." .. theme_mode.dark_theme)
+end

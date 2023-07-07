@@ -1,9 +1,10 @@
-vim.cmd 'colorscheme github-light'
+vim.cmd "colorscheme github-light"
+_G.highlight("Identifier", { style = "italic" })
 
 return {
   lualine = {
     default_fg = "#5E81AC",
-    default_bg = "#eeeeee",
+    default_bg = "#ffffff",
     light = "#494b53",
     visual = "#E45649",
     insert = "#61afef",
@@ -12,13 +13,6 @@ return {
     op = "#98c379",
     yellow = "#d19a66",
     inactive = "#81879C",
-    dark = "#000000"
+    dark = "#000000",
   },
-  tabline = {
-    default_bg = '#e5e5e5',
-    active_bg = '#eeeeee',
-    active_fg = '#5E81AC',
-    inactive_fg = '#7a7a7a',
-    separator = '#c0c0c0',
-  }
 }
