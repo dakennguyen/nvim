@@ -191,6 +191,13 @@ return {
       flags = lsp_flags,
     }
 
+    -- install.packages("languageserver")
+    nvim_lsp.r_language_server.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      flags = lsp_flags,
+    }
+
     -- `npm install -g typescript`
     -- `npm install -g typescript-language-server`
     nvim_lsp.tsserver.setup {
