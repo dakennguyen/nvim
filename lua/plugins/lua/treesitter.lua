@@ -25,6 +25,7 @@ return {
       "c",
       "cpp",
       "html",
+      "vim",
     },
     highlight = {
       enable = true,
