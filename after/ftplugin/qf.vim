@@ -1,3 +1,5 @@
+let &l:winheight = 16
+
 function! s:open()
   lua require("bqf.qfwin.handler").open(false)
   wincmd p
