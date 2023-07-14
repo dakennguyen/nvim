@@ -4,11 +4,11 @@ return {
   init = _G.lazy_load "gitsigns.nvim",
   opts = {
     signs = {
-      add = { hl = "GitSignsAdd", text = "┃", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-      change = { hl = "GitSignsChange", text = "┃", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+      add = { hl = "GitSignsAdd", text = "▌", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+      change = { hl = "GitSignsChange", text = "▌", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
       delete = { hl = "GitSignsDelete", text = "▁", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
       topdelete = { hl = "GitSignsDelete", text = "▔", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-      changedelete = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+      changedelete = { hl = "GitSignsChange", text = "▌", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
     },
     signcolumn = false,
     numhl = true,
@@ -59,12 +59,12 @@ return {
       map("n", "<leader>hb", function()
         gs.blame_line { full = true }
       end)
-      map("n", "<leader>tb", gs.toggle_current_line_blame)
+      map("n", "<leader>htb", gs.toggle_current_line_blame)
       map("n", "<leader>hd", gs.diffthis)
       map("n", "<leader>hD", function()
         gs.diffthis "~"
       end)
-      map("n", "<leader>td", gs.toggle_deleted)
+      map("n", "<leader>htd", gs.toggle_deleted)
 
       -- Text object
       map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
@@ -76,6 +76,9 @@ return {
     local colors = require("config.theme").gitsigns
 
     if colors then
+      _G.highlight("GitSignsAdd", { fg = colors.add_fg })
+      _G.highlight("GitSignsChange", { fg = colors.change_fg })
+      _G.highlight("GitSignsDelete", { fg = colors.delete_fg })
       _G.highlight("GitSignsAddNr", { fg = colors.add_fg, bg = colors.add_bg })
       _G.highlight("GitSignsChangeNr", { fg = colors.change_fg, bg = colors.change_bg })
       _G.highlight("GitSignsDeleteNr", { fg = colors.delete_fg, bg = colors.delete_bg })
