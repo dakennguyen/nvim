@@ -153,6 +153,7 @@ return {
     map("n", "<space>fc", ":History:<CR>")
 
     map("n", "<space>fs", ":Files local_scripts<CR>", { silent = true })
+    map("n", "<space>fn", ":Files $CLOUD/Notes<CR>", { silent = true })
 
     map("n", "//", ":BLines<CR>")
     map("n", "\\", ":Rg ")
