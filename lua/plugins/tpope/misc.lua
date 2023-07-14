@@ -5,5 +5,5 @@ return {
   { "https://tpope.io/vim/vinegar.git", lazy = false },
   { "https://tpope.io/vim/bundler.git", event = "BufWinEnter Gemfile*" },
   { "https://tpope.io/vim/repeat.git", init = _G.lazy_load "repeat", branch = "no-feedkeys" },
-  { "dakennguyen/vim-unimpaired", init = _G.lazy_load "vim-unimpaired" },
+  { "dakennguyen/vim-unimpaired", event = "VeryLazy" },
 }

@@ -1,5 +1,6 @@
 local palette
 local custom_colors
+
 if vim.o.background == "light" then
   palette = require("tokyonight.colors").setup { transform = true }
   custom_colors = {
@@ -12,7 +13,6 @@ if vim.o.background == "light" then
     diff_remove = "#b95d76",
     diff_remove_bg = "#824d5b",
   }
-  vim.cmd "colorscheme tokyonight-day"
 else
   palette = require("tokyonight.colors").setup()
   custom_colors = {
@@ -25,8 +25,9 @@ else
     diff_remove = "#b95d76",
     diff_remove_bg = "#4D2B2E",
   }
-  vim.cmd "colorscheme tokyonight"
 end
+
+vim.cmd "colorscheme tokyonight"
 
 return {
   lualine = {
