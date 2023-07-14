@@ -1,6 +1,6 @@
 return {
   "kevinhwang91/nvim-bqf",
-  event = "BufWinEnter quickfix",
+  ft = "qf",
   opts = {
     preview = {
       auto_preview = false,
