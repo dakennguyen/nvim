@@ -17,6 +17,7 @@ o.splitright = true
 o.scrolloff = 5
 o.modeline = false
 o.mouse = "a"
+o.exrc = true
 
 -- buffer
 o.switchbuf:append { "useopen" }
