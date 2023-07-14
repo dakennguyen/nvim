@@ -1,6 +1,6 @@
 local plugins = {
   -- Group: Theme
-  { "nvim-tree/nvim-web-devicons", config = true },
+  "nvim-tree/nvim-web-devicons",
   require "plugins.lua.lualine",
   "folke/tokyonight.nvim",
   -- "rmehri01/onenord.nvim",
@@ -20,10 +20,7 @@ local plugins = {
   { "nvim-treesitter/nvim-treesitter-textobjects", init = _G.lazy_load "nvim-treesitter-textobjects" },
   require "plugins.lua.lspconfig",
   require "plugins.vimscript.gutentags",
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-  },
+  require "plugins.lua.context-commentstring",
   require "plugins.vimscript.matchup",
 
   -- Group: Completion
@@ -55,11 +52,7 @@ local plugins = {
   -- Group: Miscellaneous
   require "plugins.lua.colorizer",
   require "plugins.lua.bqf",
-  {
-    "NTBBloodbath/rest.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    ft = "http",
-  },
+  require "plugins.lua.rest",
 }
 
 local lazy_configs = {
