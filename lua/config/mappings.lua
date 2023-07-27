@@ -135,3 +135,9 @@ map("n", "<leader>fp", [[<cmd>!open -a 'google chrome' '%:p'<cr>]], { silent = t
 
 -- JSON
 map("", "<leader>jp", [[:%!jq '.'<cr>]])
+
+-- navigation
+map("n", "<left>", "<c-w>h", { silent = true })
+map("n", "<down>", "<c-w>j", { silent = true })
+map("n", "<up>", "<c-w>k", { silent = true })
+map("n", "<right>", "<c-w>l", { silent = true })

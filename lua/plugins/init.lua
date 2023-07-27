@@ -43,7 +43,6 @@ local plugins = {
 
   -- Group: Navigator
   require "plugins.lua.flash",
-  require "plugins.lua.navigator",
 
   -- Group: Git
   require "plugins.lua.gitsigns",
