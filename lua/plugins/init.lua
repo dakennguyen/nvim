@@ -39,6 +39,7 @@ local plugins = {
   require "plugins.vimscript.easy-align",
 
   -- Group: Files manager
+  require "plugins.vimscript.dirvish",
   require "plugins.vimscript.fzf",
 
   -- Group: Navigator
@@ -76,10 +77,10 @@ local lazy_configs = {
         "getscriptPlugin",
         "gzip",
         "logipat",
-        -- "netrw",
-        -- "netrwPlugin",
-        -- "netrwSettings",
-        -- "netrwFileHandlers",
+        "netrw",
+        "netrwPlugin",
+        "netrwSettings",
+        "netrwFileHandlers",
         -- "matchit",
         "tar",
         "tarPlugin",
