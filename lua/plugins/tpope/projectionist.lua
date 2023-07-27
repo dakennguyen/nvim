@@ -2,6 +2,8 @@ return {
   "https://tpope.io/vim/projectionist.git",
   init = _G.lazy_load "projectionist",
   config = function()
+    map("n", "<space>a", ":A<CR>", { silent = true })
+
     vim.g.projectionist_heuristics = {
       ["*"] = {
         -- http
