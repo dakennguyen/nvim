@@ -151,14 +151,7 @@ return {
     -- go install github.com/go-delve/delve/cmd/dlv@latest
     nvim_lsp.gopls.setup {
       capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        local opts = { buffer = bufnr, silent = true }
-        on_attach(client, bufnr)
-        map("n", "gdd", "<Cmd>:GoDef<CR>", opts)
-        map("n", "gdv", [[<Cmd>vs | GoDef<CR>]], opts)
-        map("n", "gds", [[<Cmd>split | GoDef<CR>]], opts)
-        map("n", "gdt", [[<Cmd>tab split | GoDef<CR>]], opts)
-      end,
+      on_attach = on_attach,
       flags = lsp_flags,
     }
 

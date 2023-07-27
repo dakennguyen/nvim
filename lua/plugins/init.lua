@@ -30,7 +30,6 @@ local plugins = {
 
   -- Group: Framework support
   require "plugins.vimscript.test",
-  { "fatih/vim-go", ft = "go" },
 
   -- Group: Editing support
   require "plugins.lua.autopairs",
