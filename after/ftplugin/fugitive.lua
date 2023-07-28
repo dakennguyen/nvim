@@ -1,3 +1,5 @@
+vim.cmd [[silent! unmap <buffer> *]]
+
 buf_map("n", "<c-s>", "o", { remap = true, nowait = true })
 buf_map("n", "<c-v>", "gO", { remap = true, nowait = true })
 buf_map("n", "<c-t>", "O", { remap = true, nowait = true })
@@ -6,7 +8,7 @@ buf_map("n", "cl", ":Git pull")
 buf_map("n", "cp", ":Git push")
 buf_map("n", "ch", ":Git fetch")
 buf_map("n", "cH", ":Git remote update origin --prune")
-buf_map("n", "cd<space>", ":vert Git diff<space>")
+buf_map("n", "cd", ":vert Git diff")
 buf_map("n", "W", ":Git commit --no-verify<CR>")
 buf_map("n", "E", ":Git commit --amend --no-edit --no-verify")
 

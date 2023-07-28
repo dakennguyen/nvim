@@ -1,3 +1,4 @@
+vim.cmd [[silent! unmap <buffer> *]]
 vim.opt_local.foldmethod = "syntax"
 
 buf_map("n", "<c-s>", "o", { remap = true, nowait = true })
@@ -13,7 +14,7 @@ buf_map("n", "cl", ":Git pull")
 buf_map("n", "cp", ":Git push")
 buf_map("n", "ch", ":Git fetch")
 buf_map("n", "cH", ":Git remote update origin --prune")
-buf_map("n", "cd<space>", ":vert Git diff<space>")
+buf_map("n", "cd", ":vert Git diff")
 
 buf_map("n", "]f", "/^diff --git<cr>zV", { remap = true, silent = true })
 buf_map("n", "[f", "?^diff --git<cr>zV", { remap = true, silent = true })

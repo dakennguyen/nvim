@@ -12,14 +12,16 @@ return {
     -- vim.cmd[[ command! -nargs=? Browse lua _G.open_in_browser(<q-args>) ]]
 
     vim.opt.diffopt:append { "vertical" }
-    map("n", "gs", ":tab G<CR>", { silent = true }) -- Git status
+    map("n", "gs", ":G<CR>", { silent = true }) -- Git status
     map("n", "gb", ":Git blame<CR>", { silent = true }) -- Git blame
-    map("n", "go", ":Git branch<CR>", { silent = true }) -- Git blame
-    map("n", "<leader>gr", ":Git branch --remote<CR>", { silent = true }) -- Git blame
-    map("n", "<leader>gc", ":Gclog! -n 50 | copen<cr>", { silent = true }) -- Git log
+    map("v", "gb", ":Git blame<CR>", { silent = true }) -- Git blame
+    map("n", "go", ":Git branch | set filetype=gitbranch<CR>", { silent = true }) -- Git blame
+    map("n", "<leader>gr", ":Git branch --remote | set filetype=gitbranch<CR>", { silent = true }) -- Git blame
+    map("n", "<leader>gc", ":Gclog! -n 50<cr>", { silent = true }) -- Git log
     map("n", "<leader>gd", ":Gdiffsplit<CR>") -- Git diff
-    map("n", "<leader>gz", ":Gclog! -g stash | copen<CR>", { silent = true }) -- Git stash
-    map("n", "<leader>gt", ":0Gclog! | copen<CR>", { silent = true }) -- Git time machine
+    map("n", "<leader>gz", ":Gclog! -g stash<CR>", { silent = true }) -- Git stash
+    map("n", "<leader>gt", ":0Gclog<CR>", { silent = true }) -- Git time machine
+    map("v", "<leader>gt", ":Gclog<CR>", { silent = true }) -- Git time machine
     map("n", "<leader>gx", ":GBrowse<CR>", { silent = true }) -- Git Browse
     map("v", "<leader>gx", ":GBrowse<CR>", { silent = true }) -- Git Browse in Visual mode
 
