@@ -9,7 +9,7 @@ function! Redir(cmd, rng, start, end)
   endfor
   if a:cmd =~ '^!'
     let cmd = a:cmd =~' %'
-          \ ? matchstr(substitute(a:cmd, ' %', ' ' . expand('%:p'), ''), '^!\zs.*')
+          \ ? matchstr(substitute(a:cmd, ' %', ' ' . shellescape(escape(expand('%:p'), '\')), ''), '^!\zs.*')
           \ : matchstr(a:cmd, '^!\zs.*')
     if a:rng == 0
       let output = systemlist(cmd)
@@ -24,11 +24,10 @@ function! Redir(cmd, rng, start, end)
     redir END
     let output = split(output, "\n")
   endif
-  vert new
+  vnew
   let w:scratch = 1
   setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
   call setline(1, output)
-  norm G
 endfunction
 
 command! -nargs=1 -complete=command -bar -range R silent call Redir(<q-args>, <range>, <line1>, <line2>)
