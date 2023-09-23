@@ -1,0 +1,10 @@
+{
+  "log": {
+    "prefix": ["log"],
+    "body": "print([\"DEBUG\", \"${1:$TM_SELECTED_TEXT}\", ${1:$TM_SELECTED_TEXT}])"
+  },
+  "object_id": {
+    "prefix": "oid",
+    "body": "${VIM:system('python -c \"import bson, sys;sys.stdout.write(str(bson.ObjectId()))\"')}"
+  }
+}

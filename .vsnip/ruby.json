@@ -1,0 +1,41 @@
+{
+  "log": {
+    "prefix": ["log"],
+    "body": "p [\"DEBUG\", ${1:$TM_SELECTED_TEXT}]"
+  },
+  "class": {
+    "prefix": ["class"],
+    "body": [
+      "# frozen_string_literal: true",
+      "",
+      "class ${1:Class}",
+      "\t$0",
+      "end"
+    ]
+  },
+  "test": {
+    "prefix": ["test"],
+    "body": [
+      "# frozen_string_literal: true",
+      "",
+      "require \"rails_helper\"",
+      "",
+      "RSpec.describe ${1:Class} do",
+      "\t$0",
+      "end"
+    ]
+  },
+  "benchmark": {
+    "prefix": ["benchmark"],
+    "body": [
+      "require 'benchmark/ips' # gem 'benchmark-ips'",
+      "",
+      "Benchmark.ips do |x|",
+      "\tx.report(\"${1:label}\") do",
+      "\t\t$0",
+      "\tend",
+      "\tx.compare!",
+      "end"
+    ]
+  }
+}
