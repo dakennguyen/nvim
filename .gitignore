@@ -1,4 +1,2 @@
-plugin/
-!/*/plugin/
 lazy-lock.json
-lua/config/mode.lua
+.config/nvim/lua/config/mode.lua
