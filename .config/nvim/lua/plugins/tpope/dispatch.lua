@@ -1,5 +1,5 @@
 return {
-  "https://tpope.io/vim/dispatch.git",
+  "tpope/vim-dispatch",
   event = "VeryLazy",
   config = function()
     map("n", "<leader>C", ":Copen<cr>", { silent = true })

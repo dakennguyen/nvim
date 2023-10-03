@@ -1,5 +1,5 @@
 return {
-  "https://tpope.io/vim/fugitive.git",
+  "tpope/vim-fugitive",
   lazy = false,
   config = function()
     -- local job = require("plenary.job")

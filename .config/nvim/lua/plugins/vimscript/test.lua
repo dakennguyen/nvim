@@ -1,7 +1,7 @@
 return {
   "dakennguyen/vim-test",
   keys = { "t<c-f>", "t<c-n>", "t<c-d>" },
-  dependencies = "https://tpope.io/vim/projectionist.git",
+  dependencies = "tpope/vim-projectionist",
   config = function()
     -- vim.cmd [[
     --   function! BufferStrategy(cmd)

@@ -1,6 +1,6 @@
 return {
-  "https://tpope.io/vim/projectionist.git",
-  init = _G.lazy_load "projectionist",
+  "tpope/vim-projectionist",
+  init = _G.lazy_load "vim-projectionist",
   config = function()
     map("n", "<space>a", ":A<CR>", { silent = true })
 

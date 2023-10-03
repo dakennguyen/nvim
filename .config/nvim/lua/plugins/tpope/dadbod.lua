@@ -1,5 +1,5 @@
 return {
-  "https://tpope.io/vim/dadbod.git",
+  "tpope/vim-dadbod",
   cmd = "DB",
   keys = { "<space>dr", "<space>dd", "<space>dt" },
   config = function()
