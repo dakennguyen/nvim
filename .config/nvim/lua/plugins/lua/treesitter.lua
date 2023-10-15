@@ -35,9 +35,6 @@ return {
       enable = true,
       disable = { "ruby", "go" },
     },
-    matchup = {
-      enable = true,
-    },
     -- "JoosepAlviste/nvim-ts-context-commentstring"
     context_commentstring = {
       enable = true,
