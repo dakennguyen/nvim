@@ -132,7 +132,7 @@ map("n", "<space>gt", ":botright 10 new $CLOUD/Notes/todo.md<CR>", { silent = tr
 map("n", "<space>gh", ":vnew local.http<cr>", { silent = true })
 
 -- open files in chrome
-map("n", "<leader>fp", [[<cmd>!open -a 'google chrome' '%:p'<cr>]], { silent = true })
+map("n", "<leader>fp", [[<cmd>!open -a 'arc' '%:p'<cr>]], { silent = true })
 
 -- JSON
 map("", "<leader>jp", [[:%!jq '.'<cr>]])

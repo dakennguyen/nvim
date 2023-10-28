@@ -15,6 +15,6 @@ buf_map("x", "y", "<Plug>(dovish_yank)", opts)
 buf_map("n", "mc", "<Plug>(dovish_copy)", opts)
 buf_map("n", "mm", "<Plug>(dovish_move)", opts)
 
-buf_map("n", "<leader>fp", [[:!open -a 'google chrome' '<c-r><c-f>'<cr>]], { remap = true, silent = true })
+buf_map("n", "<leader>fp", [[:!open -a 'arc' '<c-r><c-f>'<cr>]], { remap = true, silent = true })
 
 buf_map("n", "<space>ff", ":Files %<cr>", opts)
