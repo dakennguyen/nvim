@@ -60,20 +60,20 @@ map("n", "<leader>z", "<C-W>_<C-W><Bar>")
 map("t", "<leader>z", "<C-\\><C-N><C-W>_<C-W><Bar>i")
 
 -- tag
-map("n", "<c-]>]", "g<c-]>")
-map("n", "<c-]><c-]>", "g<c-]>")
+map("n", "<c-]>]", "g<c-]>", { remap = true })
+map("n", "<c-]><c-]>", "g<c-]>", { remap = true })
 
-map("n", "<c-]>v", '<cmd>lua require("utils").vsplit("g<c-]>")<cr>')
-map("n", "<c-]><c-v>", '<cmd>lua require("utils").vsplit("g<c-]>")<cr>')
+map("n", "<c-]>v", ":vsplit<cr>g<c-]>", { remap = true })
+map("n", "<c-]><c-v>", ":vsplit<cr>g<c-]>", { remap = true })
 
-map("n", "<c-]>s", "<c-w>g<c-]>")
-map("n", "<c-]><c-s>", "<c-w>g<c-]>")
+map("n", "<c-]>s", "<c-w>g<c-]>", { remap = true })
+map("n", "<c-]><c-s>", "<c-w>g<c-]>", { remap = true })
 
-map("n", "<c-]>t", "<c-w>g<c-]><c-w>T")
-map("n", "<c-]><c-t>", "<c-w>g<c-]><c-w>T")
+map("n", "<c-]>t", "<c-w>g<c-]><c-w>T", { remap = true })
+map("n", "<c-]><c-t>", "<c-w>g<c-]><c-w>T", { remap = true })
 
-map("n", "<c-]>p", "<c-w>g}")
-map("n", "<c-]><c-p>", "<c-w>g}")
+map("n", "<c-]>p", "<c-w>g}", { remap = true })
+map("n", "<c-]><c-p>", "<c-w>g}", { remap = true })
 
 -- tab
 map("n", "]<tab>", "gt")
@@ -146,3 +146,7 @@ map("n", "<c-h>", "<c-w>h", { silent = true })
 map("n", "<c-j>", "<c-w>j", { silent = true })
 map("n", "<c-k>", "<c-w>k", { silent = true })
 map("n", "<c-l>", "<c-w>l", { silent = true })
+map("t", "<c-h>", "<c-\\><c-n><c-w>h", { silent = true })
+map("t", "<c-j>", "<c-\\><c-n><c-w>j", { silent = true })
+map("t", "<c-k>", "<c-\\><c-n><c-w>k", { silent = true })
+map("t", "<c-l>", "<c-\\><c-n><c-w>l", { silent = true })

@@ -2,8 +2,9 @@ local plugins = {
   -- Group: Theme
   "nvim-tree/nvim-web-devicons",
   require "plugins.lua.lualine",
-  "folke/tokyonight.nvim",
-  -- "rmehri01/onenord.nvim",
+  -- "folke/tokyonight.nvim",
+  "rmehri01/onenord.nvim",
+  -- "shaunsingh/nord.nvim",
   -- 'EdenEast/nightfox.nvim',
   -- 'Th3Whit3Wolf/one-nvim',
   -- 'NTBBloodbath/doom-one.nvim',
