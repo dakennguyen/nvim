@@ -39,7 +39,7 @@ local plugins = {
 
   -- Group: Files manager
   require "plugins.vimscript.dirvish",
-  require "plugins.vimscript.fzf",
+  require'plugins.lua.telescope',
 
   -- Group: Navigator
   require "plugins.lua.flash",
