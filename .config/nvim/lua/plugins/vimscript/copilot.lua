@@ -1,7 +1,7 @@
 return {
   "github/copilot.vim",
   cmd = "Copilot",
-  event = "InsertEnter",
+  event = "VeryLazy",
   config = function()
     vim.g.copilot_filetypes = {
       TelescopePrompt = false,
