@@ -11,8 +11,8 @@ return {
     -- ]]
 
     -- vim.g["test#custom_strategies"] = { buffer = vim.fn["BufferStrategy"] }
-    vim.g["test#strategy"] = "dispatch_background"
-    vim.g["test#neovim#term_position"] = "vert"
+    vim.g["test#strategy"] = "dispatch"
+    vim.g["test#neovim#term_position"] = "split"
     vim.g["test#neovim#start_normal"] = 1
 
     vim.g["test#ruby#bundle_exec"] = 1

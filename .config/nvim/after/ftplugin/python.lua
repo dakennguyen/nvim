@@ -1,5 +1,5 @@
 vim.cmd [[
-  iabbrev <buffer> bb import pdb; pdb.set_trace()<esc>
+  iabbrev <buffer> bb breakpoint()<esc>
 ]]
 
 vim.b["start"] = "python"

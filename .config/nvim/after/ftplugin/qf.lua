@@ -1,5 +1,5 @@
 vim.cmd [[
-  let &l:winheight = 16
+  " let &l:winheight = 12
 
   function! s:open()
   lua require("bqf.qfwin.handler").open(false)

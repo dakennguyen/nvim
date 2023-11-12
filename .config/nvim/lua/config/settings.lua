@@ -18,7 +18,7 @@ o.mouse = "a"
 o.exrc = true
 
 -- buffer
-o.switchbuf:append { "useopen" }
+-- o.switchbuf:append { "useopen" }
 
 -- Theme
 o.encoding = "UTF-8"
