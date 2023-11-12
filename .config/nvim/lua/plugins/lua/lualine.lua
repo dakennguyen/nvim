@@ -222,7 +222,7 @@ return {
     ins_right {
       "filename",
       path = 1,
-      cond = conditions.buffer_not_empty,
+      -- cond = conditions.buffer_not_empty,
       color = { fg = colors.yellow },
     }
 

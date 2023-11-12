@@ -2,14 +2,13 @@ return {
   "tpope/vim-fugitive",
   lazy = false,
   config = function()
-    -- local job = require("plenary.job")
-    -- _G.open_in_browser = function(url)
-    --   local command = vim.loop.os_uname().sysname == "Darwin" and "open"
-    --     or "xdg-open"
-    --   job:new({ command = command, args = { url } }):start()
-    -- end
-
-    -- vim.cmd[[ command! -nargs=? Browse lua _G.open_in_browser(<q-args>) ]]
+    vim.api.nvim_create_user_command(
+      "Browse",
+      function (opts)
+        vim.fn.system { "open", opts.fargs[1] }
+      end,
+      { nargs = 1 }
+    )
 
     vim.opt.diffopt:append { "vertical" }
     map("n", "gs", ":G<CR>", { silent = true }) -- Git status

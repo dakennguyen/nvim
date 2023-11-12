@@ -38,7 +38,7 @@ local plugins = {
   require "plugins.vimscript.easy-align",
 
   -- Group: Files manager
-  require "plugins.vimscript.dirvish",
+  require "plugins.lua.oil",
   require "plugins.vimscript.fzf",
 
   -- Group: Navigator
