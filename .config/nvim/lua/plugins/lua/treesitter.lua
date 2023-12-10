@@ -35,10 +35,6 @@ return {
       enable = true,
       disable = { "ruby", "go" },
     },
-    -- "JoosepAlviste/nvim-ts-context-commentstring"
-    context_commentstring = {
-      enable = true,
-    },
     -- "nvim-treesitter/nvim-treesitter-textobjects"
     textobjects = {
       select = {
