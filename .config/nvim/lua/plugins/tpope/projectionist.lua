@@ -1,6 +1,6 @@
 return {
   "tpope/vim-projectionist",
-  init = _G.lazy_load "vim-projectionist",
+  lazy = false, -- NOTE: cannot lazy loading for `drs` command
   config = function()
     map("n", "<space>a", ":A<CR>", { silent = true })
 
