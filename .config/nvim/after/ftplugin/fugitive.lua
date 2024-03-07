@@ -17,13 +17,13 @@ buf_map("n", "]ou", [[:Git branch -u origin/HEAD<CR>]])
 
 buf_map("n", "<leader>gd", ":vert Git diff origin/HEAD..HEAD<CR>", { silent = true })
 
-vim.cmd [[
-"function! s:open(cmd)
-"  call execute(a:cmd)
-"  quit
-"  wincmd p
-"endfunction
+-- vim.cmd [[
+-- "function! s:open(cmd)
+-- "  call execute(a:cmd)
+-- "  quit
+-- "  wincmd p
+-- "endfunction
 
-nnoremap <silent><buffer> <leader>gz :vsplit <bar> Gclog -g stash<CR>
-nnoremap <silent><buffer> <leader>gc :vsplit <bar> Gclog -n 50<CR>
-]]
+-- nnoremap <silent><buffer> <leader>gz :vsplit <bar> Gclog -g stash<CR>
+-- nnoremap <silent><buffer> <leader>gc :vsplit <bar> Gclog -n 50<CR>
+-- ]]
