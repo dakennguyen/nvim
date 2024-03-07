@@ -12,8 +12,10 @@ return {
 
     -- vim.g["test#custom_strategies"] = { buffer = vim.fn["BufferStrategy"] }
     vim.g["test#strategy"] = "dispatch"
+    vim.g["test#preserve_screen"] = 0
     vim.g["test#neovim#term_position"] = "split"
     vim.g["test#neovim#start_normal"] = 1
+    vim.g["test#neovim_sticky#reopen_window"] = 1
 
     vim.g["test#ruby#bundle_exec"] = 1
     vim.g["test#ruby#use_binstubs"] = 0
