@@ -1,7 +1,6 @@
-_G.__global_callbacks = __global_callbacks or {}
-
+_G.__global_callbacks = {}
 _G.global = {
-  _store = __global_callbacks,
+  _store = {},
 }
 
 local map = function(mode, lhs, rhs, opts)
@@ -45,9 +44,9 @@ end
 local autocmd = function(c)
   local command = c.command
   if type(command) == "function" then
-    table.insert(global._store, command)
-    local fn_id = #global._store
-    command = string.format("lua global._store[%s](args)", fn_id)
+    table.insert(_G.global._store, command)
+    local fn_id = #_G.global._store
+    command = string.format("lua _G.global._store[%s](args)", fn_id)
   end
   local event = c.event
   if type(c.event) == "table" then
