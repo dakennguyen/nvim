@@ -9,4 +9,6 @@ vim.cmd [[
   nnoremap <silent><buffer> p :call <sid>open()<CR>
 ]]
 
+vim.opt_local.wrap = true
+
 buf_map("n", "<leader>z", ":tab split<cr>", { silent = true })
