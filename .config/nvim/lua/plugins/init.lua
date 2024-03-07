@@ -33,9 +33,7 @@ local plugins = {
 
   -- Group: Editing support
   require "plugins.lua.autopairs",
-  require "plugins.lua.autotag",
   require "plugins.lua.treesj",
-  require "plugins.vimscript.easy-align",
 
   -- Group: Files manager
   require "plugins.lua.oil",
@@ -47,7 +45,6 @@ local plugins = {
 
   -- Group: Git
   require "plugins.lua.gitsigns",
-  require "plugins.vimscript.gv",
 
   -- Group: Miscellaneous
   require "plugins.lua.colorizer",
