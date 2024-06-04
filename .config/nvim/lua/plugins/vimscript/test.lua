@@ -28,7 +28,7 @@ return {
     vim.g["test#python#pytest#options"] = "-vv"
 
     map("n", "t<C-n>", ":TestNearest<CR>", { remap = true, silent = true })
-    map("n", "t<C-d>", ":TestNearest -strategy=neovim<CR>", { remap = true, silent = true })
+    map("n", "t<C-d>", ":TestNearest -strategy=neovim_sticky<CR>", { remap = true, silent = true })
     map("n", "t<C-f>", ":TestFile<CR>", { remap = true, silent = true })
     map("n", "t<C-s>", ":TestSuite<CR>", { remap = true, silent = true })
     map("n", "t<C-l>", ":TestLast<CR>", { remap = true, silent = true })

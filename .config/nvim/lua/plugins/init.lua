@@ -2,9 +2,10 @@ local plugins = {
   -- Group: Theme
   "nvim-tree/nvim-web-devicons",
   require "plugins.lua.lualine",
-  "folke/tokyonight.nvim",
+  -- "folke/tokyonight.nvim",
   -- "rmehri01/onenord.nvim",
-  -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  -- "shaunsingh/nord.nvim",
   -- 'EdenEast/nightfox.nvim',
   -- 'Th3Whit3Wolf/one-nvim',
   -- 'NTBBloodbath/doom-one.nvim',
