@@ -108,17 +108,10 @@ return {
       map("n", "<space>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
       map("n", "<space>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
       map("n", "<space>ll", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+      map("n", "<space>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
       map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
       map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
       map("n", "<leader>l", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-
-      -- Set some keybinds conditional on server capabilities
-      if
-        client.server_capabilities.documentFormattingProvider
-        or client.server_capabilities.documentRangeFormattingProvider
-      then
-        map("n", "<space>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
-      end
 
       -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
     end
