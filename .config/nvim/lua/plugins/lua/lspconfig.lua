@@ -130,7 +130,10 @@ return {
     -- `gem install solargraph`
     nvim_lsp.solargraph.setup {
       capabilities = capabilities,
-      on_attach = on_attach,
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = true
+        on_attach(client, bufnr)
+      end,
       flags = lsp_flags,
       settings = {
         solargraph = {
@@ -180,7 +183,10 @@ return {
     -- pip install pyright
     nvim_lsp.pyright.setup {
       capabilities = capabilities,
-      on_attach = on_attach,
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = true
+        on_attach(client, bufnr)
+      end,
       flags = lsp_flags,
     }
 
