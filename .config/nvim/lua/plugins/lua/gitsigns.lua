@@ -10,6 +10,7 @@ return {
       topdelete = { text = "▔" },
       changedelete = { text = "▌" },
     },
+    signs_staged_enable = false,
     signcolumn = false,
     numhl = true,
     on_attach = function(bufnr)
