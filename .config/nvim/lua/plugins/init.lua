@@ -43,6 +43,7 @@ return {
 
   -- Group: Navigator
   require "plugins.lua.flash",
+  require "plugins.lua.marks",
 
   -- Group: Git
   require "plugins.lua.gitsigns",
