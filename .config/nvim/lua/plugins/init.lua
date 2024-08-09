@@ -31,6 +31,7 @@ return {
 
   -- Group: Framework support
   require "plugins.vimscript.test",
+  require "plugins.lua.dap",
 
   -- Group: Editing support
   require "plugins.lua.autopairs",
