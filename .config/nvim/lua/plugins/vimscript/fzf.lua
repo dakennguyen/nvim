@@ -7,6 +7,11 @@ return {
   },
   event = "VeryLazy",
   config = function()
+    local colors = require("config.theme").fzf
+    if colors then
+      vim.env.BAT_THEME = colors.bat_theme
+    end
+
     vim.env.FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*"'
     vim.env.FZF_DEFAULT_OPTS = "--bind ctrl-e:preview-down,ctrl-y:preview-up,ctrl-d:preview-page-down,"
       .. "ctrl-u:preview-page-up,tab:toggle-out,shift-tab:toggle-in"

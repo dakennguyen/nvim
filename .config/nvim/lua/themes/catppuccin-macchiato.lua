@@ -16,4 +16,7 @@ return {
     inactive = color.subtext0,
     dark = color.subtext1,
   },
+  fzf = {
+    bat_theme = "Catppuccin Macchiato",
+  },
 }
