@@ -55,6 +55,9 @@ map("n", "<leader>l", ":lopen<cr>", { silent = true })
 -- map('n', '<cr>', 'za')
 map("n", "zV", ":normal zMzvzz<CR>", { silent = true })
 
+-- move screen
+map("n", "zZ", "zszH", { silent = true })
+
 -- zoom
 map("n", "<leader>z", "<C-W>_<C-W><Bar>")
 map("t", "<leader>z", "<C-\\><C-N><C-W>_<C-W><Bar>i")

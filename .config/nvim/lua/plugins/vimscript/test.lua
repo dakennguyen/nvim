@@ -2,7 +2,7 @@ return {
   "dakennguyen/vim-test",
   keys = {
     { "t<C-n>", ":TestNearest<CR>", remap = true, silent = true },
-    { "t<C-d>", ":TestNearest -strategy=neovim<CR>", remap = true, silent = true },
+    { "t<C-d>", ":TestNearest -strategy=neovim_sticky<CR>", remap = true, silent = true },
     { "t<C-f>", ":TestFile<CR>", remap = true, silent = true },
     { "t<C-s>", ":TestSuite<CR>", remap = true, silent = true },
     { "t<C-l>", ":TestLast<CR>", remap = true, silent = true },

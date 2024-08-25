@@ -3,7 +3,7 @@
     "prefix": ["log"],
     "body": [
       "a, _ := json.MarshalIndent(${1:$TM_SELECTED_TEXT}, \"\", \" \")",
-      "println(\"DEBUG\", string(a))"
+      "println(\"DEBUG\", \"${1:$TM_SELECTED_TEXT}\", string(a))"
     ]
   }
 }
