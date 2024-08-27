@@ -1,6 +1,8 @@
-vim.cmd [[silent! unmap <buffer> *]]
+vim.cmd [[
+  silent! unmap <buffer> *
+  silent! unmap <buffer> -
+]]
 
-buf_map("n", "-", ":e.<cr>", { silent = true })
 buf_map("n", "<c-s>", "o", { remap = true, nowait = true })
 buf_map("n", "<c-v>", "gO", { remap = true, nowait = true })
 buf_map("n", "<c-t>", "O", { remap = true, nowait = true })

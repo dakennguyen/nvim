@@ -3,9 +3,7 @@ _G.global = {
   _store = {},
 }
 
-local map = function(mode, lhs, rhs, opts)
-  vim.keymap.set(mode, lhs, rhs, opts)
-end
+local map = vim.keymap.set
 
 local buf_map = function(mode, lhs, rhs, opts)
   local options = { buffer = true }

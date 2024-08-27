@@ -1,6 +1,8 @@
 return {
   'dakennguyen/oil.nvim',
-  lazy = false,
+  keys = {
+    { "-", "<cmd>Oil<cr>" },
+  },
   opts = {
     keymaps = {
       ["<C-v>"] = "actions.select_vsplit",
@@ -20,8 +22,5 @@ return {
       show_hidden = true,
     },
   },
-  config = function(_, opts)
-    require("oil").setup(opts)
-    vim.keymap.set("n", "-", "<cmd>Oil<cr>")
-  end,
+  config = true,
 }

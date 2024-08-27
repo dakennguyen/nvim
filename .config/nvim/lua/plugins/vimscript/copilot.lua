@@ -2,12 +2,21 @@ return {
   "github/copilot.vim",
   cmd = "Copilot",
   event = "VeryLazy",
+  keys = {
+    {
+      "<c-j>",
+      'copilot#Accept("<CR>")',
+      mode = "i",
+      silent = true,
+      expr = true,
+      replace_keycodes = false,
+    },
+  },
   config = function()
     vim.g.copilot_filetypes = {
       TelescopePrompt = false,
     }
 
     vim.g.copilot_no_tab_map = true
-    vim.api.nvim_set_keymap("i", "<c-j>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
   end,
 }

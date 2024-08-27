@@ -1,10 +1,11 @@
 return {
   "tpope/vim-dispatch",
   event = "VeryLazy",
+  keys = {
+    { "<leader>C", ":Copen<cr>", silent = true },
+    { "<space>C", ":Copen!<cr>", silent = true },
+  },
   config = function()
-    map("n", "<leader>C", ":Copen<cr>", { silent = true })
-    map("n", "<space>C", ":Copen!<cr>", { silent = true })
-
     vim.g["dispatch_no_tmux_make"] = true
     vim.g["dispatch_no_tmux_start"] = true
     vim.g["dispatch_compilers"] = {

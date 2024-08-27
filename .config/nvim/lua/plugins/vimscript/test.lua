@@ -1,6 +1,13 @@
 return {
   "dakennguyen/vim-test",
-  keys = { "t<c-f>", "t<c-n>", "t<c-d>" },
+  keys = {
+    { "t<C-n>", ":TestNearest<CR>", remap = true, silent = true },
+    { "t<C-d>", ":TestNearest -strategy=neovim<CR>", remap = true, silent = true },
+    { "t<C-f>", ":TestFile<CR>", remap = true, silent = true },
+    { "t<C-s>", ":TestSuite<CR>", remap = true, silent = true },
+    { "t<C-l>", ":TestLast<CR>", remap = true, silent = true },
+    { "t<C-g>", ":TestVisit<CR>", remap = true, silent = true },
+  },
   dependencies = "tpope/vim-projectionist",
   config = function()
     -- vim.cmd [[
@@ -26,13 +33,6 @@ return {
     vim.g["test#java#gradletest#options"] = "--info"
 
     vim.g["test#python#pytest#options"] = "-vv"
-
-    map("n", "t<C-n>", ":TestNearest<CR>", { remap = true, silent = true })
-    map("n", "t<C-d>", ":TestNearest -strategy=neovim<CR>", { remap = true, silent = true })
-    map("n", "t<C-f>", ":TestFile<CR>", { remap = true, silent = true })
-    map("n", "t<C-s>", ":TestSuite<CR>", { remap = true, silent = true })
-    map("n", "t<C-l>", ":TestLast<CR>", { remap = true, silent = true })
-    map("n", "t<C-g>", ":TestVisit<CR>", { remap = true, silent = true })
 
     if vim.fn.filereadable ".nvimrc" == 1 then
       vim.cmd "source .nvimrc"

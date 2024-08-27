@@ -6,6 +6,35 @@ return {
     build = "./install --all",
   },
   event = "VeryLazy",
+  keys = {
+    -- Insert mode completion
+    {
+      "<c-x><c-l>",
+      "fzf#vim#complete(fzf#wrap({"
+        .. [[ 'prefix': '^.*$', ]]
+        .. [[ 'source': 'rg -n ^ --color always', 'options': '--ansi --delimiter : --nth 3..', ]]
+        .. [[ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') } ]]
+        .. "}))",
+      mode = "i",
+      expr = true,
+    },
+
+    { "<space>ff", ":Files<CR>", silent = true },
+    { "<space>fd", ":Files %:p:h<CR>", silent = true },
+    { "<space>fb", ":FzfxBuffers<CR>", silent = true },
+    { "<space>fo", ":History<CR>", silent = true },
+    { "<space>fh", ":Helptags<CR>", silent = true },
+    { "<space>fm", ":Maps<CR>", silent = true },
+    { "<space>fw", ":Rg <C-R><C-W><CR>", silent = true },
+    { "<space>fw", [[y:Rg <C-R>=escape(@",'/\')<CR><CR>]], mode = "v", silent = true },
+    { "<space>fc", ":History:<CR>" },
+
+    { "<space>fs", ":Files local_scripts<CR>", silent = true },
+    { "<space>fn", ":Files $CLOUD/Notes<CR>", silent = true },
+
+    { "//", ":BLines<CR>" },
+    { "\\", ":Rg " },
+  },
   config = function()
     local colors = require("config.theme").fzf
     if colors then
@@ -133,33 +162,5 @@ return {
       spinner = { "fg", "Label" },
       header = { "fg", "Comment" },
     }
-
-    -- Insert mode completion
-    map(
-      "i",
-      "<c-x><c-l>",
-      "fzf#vim#complete(fzf#wrap({"
-        .. [[ 'prefix': '^.*$', ]]
-        .. [[ 'source': 'rg -n ^ --color always', 'options': '--ansi --delimiter : --nth 3..', ]]
-        .. [[ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') } ]]
-        .. "}))",
-      { expr = true }
-    )
-
-    map("n", "<space>ff", ":Files<CR>", { silent = true })
-    map("n", "<space>fd", ":Files %:p:h<CR>", { silent = true })
-    map("n", "<space>fb", ":FzfxBuffers<CR>", { silent = true })
-    map("n", "<space>fo", ":History<CR>", { silent = true })
-    map("n", "<space>fh", ":Helptags<CR>", { silent = true })
-    map("n", "<space>fm", ":Maps<CR>", { silent = true })
-    map("n", "<space>fw", ":Rg <C-R><C-W><CR>", { silent = true })
-    map("v", "<space>fw", [[y:Rg <C-R>=escape(@",'/\')<CR><CR>]], { silent = true })
-    map("n", "<space>fc", ":History:<CR>")
-
-    map("n", "<space>fs", ":Files local_scripts<CR>", { silent = true })
-    map("n", "<space>fn", ":Files $CLOUD/Notes<CR>", { silent = true })
-
-    map("n", "//", ":BLines<CR>")
-    map("n", "\\", ":Rg ")
   end,
 }

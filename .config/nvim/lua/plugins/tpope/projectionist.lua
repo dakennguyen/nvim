@@ -1,9 +1,10 @@
 return {
   "tpope/vim-projectionist",
   lazy = false, -- NOTE: cannot lazy loading for `drs` command
+  keys = {
+    { "<space>a", ":A<CR>", silent = true },
+  },
   config = function()
-    map("n", "<space>a", ":A<CR>", { silent = true })
-
     vim.g.projectionist_heuristics = {
       ["*"] = {
         -- http

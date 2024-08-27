@@ -1,12 +1,12 @@
 return {
   "tpope/vim-dadbod",
   cmd = "DB",
-  keys = { "<space>dr", "<space>dd", "<space>dt" },
+  keys = {
+    { mode = "", "<space>dr", ":DB g:redis" },
+    { mode = "", "<space>dd", ":DB g:dbdev" },
+    { mode = "", "<space>dt", ":DB g:dbtest" },
+  },
   config = function()
-    map("", "<space>dr", ":DB g:redis")
-    map("", "<space>dd", ":DB g:dbdev")
-    map("", "<space>dt", ":DB g:dbtest")
-
     vim.g["redis"] = "redis:localhost:6379"
   end,
 }
