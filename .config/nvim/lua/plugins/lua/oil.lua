@@ -1,5 +1,5 @@
 return {
-  'dakennguyen/oil.nvim',
+  "dakennguyen/oil.nvim",
   keys = {
     { "-", "<cmd>Oil<cr>" },
   },
