@@ -1,9 +1,7 @@
 local start_time = vim.fn.reltime()
 
-require "utils.first_load"
 require "utils.globals"
-require "config.settings"
-require "plugins"
+require "config.lazy"
 
 require "config.mappings"
 require "config.commands"

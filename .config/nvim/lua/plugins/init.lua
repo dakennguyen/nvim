@@ -1,4 +1,4 @@
-local plugins = {
+return {
   -- Group: Theme
   "nvim-tree/nvim-web-devicons",
   require "plugins.lua.lualine",
@@ -53,58 +53,3 @@ local plugins = {
   require "plugins.lua.bqf",
   require "plugins.lua.rest",
 }
-
-local lazy_configs = {
-  defaults = { lazy = true },
-  ui = {
-    icons = {
-      ft = "",
-      cmd = "⌘",
-      lazy = "鈴 ",
-      event = "",
-      start = "",
-      loaded = "",
-      not_loaded = "",
-    },
-  },
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "2html_plugin",
-        "tohtml",
-        "getscript",
-        "getscriptPlugin",
-        "gzip",
-        "logipat",
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
-        -- "matchit",
-        "tar",
-        "tarPlugin",
-        "rrhelper",
-        "spellfile_plugin",
-        "vimball",
-        "vimballPlugin",
-        "zip",
-        "zipPlugin",
-        "tutor",
-        "rplugin",
-        "syntax",
-        "synmenu",
-        "optwin",
-        -- "compiler",
-        "bugreport",
-        -- "ftplugin",
-      },
-    },
-  },
-}
-
-map("n", "<space>ph", ":Lazy<cr>")
-map("n", "<space>ps", ":Lazy sync<cr>")
-map("n", "<space>pi", ":Lazy install<cr>")
-map("n", "<space>pc", ":Lazy clean<cr>")
-
-require("lazy").setup(plugins, lazy_configs)
