@@ -10,6 +10,7 @@ return {
       "dockerfile",
       "yaml",
       "lua",
+      "luadoc",
       "bash",
       "json",
       "javascript",
@@ -26,6 +27,7 @@ return {
       "cpp",
       "html",
       "vim",
+      "vimdoc",
       "r",
     },
     highlight = {
