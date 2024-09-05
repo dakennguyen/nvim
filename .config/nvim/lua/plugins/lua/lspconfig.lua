@@ -199,7 +199,7 @@ return {
 
     -- `npm install -g typescript`
     -- `npm install -g typescript-language-server`
-    nvim_lsp.tsserver.setup {
+    nvim_lsp.ts_ls.setup {
       capabilities = capabilities,
       on_attach = function(client, bufnr)
         if client.config.flags then
