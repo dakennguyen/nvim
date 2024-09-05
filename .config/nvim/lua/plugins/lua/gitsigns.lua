@@ -74,7 +74,7 @@ return {
   config = function(_, opts)
     require("gitsigns").setup(opts)
 
-    local colors = require("config.theme").gitsigns
+    local colors = require("themes").gitsigns
 
     if colors then
       _G.highlight("GitSignsAdd", { fg = colors.add_fg })

@@ -1,4 +1,4 @@
-local theme_mode = require "config.mode"
+local theme_mode = require "themes.mode"
 
 if vim.o.background == "light" then
   return require("themes." .. theme_mode.light_theme)

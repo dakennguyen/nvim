@@ -36,7 +36,7 @@ return {
     { "\\", ":Rg " },
   },
   config = function()
-    local colors = require("config.theme").fzf
+    local colors = require("themes").fzf
     if colors then
       vim.env.BAT_THEME = colors.bat_theme
     end
