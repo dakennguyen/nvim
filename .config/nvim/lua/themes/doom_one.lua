@@ -1,19 +1,26 @@
 vim.cmd "colorscheme doom-one"
 _G.highlight("Identifier", { fg = "#FFA8FF", style = "italic" })
 
+local palette
+if vim.o.background == "light" then
+  palette = require("doom-one.colors").light
+else
+  palette = require("doom-one.colors").dark
+end
+
 return {
   lualine = {
-    default_fg = "#51afef",
-    default_bg = "#282C34",
-    light = "#BBC2CF",
-    visual = "#da8548",
-    insert = "#2257A0",
-    replace = "#ff6c6b",
-    command = "#c678dd",
-    op = "#98be65",
-    yellow = "#ECBE7B",
-    inactive = "#4e4f67",
-    dark = "#efefef",
+    default_fg = palette.blue,
+    default_bg = palette.bg,
+    light = palette.fg,
+    visual = palette.orange,
+    insert = palette.dark_blue,
+    replace = palette.red,
+    command = palette.magenta,
+    op = palette.green,
+    yellow = palette.yellow,
+    inactive = palette.fg_alt,
+    dark = palette.base8,
   },
   -- gitsigns = {
   --   add_fg = '#a6bf8f',

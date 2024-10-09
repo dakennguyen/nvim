@@ -1,5 +1,6 @@
 return {
   "dakennguyen/oil.nvim",
+  lazy = false, -- NOTE: cannot lazy loading for navigating with `:e`
   keys = {
     { "-", "<cmd>Oil<cr>" },
   },
