@@ -1,7 +1,7 @@
 {
   "log": {
     "prefix": ["log"],
-    "body": "p [\"DEBUG\", ${1:$TM_SELECTED_TEXT}]"
+    "body": "p [\"DEBUG\", \"${1:$TM_SELECTED_TEXT}\", ${1:$TM_SELECTED_TEXT}]"
   },
   "class": {
     "prefix": ["class"],

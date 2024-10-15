@@ -5,7 +5,7 @@ return {
     dir = "~/.fzf",
     build = "./install --all",
   },
-  event = "VeryLazy",
+  init = _G.lazy_load "fzf",
   keys = {
     -- Insert mode completion
     {
