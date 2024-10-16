@@ -22,6 +22,7 @@ return {
       "markdown",
       "java",
       "python",
+      "php",
       "haskell",
       "c",
       "cpp",
