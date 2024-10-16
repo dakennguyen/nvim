@@ -40,7 +40,7 @@ return {
 
   -- Group: Files manager
   require "plugins.lua.oil",
-  require "plugins.vimscript.fzf",
+  require "plugins.lua.fzf",
 
   -- Group: Navigator
   require "plugins.lua.flash",
