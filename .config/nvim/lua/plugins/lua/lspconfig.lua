@@ -149,6 +149,13 @@ return {
       flags = lsp_flags,
     }
 
+    -- npm install -g intelephense
+    nvim_lsp.intelephense.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      flags = lsp_flags,
+    }
+
     -- go install golang.org/x/tools/gopls@latest
     -- go install github.com/go-delve/delve/cmd/dlv@latest
     nvim_lsp.gopls.setup {
