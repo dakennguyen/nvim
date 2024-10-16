@@ -20,6 +20,7 @@ return {
       "lua",
       "luadoc",
       "markdown",
+      "php",
       "python",
       "r",
       "ruby",
