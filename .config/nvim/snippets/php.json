@@ -1,0 +1,19 @@
+{
+  "log": {
+    "prefix": "log",
+    "body": [
+      "echo '<pre>';",
+      "var_dump(${1:$TM_SELECTED_TEXT});",
+      "echo '</pre>';",
+      "die();"
+    ]
+  },
+  "test-focus": {
+    "prefix": "focus",
+    "body": [
+      "/**",
+      "* @group focus",
+      "*/"
+    ]
+  }
+}

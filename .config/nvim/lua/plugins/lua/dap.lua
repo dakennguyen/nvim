@@ -69,6 +69,18 @@ return {
       end
     end
 
+    -- PHP
+    -- https://github.com/xdebug/vscode-php-debug#installation
+    -- export XDEBUG_SESSION=1
+    -- (xdebug.ini) zend_extension=xdebug
+    -- (xdebug.ini) xdebug.mode = debug
+    -- Start client session with dap and then run phpunit
+    dap.adapters.php = {
+      type = "executable",
+      command = "node",
+      args = { os.getenv "HOME" .. "/opensources/vscode-php-debug/out/phpDebug.js" },
+    }
+
     -- Configurations
     -- ======================================
     dap.configurations.cpp = {
@@ -113,6 +125,15 @@ return {
         request = "launch",
         mode = "test",
         program = "./${relativeFileDirname}",
+      },
+    }
+
+    dap.configurations.php = {
+      {
+        type = "php",
+        request = "launch",
+        name = "Listen for Xdebug",
+        port = 9003,
       },
     }
   end,
