@@ -1,6 +1,9 @@
 return {
   "mfussenegger/nvim-dap",
-  dependencies = "leoluz/nvim-dap-go",
+  dependencies = {
+    "leoluz/nvim-dap-go",
+    "suketa/nvim-dap-ruby",
+  },
   keys = {
     {
       "<F9>",
@@ -84,5 +87,6 @@ return {
   },
   config = function()
     require("dap-go").setup()
+    require("dap-ruby").setup()
   end,
 }
