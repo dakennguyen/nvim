@@ -32,7 +32,17 @@ return {
         preview_title = "Normal",
       },
       winopts = {
+        row = 1,
+	width = 1,
+        height = 0.6,
         backdrop = 100,
+        preview = {
+          horizontal = "right:50%",
+        },
+        on_create = function()
+          vim.keymap.set("t", "<C-j>", "<Down>", { silent = true, buffer = true })
+          vim.keymap.set("t", "<C-k>", "<Up>", { silent = true, buffer = true })
+        end,
       },
       keymap = {
         builtin = {
