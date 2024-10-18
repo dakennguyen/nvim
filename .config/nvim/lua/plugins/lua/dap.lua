@@ -1,6 +1,9 @@
 return {
   "mfussenegger/nvim-dap",
-  dependencies = "leoluz/nvim-dap-go",
+  dependencies = {
+    "leoluz/nvim-dap-go",
+    { "rcarriga/nvim-dap-ui", dependencies = "nvim-neotest/nvim-nio" },
+  },
   keys = {
     {
       "<F9>",
@@ -52,6 +55,12 @@ return {
       end,
     },
     {
+      "<leader>du",
+      function()
+        require("dapui").toggle()
+      end,
+    },
+    {
       "<leader>dE",
       function()
         require("dap").repl.open()
@@ -83,6 +92,7 @@ return {
     },
   },
   config = function()
+    require("dapui").setup()
     require("dap-go").setup()
   end,
 }
