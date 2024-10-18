@@ -3,6 +3,7 @@ return {
   dependencies = {
     "leoluz/nvim-dap-go",
     "suketa/nvim-dap-ruby",
+    { "rcarriga/nvim-dap-ui", dependencies = "nvim-neotest/nvim-nio" },
   },
   keys = {
     {
@@ -55,6 +56,12 @@ return {
       end,
     },
     {
+      "<leader>du",
+      function()
+        require("dapui").toggle()
+      end,
+    },
+    {
       "<leader>dE",
       function()
         require("dap").repl.open()
@@ -86,6 +93,7 @@ return {
     },
   },
   config = function()
+    require("dapui").setup()
     require("dap-go").setup()
     require("dap-ruby").setup()
   end,
