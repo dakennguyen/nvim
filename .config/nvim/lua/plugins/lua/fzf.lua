@@ -5,6 +5,7 @@ return {
     { "<space>fd", ":FzfLua files cwd=%:p:h<CR>", silent = true },
     { "<space>fb", ":FzfLua buffers<CR>", silent = true },
     { "<space>fo", ":FzfLua oldfiles<CR>", silent = true },
+    { "<space>fc", ":FzfLua command_history<CR>", silent = true },
     { "<space>fh", ":FzfLua help_tags<CR>", silent = true },
     { "<space>fm", ":FzfLua keymaps<CR>", silent = true },
     { "<space>fw", ":FzfLua grep<cr><C-R><C-W><CR>", silent = true },
@@ -19,9 +20,10 @@ return {
       silent = true,
     },
 
-    { "//", ":FzfLua lgrep_curbuf<CR>" },
+    { "//", ":FzfLua grep_curbuf<CR>" },
     { "\\", ":FzfLua grep<CR>" },
   },
+  cmd = "FzfLua",
   config = function()
     local actions = require "fzf-lua.actions"
     require("fzf-lua").setup {
@@ -70,8 +72,9 @@ return {
         header = { "fg", "Comment" },
         gutter = { "bg", "Normal" },
       },
-      files = {
-        actions = {
+      actions = {
+        files = {
+          true,
           ["ctrl-q"] = actions.file_sel_to_qf,
         },
       },
