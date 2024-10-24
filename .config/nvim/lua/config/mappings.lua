@@ -48,7 +48,7 @@ map("n", "<c-w>\\", ":vs +te<cr>", { silent = true })
 map("n", "<c-w>-", ":sp +te<cr>", { silent = true })
 
 -- quickfix and loclist
-map("n", "<leader>c", ":copen<cr>", { silent = true })
+map("n", "<leader>c", ":cw<cr><c-w>p", { silent = true })
 map("n", "<leader>l", ":lopen<cr>", { silent = true })
 
 -- fold
