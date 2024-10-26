@@ -18,8 +18,13 @@ return {
     command = palette.magenta,
     op = palette.green,
     yellow = palette.yellow,
-    inactive = palette.fg_gutter,
+    inactive = palette.fg_dark,
     strong = palette.fg,
+  },
+  gitsigns = {
+    add_fg = palette.green,
+    change_fg = palette.blue,
+    delete_fg = palette.red,
   },
   fzf = {
     bat_theme = bat_theme,

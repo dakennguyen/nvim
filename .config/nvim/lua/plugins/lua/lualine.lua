@@ -66,6 +66,7 @@ return {
             mode = 2,
             tabs_color = {
               active = { fg = colors.default_fg },
+              inactive = { fg = colors.light },
             },
           },
         },
