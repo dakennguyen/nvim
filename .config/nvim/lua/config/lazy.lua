@@ -32,6 +32,8 @@ require("lazy").setup {
   checker = { enabled = false },
   defaults = { lazy = true },
   ui = {
+    border = "solid",
+    backdrop = 100,
     icons = {
       ft = "",
       cmd = "⌘",

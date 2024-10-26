@@ -14,7 +14,7 @@ return {
     signcolumn = false,
     numhl = true,
     on_attach = function(bufnr)
-      local gs = package.loaded.gitsigns
+      local gs = require "gitsigns"
 
       local function map(mode, l, r, opts)
         opts = opts or {}
@@ -25,23 +25,19 @@ return {
       -- Navigation
       map("n", "]c", function()
         if vim.wo.diff then
-          return "]c"
+          vim.cmd.normal { "]c", bang = true }
+        else
+          gs.nav_hunk "next"
         end
-        vim.schedule(function()
-          gs.next_hunk()
-        end)
-        return "<Ignore>"
-      end, { expr = true })
+      end)
 
       map("n", "[c", function()
         if vim.wo.diff then
-          return "[c"
+          vim.cmd.normal { "[c", bang = true }
+        else
+          gs.nav_hunk "prev"
         end
-        vim.schedule(function()
-          gs.prev_hunk()
-        end)
-        return "<Ignore>"
-      end, { expr = true })
+      end)
 
       -- Actions
       map("n", "<leader>hs", gs.stage_hunk)

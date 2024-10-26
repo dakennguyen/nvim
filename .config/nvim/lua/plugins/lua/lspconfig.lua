@@ -87,7 +87,7 @@ return {
 
     local on_attach = function(client, bufnr)
       --Enable completion triggered by <c-x><c-o>
-      vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+      -- vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 
       -- Mappings.
       local opts = { buffer = bufnr, silent = true }
@@ -98,13 +98,13 @@ return {
       map("n", "gdt", [[<Cmd>tab split | lua vim.lsp.buf.definition()<CR>]], opts)
       map("n", "gh", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
       map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-      -- map('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-      -- map('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-      -- map('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-      -- map('n', '<space>li', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-      -- map('n', '<space>ld', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-      -- map('n', '<space>ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-      -- map('n', '<space>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+      -- map("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+      -- map("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+      -- map("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
+      map("n", "<space>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+      map("n", "<space>ld", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+      map("n", "<space>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+      map("n", "<space>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
       map("n", "<space>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
       map("n", "<space>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
       map("n", "<space>ll", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
