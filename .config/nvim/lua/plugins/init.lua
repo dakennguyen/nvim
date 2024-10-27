@@ -42,6 +42,7 @@ return {
   require "plugins.lua.project",
 
   -- Group: Git
+  require "plugins.lua.diffview",
   require "plugins.lua.gitsigns",
 
   -- Group: Miscellaneous
