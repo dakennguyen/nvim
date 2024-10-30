@@ -15,7 +15,6 @@ return {
   require "plugins.lua.treesitter",
   require "plugins.lua.lspconfig",
   require "plugins.vimscript.gutentags",
-  require "plugins.lua.context-commentstring",
 
   -- Group: Completion
   require "plugins.lua.cmp",

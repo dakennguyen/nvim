@@ -11,7 +11,7 @@ return {
       changedelete = { text = "▌" },
     },
     signs_staged_enable = false,
-    signcolumn = false,
+    signcolumn = true,
     numhl = true,
     on_attach = function(bufnr)
       local gs = require "gitsigns"

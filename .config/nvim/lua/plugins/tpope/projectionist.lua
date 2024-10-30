@@ -8,6 +8,7 @@ return {
     vim.g.projectionist_heuristics = {
       ["*"] = {
         ["*.http"] = { alternate = ".env" },
+        [".env"] = { alternate = "local.http" },
       },
       -- Ruby on Rails
       ["bin/rails"] = {

@@ -1,6 +1,5 @@
 return {
   "mfussenegger/nvim-dap",
-  dependencies = "leoluz/nvim-dap-go",
   keys = {
     {
       "<F9>",
@@ -83,8 +82,6 @@ return {
     },
   },
   config = function()
-    require("dap-go").setup()
-
     local dap = require "dap"
 
     -- PHP

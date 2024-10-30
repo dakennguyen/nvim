@@ -1,6 +1,5 @@
 -- General
 map("n", "<leader>0", ":e<cr>")
-map("n", "<leader><space>", ":noh<cr>", { silent = true })
 map("n", "<leader>s", ":w<cr>", { silent = true })
 map("n", "<leader>w", "<c-w>", { silent = true })
 map("n", "!", ":!")
@@ -53,6 +52,8 @@ map("n", "<leader>l", ":lopen<cr>", { silent = true })
 -- fold
 -- map('n', '<cr>', 'za')
 map("n", "zV", ":normal zMzvzz<CR>", { silent = true })
+map("n", "[of", ":setlocal foldmethod=indent<cr>")
+map("n", "]of", ":setlocal foldmethod=expr<cr>")
 
 -- move screen
 map("n", "zZ", "zszH", { silent = true })
