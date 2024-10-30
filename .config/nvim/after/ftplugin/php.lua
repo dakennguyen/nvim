@@ -1,1 +1,1 @@
-vim.b["dispatch"] = "php %"
+vim.b["dispatch"] = "php % && exit 1"

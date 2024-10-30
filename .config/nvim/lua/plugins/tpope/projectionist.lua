@@ -11,6 +11,9 @@ return {
         ["*.http"] = {
           alternate = ".env",
         },
+        [".env"] = {
+          alternate = "local.http",
+        },
         -- rails
         ["lib/*.rb"] = {
           alternate = "spec/lib/{}_spec.rb",
