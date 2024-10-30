@@ -52,6 +52,9 @@ return {
     image = { enabled = true },
     scope = { enabled = true },
     picker = {
+      formatters = {
+        file = { truncate = 80 }
+      },
       enabled = true,
       hidden = true,
       actions = {

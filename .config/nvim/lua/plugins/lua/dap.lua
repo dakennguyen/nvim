@@ -1,7 +1,6 @@
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
-    "leoluz/nvim-dap-go",
     { "rcarriga/nvim-dap-ui", dependencies = "nvim-neotest/nvim-nio" },
   },
   keys = {
@@ -67,7 +66,6 @@ return {
   },
   config = function()
     require("dapui").setup()
-    require("dap-go").setup()
 
     local dap = require "dap"
 

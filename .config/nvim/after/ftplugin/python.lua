@@ -2,4 +2,4 @@ vim.cmd [[
   iabbrev <buffer> bb breakpoint()<esc>
 ]]
 
-vim.b["dispatch"] = "python %"
+vim.b["dispatch"] = "python3 %"
