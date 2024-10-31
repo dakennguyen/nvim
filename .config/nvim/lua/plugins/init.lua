@@ -41,6 +41,7 @@ return {
 
   -- Group: Git
   require "plugins.lua.gitsigns",
+  require "plugins.lua.fubitive",
 
   -- Group: Miscellaneous
   require "plugins.lua.colorizer",
