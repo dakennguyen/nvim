@@ -5,7 +5,6 @@ require "config.lazy"
 
 require "config.mappings"
 require "config.commands"
-require "themes"
 
 require "config.rails"
 

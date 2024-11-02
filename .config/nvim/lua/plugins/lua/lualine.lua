@@ -6,7 +6,7 @@ return {
   },
   config = function()
     local lualine = require "lualine"
-    local colors = require("themes").lualine
+    local colors = require("themes").colors().lualine
 
     local conditions = {
       buffer_not_empty = function()

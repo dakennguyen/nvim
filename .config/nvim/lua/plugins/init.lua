@@ -1,14 +1,8 @@
 return {
   -- Group: Theme
+  require("themes").specs,
   "nvim-tree/nvim-web-devicons",
   require "plugins.lua.lualine",
-  "folke/tokyonight.nvim",
-  -- "rmehri01/onenord.nvim",
-  -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  -- "shaunsingh/nord.nvim",
-  -- "EdenEast/nightfox.nvim",
-  -- "Th3Whit3Wolf/one-nvim",
-  -- "NTBBloodbath/doom-one.nvim",
 
   -- Group: TPope
   require "plugins.tpope.misc",
