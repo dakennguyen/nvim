@@ -1,6 +1,6 @@
 vim.opt_local.commentstring = "#%s"
 
-vim.b["dispatch"] = ":lua require('rest-nvim').run()"
-buf_map("n", "<leader>rp", [[:lua require('rest-nvim').run(true)<cr>]], { silent = true })
+vim.b["dispatch"] = ":Rest run"
+buf_map("n", "<leader>ry", ":Rest curl yank<cr>")
 
-map("n", "<space>rl", [[:lua require('rest-nvim').last()<cr>]], { silent = true })
+map("n", "<space>rl", ":Rest last<cr>", { silent = true })
