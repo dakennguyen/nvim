@@ -27,12 +27,10 @@ o.encoding = "UTF-8"
 o.showmode = false
 
 -- Fold
-o.foldenable = true
 o.foldlevelstart = 5
 o.foldnestmax = 5
 o.foldmethod = "indent"
-o.foldopen:remove "search"
--- o.foldexpr= 'nvim_treesitter#foldexpr()'
+o.foldopen:remove { "hor", "search" }
 o.foldtext = "v:lua.fold_text()"
 o.fillchars:append { fold = " " }
 
