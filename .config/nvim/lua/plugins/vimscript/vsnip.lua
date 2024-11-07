@@ -29,5 +29,4 @@ return {
       replace_keycodes = false,
     },
   },
-  config = false,
 }

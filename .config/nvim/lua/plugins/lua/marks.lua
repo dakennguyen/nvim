@@ -12,5 +12,4 @@ return {
       annotate = false,
     },
   },
-  config = true,
 }

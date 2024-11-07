@@ -16,5 +16,4 @@ return {
       ptoggleitem = "",
     },
   },
-  config = true,
 }

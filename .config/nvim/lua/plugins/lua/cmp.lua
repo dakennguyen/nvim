@@ -96,7 +96,6 @@ return {
       }),
     }
   end,
-  config = true,
 }
 
 -- cmp.setup.cmdline('/', {

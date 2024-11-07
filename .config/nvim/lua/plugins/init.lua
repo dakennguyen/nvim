@@ -13,7 +13,6 @@ return {
 
   -- Group: Language support
   require "plugins.lua.treesitter",
-  { "nvim-treesitter/nvim-treesitter-textobjects", init = _G.lazy_load "nvim-treesitter-textobjects" },
   require "plugins.lua.lspconfig",
   require "plugins.vimscript.gutentags",
   require "plugins.lua.context-commentstring",
@@ -31,6 +30,7 @@ return {
   require "plugins.lua.autopairs",
   require "plugins.lua.autotag",
   require "plugins.lua.treesj",
+  require "plugins.lua.treesitter-textobjects",
 
   -- Group: Files manager
   require "plugins.lua.oil",

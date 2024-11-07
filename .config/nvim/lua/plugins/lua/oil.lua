@@ -23,5 +23,4 @@ return {
       show_hidden = true,
     },
   },
-  config = true,
 }

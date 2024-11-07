@@ -1,7 +1,5 @@
 return {
-  "kristijanhusak/vim-dadbod-completion",
-  ft = { "sql", "mysql", "plsql" },
-  dependencies = {
+  {
     "tpope/vim-dadbod",
     cmd = "DB",
     keys = {
@@ -12,5 +10,10 @@ return {
     config = function()
       vim.g["redis"] = "redis:localhost:6379"
     end,
+  },
+  {
+    "kristijanhusak/vim-dadbod-completion",
+    ft = { "sql", "mysql", "plsql" },
+    dependencies = "tpope/vim-dadbod",
   },
 }

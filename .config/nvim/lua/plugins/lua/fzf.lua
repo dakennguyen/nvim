@@ -24,9 +24,9 @@ return {
     { "\\", ":FzfLua grep<CR>" },
   },
   cmd = "FzfLua",
-  config = function()
+  opts = function()
     local actions = require "fzf-lua.actions"
-    require("fzf-lua").setup {
+    return {
       hls = {
         border = "Normal",
         preview_border = "Normal",
@@ -79,6 +79,9 @@ return {
         },
       },
     }
+  end,
+  config = function(_, opts)
+    require("fzf-lua").setup(opts)
 
     vim.cmd "FzfLua register_ui_select"
   end,

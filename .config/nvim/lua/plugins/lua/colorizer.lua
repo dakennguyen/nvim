@@ -9,5 +9,4 @@ return {
     "!fugitive",
     "!git",
   },
-  config = true,
 }

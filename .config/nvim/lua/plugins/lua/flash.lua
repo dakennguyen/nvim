@@ -36,5 +36,4 @@ return {
       },
     },
   },
-  config = true,
 }

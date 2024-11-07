@@ -1,11 +1,15 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
+  init = function()
+    local colors = require("themes").colors().lualine
+    _G.highlight("StatusLine", { bg = colors.default_bg })
+    _G.highlight("StatusLineNC", { bg = colors.default_bg })
+  end,
   keys = {
     { "<leader>rn", ":LualineRenameTab " },
   },
-  config = function()
-    local lualine = require "lualine"
+  opts = function()
     local colors = require("themes").colors().lualine
 
     local conditions = {
@@ -230,10 +234,6 @@ return {
       color = { fg = colors.yellow },
     }
 
-    --#############################################
-    lualine.setup(config)
-
-    vim.cmd("highlight StatusLine guibg=" .. colors.default_bg)
-    vim.cmd("highlight StatusLineNC guibg=" .. colors.default_bg)
+    return config
   end,
 }

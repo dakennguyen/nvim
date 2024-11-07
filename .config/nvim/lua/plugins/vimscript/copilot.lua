@@ -2,6 +2,13 @@ return {
   "github/copilot.vim",
   cmd = "Copilot",
   event = "VeryLazy",
+  init = function()
+    vim.g.copilot_filetypes = {
+      TelescopePrompt = false,
+    }
+
+    vim.g.copilot_no_tab_map = true
+  end,
   keys = {
     {
       "<c-j>",
@@ -12,11 +19,4 @@ return {
       replace_keycodes = false,
     },
   },
-  config = function()
-    vim.g.copilot_filetypes = {
-      TelescopePrompt = false,
-    }
-
-    vim.g.copilot_no_tab_map = true
-  end,
 }
