@@ -33,6 +33,8 @@ o.foldnestmax = 5
 o.foldmethod = "indent"
 o.foldopen:remove "search"
 -- o.foldexpr= 'nvim_treesitter#foldexpr()'
+o.foldtext = "v:lua.fold_text()"
+o.fillchars:append { fold = " " }
 
 -- Search
 o.ignorecase = true

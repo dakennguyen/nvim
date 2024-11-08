@@ -123,9 +123,21 @@ local lazy_load = function(plugin)
   })
 end
 
+local fold_text = function()
+  local line_count = vim.v.foldend - vim.v.foldstart + 1
+  local title = vim.fn.getline(vim.v.foldstart):gsub("^%s+", "")
+    .. " ... "
+    .. vim.fn.getline(vim.v.foldend):gsub("^%s+", "")
+  local indent_level = vim.fn.indent(vim.v.foldstart)
+  local fillchar_count = vim.o.columns - string.len(title) - string.len(line_count .. " lines") - indent_level - 7
+
+  return string.rep(" ", indent_level) .. "+ " .. title .. string.rep(" ", fillchar_count) .. line_count .. " lines"
+end
+
 _G.map = map
 _G.buf_map = buf_map
 _G.lazy_load = lazy_load
 _G.open_file_command = open_file_command
 _G.augroup = augroup
 _G.highlight = highlight
+_G.fold_text = fold_text
