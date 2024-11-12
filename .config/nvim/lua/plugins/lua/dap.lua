@@ -58,5 +58,27 @@ return {
       function() require("dap").step_out() end,
     },
   },
-  config = function() require("dap-go").setup() end,
+  config = function()
+    require("dap-go").setup()
+
+    local dap = require "dap"
+    dap.adapters.lldb = {
+      type = "executable",
+      command = "/opt/homebrew/opt/llvm/bin/lldb-dap",
+      name = "lldb",
+    }
+    dap.configurations.cpp = {
+      {
+        name = "Launch",
+        type = "lldb",
+        request = "launch",
+        program = function()
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+        end,
+        cwd = "${workspaceFolder}",
+        stopOnEntry = false,
+        args = {},
+      },
+    }
+  end,
 }
