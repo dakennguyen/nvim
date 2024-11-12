@@ -1,1 +1,2 @@
-vim.b["dispatch"] = "g++ % -o %:r && ./%:r"
+vim.b["dispatch"] = "g++ -g % -o %:r && ./%:r"
+vim.o.commentstring = "// %s"
