@@ -78,6 +78,9 @@ return {
           ["ctrl-q"] = actions.file_sel_to_qf,
         },
       },
+      grep = {
+        cmd = [[rg --hidden --column --line-number --no-heading --color=always --smart-case --glob "!.git/*" --glob "!node_modules/*"]],
+      },
     }
   end,
   config = function(_, opts)
