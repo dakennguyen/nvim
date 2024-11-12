@@ -1,0 +1,6 @@
+{
+  "log": {
+    "prefix": ["log"],
+    "body": "std::cout << \"DEBUG ${1:$TM_SELECTED_TEXT}: \" << ${1:$TM_SELECTED_TEXT} << std::endl;"
+  }
+}
