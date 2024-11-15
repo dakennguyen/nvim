@@ -142,7 +142,8 @@ return {
       },
     }
 
-    nvim_lsp.sourcekit.setup {
+    -- https://clangd.llvm.org/installation
+    nvim_lsp.clangd.setup {
       capabilities = capabilities,
       on_attach = on_attach,
       flags = lsp_flags,

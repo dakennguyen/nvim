@@ -69,24 +69,36 @@ return {
     require("dapui").setup()
     require("dap-go").setup()
 
-    local dap = require "dap"
-    dap.adapters.lldb = {
+    local dap = require("dap")
+    dap.adapters.cppdbg = {
+      id = "cppdbg",
       type = "executable",
-      command = "/opt/homebrew/opt/llvm/bin/lldb-dap",
-      name = "lldb",
+      command = os.getenv "HOME" .. "/opensources/cpptools/extension/debugAdapters/bin/OpenDebugAD7",
     }
     dap.configurations.cpp = {
       {
-        name = "Launch",
-        type = "lldb",
+        name = "Launch file",
+        type = "cppdbg",
         request = "launch",
         program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
-        cwd = "${workspaceFolder}",
-        stopOnEntry = false,
-        args = {},
+        cwd = '${workspaceFolder}',
+        stopAtEntry = true,
       },
+      -- {
+      --   name = 'Attach to gdbserver :1234',
+      --   type = 'cppdbg',
+      --   request = 'launch',
+      --   MIMode = 'gdb',
+      --   miDebuggerServerAddress = 'localhost:1234',
+      --   miDebuggerPath = '/usr/bin/gdb',
+      --   cwd = '${workspaceFolder}',
+      --   program = function()
+      --     return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      --   end,
+      -- },
     }
+
   end,
 }
