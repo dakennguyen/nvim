@@ -1,75 +1,45 @@
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
-    "leoluz/nvim-dap-go",
     { "rcarriga/nvim-dap-ui", dependencies = "nvim-neotest/nvim-nio" },
   },
-  keys = {
-    {
-      "<F9>",
-      function() require("dap").toggle_breakpoint() end,
-    },
-    {
-      "<leader>dl",
-      function()
-        require("dap").list_breakpoints()
-        vim.cmd "cw"
-      end,
-    },
-    {
-      "<leader>dL",
-      function() require("dap").clear_breakpoints() end,
-    },
-    {
-      "<leader>d;",
-      function() require("dap").run_last() end,
-    },
-    {
-      "<leader>d.",
-      function() require("dap").run_to_cursor() end,
-    },
-    {
-      "<S-F5>",
-      function() require("dap").terminate() end,
-    },
-    {
-      "<leader>dr",
-      function() require("dap").restart() end,
-    },
-    {
-      "<leader>de",
-      function() require("dapui").eval(nil, { enter = true }) end,
-    },
-    {
-      "<leader>du",
-      function() require("dapui").toggle() end,
-    },
-    {
-      "<leader>dE",
-      function() require("dap").repl.open() end,
-    },
-    {
-      "<F5>",
-      function() require("dap").continue() end,
-    },
-    {
-      "<F10>",
-      function() require("dap").step_over() end,
-    },
-    {
-      "<F11>",
-      function() require("dap").step_into() end,
-    },
-    {
-      "<F12>",
-      function() require("dap").step_out() end,
-    },
-  },
+  keys = function()
+    local dap, dapui = require "dap", require "dapui"
+    return {
+      { "<F9>", function() dap.toggle_breakpoint() end },
+      {
+        "<F21>",
+        function() dap.set_breakpoint(vim.fn.input "Breakpoint condition: ") end,
+        { desc = "Set Conditional Breakpoint" },
+      }, -- <S-F9>
+      { "<F5>", function() dap.continue() end },
+      {
+        "<F17>",
+        function()
+          dap.terminate()
+          dapui.close()
+        end,
+      }, -- <S-F5>
+      { "<F10>", function() dap.step_over() end },
+      { "<F11>", function() dap.step_into() end },
+      { "<F12>", function() dap.step_out() end },
+      { "<leader>dl", function() dap.run_last() end },
+      { "<leader>d.", function() dap.run_to_cursor() end },
+      { "<leader>dr", function() dap.repl.open() end },
+      { mode = { "n", "v" }, "<m-k>", function() dapui.eval() end },
+      { "<leader>du", function() dapui.toggle() end },
+      { "<leader>de", function() dapui.elements.watches.add() end },
+    }
+  end,
   config = function()
-    require("dapui").setup()
-    require("dap-go").setup()
+    local dap, dapui = require "dap", require "dapui"
 
-    local dap = require("dap")
+    dapui.setup()
+    dap.listeners.before.attach.dapui_config = function() dapui.open() end
+    dap.listeners.before.launch.dapui_config = function() dapui.open() end
+    dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
+    dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
+
     dap.adapters.cppdbg = {
       id = "cppdbg",
       type = "executable",
@@ -80,10 +50,8 @@ return {
         name = "Launch file",
         type = "cppdbg",
         request = "launch",
-        program = function()
-          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        cwd = '${workspaceFolder}',
+        program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
+        cwd = "${workspaceFolder}",
         stopAtEntry = true,
       },
       -- {
@@ -99,6 +67,5 @@ return {
       --   end,
       -- },
     }
-
   end,
 }
