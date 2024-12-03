@@ -1,7 +1,6 @@
 return {
   "ahmedkhalf/project.nvim",
   name = "project_nvim",
-  lazy = false,
   dependencies = "ibhagwan/fzf-lua",
   keys = {
     {
