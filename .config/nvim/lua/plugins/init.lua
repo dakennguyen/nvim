@@ -31,6 +31,7 @@ return {
   require "plugins.lua.autotag",
   require "plugins.lua.treesj",
   require "plugins.lua.treesitter-textobjects",
+  { "michaeljsmith/vim-indent-object", event = "VeryLazy" },
 
   -- Group: Files manager
   require "plugins.lua.oil",
