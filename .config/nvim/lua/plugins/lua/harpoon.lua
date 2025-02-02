@@ -18,25 +18,25 @@ return {
         end,
       },
       {
-        "<leader>1",
+        "<space>1",
         function()
           harpoon:list():select(1)
         end,
       },
       {
-        "<leader>2",
+        "<space>2",
         function()
           harpoon:list():select(2)
         end,
       },
       {
-        "<leader>3",
+        "<space>3",
         function()
           harpoon:list():select(3)
         end,
       },
       {
-        "<leader>4",
+        "<space>4",
         function()
           harpoon:list():select(4)
         end,
