@@ -2,7 +2,6 @@
 map("n", "<leader>0", ":e<cr>")
 map("n", "<leader><space>", ":noh<cr>", { silent = true })
 map("n", "<leader>s", ":w<cr>", { silent = true })
-map("n", "<leader>a", "<C-^>")
 map("n", "<leader>w", "<c-w>", { silent = true })
 map("n", "!", ":!")
 map("n", "0", "^")
