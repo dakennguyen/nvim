@@ -30,6 +30,7 @@ return {
       options = {
         component_separators = "",
         section_separators = "",
+        always_show_tabline = false,
         theme = {
           normal = { c = { fg = colors.default_fg, bg = colors.default_bg } },
           insert = { c = { fg = colors.insert, bg = colors.default_bg } },
@@ -196,7 +197,7 @@ return {
           {
             "tabs",
             max_length = vim.o.columns,
-            mode = 2,
+            mode = 0,
             tabs_color = {
               active = { fg = colors.default_fg },
               inactive = { fg = colors.light },

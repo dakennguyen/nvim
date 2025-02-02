@@ -39,8 +39,8 @@ return {
 
   -- Group: Navigator
   require "plugins.lua.flash",
-  require "plugins.lua.marks",
   require "plugins.lua.project",
+  require "plugins.lua.harpoon",
 
   -- Group: Git
   require "plugins.lua.gitsigns",

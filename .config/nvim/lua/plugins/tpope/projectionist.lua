@@ -2,7 +2,7 @@ return {
   "tpope/vim-projectionist",
   lazy = false, -- NOTE: cannot lazy loading for `drs` command
   keys = {
-    { "<space>a", ":A<CR>", silent = true },
+    { "<space>6", ":A<CR>", silent = true },
   },
   config = function()
     vim.g.projectionist_heuristics = {
