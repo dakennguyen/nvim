@@ -79,7 +79,7 @@ return {
         },
       },
       grep = {
-        cmd = [[rg --hidden --column --line-number --no-heading --color=always --smart-case --glob "!.git/*" --glob "!node_modules/*"]],
+        cmd = [[rg --hidden --column --line-number --no-heading --color=always --smart-case --glob "!.git/*" --glob "!node_modules/*"]], -- luacheck: ignore 631
       },
     }
   end,

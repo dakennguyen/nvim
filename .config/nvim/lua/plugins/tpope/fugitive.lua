@@ -27,7 +27,7 @@ return {
 
     vim.opt.diffopt:append { "vertical" }
 
-    -- luacheck:ignore 631
+    -- luacheck: ignore 631
     -- vim.cmd[[autocmd User Fugitive command! -buffer -nargs=? -complete=customlist,fugitive#CompleteObject Gu Git branch -u <args>]]
   end,
 }
