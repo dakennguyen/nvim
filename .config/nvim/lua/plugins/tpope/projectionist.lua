@@ -7,11 +7,16 @@ return {
   config = function()
     vim.g.projectionist_heuristics = {
       ["*"] = {
-        -- http
-        ["*.http"] = {
-          alternate = ".env",
+        ["*.http"] = { alternate = ".env" },
+      },
+      -- Ruby on Rails
+      ["bin/rails"] = {
+        ["*"] = {
+          console = "bundle exec rails console",
         },
-        -- rails
+        ["*.rb"] = {
+          dispatch = 'bundle exec rails runner "{file}"',
+        },
         ["lib/*.rb"] = {
           alternate = "spec/lib/{}_spec.rb",
           type = "source",
