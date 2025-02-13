@@ -1,14 +1,11 @@
-vim.cmd [[
-  " let &l:winheight = 12
-
-  function! s:open()
-  lua require("bqf.qfwin.handler").open(false)
-  wincmd p
-  endfunction
-
-  nnoremap <silent><buffer> p :call <sid>open()<CR>
-]]
-
 vim.opt_local.wrap = true
 
+local open = function(command)
+  local file = vim.fn.expand "<cfile>"
+  if file ~= "" then vim.cmd(command .. " " .. vim.fn.fnameescape(file)) end
+end
+
 buf_map("n", "<leader>z", ":tab split<cr>", { silent = true })
+buf_map("n", "<c-v>", "<c-w><cr><c-w>H", { silent = true })
+buf_map("n", "<c-s>", function() open "split" end, { silent = true })
+buf_map("n", "<c-t>", function() open "tab drop" end, { silent = true })

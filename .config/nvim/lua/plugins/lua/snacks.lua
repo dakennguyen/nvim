@@ -1,0 +1,136 @@
+-- luacheck: globals Snacks
+return {
+  "folke/snacks.nvim",
+  priority = 1000,
+  lazy = false,
+  keys = {
+    { "<space>ff", function() Snacks.picker.git_files { submodules = true } end, desc = "Find Git Files" },
+    { "<space>fe", function() Snacks.picker.explorer() end, desc = "Explorer" },
+    { "<space>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+    { "<space>fo", function() Snacks.picker.recent() end, desc = "Recent" },
+    { "<space>fc", function() Snacks.picker.command_history() end, desc = "Command History" },
+    { "<space>fh", function() Snacks.picker.help() end, desc = "Help" },
+    { "<space>fm", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
+    { "<space>fw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
+    { "<space>fq", function() Snacks.picker.qflist() end, desc = "Quickfix list" },
+    {
+      "<space>fs",
+      function() Snacks.picker.files { cwd = "local_scripts" } end,
+      desc = "Find scripts",
+      mode = { "n", "x" },
+    },
+    {
+      "<space>fn",
+      function() Snacks.picker.files { cwd = "~/Library/Mobile Documents/com~apple~CloudDocs/Notes" } end,
+      desc = "Find notes",
+      mode = { "n", "x" },
+    },
+    { "//", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
+    { "\\", ":Sgrep ", desc = "Grep" },
+    { "<space>fv", function() Snacks.picker.files { cwd = vim.fn.stdpath "config" } end, desc = "Find Config File" },
+    {
+      "<space>fp",
+      function()
+        Snacks.picker.projects {
+          dev = _G.dev_paths,
+          confirm = "open_pj_fugitive",
+          win = {
+            preview = { minimal = true },
+            input = {
+              keys = {
+                ["<c-o>"] = { { "tcd", "picker_files_hidden" }, mode = { "n", "i" } },
+                ["<c-l>"] = { { "tcd", "restore_session" }, mode = { "n", "i" } },
+              },
+            },
+          },
+        }
+      end,
+      desc = "Projects",
+    },
+  },
+  opts = {
+    image = { enabled = true },
+    scope = { enabled = true },
+    picker = {
+      enabled = true,
+      hidden = true,
+      formatters = {
+        file = { truncate = 80 },
+      },
+      actions = {
+        open_pj_fugitive = function(picker, item)
+          picker:close()
+          if not item then return end
+          local dir = item.file
+          vim.fn.chdir(dir)
+          vim.cmd "new | G | only | tabonly"
+        end,
+        picker_files_hidden = function(picker, item)
+          if not item then return end
+          for _, p in ipairs(Snacks.picker.get { source = "files" }) do
+            p:close()
+          end
+          Snacks.picker("files", {
+            cwd = Snacks.picker.util.dir(item),
+            hidden = true,
+            on_show = function() picker:close() end,
+          })
+        end,
+        restore_session = function(picker, item)
+          local filepath = Snacks.picker.util.dir(item) .. "/Session.vim"
+          if not vim.loop.fs_stat(filepath) then
+            print "No sessions"
+            return
+          end
+
+          picker:close()
+          vim.cmd("source " .. Snacks.picker.util.dir(item) .. "/Session.vim")
+        end,
+      },
+    },
+    dashboard = {
+      enabled = true,
+      preset = {
+        keys = {
+          { icon = "", key = "g", desc = "Git status", action = ":tab G | tabonly" },
+          {
+            icon = " ",
+            key = "f",
+            desc = "Find File",
+            action = ":lua Snacks.dashboard.pick('files', { hidden = true })",
+          },
+          { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+          {
+            icon = " ",
+            key = "e",
+            desc = "Explorer",
+            action = ":lua Snacks.dashboard.pick('explorer', { hidden = true })",
+          },
+          { icon = " ", key = "s", desc = "Restore Session", action = ":source Session.vim" },
+          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+        },
+      },
+      sections = {
+        { section = "header" },
+        { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+        { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+        {
+          icon = " ",
+          title = "Projects",
+          section = "projects",
+          indent = 2,
+          padding = 1,
+          action = function(dir)
+            vim.fn.chdir(dir)
+            vim.cmd "new | G | only | tabonly"
+          end,
+        },
+        { section = "startup" },
+      },
+    },
+  },
+  config = function(_, opts)
+    vim.cmd [[command! -nargs=? Sgrep lua Snacks.picker.grep_word({ search = <q-args> })]]
+    require("snacks").setup(opts)
+  end,
+}

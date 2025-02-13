@@ -36,7 +36,8 @@ M.smart_quit = function()
   if vim.bo.filetype == "fugitiveblame" then
     vim.cmd "norm gq"
   elseif vim.bo.filetype == "qf" then
-    pcall(vim.cmd.quit)
+    vim.cmd "quit"
+    vim.cmd.wincmd "p"
   elseif vim.fn.winnr "$" == 1 and vim.fn.tabpagenr "$" > 1 then
     if vim.fn.tabpagenr() > 1 and vim.fn.tabpagenr() < vim.fn.tabpagenr "$" then
       vim.cmd "tabclose | tabprev"
