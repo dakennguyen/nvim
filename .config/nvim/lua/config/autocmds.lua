@@ -37,3 +37,12 @@ _G.augroup("Nvr", {
     vim.opt.bufhidden = "delete"
   end,
 })
+
+vim.on_key(function(char)
+  if vim.fn.mode() ~= "n" then return end
+
+  local new_hlsearch = vim.tbl_contains({ "<CR>", "n", "N", "*", "#", "?", "/" }, vim.fn.keytrans(char))
+  if vim.opt.hlsearch:get() == new_hlsearch then return end
+
+  vim.opt.hlsearch = new_hlsearch
+end, vim.api.nvim_create_namespace "auto_hlsearch")
