@@ -31,15 +31,12 @@ return {
   require "plugins.lua.autotag",
   require "plugins.lua.treesj",
   require "plugins.lua.treesitter-textobjects",
-  { "michaeljsmith/vim-indent-object", event = "VeryLazy" },
 
   -- Group: Files manager
   require "plugins.lua.oil",
-  require "plugins.lua.fzf",
 
   -- Group: Navigator
   require "plugins.lua.flash",
-  require "plugins.lua.project",
   require "plugins.lua.harpoon",
 
   -- Group: Git
@@ -47,6 +44,6 @@ return {
 
   -- Group: Miscellaneous
   require "plugins.lua.colorizer",
-  require "plugins.lua.bqf",
   require "plugins.lua.rest",
+  require "plugins.lua.snacks",
 }

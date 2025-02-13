@@ -118,6 +118,13 @@ local fold_text = function()
   return string.rep(" ", indent_level) .. "+ " .. title .. string.rep(" ", fillchar_count) .. line_count .. " lines"
 end
 
+local dev_paths = function()
+  local dev_paths = os.getenv "PROJECT_PATHS_STR"
+  if not dev_paths then return {} end
+
+  return vim.split(dev_paths, ":", { trimempty = true })
+end
+
 _G.map = map
 _G.buf_map = buf_map
 _G.lazy_load = lazy_load
@@ -125,3 +132,4 @@ _G.open_file_command = open_file_command
 _G.augroup = augroup
 _G.highlight = highlight
 _G.fold_text = fold_text
+_G.dev_paths = dev_paths()

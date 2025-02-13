@@ -53,7 +53,7 @@ for i = string.byte "A", string.byte "z" do
 end
 
 -- quickfix and loclist
-map("n", "<leader>c", ":copen<cr>", { silent = true })
+map("n", "<leader>c", ":botright copen<cr>", { silent = true })
 map("n", "<leader>l", ":lopen<cr>", { silent = true })
 
 -- fold
