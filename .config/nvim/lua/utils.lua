@@ -58,4 +58,12 @@ M.vsplit = function(cmd)
   vim.cmd(string.format([[call execute('normal! %s')]], cmd))
 end
 
+M.get_hl = function(group)
+  local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
+  return {
+    fg = hl.fg and string.format("#%06x", hl.fg),
+    bg = hl.bg and string.format("#%06x", hl.bg),
+  }
+end
+
 return M

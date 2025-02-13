@@ -1,16 +1,29 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  init = function()
-    local colors = require("themes").colors().lualine
-    _G.highlight("StatusLine", { bg = colors.default_bg })
-    _G.highlight("StatusLineNC", { bg = colors.default_bg })
-  end,
   keys = {
     { "<leader>rn", ":LualineRenameTab " },
   },
   opts = function()
     local colors = require("themes").colors().lualine
+    if not colors then
+      local utils = require "utils"
+      colors = {
+        default_fg = utils.get_hl("Normal").fg,
+        default_bg = utils.get_hl("Normal").bg,
+        light = utils.get_hl("Pmenu").bg,
+        visual = utils.get_hl("DiagnosticSignWarn").fg,
+        insert = utils.get_hl("DiagnosticSignInfo").fg,
+        replace = utils.get_hl("DiagnosticSignError").fg,
+        command = utils.get_hl("Function").fg,
+        op = utils.get_hl("DiagnosticSignHint").fg,
+        yellow = utils.get_hl("WarningMsg").fg,
+        inactive = utils.get_hl("Comment").fg,
+        strong = utils.get_hl("Title").fg,
+      }
+    end
+    _G.highlight("StatusLine", { bg = colors.default_bg })
+    _G.highlight("StatusLineNC", { bg = colors.default_bg })
 
     local conditions = {
       buffer_not_empty = function()
