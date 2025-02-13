@@ -25,7 +25,7 @@ function M.colors()
       op = color.green,
       yellow = color.yellow,
       inactive = color.subtext0,
-      dark = color.subtext1,
+      strong = color.subtext1,
     },
   }
 end

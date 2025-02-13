@@ -20,7 +20,7 @@ function M.colors()
       op = "#98c379",
       yellow = "#d19a66",
       inactive = "#81879C",
-      dark = "#000000",
+      strong = "#000000",
     },
   }
 end

@@ -37,7 +37,7 @@ function M.colors()
       op = "#A3BE8C",
       yellow = "#EBCB8B",
       inactive = "#81879C",
-      dark = "#FFFFFF",
+      strong = "#FFFFFF",
     },
     gitsigns = {
       add_bg = "#324125",
