@@ -10,12 +10,8 @@ o.swapfile = false
 o.signcolumn = "auto"
 o.number = true
 o.relativenumber = true
-o.expandtab = true
-o.softtabstop = 2
-o.shiftwidth = 2
 o.cursorline = true
 o.scrolloff = 5
-o.modeline = false
 o.mouse = "a"
 o.exrc = true
 
