@@ -10,7 +10,7 @@ return {
       topdelete = { text = "▔" },
       changedelete = { text = "▌" },
     },
-    signs_staged_enable = false,
+    signs_staged_enable = true,
     signcolumn = false,
     numhl = true,
     on_attach = function(bufnr)
@@ -26,6 +26,8 @@ return {
       map("n", "]c", function()
         if vim.wo.diff then
           vim.cmd.normal { "]c", bang = true }
+        elseif string.sub(vim.fn.expand "%", 1, 8) == "fugitive" then
+          gs.nav_hunk("next", { target = "all" })
         else
           gs.nav_hunk "next"
         end
@@ -34,6 +36,8 @@ return {
       map("n", "[c", function()
         if vim.wo.diff then
           vim.cmd.normal { "[c", bang = true }
+        elseif string.sub(vim.fn.expand "%", 1, 8) == "fugitive" then
+          gs.nav_hunk("prev", { target = "all" })
         else
           gs.nav_hunk "prev"
         end
