@@ -4,9 +4,7 @@ return {
   keys = {
     {
       "<F9>",
-      function()
-        require("dap").toggle_breakpoint()
-      end,
+      function() require("dap").toggle_breakpoint() end,
     },
     {
       "<leader>dl",
@@ -17,72 +15,48 @@ return {
     },
     {
       "<leader>dL",
-      function()
-        require("dap").clear_breakpoints()
-      end,
+      function() require("dap").clear_breakpoints() end,
     },
     {
       "<leader>d;",
-      function()
-        require("dap").run_last()
-      end,
+      function() require("dap").run_last() end,
     },
     {
       "<leader>d.",
-      function()
-        require("dap").run_to_cursor()
-      end,
+      function() require("dap").run_to_cursor() end,
     },
     {
       "<S-F5>",
-      function()
-        require("dap").terminate()
-      end,
+      function() require("dap").terminate() end,
     },
     {
       "<leader>dr",
-      function()
-        require("dap").restart()
-      end,
+      function() require("dap").restart() end,
     },
     {
       "<leader>de",
-      function()
-        require("dapui").eval(nil, { enter = true })
-      end,
+      function() require("dapui").eval(nil, { enter = true }) end,
     },
     {
       "<leader>dE",
-      function()
-        require("dap").repl.open()
-      end,
+      function() require("dap").repl.open() end,
     },
     {
       "<F5>",
-      function()
-        require("dap").continue()
-      end,
+      function() require("dap").continue() end,
     },
     {
       "<F10>",
-      function()
-        require("dap").step_over()
-      end,
+      function() require("dap").step_over() end,
     },
     {
       "<F11>",
-      function()
-        require("dap").step_into()
-      end,
+      function() require("dap").step_into() end,
     },
     {
       "<F12>",
-      function()
-        require("dap").step_out()
-      end,
+      function() require("dap").step_out() end,
     },
   },
-  config = function()
-    require("dap-go").setup()
-  end,
+  config = function() require("dap-go").setup() end,
 }

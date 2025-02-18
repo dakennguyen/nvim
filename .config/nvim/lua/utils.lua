@@ -18,9 +18,7 @@ M.jump = function(letter)
     return
   end
 
-  if count > 5 then
-    vim.cmd [[call execute("normal! m'")]]
-  end
+  if count > 5 then vim.cmd [[call execute("normal! m'")]] end
 
   vim.cmd(string.format([[call execute('normal! %s%s', )]], count, letter))
 end

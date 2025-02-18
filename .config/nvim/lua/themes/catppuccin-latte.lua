@@ -5,9 +5,7 @@ M.specs = {
   name = "catppuccin",
   lazy = false,
   priority = 1000,
-  config = function()
-    vim.cmd.colorscheme "catppuccin-latte"
-  end,
+  config = function() vim.cmd.colorscheme "catppuccin-latte" end,
 }
 
 function M.colors()

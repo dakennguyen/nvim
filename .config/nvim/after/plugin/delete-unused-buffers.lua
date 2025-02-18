@@ -14,9 +14,7 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
     vim.api.nvim_create_autocmd({ "InsertEnter", "BufModifiedSet" }, {
       buffer = 0,
       once = true,
-      callback = function()
-        persistbuffer()
-      end,
+      callback = function() persistbuffer() end,
     })
   end,
 })

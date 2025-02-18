@@ -34,8 +34,6 @@ return {
 
     vim.g["test#python#pytest#options"] = "-vv"
 
-    if vim.fn.filereadable ".nvimrc" == 1 then
-      vim.cmd "source .nvimrc"
-    end
+    if vim.fn.filereadable ".nvimrc" == 1 then vim.cmd "source .nvimrc" end
   end,
 }

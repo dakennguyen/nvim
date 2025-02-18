@@ -200,9 +200,7 @@ return {
     nvim_lsp.ts_ls.setup {
       capabilities = capabilities,
       on_attach = function(client, bufnr)
-        if client.config.flags then
-          client.config.flags.allow_incremental_sync = true
-        end
+        if client.config.flags then client.config.flags.allow_incremental_sync = true end
         client.server_capabilities.documentFormattingProvider = false
         on_attach(client, bufnr)
       end,

@@ -47,17 +47,13 @@ return {
     end
 
     local select_prev_item = function()
-      if cmp.visible() then
-        cmp.select_prev_item()
-      end
+      if cmp.visible() then cmp.select_prev_item() end
     end
 
     return {
       snippet = {
         -- REQUIRED - you must specify a snippet engine
-        expand = function(args)
-          vim.fn["vsnip#anonymous"](args.body)
-        end,
+        expand = function(args) vim.fn["vsnip#anonymous"](args.body) end,
       },
       formatting = {
         format = function(entry, vim_item)

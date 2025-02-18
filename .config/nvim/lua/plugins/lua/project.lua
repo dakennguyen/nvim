@@ -22,13 +22,9 @@ return {
               vim.cmd.cd(choice[1])
               vim.cmd "e. | G | only | tabonly"
             end,
-            ["ctrl-o"] = function(selected)
-              fzf.files { cwd = selected[1] }
-            end,
+            ["ctrl-o"] = function(selected) fzf.files { cwd = selected[1] } end,
             ["ctrl-x"] = {
-              function(choice)
-                require("project_nvim.utils.history").delete_project { value = choice[1] }
-              end,
+              function(choice) require("project_nvim.utils.history").delete_project { value = choice[1] } end,
               fzf.actions.resume,
             },
           },

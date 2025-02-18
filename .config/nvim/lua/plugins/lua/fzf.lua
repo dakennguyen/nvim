@@ -14,9 +14,7 @@ return {
     { "<space>fs", ":FzfLua files cwd=local_scripts<CR>", silent = true },
     {
       "<space>fn",
-      function()
-        require("fzf-lua").files { cwd = "~/Library/Mobile Documents/com~apple~CloudDocs/Notes" }
-      end,
+      function() require("fzf-lua").files { cwd = "~/Library/Mobile Documents/com~apple~CloudDocs/Notes" } end,
       silent = true,
     },
 

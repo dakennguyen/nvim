@@ -7,9 +7,7 @@ local map = vim.keymap.set
 
 local buf_map = function(mode, lhs, rhs, opts)
   local options = { buffer = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
+  if opts then options = vim.tbl_extend("force", options, opts) end
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
@@ -33,9 +31,7 @@ local open_file_command = function(cmd_char, files)
   end
 
   for _, file in ipairs(files) do
-    if assign(file) then
-      return
-    end
+    if assign(file) then return end
   end
 end
 
@@ -47,23 +43,15 @@ local autocmd = function(c)
     command = string.format("lua _G.global._store[%s](args)", fn_id)
   end
   local event = c.event
-  if type(c.event) == "table" then
-    event = table.concat(c.event, ",")
-  end
+  if type(c.event) == "table" then event = table.concat(c.event, ",") end
 
   local pattern = c.pattern or ""
-  if type(c.pattern) == "table" then
-    pattern = table.concat(c.pattern, ",")
-  end
+  if type(c.pattern) == "table" then pattern = table.concat(c.pattern, ",") end
 
   local once = ""
-  if c.once == true then
-    once = "++once "
-  end
+  if c.once == true then once = "++once " end
   local nested = ""
-  if c.nested == true then
-    nested = "++nested "
-  end
+  if c.nested == true then nested = "++nested " end
 
   vim.cmd(string.format("autocmd %s %s %s %s %s", event, pattern, once, nested, command))
 end
@@ -90,9 +78,7 @@ local highlight = function(group, colors)
   local hl = "highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp
 
   vim.cmd(hl)
-  if colors.link then
-    vim.cmd("highlight! link " .. group .. " " .. colors.link)
-  end
+  if colors.link then vim.cmd("highlight! link " .. group .. " " .. colors.link) end
 end
 
 local lazy_load = function(plugin)
@@ -111,10 +97,8 @@ local lazy_load = function(plugin)
           vim.schedule(function()
             require("lazy").load { plugins = plugin }
 
-            if plugin == "nvim-lspconfig" then
-              vim.cmd "silent! do FileType"
-            end
-          end, 0)
+            if plugin == "nvim-lspconfig" then vim.cmd "silent! do FileType" end
+          end)
         else
           require("lazy").load { plugins = plugin }
         end

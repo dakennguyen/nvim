@@ -2,16 +2,12 @@ _G.augroup("AutoReload", {
   {
     event = "FileChangedShellPost",
     pattern = "*",
-    command = function()
-      vim.cmd 'echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None'
-    end,
+    command = function() vim.cmd 'echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None' end,
   },
   {
     event = "FocusGained,BufEnter,CursorHold,CursorHoldI",
     pattern = "*",
-    command = function()
-      vim.cmd [[ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif ]]
-    end,
+    command = function() vim.cmd [[ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif ]] end,
   },
 })
 
@@ -33,7 +29,5 @@ _G.augroup("RemoveTrailingWhitespace", {
 _G.augroup("Nvr", {
   event = "FileType",
   pattern = "gitcommit,gitrebase,gitconfig",
-  command = function()
-    vim.opt.bufhidden = "delete"
-  end,
+  command = function() vim.opt.bufhidden = "delete" end,
 })

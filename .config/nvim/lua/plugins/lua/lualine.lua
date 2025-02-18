@@ -26,12 +26,8 @@ return {
     _G.highlight("StatusLineNC", { bg = colors.default_bg })
 
     local conditions = {
-      buffer_not_empty = function()
-        return vim.fn.empty(vim.fn.expand "%:t") ~= 1
-      end,
-      hide_in_width = function()
-        return vim.fn.winwidth(0) > 80
-      end,
+      buffer_not_empty = function() return vim.fn.empty(vim.fn.expand "%:t") ~= 1 end,
+      hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
       check_git_workspace = function()
         local filepath = vim.fn.expand "%:p:h"
         local gitdir = vim.fn.finddir(".git", filepath .. ";")
@@ -60,9 +56,7 @@ return {
         lualine_b = {},
         lualine_c = {
           {
-            function()
-              return "▊"
-            end,
+            function() return "▊" end,
             padding = { left = 0 },
           },
           {
@@ -73,9 +67,7 @@ return {
             function()
               local function format_file_size(file)
                 local size = vim.fn.getfsize(file)
-                if size <= 0 then
-                  return ""
-                end
+                if size <= 0 then return "" end
                 local sufixes = { "b", "k", "m", "g" }
                 local i = 1
                 while size > 1024 do
@@ -85,9 +77,7 @@ return {
                 return string.format("%.1f%s", size, sufixes[i])
               end
               local file = vim.fn.expand "%:p"
-              if string.len(file) == 0 then
-                return ""
-              end
+              if string.len(file) == 0 then return "" end
               return format_file_size(file)
             end,
             color = { fg = colors.light },
@@ -118,9 +108,7 @@ return {
           },
           -- MIDDLE
           {
-            function()
-              return "%="
-            end,
+            function() return "%=" end,
           },
           -- {
           --   function()
@@ -184,9 +172,7 @@ return {
         lualine_b = {},
         lualine_c = {
           {
-            function()
-              return "▊INACTIVE"
-            end,
+            function() return "▊INACTIVE" end,
             padding = { left = 0 },
           },
         },

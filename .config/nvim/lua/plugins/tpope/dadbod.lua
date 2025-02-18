@@ -7,9 +7,7 @@ return {
       { mode = "", "<space>dr", ":DB g:redis" },
       { mode = "", "<space>dt", ":DB g:dbtest" },
     },
-    config = function()
-      vim.g["redis"] = "redis:localhost:6379"
-    end,
+    config = function() vim.g["redis"] = "redis:localhost:6379" end,
   },
   {
     "kristijanhusak/vim-dadbod-completion",

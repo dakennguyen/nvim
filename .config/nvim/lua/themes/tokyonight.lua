@@ -4,9 +4,7 @@ M.specs = {
   "folke/tokyonight.nvim",
   lazy = false,
   priority = 1000,
-  config = function()
-    vim.cmd "colorscheme tokyonight"
-  end,
+  config = function() vim.cmd "colorscheme tokyonight" end,
 }
 
 function M.colors()
