@@ -49,6 +49,10 @@ return {
     },
   },
   opts = {
+    statuscolumn = {
+      left = { "mark" },
+      right = { "sign" },
+    },
     image = { enabled = true },
     scope = { enabled = true },
     picker = {
