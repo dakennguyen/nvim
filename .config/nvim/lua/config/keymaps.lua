@@ -24,6 +24,11 @@ map("v", "<space>er", [[y/\V<C-R>=escape(@",'/\')<CR><CR>:cfdo %s/<C-r>"/]])
 -- quit
 map("n", "<leader>q", '<cmd>lua require("utils").smart_quit()<cr>', { silent = true })
 map("t", "<leader>q", "<C-\\><C-N>:q<CR>", { silent = true })
+map("n", "gq", function()
+  for _, win in pairs(vim.api.nvim_list_wins()) do
+    if vim.api.nvim_win_get_config(win).relative ~= "" then vim.api.nvim_win_close(win, true) end
+  end
+end, { desc = "Close floating windows" })
 
 -- gf
 map("", "gff", "gf")

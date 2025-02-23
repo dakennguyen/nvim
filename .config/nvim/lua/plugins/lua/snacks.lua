@@ -47,13 +47,27 @@ return {
       end,
       desc = "Projects",
     },
+    { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+    { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
   },
   opts = {
+    sratch = { enabled = true },
+    statuscolumn = {
+      left = { "mark" },
+      right = { "sign", "git" },
+    },
     image = { enabled = true },
     scope = { enabled = true },
     picker = {
       enabled = true,
       hidden = true,
+      win = {
+        input = {
+          keys = {
+            ["<Esc>"] = { "close", mode = { "n", "i" } },
+          },
+        },
+      },
       actions = {
         open_pj_fugitive = function(picker, item)
           picker:close()
