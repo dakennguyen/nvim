@@ -46,6 +46,12 @@ map("x", "@", ':<C-u><cmd>lua require("utils").visual_macro()<CR>')
 map("n", "<c-w>\\", ":vs +te<cr>", { silent = true })
 map("n", "<c-w>-", ":sp +te<cr>", { silent = true })
 
+-- marks
+for i = string.byte "A", string.byte "z" do
+  local char = string.char(i)
+  if char:match "[A-Za-z]" then map("n", "dm" .. char, ":delmarks " .. char .. "<CR>", { silent = true }) end
+end
+
 -- quickfix and loclist
 map("n", "<leader>c", ":copen<cr>", { silent = true })
 map("n", "<leader>l", ":lopen<cr>", { silent = true })
