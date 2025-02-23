@@ -17,7 +17,7 @@ return {
         replace = utils.get_hl("DiagnosticSignError").fg,
         command = utils.get_hl("Function").fg,
         op = utils.get_hl("DiagnosticSignHint").fg,
-        yellow = utils.get_hl("WarningMsg").fg,
+        yellow = utils.get_hl("DiagnosticWarn").fg,
         inactive = utils.get_hl("Comment").fg,
         strong = utils.get_hl("Title").fg,
       }
@@ -90,7 +90,7 @@ return {
           },
           {
             "diff",
-            symbols = { added = " ", modified = "柳", removed = " " },
+            symbols = { added = " ", modified = " ", removed = " " },
             diff_color = {
               added = { fg = colors.op },
               modified = { fg = colors.yellow },
