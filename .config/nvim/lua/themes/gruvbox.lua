@@ -5,8 +5,9 @@ M.specs = {
   lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd "hi! link SignColumn Normal"
     vim.cmd "colorscheme gruvbox"
+    vim.cmd "hi! link SignColumn Normal"
+    vim.cmd "hi! link CursorLineNR LineNr"
   end,
 }
 
