@@ -59,6 +59,7 @@ return {
     sratch = { enabled = true },
     statuscolumn = { enabled = true },
     notifier = { enabled = true },
+    statuscolumn = { enabled = true },
     image = { enabled = true },
     scope = { enabled = true },
     picker = {

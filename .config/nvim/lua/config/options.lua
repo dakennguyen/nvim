@@ -7,6 +7,7 @@ g.loaded_node_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
 o.swapfile = false
+o.hlsearch = false
 o.signcolumn = "auto"
 o.hlsearch = false
 o.number = true

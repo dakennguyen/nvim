@@ -12,7 +12,7 @@ return {
   -- Group: Language support
   require "plugins.lua.treesitter",
   require "plugins.lua.lspconfig",
-  require "plugins.vimscript.gutentags",
+  -- require "plugins.vimscript.gutentags",
 
   -- Group: Completion
   require "plugins.lua.cmp",
