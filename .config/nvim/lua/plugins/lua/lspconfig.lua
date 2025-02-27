@@ -208,6 +208,13 @@ return {
       flags = lsp_flags,
     }
 
+    -- npm i -g vscode-langservers-extracted
+    nvim_lsp.jsonls.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      flags = lsp_flags,
+    }
+
     -- git clone https://github.com/LuaLS/lua-language-server
     -- ./make.sh
     nvim_lsp.lua_ls.setup {
