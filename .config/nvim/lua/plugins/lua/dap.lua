@@ -1,9 +1,6 @@
 return {
   {
     "mfussenegger/nvim-dap",
-    dependencies = {
-      "leoluz/nvim-dap-go",
-    },
     keys = {
       { "<F9>", function() require("dap").toggle_breakpoint() end },
       {
@@ -20,8 +17,6 @@ return {
       { "<leader>dr", function() require("dap").repl.open() end },
     },
     config = function()
-      require("dap-go").setup()
-
       local dap = require "dap"
       dap.adapters.lldb = {
         type = "executable",
