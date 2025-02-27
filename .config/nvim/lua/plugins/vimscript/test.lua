@@ -28,7 +28,6 @@ return {
     vim.g["test#ruby#use_binstubs"] = 0
 
     vim.g["test#javascript#runner"] = "jest"
-    vim.g["test#javascript#jest#executable"] = "yarn test"
 
     vim.g["test#java#gradletest#options"] = "--info"
 
