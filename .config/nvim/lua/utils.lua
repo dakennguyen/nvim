@@ -21,7 +21,7 @@ end
 M.tabclose = function()
   pcall(vim.cmd.call, 'execute("-1tabmove")')
   if not pcall(vim.cmd.call, 'execute("tabclose")') and vim.bo.filetype ~= "qf" then
-    vim.api.nvim_echo({ { "E784: Cannot close last tab page", "ErrorMsg" } }, true, {})
+    vim.notify("E784: Cannot close last tab page", vim.log.levels.ERROR)
   end
 end
 
@@ -39,9 +39,7 @@ M.smart_quit = function()
       vim.cmd "quit"
     end
   else
-    if not pcall(vim.cmd.close) then
-      vim.api.nvim_echo({ { "E444: Cannot close last window", "ErrorMsg" } }, true, {})
-    end
+    if not pcall(vim.cmd.close) then vim.notify("E444: Cannot close last window", vim.log.levels.ERROR) end
     pcall(vim.cmd.wincmd, "p")
   end
 end
@@ -57,6 +55,15 @@ M.get_hl = function(group)
     fg = hl.fg and string.format("#%06x", hl.fg),
     bg = hl.bg and string.format("#%06x", hl.bg),
   }
+end
+
+M.load_session = function()
+  local session_file = "Session.vim"
+  if vim.fn.filereadable(session_file) == 1 then
+    vim.cmd("source " .. session_file)
+  else
+    vim.notify("No sessions", vim.log.levels.WARN)
+  end
 end
 
 return M

@@ -49,6 +49,7 @@ return {
     },
   },
   opts = {
+    notifier = { style = "minimal" },
     image = { enabled = true },
     scope = { enabled = true },
     picker = {
@@ -79,7 +80,7 @@ return {
         restore_session = function(picker, item)
           local filepath = Snacks.picker.util.dir(item) .. "/Session.vim"
           if not vim.loop.fs_stat(filepath) then
-            print "No sessions"
+            vim.notify("No sessions", vim.log.levels.WARN)
             return
           end
 
@@ -106,7 +107,7 @@ return {
             desc = "Explorer",
             action = ":lua Snacks.dashboard.pick('explorer', { hidden = true })",
           },
-          { icon = " ", key = "s", desc = "Restore Session", action = ":source Session.vim" },
+          { icon = " ", key = "s", desc = "Restore Session", action = require("utils").load_session },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
       },
