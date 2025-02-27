@@ -30,15 +30,6 @@ require("lazy").setup {
   ui = {
     border = "solid",
     backdrop = 100,
-    icons = {
-      ft = "",
-      cmd = "⌘",
-      lazy = "鈴 ",
-      event = "",
-      start = "",
-      loaded = "",
-      not_loaded = "",
-    },
   },
   performance = {
     rtp = {
