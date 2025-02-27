@@ -35,38 +35,24 @@ local open_file_command = function(cmd_char, files)
   end
 end
 
-local autocmd = function(c)
-  local command = c.command
-  if type(command) == "function" then
-    table.insert(_G.global._store, command)
-    local fn_id = #_G.global._store
-    command = string.format("lua _G.global._store[%s](args)", fn_id)
-  end
-  local event = c.event
-  if type(c.event) == "table" then event = table.concat(c.event, ",") end
-
-  local pattern = c.pattern or ""
-  if type(c.pattern) == "table" then pattern = table.concat(c.pattern, ",") end
-
-  local once = ""
-  if c.once == true then once = "++once " end
-  local nested = ""
-  if c.nested == true then nested = "++nested " end
-
-  vim.cmd(string.format("autocmd %s %s %s %s %s", event, pattern, once, nested, command))
-end
-
 local augroup = function(name, commands)
-  vim.cmd("augroup " .. name)
-  vim.cmd "au!"
-  if #commands > 0 then
-    for _, c in ipairs(commands) do
-      autocmd(c)
-    end
-  else
-    autocmd(commands)
+  local id = vim.api.nvim_create_augroup(name, { clear = true })
+
+  local autocmd = function(c)
+    local event = c.event
+    c.group = id
+    c.event = nil
+    vim.api.nvim_create_autocmd(event, c)
   end
-  vim.cmd "augroup END"
+
+  if #commands <= 0 then
+    autocmd(commands)
+    return
+  end
+
+  for _, c in ipairs(commands) do
+    autocmd(c)
+  end
 end
 
 local highlight = function(group, colors)
