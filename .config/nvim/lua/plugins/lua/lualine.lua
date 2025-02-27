@@ -129,13 +129,7 @@ return {
           {
             "diagnostics",
             sources = { "nvim_diagnostic" },
-            symbols = { error = " ", warn = " ", info = " ", hint = "" },
-            diagnostics_color = {
-              error = "DiagnosticError",
-              warn = "DiagnosticWarn",
-              info = "DiagnosticInfo",
-              hint = "DiagnosticHint",
-            },
+            symbols = { error = " ", warn = " ", info = " ", hint = " " },
           },
         },
         lualine_x = {
@@ -203,6 +197,12 @@ return {
             },
           },
         },
+      },
+      extensions = {
+        "fugitive",
+        "nvim-dap-ui",
+        "oil",
+        "quickfix",
       },
     }
 

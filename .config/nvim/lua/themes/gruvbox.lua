@@ -6,8 +6,8 @@ M.specs = {
   priority = 1000,
   config = function()
     vim.cmd "colorscheme gruvbox"
-    vim.cmd "hi! link SignColumn Normal"
-    vim.cmd "hi! link CursorLineNR LineNr"
+    _G.highlight("SignColumn", { link = "Normal" })
+    _G.highlight("CursorLineNR", { link = "LineNr" })
   end,
 }
 

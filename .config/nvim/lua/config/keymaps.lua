@@ -1,3 +1,5 @@
+local utils = require "utils"
+
 -- General
 map("n", "<leader>0", ":e<cr>")
 map("n", "<leader><space>", ":noh<cr>", { silent = true })
@@ -8,8 +10,8 @@ map("n", "0", "^")
 map("", "$", "g_", { silent = true })
 
 -- jk
-map("n", "j", '<cmd>lua require("utils").jump("j")<cr>', { silent = true })
-map("n", "k", '<cmd>lua require("utils").jump("k")<cr>', { silent = true })
+map("n", "j", function() utils.jump "j" end, { silent = true })
+map("n", "k", function() utils.jump "k" end, { silent = true })
 
 -- search
 map("n", "#", "#<S-N>", { silent = true })
@@ -22,7 +24,7 @@ map("v", "<leader>er", [[y/\V<C-R>=escape(@",'/\')<CR><CR>:%s/<C-r>"/]])
 map("v", "<space>er", [[y/\V<C-R>=escape(@",'/\')<CR><CR>:cfdo %s/<C-r>"/]])
 
 -- quit
-map("n", "<leader>q", '<cmd>lua require("utils").smart_quit()<cr>', { silent = true })
+map("n", "<leader>q", utils.smart_quit, { silent = true })
 map("t", "<leader>q", "<C-\\><C-N>:q<CR>", { silent = true })
 map("n", "gq", function()
   for _, win in pairs(vim.api.nvim_list_wins()) do
@@ -32,7 +34,7 @@ end, { desc = "Close floating windows" })
 
 -- gf
 map("", "gff", "gf")
-map("", "gfv", '<cmd>lua require("utils").vsplit("gf")<cr>')
+map("", "gfv", function() utils.vsplit "gf" end)
 map("", "gfs", "<c-w>f")
 map("", "gft", "<c-w>gf")
 
@@ -45,7 +47,7 @@ map("n", "<space>sq", ":mksession! Session.vim<CR>:qa<CR>")
 map("n", "<space>sl", ":source Session.vim<CR>", { silent = true })
 
 -- macro
-map("x", "@", ':<C-u><cmd>lua require("utils").visual_macro()<CR>')
+map("x", "@", '":norm @" . getcharstr() . "<cr>"', { expr = true })
 
 -- term
 map("n", "<c-w>\\", ":vs +te<cr>", { silent = true })
@@ -98,7 +100,7 @@ map("n", "<c-w>l", "<cmd>+1tabmove<cr>")
 map("n", "<c-w><c-h>", "<cmd>-1tabmove<cr>")
 map("n", "<c-w>h", "<cmd>-1tabmove<cr>")
 map("n", "<leader>t", ":tabnew<cr>", { silent = true })
-map("n", "<leader>x", '<cmd>lua require("utils").tabclose()<CR>', { silent = true })
+map("n", "<leader>x", utils.tabclose, { silent = true })
 
 -- keep center
 -- map('n', [[']], [["'" . nr2char(getchar()) . "zt"]], { expr = true })
