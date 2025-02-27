@@ -50,6 +50,11 @@ return {
   },
   opts = {
     notifier = { style = "minimal" },
+    statuscolumn = {
+      left = { "mark" },
+      right = { "sign", "git" },
+      refresh = 50,
+    },
     image = { enabled = true },
     scope = { enabled = true },
     picker = {
@@ -57,6 +62,13 @@ return {
       hidden = true,
       formatters = {
         file = { truncate = 80 },
+      },
+      win = {
+        input = {
+          keys = {
+            ["<Esc>"] = { "close", mode = { "n", "i" } },
+          },
+        },
       },
       actions = {
         open_pj_fugitive = function(picker, item)
