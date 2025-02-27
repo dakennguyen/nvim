@@ -10,4 +10,4 @@ require "config.rails"
 require "config.lazy"
 require "plugins"
 
-print(vim.fn.printf("Loaded in %.0fms", vim.fn.reltimefloat(vim.fn.reltime(start_time)) * 1000))
+vim.notify(vim.fn.printf("Loaded in %.0fms", vim.fn.reltimefloat(vim.fn.reltime(start_time)) * 1000))

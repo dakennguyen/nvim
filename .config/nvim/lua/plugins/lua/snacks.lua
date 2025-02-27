@@ -53,10 +53,12 @@ return {
     },
     { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
     { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
+    { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
   },
   opts = {
     sratch = { enabled = true },
     statuscolumn = { enabled = true },
+    notifier = { enabled = true },
     image = { enabled = true },
     scope = { enabled = true },
     picker = {
@@ -87,7 +89,7 @@ return {
         restore_session = function(picker, item)
           local filepath = Snacks.picker.util.dir(item) .. "/Session.vim"
           if not vim.loop.fs_stat(filepath) then
-            print "No sessions"
+            vim.notify("No sessions", vim.log.levels.WARN)
             return
           end
 
@@ -114,7 +116,7 @@ return {
             desc = "Explorer",
             action = ":lua Snacks.dashboard.pick('explorer', { hidden = true })",
           },
-          { icon = " ", key = "s", desc = "Restore Session", action = ":source Session.vim" },
+          { icon = " ", key = "s", desc = "Restore Session", action = require("utils").load_session },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
       },
