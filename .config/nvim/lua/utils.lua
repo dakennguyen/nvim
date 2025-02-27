@@ -1,11 +1,5 @@
 local M = {}
 
--- Does: Function to execute macro over a visual range
-M.visual_macro = function()
-  vim.cmd 'echo "@".getcmdline()'
-  vim.cmd [[execute ":'<,'>normal @".nr2char(getchar())]]
-end
-
 -- Does:
 --   For wrapped lines, does gj/gk
 --   For large jumps, adds a spot on the jump list
