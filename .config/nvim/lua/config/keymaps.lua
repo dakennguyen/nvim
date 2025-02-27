@@ -42,7 +42,7 @@ map("", "gft", "<c-w>gf")
 -- session
 map("n", "<space>ss", ":mksession! Session.vim<CR>")
 map("n", "<space>sq", ":mksession! Session.vim<CR>:qa<CR>")
-map("n", "<space>sl", ":source Session.vim<CR>", { silent = true })
+map("n", "<space>sl", require("utils").load_session, { silent = true })
 
 -- macro
 map("x", "@", ':<C-u><cmd>lua require("utils").visual_macro()<CR>')
