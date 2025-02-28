@@ -35,7 +35,108 @@ return {
       end,
     }
 
-    local config = {
+    local bubble = {
+      options = {
+        component_separators = "",
+        section_separators = { left = "", right = "" },
+        always_show_tabline = false,
+        theme = {
+          normal = {
+            a = { fg = colors.default_bg, bg = colors.default_fg },
+            b = { fg = colors.default_fg, bg = colors.light },
+            c = { fg = colors.default_fg },
+          },
+
+          insert = { a = { fg = colors.light, bg = colors.insert } },
+          visual = { a = { fg = colors.light, bg = colors.visual } },
+          replace = { a = { fg = colors.light, bg = colors.replace } },
+          command = { a = { fg = colors.light, bg = colors.command } },
+          terminal = { a = { fg = colors.light, bg = colors.op } },
+
+          inactive = {
+            a = { fg = colors.default_fg, bg = colors.light },
+            b = { fg = colors.default_fg, bg = colors.light },
+            c = { fg = colors.default_fg },
+          },
+        },
+        disabled_filetypes = {},
+      },
+      sections = {
+        lualine_a = {
+          { "mode", separator = { left = "" }, right_padding = 2 },
+        },
+        lualine_b = {
+          {
+            "branch",
+            icon = "",
+            cond = conditions.check_git_workspace,
+          },
+        },
+        lualine_c = {
+          {
+            "diff",
+            symbols = { added = " ", modified = " ", removed = " " },
+            cond = conditions.hide_in_width,
+          },
+        },
+        lualine_x = {
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" },
+            symbols = { error = " ", warn = " ", info = " ", hint = " " },
+          },
+          { "filename", path = 1 },
+        },
+        lualine_y = {
+          { "filetype", colored = false, icons_enabled = true },
+          { "progress" },
+        },
+        lualine_z = {
+          { "location", icon = "", separator = { right = "" }, left_padding = 2 },
+        },
+      },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {
+          { "filename", path = 1 },
+        },
+        lualine_y = {
+          { "filetype", colored = false, icons_enabled = true },
+          { "progress" },
+        },
+        lualine_z = {
+          { "location", icon = "", separator = { right = "" }, left_padding = 2 },
+        },
+      },
+      tabline = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {
+          {
+            "tabs",
+            max_length = vim.o.columns,
+            mode = 0,
+            -- tabs_color = {
+            --   active = { fg = colors.default_fg },
+            --   inactive = { fg = colors.light },
+            -- },
+          },
+        },
+      },
+      extensions = {
+        "fugitive",
+        "nvim-dap-ui",
+        "oil",
+        "quickfix",
+      },
+    }
+
+    local evil = {
       options = {
         component_separators = "",
         section_separators = "",
@@ -206,6 +307,8 @@ return {
       },
     }
 
-    return config
+    if require("themes").lualine_theme == "bubble" then return bubble end
+
+    return evil
   end,
 }
