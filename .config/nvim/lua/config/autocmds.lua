@@ -31,3 +31,12 @@ _G.augroup("Nvr", {
   pattern = { "gitcommit", "gitrebase", "gitconfig" },
   callback = function() vim.opt.bufhidden = "delete" end,
 })
+
+_G.augroup("LargeFile", {
+  event = "BufReadPre",
+  callback = function()
+    local file = vim.fn.expand "%:p"
+    local ok, size = pcall(vim.fn.getfsize, file)
+    if not ok or size > 1024 * 1024 then vim.opt.foldmethod = "indent" end
+  end,
+})
