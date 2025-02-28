@@ -47,8 +47,16 @@ return {
       end,
       desc = "Projects",
     },
+    { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+    { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
   },
   opts = {
+    sratch = { enabled = true },
+    statuscolumn = {
+      left = { "mark" },
+      right = { "sign", "git" },
+      refresh = 50,
+    },
     notifier = { style = "minimal" },
     image = { enabled = true },
     scope = { enabled = true },
@@ -57,6 +65,13 @@ return {
       hidden = true,
       formatters = {
         file = { truncate = 80 },
+      },
+      win = {
+        input = {
+          keys = {
+            ["<Esc>"] = { "close", mode = { "n", "i" } },
+          },
+        },
       },
       actions = {
         open_pj_fugitive = function(picker, item)
