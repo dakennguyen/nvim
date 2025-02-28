@@ -94,14 +94,18 @@ local lazy_load = function(plugin)
 end
 
 local fold_text = function()
-  local line_count = vim.v.foldend - vim.v.foldstart + 1
-  local title = vim.fn.getline(vim.v.foldstart):gsub("^%s+", "")
-    .. " ... "
-    .. vim.fn.getline(vim.v.foldend):gsub("^%s+", "")
+  local signcolumn_length = 12 -- 5 for signs and 7 for line number
   local indent_level = vim.fn.indent(vim.v.foldstart)
-  local fillchar_count = vim.o.columns - string.len(title) - string.len(line_count .. " lines") - indent_level - 7
+  local start_line = vim.fn.getline(vim.v.foldstart):gsub("^%s+", "")
+  local end_line = vim.fn.getline(vim.v.foldend):gsub("^%s+", "")
+  local title = string.format("+ %s ... %s", start_line, end_line)
+  local line_count = string.format("%d lines", vim.v.foldend - vim.v.foldstart + 1)
+  local content_len = signcolumn_length + indent_level + #title + #line_count
+  local fillchar_count = vim.api.nvim_win_get_width(0) - content_len
 
-  return string.rep(" ", indent_level) .. "+ " .. title .. string.rep(" ", fillchar_count) .. line_count .. " lines"
+  return string.rep(" ", indent_level)
+    .. title
+    .. (fillchar_count >= 10 and string.rep(" ", fillchar_count) .. line_count or "")
 end
 
 local dev_paths = function()
