@@ -27,7 +27,11 @@ return {
     },
     { "//", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
     { "\\", ":Sgrep ", desc = "Grep" },
-    { "<space>fv", function() Snacks.picker.files { cwd = vim.fn.stdpath "config" } end, desc = "Find Config File" },
+    {
+      "<space>fv",
+      function() Snacks.picker.files { cwd = "~/.dotfiles", hidden = true } end,
+      desc = "Find Config File",
+    },
     {
       "<space>fp",
       function()
@@ -47,8 +51,12 @@ return {
       end,
       desc = "Projects",
     },
+    { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+    { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
   },
   opts = {
+    sratch = { enabled = true },
+    statuscolumn = { enabled = true },
     image = { enabled = true },
     scope = { enabled = true },
     picker = {
@@ -61,9 +69,9 @@ return {
         open_pj_fugitive = function(picker, item)
           picker:close()
           if not item then return end
-          local dir = item.file
-          vim.fn.chdir(dir)
-          vim.cmd "new | G | only | tabonly"
+          if vim.bo.filetype ~= "snacks_dashboard" then vim.cmd "tabnew" end
+
+          vim.cmd("tcd" .. item.file .. " | G | only")
         end,
         picker_files_hidden = function(picker, item)
           if not item then return end
@@ -122,7 +130,7 @@ return {
           padding = 1,
           action = function(dir)
             vim.fn.chdir(dir)
-            vim.cmd "new | G | only | tabonly"
+            vim.cmd "new | G | only"
           end,
         },
         { section = "startup" },
