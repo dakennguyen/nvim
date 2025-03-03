@@ -18,7 +18,7 @@ buf_map("n", "E", ":Git commit --amend --no-edit --no-verify")
 buf_map("n", "[ou", [[:Git branch -u origin/<c-r>=system('git branch --show-current')<CR><BS><CR>]])
 buf_map("n", "]ou", [[:Git branch -u origin/HEAD<CR>]])
 
-buf_map("n", "<leader>gd", ":vert Git diff origin/HEAD..HEAD<CR>", { silent = true })
+buf_map("n", "<leader>gd", ":vert Git diff origin/HEAD..HEAD<CR>")
 
 -- vim.cmd [[
 -- "function! s:open(cmd)

@@ -66,6 +66,17 @@ map("n", "<leader>l", ":lopen<cr>", { silent = true })
 -- fold
 -- map('n', '<cr>', 'za')
 map("n", "zV", ":normal zMzvzz<CR>", { silent = true })
+map("n", "[of", ":setlocal foldmethod=indent<cr>")
+map("n", "]of", ":setlocal foldmethod=expr<cr>")
+map("n", "yof", function()
+  if vim.opt_local.foldmethod:get() == "indent" then
+    vim.opt_local.foldmethod = "expr"
+    vim.cmd 'echo ":setlocal foldmethod=expr"'
+  else
+    vim.opt_local.foldmethod = "indent"
+    vim.cmd 'echo ":setlocal foldmethod=indent"'
+  end
+end)
 
 -- move screen
 map("n", "zZ", "zszH", { silent = true })
@@ -108,7 +119,7 @@ map("n", "<leader>x", utils.tabclose, { silent = true })
 
 -- join and break line
 map("n", "J", "mzJ`z")
-map("n", "K", "i<CR><ESC>l", { silent = true })
+map("n", "S", "i<CR><ESC>l", { silent = true })
 
 -- registers
 -- map('v', 'p', '"_dP') -- Don't copy the replaced text after pasting in visual mode

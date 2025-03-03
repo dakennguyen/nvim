@@ -8,6 +8,7 @@ g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
 o.swapfile = false
 o.signcolumn = "auto"
+o.hlsearch = false
 o.number = true
 o.relativenumber = true
 o.cursorline = true
@@ -36,13 +37,6 @@ o.smartcase = true
 
 -- netrw
 g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
-
--- nvr
-vim.cmd [[
-if has('nvim')
-  let $GIT_EDITOR = 'nvr -cc vsplit --remote-wait'
-endif
-]]
 
 -- markdown
 g.markdown_fenced_languages = { "ruby", "sql", "bash" }
