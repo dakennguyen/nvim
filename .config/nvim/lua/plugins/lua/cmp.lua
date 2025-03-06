@@ -12,8 +12,8 @@ return {
     local cmp = require "cmp"
     local kind_icons = {
       Text = "",
-      Method = "",
-      Function = "",
+      Method = "ƒ",
+      Function = "ƒ",
       Constructor = "",
       Field = "",
       Variable = "",
@@ -28,13 +28,13 @@ return {
       Snippet = "",
       Color = "",
       File = "",
-      Reference = "",
+      Reference = "󰌹",
       Folder = "",
       EnumMember = "",
       Constant = "",
       Struct = "",
       Event = "",
-      Operator = "",
+      Operator = "󰆕",
       TypeParameter = "",
     }
 
@@ -59,11 +59,9 @@ return {
         format = function(entry, vim_item)
           vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
           vim_item.menu = ({
-            buffer = "[Buffer]",
             nvim_lsp = "[LSP]",
-            luasnip = "[LuaSnip]",
-            nvim_lua = "[Lua]",
-            latex_symbols = "[LaTeX]",
+            buffer = "[Buffer]",
+            ["vim-dadbod-completion"] = "[DB]",
           })[entry.source.name]
           return vim_item
         end,
@@ -83,26 +81,19 @@ return {
         { name = "path" },
         { name = "vsnip" },
       },
-
-      cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
-        sources = {
-          { name = "vim-dadbod-completion" },
-          { name = "buffer" },
-        },
-      }),
     }
   end,
+  config = function(_, opts)
+    local cmp = require "cmp"
+    cmp.setup(opts)
+
+    cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
+      sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" },
+        { name = "path" },
+        { name = "vsnip" },
+      },
+    })
+  end
 }
-
--- cmp.setup.cmdline('/', {
---   sources = {
---     { name = 'buffer' }
---   }
--- })
-
--- cmp.setup.cmdline(':', {
---   sources = cmp.config.sources({
---     { name = 'path' },
---     { name = 'cmdline' }
---   })
--- })
