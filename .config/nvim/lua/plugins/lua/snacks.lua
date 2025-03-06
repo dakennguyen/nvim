@@ -59,6 +59,7 @@ return {
     { "<leader>z", function() Snacks.zen.zoom() end },
   },
   opts = {
+    input = { enabled = true },
     sratch = { enabled = true },
     statuscolumn = { enabled = true },
     notifier = { enabled = true },

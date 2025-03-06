@@ -74,4 +74,38 @@ M.load_session = function()
   end
 end
 
+M.eval_expression = function(expr)
+  local mode = vim.api.nvim_get_mode()
+  if mode.mode == "v" then
+    -- [bufnum, lnum, col, off]; 1-indexed
+    local start = vim.fn.getpos "v"
+    local end_ = vim.fn.getpos "."
+
+    local start_row = start[2]
+    local start_col = start[3]
+
+    local end_row = end_[2]
+    local end_col = end_[3]
+
+    if start_row == end_row and end_col < start_col then
+      end_col, start_col = start_col, end_col
+    elseif end_row < start_row then
+      start_row, end_row = end_row, start_row
+      start_col, end_col = end_col, start_col
+    end
+
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, false, true), "n", false)
+
+    -- buf_get_text is 0-indexed; end-col is exclusive
+    local lines = vim.api.nvim_buf_get_text(0, start_row - 1, start_col - 1, end_row - 1, end_col, {})
+    return table.concat(lines, "\n")
+  end
+  expr = expr or "<cexpr>"
+  if type(expr) == "function" then
+    return expr()
+  else
+    return vim.fn.expand(expr)
+  end
+end
+
 return M
