@@ -12,19 +12,16 @@ Install [stow](https://www.gnu.org/software/stow/), then run:
 # Setup
 Export env variables
 
+    # For macOS
+    if defaults read -g AppleInterfaceStyle &>/dev/null; then
+        export THEME_MODE=dark
+    else
+        export THEME_MODE=light
+    fi
+    export THEME_LIGHT=default
+    export THEME_DARK=default
+    export THEME_LUALINE=bubble
     export MYBROWSER=firefox
 
     export PROJECT_PATHS=(~/.dotfiles ~/projects)
     export PROJECT_PATHS_STR="${(j.:.)PROJECT_PATHS}"
-
-(Optional) To custom mode, create `~/.config/nvim/lua/themes/mode.lua`:
-
-```lua
-vim.opt.background = 'light'
-
-return {
-  light_theme = "gruvbox",
-  dark_theme = "gruvbox",
-  lualine_theme = "evil",
-}
-```
