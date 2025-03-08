@@ -119,6 +119,23 @@ return {
     }
 
     vim.g.projectionist_heuristics = {
+      ["*"] = {
+        ["*.c"] = { dispatch = "gcc % -o %:r && ./%:r" },
+        ["*.cc"] = { dispatch = "g++ -g % -o %:r && ./%:r" },
+        ["*.cpp"] = { dispatch = "g++ -g % -o %:r && ./%:r" },
+        ["*.go"] = { dispatch = "go run {file}" },
+        ["*.hs"] = { dispatch = "ghc % && ./%:t:r" },
+        ["*.lhs"] = { dispatch = "ghc % && ./%:t:r" },
+        ["*.java"] = { dispatch = "javac -cp src % && java -cp src %"},
+        ["*.js"] = { dispatch = "node {file}" },
+        ["*.lua"] = { dispatch = "lua {file}" },
+        ["*.py"] = { dispatch = "python {file}" },
+        ["*.R"] = { dispatch = "Rscript {file}" },
+        ["*.raku"] = { dispatch = "raku {file}" },
+        ["*.rb"] = { dispatch = "ruby {file}" },
+        ["*.Rmd"] = { dispatch = "knit % && open %:t:r.html" },
+        ["*.sql"] = { dispatch = ":DB < {file}" },
+      },
       ["bin/rails"] = rails,
       ["Gemfile"] = ruby,
       ["composer.json"] = php,
