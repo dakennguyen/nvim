@@ -5,7 +5,6 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-vsnip",
-    require "plugins.tpope.dadbod",
   },
   event = "InsertEnter",
   opts = function()

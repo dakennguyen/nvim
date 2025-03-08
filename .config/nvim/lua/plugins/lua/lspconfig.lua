@@ -18,64 +18,6 @@ return {
       update_in_insert = false,
     })
 
-    -- Linters
-    -- ======================================
-
-    local prettier = {
-      formatCommand = "prettier --stdin-filepath ${INPUT}",
-      formatStdin = true,
-    }
-
-    local eslint = {
-      lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
-      lintStdin = true,
-      lintFormats = { "%f(%l,%c): %tarning %m", "%f(%l,%c): %rror %m" },
-      lintIgnoreExitCode = true,
-      formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
-      formatStdin = true,
-    }
-
-    local golangci_lint = {
-      lintCommand = "golangci-lint run ${INPUT}",
-      lintStdin = true,
-    }
-
-    local flake8 = {
-      lintCommand = "flake8 ${INPUT}",
-      lintStdin = true,
-    }
-
-    local black = {
-      formatCommand = "black --quiet -",
-      formatStdin = true,
-    }
-
-    local luacheck = {
-      lintCommand = "luacheck --filename ${INPUT} --formatter plain -",
-      lintStdin = true,
-    }
-
-    local stylua = {
-      formatCommand = "stylua --search-parent-directories -",
-      formatStdin = true,
-    }
-
-    -- local function eslint_config_exists()
-    --   local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
-
-    --   if not vim.tbl_isempty(eslintrc) then
-    --     return true
-    --   end
-
-    --   if vim.fn.filereadable("package.json") then
-    --     if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
-    --       return true
-    --     end
-    --   end
-
-    --   return false
-    -- end
-
     -- Servers config
     -- ======================================
 
@@ -114,14 +56,6 @@ return {
 
     local lsps = {
       "clangd", -- https://clangd.llvm.org/installation
-      "gopls", -- go install golang.org/x/tools/gopls@latest
-      "jdtls", -- https://download.eclipse.org/jdtls/snapshots/?d
-      "docker_compose_language_service", -- npm install -g @microsoft/compose-language-service
-      "dockerls", -- npm install -g dockerfile-language-server-nodejs
-      "pyright", -- pip install pyright
-      "r_language_server", -- install.packages("languageserver")
-      "ts_ls", -- npm install -g typescript typescript-language-server
-      "jsonls", -- npm install -g vscode-langservers-extracted
     }
 
     for _, lsp in pairs(lsps) do
@@ -131,80 +65,5 @@ return {
         flags = lsp_flags,
       }
     end
-
-    -- `gem install solargraph`
-    nvim_lsp.solargraph.setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      flags = lsp_flags,
-      settings = {
-        solargraph = {
-          useBundler = true,
-          formatting = true,
-          autoformat = true,
-        },
-      },
-    }
-
-    -- git clone https://github.com/LuaLS/lua-language-server
-    -- ./make.sh
-    nvim_lsp.lua_ls.setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      flags = lsp_flags,
-      settings = {
-        Lua = {
-          runtime = {
-            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-            version = "LuaJIT",
-          },
-          diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = { "vim" },
-          },
-          workspace = {
-            -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file("", true),
-          },
-          -- Do not send telemetry data containing a randomized but unique identifier
-          telemetry = {
-            enable = false,
-          },
-        },
-      },
-    }
-
-    -- `npm install -g eslint_d`
-    -- `npm install -g prettier`
-    -- `brew install efm-langserver`
-    -- `brew install stylua`
-    -- `brew install luacheck`
-    -- `go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest`
-    -- `pip install flake8`
-    nvim_lsp.efm.setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      -- root_dir = function()
-      --   if not eslint_config_exists() then
-      --     return nil
-      --   end
-      --   return vim.fn.getcwd()
-      -- end,
-      settings = {
-        rootMarkers = { "README.md", ".git/" },
-        languages = {
-          javascript = { eslint },
-          javascriptreact = { eslint },
-          typescript = { eslint },
-          typescriptreact = { eslint },
-          json = { prettier },
-          go = { golangci_lint },
-          python = { flake8, black },
-          lua = { luacheck, stylua },
-        },
-      },
-      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "go", "python", "lua" },
-      init_options = { documentFormatting = true, codeAction = true },
-    }
   end,
 }
