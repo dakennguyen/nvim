@@ -13,12 +13,6 @@ map("", "$", "g_", { silent = true })
 map("n", "j", function() utils.jump "j" end, { silent = true })
 map("n", "k", function() utils.jump "k" end, { silent = true })
 
--- search
-map("n", "#", "#<S-N>", { silent = true })
-map("n", "*", "*<S-N>", { silent = true })
-map("v", "#", [[y?\V<C-R>=escape(@",'/\')<CR><CR><S-N>]])
-map("v", "*", [[y/\V<C-R>=escape(@",'/\')<CR><CR><S-N>]])
-
 -- replace
 map("v", "<leader>er", [[y/\V<C-R>=escape(@",'/\')<CR><CR>:%s/<C-r>"/]])
 map("v", "<space>er", [[y/\V<C-R>=escape(@",'/\')<CR><CR>:cfdo %s/<C-r>"/]])
@@ -38,9 +32,6 @@ map("", "gfv", function() utils.vsplit "gf" end)
 map("", "gfs", "<c-w>f")
 map("", "gft", "<c-w>gf")
 
--- gd
--- map('', 'gdd', 'gd')
-
 -- session
 map("n", "<space>ss", ":mksession! Session.vim<CR>")
 map("n", "<space>sq", ":mksession! Session.vim<CR>:qa<CR>")
@@ -48,10 +39,6 @@ map("n", "<space>sl", utils.load_session, { silent = true })
 
 -- macro
 map("x", "@", '":norm @" . getcharstr() . "<cr>"', { expr = true })
-
--- term
-map("n", "<c-w>\\", ":vs +te<cr>", { silent = true })
-map("n", "<c-w>-", ":sp +te<cr>", { silent = true })
 
 -- marks
 for i = string.byte "A", string.byte "z" do
@@ -64,7 +51,6 @@ map("n", "<leader>c", ":botright copen<cr>", { silent = true })
 map("n", "<leader>l", ":lopen<cr>", { silent = true })
 
 -- fold
--- map('n', '<cr>', 'za')
 map("n", "zV", ":normal zMzvzz<CR>", { silent = true })
 map("n", "[of", ":setlocal foldmethod=indent<cr>")
 map("n", "]of", ":setlocal foldmethod=expr<cr>")
@@ -106,10 +92,6 @@ map("n", "]<tab>", "gt")
 map("n", "[<tab>", "gT")
 map("t", "]<tab>", "<c-\\><c-n>Ggt")
 map("t", "[<tab>", "<c-\\><c-n>GgT")
-map("n", "<c-w><c-l>", "<cmd>+1tabmove<cr>")
-map("n", "<c-w>l", "<cmd>+1tabmove<cr>")
-map("n", "<c-w><c-h>", "<cmd>-1tabmove<cr>")
-map("n", "<c-w>h", "<cmd>-1tabmove<cr>")
 map("n", "<leader>t", ":tabnew<cr>", { silent = true })
 map("n", "<leader>x", utils.tabclose, { silent = true })
 
