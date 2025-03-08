@@ -76,20 +76,15 @@ return {
     --   return false
     -- end
 
-    -- cmp
-    -- ======================================
-    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
     -- Servers config
     -- ======================================
 
+    -- cmp
+    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
     local nvim_lsp = require "lspconfig"
 
-    local on_attach = function(client, bufnr)
-      --Enable completion triggered by <c-x><c-o>
-      -- vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
-
-      -- Mappings.
+    local on_attach = function(_, bufnr)
       local opts = { buffer = bufnr, silent = true }
 
       map("n", "gdd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -110,29 +105,37 @@ return {
       map("n", "<space>ld", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
       map("n", "<space>ll", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
       map("n", "<leader>l", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-
-      -- Set some keybinds conditional on server capabilities
-      if
-        client.server_capabilities.documentFormattingProvider
-        or client.server_capabilities.documentRangeFormattingProvider
-      then
-        map("n", "<space>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
-      end
-
-      -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+      map("n", "<space>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
     end
 
     local lsp_flags = {
       debounce_text_changes = 150,
     }
 
+    local lsps = {
+      "clangd", -- https://clangd.llvm.org/installation
+      "gopls", -- go install golang.org/x/tools/gopls@latest
+      "jdtls", -- https://download.eclipse.org/jdtls/snapshots/?d
+      "docker_compose_language_service", -- npm install -g @microsoft/compose-language-service
+      "dockerls", -- npm install -g dockerfile-language-server-nodejs
+      "pyright", -- pip install pyright
+      "r_language_server", -- install.packages("languageserver")
+      "ts_ls", -- npm install -g typescript typescript-language-server
+      "jsonls", -- npm install -g vscode-langservers-extracted
+    }
+
+    for _, lsp in pairs(lsps) do
+      nvim_lsp[lsp].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        flags = lsp_flags,
+      }
+    end
+
     -- `gem install solargraph`
     nvim_lsp.solargraph.setup {
       capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = true
-        on_attach(client, bufnr)
-      end,
+      on_attach = on_attach,
       flags = lsp_flags,
       settings = {
         solargraph = {
@@ -141,79 +144,6 @@ return {
           autoformat = true,
         },
       },
-    }
-
-    -- https://clangd.llvm.org/installation
-    nvim_lsp.clangd.setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      flags = lsp_flags,
-    }
-
-    -- go install golang.org/x/tools/gopls@latest
-    -- go install github.com/go-delve/delve/cmd/dlv@latest
-    nvim_lsp.gopls.setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      flags = lsp_flags,
-    }
-
-    -- https://download.eclipse.org/jdtls/snapshots/?d
-    -- Link bin folder to PATH
-    nvim_lsp.jdtls.setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      flags = lsp_flags,
-    }
-
-    -- npm install -g @microsoft/compose-language-service
-    nvim_lsp.docker_compose_language_service.setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      flags = lsp_flags,
-    }
-
-    -- npm install -g dockerfile-language-server-nodejs
-    nvim_lsp.dockerls.setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      flags = lsp_flags,
-    }
-
-    -- pip install pyright
-    nvim_lsp.pyright.setup {
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = true
-        on_attach(client, bufnr)
-      end,
-      flags = lsp_flags,
-    }
-
-    -- install.packages("languageserver")
-    nvim_lsp.r_language_server.setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      flags = lsp_flags,
-    }
-
-    -- `npm install -g typescript`
-    -- `npm install -g typescript-language-server`
-    nvim_lsp.ts_ls.setup {
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        if client.config.flags then client.config.flags.allow_incremental_sync = true end
-        client.server_capabilities.documentFormattingProvider = false
-        on_attach(client, bufnr)
-      end,
-      flags = lsp_flags,
-    }
-
-    -- npm i -g vscode-langservers-extracted
-    nvim_lsp.jsonls.setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      flags = lsp_flags,
     }
 
     -- git clone https://github.com/LuaLS/lua-language-server
@@ -253,11 +183,7 @@ return {
     -- `pip install flake8`
     nvim_lsp.efm.setup {
       capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = true
-        -- client.resolved_capabilities.goto_definition = false
-        on_attach(client, bufnr)
-      end,
+      on_attach = on_attach,
       -- root_dir = function()
       --   if not eslint_config_exists() then
       --     return nil
@@ -265,7 +191,7 @@ return {
       --   return vim.fn.getcwd()
       -- end,
       settings = {
-        rootMarkers = { "README.md", ".gitignore" },
+        rootMarkers = { "README.md", ".git/" },
         languages = {
           javascript = { eslint },
           javascriptreact = { eslint },
