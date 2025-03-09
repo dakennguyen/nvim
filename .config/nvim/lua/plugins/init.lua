@@ -46,4 +46,5 @@ return {
   require "plugins.lua.colorizer",
   require "plugins.lua.kulala",
   require "plugins.lua.snacks",
+  require "plugins.vimscript.slime",
 }
