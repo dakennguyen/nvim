@@ -6,7 +6,6 @@ return {
     { "<space>C", ":Copen!<cr>", silent = true },
   },
   config = function()
-    vim.g["dispatch_no_tmux_make"] = true
     vim.g["dispatch_no_tmux_start"] = true
     vim.g["dispatch_compilers"] = {
       ["python -m pytest"] = "pytest",
