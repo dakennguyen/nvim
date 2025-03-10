@@ -11,6 +11,16 @@ M.specs = {
   end,
 }
 
-function M.colors() return {} end
+function M.colors()
+  if vim.o.background == "dark" then return {} end
+
+  return {
+    gitsigns = {
+      add_fg = "#4c9c3e",
+      change_fg = "#f28c28",
+      delete_fg = "#e34f4f",
+    },
+  }
+end
 
 return M

@@ -33,9 +33,6 @@ map("", "gfv", function() utils.vsplit "gf" end)
 map("", "gfs", "<c-w>f")
 map("", "gft", "<c-w>gf")
 
--- gd
--- map('', 'gdd', 'gd')
-
 -- session
 map("n", "<space>ss", ":mksession! Session.vim<CR>")
 map("n", "<space>sq", ":mksession! Session.vim<CR>:qa<CR>")
@@ -43,10 +40,6 @@ map("n", "<space>sl", utils.load_session, { silent = true })
 
 -- macro
 map("x", "@", '":norm @" . getcharstr() . "<cr>"', { expr = true })
-
--- term
-map("n", "<c-w>\\", ":vs +te<cr>", { silent = true })
-map("n", "<c-w>-", ":sp +te<cr>", { silent = true })
 
 -- marks
 for i = string.byte "A", string.byte "z" do
@@ -59,7 +52,6 @@ map("n", "<leader>c", ":botright copen<cr>", { silent = true })
 map("n", "<leader>l", ":lopen<cr>", { silent = true })
 
 -- fold
--- map('n', '<cr>', 'za')
 map("n", "zV", ":normal zMzvzz<CR>", { silent = true })
 map("n", "[of", ":setlocal foldmethod=indent<cr>")
 map("n", "]of", ":setlocal foldmethod=expr<cr>")
@@ -101,10 +93,6 @@ map("n", "]<tab>", "gt")
 map("n", "[<tab>", "gT")
 map("t", "]<tab>", "<c-\\><c-n>Ggt")
 map("t", "[<tab>", "<c-\\><c-n>GgT")
-map("n", "<c-w><c-l>", "<cmd>+1tabmove<cr>")
-map("n", "<c-w>l", "<cmd>+1tabmove<cr>")
-map("n", "<c-w><c-h>", "<cmd>-1tabmove<cr>")
-map("n", "<c-w>h", "<cmd>-1tabmove<cr>")
 map("n", "<leader>t", ":tabnew<cr>", { silent = true })
 map("n", "<leader>x", utils.tabclose, { silent = true })
 
@@ -152,12 +140,6 @@ map("n", "<space>gn", ":vert botright 80 new $CLOUD/Notes<CR>", { silent = true 
 map("n", "<space>gs", ":botright 20 new $CLOUD/Notes/scratch.md<CR>", { silent = true })
 map("n", "<space>gt", ":botright 10 new $CLOUD/Notes/todo.md<CR>", { silent = true })
 map("n", "<space>gh", ":vnew local.http<cr>", { silent = true })
-
--- open files in chrome
-map("n", "<leader>fp", [[<cmd>!open -a $MYBROWSER '%:p'<cr>]], { silent = true })
-
--- JSON
-map("", "<leader>jp", [[:%!jq '.'<cr>]])
 
 -- navigation
 map("n", "<left>", "<c-w>h", { silent = true })

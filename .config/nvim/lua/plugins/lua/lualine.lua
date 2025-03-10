@@ -28,6 +28,7 @@ return {
     local conditions = {
       buffer_not_empty = function() return vim.fn.empty(vim.fn.expand "%:t") ~= 1 end,
       hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
+      more_than_one_tab = function() return vim.fn.tabpagenr "$" > 1 end,
       check_git_workspace = function()
         local filepath = vim.fn.expand "%:p:h"
         local gitdir = vim.fn.finddir(".git", filepath .. ";")
@@ -37,7 +38,7 @@ return {
 
     local bubble = {
       options = {
-        component_separators = "",
+        component_separators = "|",
         section_separators = { left = "", right = "" },
         always_show_tabline = false,
         theme = {
@@ -66,10 +67,12 @@ return {
           { "mode", separator = { left = "" }, right_padding = 2 },
         },
         lualine_b = {
+          "filename",
           {
             "branch",
             icon = "",
             cond = conditions.check_git_workspace,
+            colors = { bg = colors.default_bg },
           },
         },
         lualine_c = {
@@ -85,7 +88,6 @@ return {
             sources = { "nvim_diagnostic" },
             symbols = { error = " ", warn = " ", info = " ", hint = " " },
           },
-          { "filename", path = 1 },
         },
         lualine_y = {
           { "filetype", colored = false, icons_enabled = true },
@@ -96,19 +98,12 @@ return {
         },
       },
       inactive_sections = {
-        lualine_a = {},
+        lualine_a = { "filename" },
         lualine_b = {},
         lualine_c = {},
-        lualine_x = {
-          { "filename", path = 1 },
-        },
-        lualine_y = {
-          { "filetype", colored = false, icons_enabled = true },
-          { "progress" },
-        },
-        lualine_z = {
-          { "location", icon = "", separator = { right = "" }, left_padding = 2 },
-        },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = { "location" },
       },
       tabline = {
         lualine_a = {},
@@ -129,6 +124,7 @@ return {
         },
       },
       extensions = {
+        "lazy",
         "fugitive",
         "nvim-dap-ui",
         "oil",
@@ -140,7 +136,7 @@ return {
       options = {
         component_separators = "",
         section_separators = "",
-        always_show_tabline = false,
+        always_show_tabline = true,
         theme = {
           normal = { c = { fg = colors.default_fg, bg = colors.default_bg } },
           insert = { c = { fg = colors.insert, bg = colors.default_bg } },
@@ -149,6 +145,7 @@ return {
           command = { c = { fg = colors.command, bg = colors.default_bg } },
           terminal = { c = { fg = colors.op, bg = colors.default_bg } },
           inactive = { c = { fg = colors.inactive, bg = colors.default_bg } },
+          tabline = { c = { fg = colors.default_fg, bg = colors.default_bg } },
         },
         disabled_filetypes = {},
       },
@@ -163,6 +160,7 @@ return {
           {
             "mode",
             padding = { left = 0 },
+            color = { gui = "bold" },
           },
           {
             function()
@@ -185,9 +183,14 @@ return {
             cond = conditions.buffer_not_empty,
           },
           {
-            "branch",
-            icon = "",
-            cond = conditions.check_git_workspace,
+            "fileformat",
+            fmt = string.upper,
+            icons_enabled = true,
+            color = { fg = colors.default_fg, gui = "bold" },
+          },
+          {
+            "o:encoding",
+            fmt = string.upper,
           },
           {
             "diff",
@@ -211,22 +214,6 @@ return {
           {
             function() return "%=" end,
           },
-          -- {
-          --   function()
-          --     local icon = '  '
-          --     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-          --     local clients = vim.lsp.get_active_clients()
-          --     if next(clients) == nil then return '' end
-          --     for _, client in ipairs(clients) do
-          --       local filetypes = client.config.filetypes
-          --       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-          --         return icon .. client.name
-          --       end
-          --     end
-          --     return ''
-          --   end,
-          --   color = {fg = colors.light, gui = 'bold'}
-          -- },
           {
             "diagnostics",
             sources = { "nvim_diagnostic" },
@@ -234,12 +221,6 @@ return {
           },
         },
         lualine_x = {
-          -- {
-          --   'o:encoding',
-          --   fmt = string.upper,
-          --   cond = conditions.hide_in_width,
-          --   color = {fg = colors.default_fg, gui = 'bold'}
-          -- },
           {
             "filetype",
             colored = false,
@@ -247,16 +228,9 @@ return {
             color = { fg = colors.command, gui = "bold" },
           },
           {
-            "fileformat",
-            fmt = string.upper,
-            icons_enabled = true,
-            color = { fg = colors.default_fg, gui = "bold" },
-          },
-          {
             "filename",
             path = 1,
-            -- cond = conditions.buffer_not_empty,
-            color = { fg = colors.yellow },
+            color = { gui = "bold" },
           },
         },
         lualine_y = {},
@@ -275,7 +249,6 @@ return {
           {
             "filename",
             path = 1,
-            color = { fg = colors.yellow },
           },
         },
         lualine_y = {},
@@ -284,7 +257,22 @@ return {
       tabline = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {},
+        lualine_c = {
+          {
+            function()
+              local cwd = vim.fn.getcwd()
+              local home = vim.fn.expand "~"
+              return cwd:gsub("^" .. vim.pesc(home), "~")
+            end,
+            color = { fg = colors.inactive },
+          },
+          {
+            "branch",
+            icon = "",
+            cond = conditions.check_git_workspace,
+            -- color = { fg = colors.default_fg },
+          },
+        },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {
@@ -292,6 +280,7 @@ return {
             "tabs",
             max_length = vim.o.columns,
             mode = 0,
+            cond = conditions.more_than_one_tab,
             tabs_color = {
               active = { fg = colors.default_fg },
               inactive = { fg = colors.light },
@@ -300,6 +289,7 @@ return {
         },
       },
       extensions = {
+        "lazy",
         "fugitive",
         "nvim-dap-ui",
         "oil",
@@ -308,7 +298,30 @@ return {
     }
 
     if require("themes").lualine_theme == "bubble" then return bubble end
+    if require("themes").lualine_theme == "evil" then return evil end
 
-    return evil
+    return {
+      options = {
+        component_separators = "",
+        section_separators = "",
+      },
+      tabline = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {
+          { "tabs", mode = 0 },
+        },
+      },
+      extensions = {
+        "lazy",
+        "fugitive",
+        "nvim-dap-ui",
+        "oil",
+        "quickfix",
+      },
+    }
   end,
 }
