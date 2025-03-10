@@ -37,7 +37,7 @@ return {
 
     local bubble = {
       options = {
-        component_separators = "",
+        component_separators = "|",
         section_separators = { left = "", right = "" },
         always_show_tabline = false,
         theme = {
@@ -66,6 +66,7 @@ return {
           { "mode", separator = { left = "" }, right_padding = 2 },
         },
         lualine_b = {
+          "filename",
           {
             "branch",
             icon = "",
@@ -85,7 +86,6 @@ return {
             sources = { "nvim_diagnostic" },
             symbols = { error = " ", warn = " ", info = " ", hint = " " },
           },
-          { "filename", path = 1 },
         },
         lualine_y = {
           { "filetype", colored = false, icons_enabled = true },
@@ -96,19 +96,12 @@ return {
         },
       },
       inactive_sections = {
-        lualine_a = {},
+        lualine_a = { "filename" },
         lualine_b = {},
         lualine_c = {},
-        lualine_x = {
-          { "filename", path = 1 },
-        },
-        lualine_y = {
-          { "filetype", colored = false, icons_enabled = true },
-          { "progress" },
-        },
-        lualine_z = {
-          { "location", icon = "", separator = { right = "" }, left_padding = 2 },
-        },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = { "location" },
       },
       tabline = {
         lualine_a = {},
@@ -163,6 +156,7 @@ return {
           {
             "mode",
             padding = { left = 0 },
+            color = { gui = "bold" },
           },
           {
             function()
@@ -256,7 +250,7 @@ return {
             "filename",
             path = 1,
             -- cond = conditions.buffer_not_empty,
-            color = { fg = colors.yellow },
+            color = { gui = "bold" },
           },
         },
         lualine_y = {},
@@ -275,7 +269,6 @@ return {
           {
             "filename",
             path = 1,
-            color = { fg = colors.yellow },
           },
         },
         lualine_y = {},
@@ -308,7 +301,29 @@ return {
     }
 
     if require("themes").lualine_theme == "bubble" then return bubble end
+    if require("themes").lualine_theme == "evil" then return evil end
 
-    return evil
+    return {
+      options = {
+        component_separators = "",
+        section_separators = "",
+      },
+      tabline = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {
+          { "tabs", mode = 0 },
+        },
+      },
+      extensions = {
+        "fugitive",
+        "nvim-dap-ui",
+        "oil",
+        "quickfix",
+      },
+    }
   end,
 }
