@@ -101,7 +101,7 @@ return {
       },
     },
     dashboard = {
-      enabled = true,
+      enabled = false,
       preset = {
         keys = {
           { icon = icons.misc.git_branch, key = "g", desc = "Git status", action = ":tab G | tabonly" },

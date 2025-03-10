@@ -11,10 +11,11 @@ o.signcolumn = "auto"
 o.hlsearch = false
 o.number = true
 o.relativenumber = true
-o.cursorline = true
 o.scrolloff = 5
 o.mouse = "a"
-o.exrc = true
+o.wildmenu = true
+o.wildmode = { "list:longest", "list:full" }
+o.diffopt:append { "context:99999" }
 
 -- buffer
 -- o.switchbuf:append { "useopen" }

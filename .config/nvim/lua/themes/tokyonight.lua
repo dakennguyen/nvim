@@ -26,7 +26,7 @@ function M.colors()
       op = palette.green,
       yellow = palette.yellow,
       inactive = palette.fg_dark,
-      strong = palette.fg,
+      strong = palette.cyan,
     },
     gitsigns = {
       add_fg = palette.green,

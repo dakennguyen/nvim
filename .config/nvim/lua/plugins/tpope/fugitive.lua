@@ -21,25 +21,13 @@ return {
       silent = true,
       desc = "Git log range",
     },
-    { "<leader>gd", ":Gdiffsplit<CR>", desc = "Git diff" },
+    { "<leader>gd", ":Gdiffsplit", desc = "Git diff" },
     { "<leader>gz", ":botright Gclog! -g stash | copen<CR>", silent = true, desc = "Git stash" },
     { mode = { "n", "v" }, "<leader>gx", ":GBrowse<CR>", silent = true, desc = "Git Browse" },
-    { "<space>gg", [[<cmd>tab Git log -n 5000 --oneline --date=short --pretty=format:"%h%d %s (%an)"<cr>]] },
+    { "<space>gg", [[<cmd>Git log -n 5000 --oneline --date=short --pretty=format:"%h %ad -%d %s (%an)"<cr>]] },
 
     -- vimdiff
-    { "<leader>gh", ":diffget //2 | diffupdate<cr>" },
-    { "<leader>gl", ":diffget //3 | diffupdate<cr>" },
-    { mode = "", "<leader>gj", ":diffput | diffupdate<cr>" },
-    { mode = "", "<leader>go", ":diffget | diffupdate<cr>" },
+    { mode = "", "<leader>dp", ":diffput<cr>" },
+    { mode = "", "<leader>do", ":diffget<cr>" },
   },
-  config = function()
-    -- vim.api.nvim_create_user_command("Browse", function(opts)
-    --   vim.fn.system { "open", opts.fargs[1] }
-    -- end, { nargs = 1 })
-
-    vim.opt.diffopt:append { "vertical" }
-
-    -- luacheck: ignore 631
-    -- vim.cmd[[autocmd User Fugitive command! -buffer -nargs=? -complete=customlist,fugitive#CompleteObject Gu Git branch -u <args>]]
-  end,
 }

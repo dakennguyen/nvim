@@ -15,16 +15,34 @@ _G.augroup("LargeFile", {
 
 _G.augroup("Notifier", {
   event = "LspProgress",
+  pattern = { "begin", "end" },
   callback = function(ev)
-    local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-    vim.notify(vim.lsp.status(), "info", {
-      id = "lsp_progress",
-      title = "LSP Progress",
-      opts = function(notif)
-        notif.icon = ev.data.params.value.kind == "end" and require("icons").misc.tick
-          or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
-      end,
-    })
+    if ev.data.params.value.kind == "begin" then
+      _G.lsp_progressing = true
+    elseif ev.data.params.value.kind == "end" then
+      _G.lsp_progressing = false
+      vim.notify(ev.data.params.value.title, "info", {
+        id = "lsp_progress",
+        title = "LSP Progress",
+        icon = require("icons").misc.tick,
+      })
+    end
+  end,
+})
+
+_G.augroup("t_obsession", {
+  event = "VimEnter",
+  pattern = "*",
+  nested = true,
+  callback = function()
+    if
+      vim.fn.argc() == 0
+      and vim.v.this_session == ""
+      and not vim.bo.modified
+      and vim.fn.filereadable "Session.vim" == 1
+    then
+      vim.cmd "source Session.vim"
+    end
   end,
 })
 
@@ -33,3 +51,15 @@ vim.filetype.add {
     ["http"] = "http",
   },
 }
+
+vim.api.nvim_create_user_command("R", function(opts)
+  local result = vim.api.nvim_exec2(opts.args, { output = true })
+  local lines = vim.split(result.output, "\n")
+
+  vim.cmd "vnew"
+  local buf = vim.api.nvim_get_current_buf()
+  vim.api.nvim_set_option_value("buftype", "nofile", { buf = buf })
+  vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = buf })
+  vim.api.nvim_set_option_value("swapfile", false, { buf = buf })
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+end, { nargs = 1, complete = "command", bar = true, range = true })
