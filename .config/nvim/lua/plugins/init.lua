@@ -39,9 +39,6 @@ return {
   require "plugins.lua.flash",
   require "plugins.lua.harpoon",
 
-  -- Group: Git
-  require "plugins.lua.gitsigns",
-
   -- Group: Miscellaneous
   require "plugins.lua.colorizer",
   require "plugins.lua.kulala",
