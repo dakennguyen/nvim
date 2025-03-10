@@ -27,3 +27,9 @@ _G.augroup("Notifier", {
     })
   end,
 })
+
+vim.filetype.add {
+  extension = {
+    ["http"] = "http",
+  },
+}
