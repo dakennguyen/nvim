@@ -24,7 +24,7 @@ return {
     { "<leader>gd", ":Gdiffsplit<CR>", desc = "Git diff" },
     { "<leader>gz", ":botright Gclog! -g stash | copen<CR>", silent = true, desc = "Git stash" },
     { mode = { "n", "v" }, "<leader>gx", ":GBrowse<CR>", silent = true, desc = "Git Browse" },
-    { "<space>gg", [[<cmd>tab Git log -n 5000 --oneline --date=short --pretty=format:"%h%d %s (%an)"<cr>]] },
+    { "<space>gg", [[<cmd>Git log -n 5000 --oneline --date=short --pretty=format:"%h%d %s (%an)"<cr>]] },
 
     -- vimdiff
     { "<leader>gh", ":diffget //2 | diffupdate<cr>" },
