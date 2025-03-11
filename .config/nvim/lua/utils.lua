@@ -27,6 +27,13 @@ end
 
 -- Does: quit and focus on previous buffer
 M.smart_quit = function()
+  for _, win in pairs(vim.api.nvim_list_wins()) do
+    if vim.api.nvim_win_get_config(win).relative ~= "" then
+      vim.api.nvim_win_close(win, true)
+      return
+    end
+  end
+
   if vim.bo.filetype == "fugitiveblame" then
     vim.cmd "norm gq"
   elseif vim.bo.filetype == "qf" then
