@@ -44,6 +44,6 @@ return {
 
   -- Group: Miscellaneous
   require "plugins.lua.colorizer",
-  require "plugins.lua.rest",
+  require "plugins.lua.kulala",
   require "plugins.lua.snacks",
 }
