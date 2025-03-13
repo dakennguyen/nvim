@@ -1,5 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
+  tag = "v1.0.1",
   dependencies = "nvim-lua/plenary.nvim",
   init = _G.lazy_load "gitsigns.nvim",
   opts = {
