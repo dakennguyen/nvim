@@ -1,5 +1,5 @@
 return {
   "jpalardy/vim-slime",
   lazy = false,
-  init = function() vim.g.slime_target = "neovim" end,
+  init = function() vim.g.slime_target = "tmux" end,
 }
