@@ -56,6 +56,7 @@ return {
     { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
   },
   opts = {
+    input = { enabled = true },
     sratch = { enabled = true },
     statuscolumn = { enabled = true },
     notifier = { enabled = true },

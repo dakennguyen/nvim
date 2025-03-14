@@ -16,12 +16,30 @@ return {
     { "<leader>d.", function() require("dap").run_to_cursor() end },
     { "<leader>dr", function() require("dap").repl.toggle() end },
     { mode = { "n", "v" }, "<leader>dh", function() require("dap.ui.widgets").hover() end },
+    -- { mode = { "n", "v" }, "<leader>dp", function(expr) require("dap.ui.widgets").preview(expr, { listener = { "scopes" } }) end },
     {
       mode = { "n", "v" },
       "<Leader>de",
-      function()
+      function(expr)
+        local value = require("utils").eval_expression(expr)
         local widgets = require "dap.ui.widgets"
-        widgets.sidebar(widgets.expression, {}, "vsplit").open()
+        local view = widgets.sidebar(widgets.expression, {}, "vsplit")
+        view.open(value)
+        view.__expression = value
+      end,
+    },
+    {
+      "<Leader>dE",
+      function()
+        vim.ui.input({ prompt = "Expression: " }, function(expr)
+          if expr then
+            local value = require("utils").eval_expression(expr)
+            local widgets = require "dap.ui.widgets"
+            local view = widgets.sidebar(widgets.expression, {}, "vsplit")
+            view.open(value)
+            view.__expression = value
+          end
+        end)
       end,
     },
     "<leader>ds",
