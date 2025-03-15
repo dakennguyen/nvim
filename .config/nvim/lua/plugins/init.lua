@@ -23,7 +23,6 @@ return {
   require "plugins.vimscript.copilot",
 
   -- Group: Framework support
-  require "plugins.vimscript.test",
   require "plugins.lua.dap",
 
   -- Group: Editing support
