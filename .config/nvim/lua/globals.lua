@@ -11,30 +11,6 @@ local buf_map = function(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
-local open_file_command = function(cmd_char, files)
-  local assign = function(file)
-    if vim.fn.filereadable(file) == 1 then
-      vim.cmd(string.format("command! %so edit %s", cmd_char, file))
-      vim.cmd(string.format("command! %ss split %s", cmd_char, file))
-      vim.cmd(string.format("command! %sv vsplit %s", cmd_char, file))
-      vim.cmd(string.format("command! %st tabedit %s", cmd_char, file))
-
-      return true
-    end
-
-    return false
-  end
-
-  if type(files) == "string" then
-    assign(files)
-    return
-  end
-
-  for _, file in ipairs(files) do
-    if assign(file) then return end
-  end
-end
-
 local augroup = function(name, commands)
   local id = vim.api.nvim_create_augroup(name, { clear = true })
 
@@ -118,7 +94,6 @@ end
 _G.map = map
 _G.buf_map = buf_map
 _G.lazy_load = lazy_load
-_G.open_file_command = open_file_command
 _G.augroup = augroup
 _G.highlight = highlight
 _G.fold_text = fold_text
