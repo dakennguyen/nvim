@@ -4,6 +4,9 @@ return {
   keys = {
     { "<leader>C", ":Copen<cr>", silent = true },
     { "<space>C", ":Copen!<cr>", silent = true },
+    { "t<c-n>", "mT:.Dispatch<cr>" },
+    { "t<c-l>", ":Copen|Dispatch<cr>" },
+    { "t<c-g>", "'T" },
   },
   config = function()
     vim.g["dispatch_no_tmux_start"] = true
