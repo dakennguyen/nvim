@@ -1,3 +1,5 @@
+local icons = require "icons"
+
 -- luacheck: globals Snacks
 return {
   "folke/snacks.nvim",
@@ -102,30 +104,30 @@ return {
       enabled = true,
       preset = {
         keys = {
-          { icon = "", key = "g", desc = "Git status", action = ":tab G | tabonly" },
+          { icon = icons.misc.git_branch, key = "g", desc = "Git status", action = ":tab G | tabonly" },
           {
-            icon = " ",
+            icon = icons.misc.search,
             key = "f",
             desc = "Find File",
             action = ":lua Snacks.dashboard.pick('files', { hidden = true })",
           },
-          { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+          { icon = icons.symbol_kinds.File, key = "n", desc = "New File", action = ":ene | startinsert" },
           {
-            icon = " ",
+            icon = icons.symbol_kinds.Folder,
             key = "e",
             desc = "Explorer",
             action = ":lua Snacks.dashboard.pick('explorer', { hidden = true })",
           },
-          { icon = " ", key = "s", desc = "Restore Session", action = require("utils").load_session },
-          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          { icon = icons.misc.refresh, key = "s", desc = "Restore Session", action = require("utils").load_session },
+          { icon = icons.misc.sign_out, key = "q", desc = "Quit", action = ":qa" },
         },
       },
       sections = {
         { section = "header" },
-        { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-        { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+        { icon = icons.misc.keyboard, title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+        { icon = icons.symbol_kinds.File, title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
         {
-          icon = " ",
+          icon = icons.misc.project,
           title = "Projects",
           section = "projects",
           indent = 2,

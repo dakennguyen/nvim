@@ -10,33 +10,7 @@ return {
   event = "InsertEnter",
   opts = function()
     local cmp = require "cmp"
-    local kind_icons = {
-      Text = "",
-      Method = "",
-      Function = "",
-      Constructor = "",
-      Field = "",
-      Variable = "",
-      Class = "",
-      Interface = "ﰮ",
-      Module = "",
-      Property = "",
-      Unit = "",
-      Value = "",
-      Enum = "了",
-      Keyword = "",
-      Snippet = "",
-      Color = "",
-      File = "",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "",
-      Event = "",
-      Operator = "",
-      TypeParameter = "",
-    }
+    local kind_icons = require("icons").symbol_kinds
 
     local select_next_item = function(fallback)
       if cmp.visible() then

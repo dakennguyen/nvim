@@ -5,6 +5,7 @@ return {
     { "<leader>rn", ":LualineRenameTab " },
   },
   opts = function()
+    local icons = require "icons"
     local colors = require("themes").colors().lualine
     if not colors then
       local utils = require "utils"
@@ -68,14 +69,14 @@ return {
         lualine_b = {
           {
             "branch",
-            icon = "",
+            icon = icons.misc.git_branch,
             cond = conditions.check_git_workspace,
           },
         },
         lualine_c = {
           {
             "diff",
-            symbols = { added = " ", modified = " ", removed = " " },
+            symbols = icons.git_signs,
             cond = conditions.hide_in_width,
           },
         },
@@ -83,7 +84,7 @@ return {
           {
             "diagnostics",
             sources = { "nvim_diagnostic" },
-            symbols = { error = " ", warn = " ", info = " ", hint = " " },
+            symbols = icons.diagnostics,
           },
           { "filename", path = 1 },
         },
@@ -92,7 +93,7 @@ return {
           { "progress" },
         },
         lualine_z = {
-          { "location", icon = "", separator = { right = "" }, left_padding = 2 },
+          { "location", icon = icons.misc.custom_default, separator = { right = "" }, left_padding = 2 },
         },
       },
       inactive_sections = {
@@ -107,7 +108,7 @@ return {
           { "progress" },
         },
         lualine_z = {
-          { "location", icon = "", separator = { right = "" }, left_padding = 2 },
+          { "location", icon = icons.misc.custom_default, separator = { right = "" }, left_padding = 2 },
         },
       },
       tabline = {
@@ -186,12 +187,12 @@ return {
           },
           {
             "branch",
-            icon = "",
+            icon = icons.misc.git_branch,
             cond = conditions.check_git_workspace,
           },
           {
             "diff",
-            symbols = { added = " ", modified = " ", removed = " " },
+            symbols = icons.git_signs,
             diff_color = {
               added = { fg = colors.op },
               modified = { fg = colors.yellow },
@@ -230,7 +231,7 @@ return {
           {
             "diagnostics",
             sources = { "nvim_diagnostic" },
-            symbols = { error = " ", warn = " ", info = " ", hint = " " },
+            symbols = icons.diagnostics,
           },
         },
         lualine_x = {
