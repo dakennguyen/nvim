@@ -1,10 +1,10 @@
 {
   "log": {
-    "prefix": ["log"],
+    "prefix": "log",
     "body": "p [\"DEBUG\", \"${1:$TM_SELECTED_TEXT}\", ${1:$TM_SELECTED_TEXT}]"
   },
   "class": {
-    "prefix": ["class"],
+    "prefix": "class",
     "body": [
       "# frozen_string_literal: true",
       "",
@@ -14,7 +14,7 @@
     ]
   },
   "test": {
-    "prefix": ["test"],
+    "prefix": "test",
     "body": [
       "# frozen_string_literal: true",
       "",
@@ -26,7 +26,7 @@
     ]
   },
   "benchmark": {
-    "prefix": ["benchmark"],
+    "prefix": "benchmark",
     "body": [
       "require 'benchmark/ips' # gem 'benchmark-ips'",
       "",

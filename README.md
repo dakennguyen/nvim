@@ -7,7 +7,6 @@ Install [stow](https://www.gnu.org/software/stow/), then run:
 ## Manually
 
     ln -s ~/.dotfiles/nvim/.config/nvim ~/.config/nvim
-    ln -s ~/.dotfiles/nvim/.vsnip ~/.vsnip
 
 # Setup
 Export env variables
