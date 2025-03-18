@@ -19,7 +19,6 @@ return {
 
   -- Group: Completion
   require "plugins.lua.cmp",
-  require "plugins.vimscript.vsnip",
   require "plugins.vimscript.copilot",
 
   -- Group: Framework support

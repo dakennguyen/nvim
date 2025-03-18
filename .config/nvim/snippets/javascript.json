@@ -1,10 +1,10 @@
 {
   "log": {
-    "prefix": ["log"],
+    "prefix": "log",
     "body": "console.log(\"DEBUG\", \"${1:$TM_SELECTED_TEXT}\", ${1:$TM_SELECTED_TEXT});"
   },
   "class": {
-    "prefix": ["class"],
+    "prefix": "class",
     "body": [
       "import React from \"react\";",
       "",
