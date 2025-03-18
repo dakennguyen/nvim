@@ -4,7 +4,6 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
-    "hrsh7th/cmp-vsnip",
     require "plugins.tpope.dadbod",
   },
   event = "InsertEnter",
@@ -15,6 +14,8 @@ return {
     local select_next_item = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif vim.snippet.active { direction = 1 } then
+        vim.cmd "lua vim.snippet.jump(1)"
       else
         fallback()
       end
@@ -27,7 +28,7 @@ return {
     return {
       snippet = {
         -- REQUIRED - you must specify a snippet engine
-        expand = function(args) vim.fn["vsnip#anonymous"](args.body) end,
+        expand = function(args) vim.snippet.expand(args.body) end,
       },
       formatting = {
         format = function(entry, vim_item)
@@ -53,20 +54,21 @@ return {
         { name = "nvim_lsp" },
         { name = "buffer" },
         { name = "path" },
-        { name = "vsnip" },
+        { name = "snp" },
       },
     }
   end,
   config = function(_, opts)
     local cmp = require "cmp"
-    cmp.setup(opts)
 
+    require("snippets").register_source(cmp, "snp")
+
+    cmp.setup(opts)
     cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
       sources = {
         { name = "vim-dadbod-completion" },
         { name = "buffer" },
         { name = "path" },
-        { name = "vsnip" },
       },
     })
   end,
