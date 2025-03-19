@@ -11,6 +11,14 @@ return {
       topdelete = { text = "▔" },
       changedelete = { text = "▌" },
     },
+    signs_staged = {
+      add = { text = "" },
+      change = { text = "" },
+      delete = { text = "" },
+      topdelete = { text = "" },
+      changedelete = { text = "" },
+      untracked = { text = "" },
+    },
     signs_staged_enable = true,
     signcolumn = false,
     numhl = true,
@@ -66,6 +74,12 @@ return {
   },
   config = function(_, opts)
     require("gitsigns").setup(opts)
+
+    _G.highlight("GitSignsStagedAddNr", { link = "LineNr" })
+    _G.highlight("GitSignsStagedChangeNr", { link = "LineNr" })
+    _G.highlight("GitSignsStagedDeleteNr", { link = "LineNr" })
+    _G.highlight("GitSignsStagedTopdeleteNr", { link = "LineNr" })
+    _G.highlight("GitSignsStagedChangedeleteNr", { link = "LineNr" })
 
     local colors = require("themes").colors().gitsigns
 
