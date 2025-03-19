@@ -67,10 +67,6 @@ end)
 -- move screen
 map("n", "zZ", "zszH", { silent = true })
 
--- zoom
-map("n", "<leader>z", "<C-W>_<C-W><Bar>")
-map("t", "<leader>z", "<C-\\><C-N><C-W>_<C-W><Bar>i")
-
 -- tag
 map("n", "<c-]>]", "g<c-]>", { remap = true })
 map("n", "<c-]><c-]>", "g<c-]>", { remap = true })

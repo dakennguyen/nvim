@@ -56,6 +56,7 @@ return {
     { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
     { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
     { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
+    { "<leader>z", function() Snacks.zen.zoom() end },
   },
   opts = {
     sratch = { enabled = true },
