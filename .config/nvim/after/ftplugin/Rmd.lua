@@ -1,1 +1,2 @@
-vim.b["dispatch"] = "knit % && open %:t:r.html"
+vim.o.makeprg = "knit %"
+vim.b["dispatch"] = "open %:t:r.html"

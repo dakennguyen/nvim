@@ -1,1 +1,2 @@
-vim.b["dispatch"] = "g++ -g % -o %:r && ./%:r"
+vim.o.makeprg = "g++ -g % -o %:r"
+vim.b["dispatch"] = "./%:r"
