@@ -44,6 +44,8 @@ M.smart_quit = function()
     else
       vim.cmd "quit"
     end
+  elseif vim.bo.buftype == "nofile" then
+    vim.cmd "q"
   else
     vim.cmd "q"
     vim.cmd.wincmd "p"
