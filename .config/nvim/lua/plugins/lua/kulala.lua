@@ -1,6 +1,5 @@
 return {
-  "dakennguyen/kulala.nvim",
-  branch = "staging",
+  "mistweaverco/kulala.nvim",
   ft = { "http", "rest" },
   keys = {
     { "<space>ro", "<cmd>lua require('kulala').open()<cr>", { silent = true } },
@@ -9,5 +8,8 @@ return {
   opts = {
     global_keymaps = false,
     display_mode = "float",
+    kulala_keymaps = {
+      ["Show verbose"] = { "D", function() require("kulala.ui").show_verbose() end },
+    },
   },
 }
