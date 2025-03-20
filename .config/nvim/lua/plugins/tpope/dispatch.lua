@@ -2,12 +2,12 @@ return {
   "tpope/vim-dispatch",
   event = "VeryLazy",
   keys = {
-    { "<leader>C", ":Copen<cr>", silent = true },
-    { "<space>C", ":Copen!<cr>", silent = true },
+    { "<leader>C", "<cmd>Copen<cr>" },
+    { "<space>C", "<cmd>Copen!<cr>" },
     { mode = "v", "`<space>", ":Dispatch<space>" },
     { mode = "v", "`<cr>", ":Dispatch<cr>" },
-    { "t<c-n>", "mT:.Dispatch<cr>" },
-    { "t<c-l>", ":Copen|Dispatch<cr>" },
+    { "t<c-n>", "mT<cmd>.Dispatch<cr>" },
+    { "t<c-l>", "<cmd>Copen|Dispatch<cr>" },
     { "t<c-g>", "'T" },
   },
   config = function()

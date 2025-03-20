@@ -2,8 +2,8 @@ return {
   "tpope/vim-projectionist",
   lazy = false, -- NOTE: cannot lazy loading for `drs` command
   keys = {
-    { "<space>6", ":A<CR>", silent = true },
-    { "c<cr>", ":Console<CR>", silent = true },
+    { "<space>6", "<cmd>A<CR>" },
+    { "c<cr>", "<cmd>Console<CR>" },
     { "c<space>", ":Console " },
   },
   config = function()

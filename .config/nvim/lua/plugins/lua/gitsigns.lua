@@ -68,7 +68,7 @@ return {
       map("n", "<leader>htd", gs.toggle_deleted)
 
       -- Text object
-      map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+      map({ "o", "x" }, "ih", "<cmd>Gitsigns select_hunk<CR>")
     end,
   },
   config = function(_, opts)
