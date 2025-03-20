@@ -5,9 +5,9 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-vsnip",
-    require "plugins.tpope.dadbod",
+    "hrsh7th/cmp-cmdline",
   },
-  event = "InsertEnter",
+  event = { "InsertEnter", "CmdlineEnter" },
   opts = function()
     local cmp = require "cmp"
     local kind_icons = require("icons").symbol_kinds
@@ -68,6 +68,22 @@ return {
         { name = "path" },
         { name = "vsnip" },
       },
+    })
+
+    cmp.setup.cmdline({ "/", "?" }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" },
+      },
+    })
+
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources {
+        { name = "path" },
+        { name = "cmdline" },
+      },
+      matching = { disallow_symbol_nonprefix_matching = false },
     })
   end,
 }

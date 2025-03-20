@@ -66,7 +66,7 @@ require("lazy").setup {
   },
 }
 
-vim.keymap.set("n", "<space>ph", ":Lazy<cr>")
-vim.keymap.set("n", "<space>ps", ":Lazy sync<cr>")
-vim.keymap.set("n", "<space>pi", ":Lazy install<cr>")
-vim.keymap.set("n", "<space>pc", ":Lazy clean<cr>")
+vim.keymap.set("n", "<space>ph", "<cmd>Lazy<cr>")
+vim.keymap.set("n", "<space>ps", "<cmd>Lazy sync<cr>")
+vim.keymap.set("n", "<space>pi", "<cmd>Lazy install<cr>")
+vim.keymap.set("n", "<space>pc", "<cmd>Lazy clean<cr>")
