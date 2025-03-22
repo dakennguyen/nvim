@@ -1,5 +1,7 @@
 return {
   "jpalardy/vim-slime",
-  lazy = false,
-  init = function() vim.g.slime_target = "neovim" end,
+  init = function()
+    _G.lazy_load "vim-slime"
+    vim.g.slime_target = "neovim"
+  end,
 }

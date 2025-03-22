@@ -1,8 +1,8 @@
 return {
   "github/copilot.vim",
   cmd = "Copilot",
-  event = "VeryLazy",
   init = function()
+    _G.lazy_load "copilot.vim"
     vim.g.copilot_filetypes = {
       TelescopePrompt = false,
     }

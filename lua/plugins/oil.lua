@@ -1,6 +1,6 @@
 return {
   "stevearc/oil.nvim",
-  lazy = false, -- NOTE: cannot lazy loading for navigating with `:e`
+  event = "VeryLazy",
   keys = {
     { "-", "<cmd>Oil<cr>" },
   },
