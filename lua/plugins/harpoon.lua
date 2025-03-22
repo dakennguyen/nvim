@@ -19,21 +19,9 @@ return {
     harpoon:extend(extensions.builtins.highlight_current_file())
     harpoon:extend {
       UI_CREATE = function(cx)
-        vim.keymap.set(
-          "n",
-          "<C-v>",
-          function() harpoon.ui:select_menu_item { vsplit = true } end,
-          { buffer = cx.bufnr }
-        )
-
-        vim.keymap.set("n", "<C-s>", function() harpoon.ui:select_menu_item { split = true } end, { buffer = cx.bufnr })
-
-        vim.keymap.set(
-          "n",
-          "<C-t>",
-          function() harpoon.ui:select_menu_item { tabedit = true } end,
-          { buffer = cx.bufnr }
-        )
+        map("n", "<C-v>", function() harpoon.ui:select_menu_item { vsplit = true } end, { buffer = cx.bufnr })
+        map("n", "<C-s>", function() harpoon.ui:select_menu_item { split = true } end, { buffer = cx.bufnr })
+        map("n", "<C-t>", function() harpoon.ui:select_menu_item { tabedit = true } end, { buffer = cx.bufnr })
       end,
     }
   end,
