@@ -1,0 +1,6 @@
+{
+  "log": {
+    "prefix": "log",
+    "body": "Snacks.debug(\"${1:$TM_SELECTED_TEXT}\", ${1:$TM_SELECTED_TEXT})"
+  }
+}
