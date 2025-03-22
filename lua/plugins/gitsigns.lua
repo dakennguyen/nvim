@@ -1,6 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  tag = "v1.0.1",
+  tag = "v0.9.0",
   init = _G.lazy_load "gitsigns.nvim",
   opts = {
     signs = {
@@ -10,15 +10,6 @@ return {
       topdelete = { text = "▔" },
       changedelete = { text = "▌" },
     },
-    signs_staged = {
-      add = { text = "" },
-      change = { text = "" },
-      delete = { text = "" },
-      topdelete = { text = "" },
-      changedelete = { text = "" },
-      untracked = { text = "" },
-    },
-    signs_staged_enable = true,
     signcolumn = false,
     numhl = true,
     on_attach = function(bufnr)
@@ -34,8 +25,6 @@ return {
       map("n", "]c", function()
         if vim.wo.diff then
           vim.cmd.normal { "]c", bang = true }
-        elseif string.sub(vim.fn.expand "%", 1, 8) == "fugitive" then
-          gs.nav_hunk("next", { target = "all" })
         else
           gs.nav_hunk "next"
         end
@@ -44,8 +33,6 @@ return {
       map("n", "[c", function()
         if vim.wo.diff then
           vim.cmd.normal { "[c", bang = true }
-        elseif string.sub(vim.fn.expand "%", 1, 8) == "fugitive" then
-          gs.nav_hunk("prev", { target = "all" })
         else
           gs.nav_hunk "prev"
         end
@@ -73,12 +60,6 @@ return {
   },
   config = function(_, opts)
     require("gitsigns").setup(opts)
-
-    _G.highlight("GitSignsStagedAddNr", { link = "LineNr" })
-    _G.highlight("GitSignsStagedChangeNr", { link = "LineNr" })
-    _G.highlight("GitSignsStagedDeleteNr", { link = "LineNr" })
-    _G.highlight("GitSignsStagedTopdeleteNr", { link = "LineNr" })
-    _G.highlight("GitSignsStagedChangedeleteNr", { link = "LineNr" })
 
     local colors = require("themes").colors().gitsigns
 
