@@ -103,7 +103,15 @@ return {
       -- map("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
       map("n", "<space>ld", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
       map("n", "<space>ll", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-      map("n", "<leader>l", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+      map("n", "<leader>l", function()
+        local is_open = vim.fn.getloclist(0, { winid = 0 }).winid ~= 0
+
+        if is_open then
+          vim.cmd "lclose"
+        else
+          vim.diagnostic.setloclist()
+        end
+      end, opts)
       map("n", "<space>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
     end
 
