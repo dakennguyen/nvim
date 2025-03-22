@@ -7,7 +7,7 @@ return {
   lazy = false,
   keys = {
     { "<space>ff", function() Snacks.picker.git_files { submodules = true } end, desc = "Find Git Files" },
-    { "<space>fe", function() Snacks.picker.explorer() end, desc = "Explorer" },
+    { "<space>fe", function() Snacks.picker.explorer { include = { "*" } } end, desc = "Explorer" },
     { "<space>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<space>fo", function() Snacks.picker.recent() end, desc = "Recent" },
     { "<space>fc", function() Snacks.picker.command_history() end, desc = "Command History" },
@@ -118,7 +118,7 @@ return {
             icon = icons.symbol_kinds.Folder,
             key = "e",
             desc = "Explorer",
-            action = ":lua Snacks.dashboard.pick('explorer', { hidden = true })",
+            action = ":lua Snacks.dashboard.pick('explorer', { include = { \"*\" } })",
           },
           { icon = icons.misc.refresh, key = "s", desc = "Restore Session", action = require("utils").load_session },
           { icon = icons.misc.sign_out, key = "q", desc = "Quit", action = ":qa" },
