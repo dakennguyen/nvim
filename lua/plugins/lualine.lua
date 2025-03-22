@@ -1,6 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
+  lazy = false,
   keys = {
     { "<leader>rn", ":LualineRenameTab " },
   },
