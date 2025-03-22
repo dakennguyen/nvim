@@ -5,22 +5,14 @@ return {
     { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end },
   },
   opts = {
-    jump = {
-      autojump = true,
-    },
-    highlight = {
-      groups = {
-        label = "HopNextKey1",
-      },
-    },
     modes = {
-      search = {
-        enabled = false,
-      },
-      char = {
-        enabled = false,
-        highlight = { backdrop = false },
-      },
+      search = { enabled = false },
+      char = { enabled = false },
     },
   },
+  config = function(_, opts)
+    vim.api.nvim_set_hl(0, "FlashLabel", { bold = true })
+
+    require("flash").setup(opts)
+  end,
 }

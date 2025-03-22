@@ -31,18 +31,6 @@ local augroup = function(name, commands)
   end
 end
 
-local highlight = function(group, colors)
-  local style = colors.style and "gui=" .. colors.style or "gui=NONE"
-  local fg = colors.fg and "guifg=" .. colors.fg or "guifg=NONE"
-  local bg = colors.bg and "guibg=" .. colors.bg or "guibg=NONE"
-  local sp = colors.sp and "guisp=" .. colors.sp or ""
-
-  local hl = "highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp
-
-  vim.cmd(hl)
-  if colors.link then vim.cmd("highlight! link " .. group .. " " .. colors.link) end
-end
-
 local lazy_load = function(plugin)
   vim.api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
     group = vim.api.nvim_create_augroup("BeLazyOnFileOpen" .. plugin, {}),
@@ -95,7 +83,6 @@ _G.map = map
 _G.buf_map = buf_map
 _G.lazy_load = lazy_load
 _G.augroup = augroup
-_G.highlight = highlight
 _G.fold_text = fold_text
 _G.dev_paths = dev_paths()
 _G.lsp_progressing = false

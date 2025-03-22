@@ -12,7 +12,7 @@ function M.colors()
     style = (vim.o.background == "light") and "day" or nil,
   }
 
-  _G.highlight("CursorLineNR", { fg = palette.fg_gutter })
+  vim.api.nvim_set_hl(0, "CursorLineNR", { fg = palette.fg_gutter })
 
   return {
     lualine = {

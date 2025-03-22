@@ -25,7 +25,7 @@ o.encoding = "UTF-8"
 o.showmode = false
 
 -- Fold
-o.foldlevelstart = 5
+o.foldlevel = 99
 o.foldnestmax = 5
 o.foldmethod = "indent"
 o.foldopen:remove { "hor", "search" }

@@ -2,32 +2,38 @@ return {
   "saghen/blink.cmp",
   version = "*",
   build = "cargo build --release",
-  event = { "InsertEnter", "CmdlineEnter" },
+  event = { "InsertEnter" },
   opts = {
     keymap = {
       ["<C-u>"] = { "scroll_documentation_up", "fallback" },
       ["<C-d>"] = { "scroll_documentation_down", "fallback" },
       ["<CR>"] = { "accept", "fallback" },
       ["<C-l>"] = {
+        "show",
         function(cmp)
-          local entry = cmp.get_selected_item() or cmp.get_items()[1]
+          local entry, index = cmp.get_selected_item(), nil
+          if not entry then
+            entry, index = cmp.get_items()[1], 1
+          end
           if not entry or entry.source_name ~= "Snippets" then return end
 
           cmp.accept {
-            index = 1,
+            index = index,
             callback = function()
-              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>p", true, false, true), "n", false)
+              vim.cmd "normal! hpl"
+              vim.cmd "stopinsert"
             end,
           }
           return true
         end,
-        "fallback",
       },
       ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
       ["<S-Tab>"] = { "select_prev" },
       ["<C-n>"] = { "select_next", "show" },
       ["<C-p>"] = { "select_prev" },
+      ["<C-k>"] = { "fallback" },
     },
+    cmdline = { enabled = false },
     sources = {
       per_filetype = {
         sql = { "snippets", "dadbod", "buffer", "path" },
@@ -55,7 +61,10 @@ return {
           },
         },
       },
-      documentation = { auto_show = true },
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 50,
+      },
     },
   },
 }

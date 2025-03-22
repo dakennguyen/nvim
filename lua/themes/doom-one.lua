@@ -6,7 +6,7 @@ M.specs = {
   priority = 1000,
   config = function()
     vim.cmd "colorscheme doom-one"
-    _G.highlight("Identifier", { fg = "#FFA8FF", style = "italic" })
+    vim.api.nvim_set_hl(0, "Identifier", { fg = "#FFA8FF", italic = true })
   end,
 }
 

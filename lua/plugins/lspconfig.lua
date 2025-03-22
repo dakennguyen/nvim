@@ -51,8 +51,9 @@ return {
     }
 
     local luacheck = {
-      lintCommand = "luacheck --filename ${INPUT} --formatter plain -",
+      lintCommand = "luacheck --codes --no-color --quiet -",
       lintStdin = true,
+      lintFormats = { "%.%#:%l:%c: (%t%n) %m" },
     }
 
     local stylua = {

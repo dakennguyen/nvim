@@ -28,7 +28,8 @@ end
 -- Does: quit and focus on previous buffer
 M.smart_quit = function()
   for _, win in pairs(vim.api.nvim_list_wins()) do
-    if vim.api.nvim_win_get_config(win).relative ~= "" then
+    local win_config = vim.api.nvim_win_get_config(win)
+    if win_config.relative ~= "" and not win_config.title then
       vim.api.nvim_win_close(win, true)
       return
     end
@@ -128,6 +129,7 @@ M.toggle_loclist = function(opts)
   if is_open then
     if vim.bo.filetype == "qf" then
       vim.cmd "lclose"
+      vim.cmd.wincmd "p"
     else
       vim.cmd "lopen"
     end

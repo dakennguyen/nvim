@@ -60,12 +60,12 @@ return {
     local colors = require("themes").colors().gitsigns
 
     if colors then
-      _G.highlight("GitSignsAdd", { fg = colors.add_fg })
-      _G.highlight("GitSignsChange", { fg = colors.change_fg })
-      _G.highlight("GitSignsDelete", { fg = colors.delete_fg })
-      _G.highlight("GitSignsAddNr", { fg = colors.add_fg, bg = colors.add_bg })
-      _G.highlight("GitSignsChangeNr", { fg = colors.change_fg, bg = colors.change_bg })
-      _G.highlight("GitSignsDeleteNr", { fg = colors.delete_fg, bg = colors.delete_bg })
+      vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = colors.add_fg })
+      vim.api.nvim_set_hl(0, "GitSignsChange", { fg = colors.change_fg })
+      vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = colors.delete_fg })
+      vim.api.nvim_set_hl(0, "GitSignsAddNr", { fg = colors.add_fg, bg = colors.add_bg })
+      vim.api.nvim_set_hl(0, "GitSignsChangeNr", { fg = colors.change_fg, bg = colors.change_bg })
+      vim.api.nvim_set_hl(0, "GitSignsDeleteNr", { fg = colors.delete_fg, bg = colors.delete_bg })
     end
   end,
 }

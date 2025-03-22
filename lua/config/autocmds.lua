@@ -1,7 +1,9 @@
 _G.augroup("RemoveTrailingWhitespace", {
   event = "BufWritePre",
   pattern = "*",
-  command = ":%s/\\s\\+$//e",
+  callback = function()
+    if not vim.fn.expand("%:p"):match "^fugitive://" then vim.cmd [[%s/\s\+$//e]] end
+  end,
 })
 
 _G.augroup("LargeFile", {
@@ -9,7 +11,10 @@ _G.augroup("LargeFile", {
   callback = function()
     local file = vim.fn.expand "%:p"
     local ok, size = pcall(vim.fn.getfsize, file)
-    if not ok or size > 1024 * 1024 then vim.opt.foldmethod = "indent" end
+    if not ok or size > 1024 * 1024 then
+      local win = vim.api.nvim_get_current_win()
+      vim.wo[win][0].foldmethod = "indent"
+    end
   end,
 })
 
@@ -21,7 +26,7 @@ _G.augroup("Notifier", {
       _G.lsp_progressing = true
     elseif ev.data.params.value.kind == "end" then
       _G.lsp_progressing = false
-      vim.notify(ev.data.params.value.title, "info", {
+      vim.notify(ev.data.params.value.title, vim.log.levels.INFO, {
         id = "lsp_progress",
         title = "LSP Progress",
         icon = require("icons").misc.tick,

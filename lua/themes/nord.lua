@@ -9,18 +9,18 @@ M.specs = {
     vim.g.nord_italic = true
     require("nord").set()
 
-    -- _G.highlight("Folded", { fg = "#4C566A", bg = "NONE", style = "italic" })
-    -- _G.highlight("Search", { fg = "white", bg = "NONE", style = "underline,bold" })
+    -- vim.api.nvim_set_hl(0, "Folded", { fg = "#4C566A", bg = "NONE", italic = true })
+    -- vim.api.nvim_set_hl(0, "Search", { fg = "white", bg = "NONE", underline = true, bold = true })
 
-    -- _G.highlight("DiffAdd", { fg = "NONE", bg = "#324125", style = "NONE" })
-    -- _G.highlight("DiffChange", { fg = "NONE", bg = "#334963", style = "NONE" })
-    -- _G.highlight("DiffDelete", { fg = "NONE", bg = "#BF616A", style = "NONE" })
-    -- _G.highlight("DiffText", { fg = "NONE", bg = "#446285", style = "NONE" })
+    -- vim.api.nvim_set_hl(0, "DiffAdd", { fg = "NONE", bg = "#324125" })
+    -- vim.api.nvim_set_hl(0, "DiffChange", { fg = "NONE", bg = "#334963" })
+    -- vim.api.nvim_set_hl(0, "DiffDelete", { fg = "NONE", bg = "#BF616A" })
+    -- vim.api.nvim_set_hl(0, "DiffText", { fg = "NONE", bg = "#446285" })
 
-    _G.highlight("DiagnosticWarn", { fg = "#EBCB8B" })
-    _G.highlight("DiagnosticVirtualTextWarn", { fg = "#EBCB8B" })
-    _G.highlight("DiagnosticSignWarn", { fg = "#EBCB8B" })
-    _G.highlight("DiagnosticFloatingWarn", { fg = "#EBCB8B" })
+    vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = "#EBCB8B" })
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { fg = "#EBCB8B" })
+    vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = "#EBCB8B" })
+    vim.api.nvim_set_hl(0, "DiagnosticFloatingWarn", { fg = "#EBCB8B" })
   end,
 }
 

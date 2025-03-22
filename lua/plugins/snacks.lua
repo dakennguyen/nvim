@@ -6,7 +6,7 @@ return {
   priority = 1000,
   lazy = false,
   keys = {
-    { "<space>ff", function() Snacks.picker.git_files { submodules = true } end, desc = "Find Git Files" },
+    { "<space>ff", function() Snacks.picker.files() end, desc = "Find Files" },
     { "<space>fe", function() Snacks.picker.explorer() end, desc = "Explorer" },
     { "<space>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<space>fo", function() Snacks.picker.recent() end, desc = "Recent" },
@@ -31,7 +31,7 @@ return {
     { "\\", ":Sgrep ", desc = "Grep" },
     {
       "<space>fv",
-      function() Snacks.picker.files { cwd = "~/.dotfiles", hidden = true } end,
+      function() Snacks.picker.files { cwd = "~/.dotfiles" } end,
       desc = "Find Config File",
     },
     {
@@ -67,7 +67,20 @@ return {
     scope = { enabled = true },
     picker = {
       enabled = true,
-      hidden = true,
+      sources = {
+        files = { hidden = true, layout = "ivy" },
+        projects = { layout = "select" },
+        explorer = {
+          include = { "*" },
+          win = {
+            list = {
+              keys = {
+                ["L"] = { { "pick_win", "jump" }, mode = { "n", "i" } },
+              },
+            },
+          },
+        },
+      },
       formatters = {
         file = { truncate = 80 },
       },
@@ -86,7 +99,6 @@ return {
           end
           Snacks.picker("files", {
             cwd = Snacks.picker.util.dir(item),
-            hidden = true,
             on_show = function() picker:close() end,
           })
         end,
@@ -111,14 +123,14 @@ return {
             icon = icons.misc.search,
             key = "f",
             desc = "Find File",
-            action = ":lua Snacks.dashboard.pick('files', { hidden = true })",
+            action = ":lua Snacks.dashboard.pick('files')",
           },
           { icon = icons.symbol_kinds.File, key = "n", desc = "New File", action = ":ene | startinsert" },
           {
             icon = icons.symbol_kinds.Folder,
             key = "e",
             desc = "Explorer",
-            action = ":lua Snacks.dashboard.pick('explorer', { hidden = true })",
+            action = ":lua Snacks.dashboard.pick('explorer')",
           },
           { icon = icons.misc.refresh, key = "s", desc = "Restore Session", action = require("utils").load_session },
           { icon = icons.misc.sign_out, key = "q", desc = "Quit", action = ":qa" },
@@ -144,7 +156,12 @@ return {
     },
   },
   config = function(_, opts)
-    vim.cmd [[command! -nargs=? Sgrep lua Snacks.picker.grep_word({ search = <q-args> })]]
+    vim.api.nvim_create_user_command(
+      "Sgrep",
+      function(o) Snacks.picker.grep_word { search = o.args } end,
+      { nargs = "?" }
+    )
+
     require("snacks").setup(opts)
   end,
 }
