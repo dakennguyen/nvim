@@ -4,7 +4,11 @@ M.specs = {
   "folke/tokyonight.nvim",
   lazy = false,
   priority = 1000,
-  config = function() vim.cmd "colorscheme tokyonight" end,
+  opts = { transparent = true },
+  config = function(_, opts)
+    require("tokyonight").setup(opts)
+    vim.cmd "colorscheme tokyonight"
+  end,
 }
 
 function M.colors()
@@ -17,7 +21,7 @@ function M.colors()
   return {
     lualine = {
       default_fg = palette.fg,
-      default_bg = palette.bg,
+      default_bg = nil,
       light = palette.fg_dark,
       visual = palette.orange,
       insert = palette.blue,
