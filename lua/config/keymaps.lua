@@ -133,5 +133,5 @@ map("n", "<leader>fyl", [[:let @+=expand("%").":".line(".") | echo @+<CR>]], { s
 -- open files
 map("n", "<space>gn", ":vert botright 80 new $CLOUD/Notes<CR>", { silent = true })
 map("n", "<space>gs", ":botright 20 new $CLOUD/Notes/scratch.md<CR>", { silent = true })
-map("n", "<space>gt", ":botright 10 new $CLOUD/Notes/todo.md<CR>", { silent = true })
+map("n", "<space>gt", ":botright 20 new $CLOUD/Notes/todo.md<CR>", { silent = true })
 map("n", "<space>gh", ":vnew local.http<cr>", { silent = true })
