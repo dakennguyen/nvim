@@ -47,25 +47,8 @@ for i = string.byte "A", string.byte "z" do
 end
 
 -- quickfix and loclist
-map("n", "<leader>c", function()
-  if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
-    vim.cmd "cclose"
-  else
-    vim.cmd "botright copen"
-  end
-end, { silent = true })
-map("n", "<leader>l", function()
-  local loclist = vim.fn.getloclist(0)
-  local is_open = vim.fn.getloclist(0, { winid = 0 }).winid ~= 0
-
-  if is_open then
-    vim.cmd "lclose"
-  elseif #loclist > 0 then
-    vim.cmd "lopen"
-  else
-    vim.notify("E776: No location list", vim.log.levels.ERROR)
-  end
-end, { silent = true })
+map("n", "<leader>c", utils.toggle_quickfix, { silent = true })
+map("n", "<leader>l", utils.toggle_loclist, { silent = true })
 
 -- fold
 map("n", "zV", ":normal zMzvzz<CR>", { silent = true })

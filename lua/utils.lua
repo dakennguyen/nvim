@@ -108,4 +108,36 @@ M.eval_expression = function(expr)
   end
 end
 
+M.toggle_quickfix = function()
+  if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
+    if vim.bo.filetype == "qf" then
+      vim.cmd "cclose"
+      vim.cmd.wincmd "p"
+    else
+      vim.cmd "botright copen"
+    end
+  else
+    vim.cmd "botright copen"
+  end
+end
+
+M.toggle_loclist = function(opts)
+  local loclist = vim.fn.getloclist(0)
+  local is_open = vim.fn.getloclist(0, { winid = 0 }).winid ~= 0
+
+  if is_open then
+    if vim.bo.filetype == "qf" then
+      vim.cmd "lclose"
+    else
+      vim.cmd "lopen"
+    end
+  elseif opts and opts.setloclist then
+    vim.diagnostic.setloclist()
+  elseif #loclist > 0 then
+    vim.cmd "lopen"
+  else
+    vim.notify("E776: No location list", vim.log.levels.ERROR)
+  end
+end
+
 return M
