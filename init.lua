@@ -6,6 +6,9 @@ require "config.options"
 require "config.keymaps"
 require "config.autocmds"
 require "config.lazy"
+require "config.statusline"
+require "config.winbar"
+require "config.tabline"
 
 vim.notify(vim.fn.printf("Loaded in %.0fms", vim.fn.reltimefloat(vim.fn.reltime(start_time)) * 1000))
 

@@ -43,19 +43,6 @@ function M.colors()
   local onenord = require("onenord.colors").load()
 
   return {
-    lualine = {
-      default_fg = onenord.cyan,
-      default_bg = onenord.bg,
-      light = onenord.light,
-      visual = onenord.orange,
-      insert = onenord.dark_blue,
-      replace = onenord.dark_red,
-      command = onenord.light_purple,
-      op = onenord.green,
-      yellow = onenord.yellow,
-      inactive = onenord.light_gray,
-      strong = onenord.strong,
-    },
     gitsigns = {
       add_fg = onenord.diff_add,
       add_bg = onenord.diff_add_bg,
