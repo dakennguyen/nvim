@@ -23,15 +23,20 @@ _G.augroup("Notifier", {
   pattern = { "begin", "end" },
   callback = function(ev)
     if ev.data.params.value.kind == "begin" then
-      _G.lsp_progressing = true
+      _G.progress_status = {
+        client = vim.lsp.get_client_by_id(ev.data.client_id).name,
+        title = ev.data.params.value.title,
+      }
     elseif ev.data.params.value.kind == "end" then
-      _G.lsp_progressing = false
+      _G.progress_status.title = nil
       vim.notify(ev.data.params.value.title, vim.log.levels.INFO, {
         id = "lsp_progress",
         title = "LSP Progress",
         icon = require("icons").misc.tick,
       })
     end
+
+    vim.cmd.redrawstatus()
   end,
 })
 

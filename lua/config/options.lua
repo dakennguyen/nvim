@@ -16,13 +16,10 @@ o.mouse = "a"
 o.wildmenu = true
 o.wildmode = { "list:longest", "list:full" }
 o.diffopt:append { "context:99999" }
+o.encoding = "UTF-8"
 
 -- buffer
 -- o.switchbuf:append { "useopen" }
-
--- Theme
-o.encoding = "UTF-8"
-o.showmode = false
 
 -- Fold
 o.foldlevel = 99

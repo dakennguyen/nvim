@@ -1,16 +1,16 @@
 local M = {}
 
 M.diagnostics = {
-  Error = " ",
-  Warn = " ",
-  Hint = " ",
-  Info = " ",
+  Error = "",
+  Warn = "",
+  Hint = "󰌵",
+  Info = "",
 }
 
 M.git_signs = {
-  added = " ",
-  modified = " ",
-  removed = " ",
+  added = "",
+  modified = "",
+  removed = "",
 }
 
 M.symbol_kinds = {
@@ -46,7 +46,9 @@ M.misc = {
   home = "",
   config = "",
   project = "",
+  git = "󰊢",
   git_branch = "󰘬",
+  bug = "",
   tick = "",
   search = "",
   keyboard = "",

@@ -15,19 +15,6 @@ function M.colors()
   vim.api.nvim_set_hl(0, "CursorLineNR", { fg = palette.fg_gutter })
 
   return {
-    lualine = {
-      default_fg = palette.fg,
-      default_bg = palette.bg,
-      light = palette.fg_dark,
-      visual = palette.orange,
-      insert = palette.blue,
-      replace = palette.red,
-      command = palette.magenta,
-      op = palette.green,
-      yellow = palette.yellow,
-      inactive = palette.fg_dark,
-      strong = palette.cyan,
-    },
     gitsigns = {
       add_fg = palette.green,
       change_fg = palette.blue,

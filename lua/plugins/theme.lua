@@ -1,4 +1,4 @@
 return {
   require("themes").specs,
-  "nvim-tree/nvim-web-devicons",
+  { "echasnovski/mini.icons", lazy = false, opts = {} },
 }
