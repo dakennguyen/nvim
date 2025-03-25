@@ -48,19 +48,6 @@ function M.colors()
   end
 
   return {
-    lualine = {
-      default_fg = palette.cyan.dim,
-      default_bg = palette.bg1,
-      light = palette.light,
-      visual = palette.orange.dim,
-      insert = palette.blue.dim,
-      replace = palette.red.dim,
-      command = palette.magenta.dim,
-      op = palette.green.dim,
-      yellow = palette.yellow.dim,
-      inactive = palette.bg4,
-      strong = palette.strong,
-    },
     gitsigns = {
       add_fg = palette.diff_add,
       add_bg = palette.diff_add_bg,

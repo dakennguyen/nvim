@@ -85,4 +85,4 @@ _G.lazy_load = lazy_load
 _G.augroup = augroup
 _G.fold_text = fold_text
 _G.dev_paths = dev_paths()
-_G.lsp_progressing = false
+_G.progress_status = { client = nil, title = nil }

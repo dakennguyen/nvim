@@ -26,19 +26,6 @@ M.specs = {
 
 function M.colors()
   return {
-    lualine = {
-      default_fg = "#87C0D0",
-      default_bg = "#2E3440",
-      light = "#BBC2CF",
-      visual = "#D08770",
-      insert = "#5E81AC",
-      replace = "#BF616A",
-      command = "#B48EAD",
-      op = "#A3BE8C",
-      yellow = "#EBCB8B",
-      inactive = "#81879C",
-      strong = "#FFFFFF",
-    },
     gitsigns = {
       add_bg = "#324125",
       change_bg = "#334963",
