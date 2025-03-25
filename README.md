@@ -13,7 +13,6 @@ Export env variables
     fi
     export THEME_LIGHT=default
     export THEME_DARK=default
-    export THEME_LUALINE=bubble
     export MYBROWSER=firefox
 
     export PROJECT_PATHS=(~/.dotfiles ~/projects)

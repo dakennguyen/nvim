@@ -1,12 +1,6 @@
-vim.opt.background = os.getenv "THEME_MODE" or "light"
+local theme_mode = os.getenv "THEME_MODE" or "light"
+vim.opt.background = theme_mode
 
-local theme
-if vim.o.background == "light" then
-  theme = require("themes." .. (os.getenv "THEME_LIGHT" or "default"))
-else
-  theme = require("themes." .. (os.getenv "THEME_DARK" or "default"))
-end
+local theme_name = os.getenv(theme_mode == "light" and "THEME_LIGHT" or "THEME_DARK") or "default"
 
-theme.lualine_theme = os.getenv "THEME_LUALINE" or "bubble"
-
-return theme
+return require("themes." .. theme_name)

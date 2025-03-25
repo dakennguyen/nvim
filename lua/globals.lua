@@ -98,4 +98,4 @@ _G.augroup = augroup
 _G.highlight = highlight
 _G.fold_text = fold_text
 _G.dev_paths = dev_paths()
-_G.lsp_progressing = false
+_G.progress_status = { client = nil, title = nil }
