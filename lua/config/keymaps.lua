@@ -135,17 +135,3 @@ map("n", "<space>gn", ":vert botright 80 new $CLOUD/Notes<CR>", { silent = true 
 map("n", "<space>gs", ":botright 20 new $CLOUD/Notes/scratch.md<CR>", { silent = true })
 map("n", "<space>gt", ":botright 10 new $CLOUD/Notes/todo.md<CR>", { silent = true })
 map("n", "<space>gh", ":vnew local.http<cr>", { silent = true })
-
--- navigation
-map("n", "<left>", "<c-w>h", { silent = true })
-map("n", "<down>", "<c-w>j", { silent = true })
-map("n", "<up>", "<c-w>k", { silent = true })
-map("n", "<right>", "<c-w>l", { silent = true })
-map("n", "<c-h>", "<c-w>h", { silent = true })
-map("n", "<c-j>", "<c-w>j", { silent = true })
-map("n", "<c-k>", "<c-w>k", { silent = true })
-map("n", "<c-l>", "<c-w>l", { silent = true })
-map("t", "<c-h>", "<c-\\><c-n><c-w>h", { silent = true })
-map("t", "<c-j>", "<c-\\><c-n><c-w>j", { silent = true })
-map("t", "<c-k>", "<c-\\><c-n><c-w>k", { silent = true })
-map("t", "<c-l>", "<c-\\><c-n><c-w>l", { silent = true })
