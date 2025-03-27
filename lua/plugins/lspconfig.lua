@@ -115,6 +115,7 @@ return {
       "clangd", -- https://clangd.llvm.org/installation
       "gopls", -- go install golang.org/x/tools/gopls@latest
       "jdtls", -- https://download.eclipse.org/jdtls/snapshots/?d
+      "intelephense", -- npm install -g intelephense
       "docker_compose_language_service", -- npm install -g @microsoft/compose-language-service
       "dockerls", -- npm install -g dockerfile-language-server-nodejs
       "pyright", -- pip install pyright
