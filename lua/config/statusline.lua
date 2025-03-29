@@ -40,7 +40,7 @@ local get_or_create_hl = function(hl)
   return hl_name
 end
 
-M.mode_component = function()
+local mode_component = function()
   -- Note that: \19 = ^S and \22 = ^V.
   local mode_to_str = {
     ["n"] = "NORMAL",
@@ -101,7 +101,7 @@ M.mode_component = function()
   return string.format("%%#StatuslineMode%s#▊%s", hl, mode)
 end
 
-M.git_component = function()
+local git_component = function()
   local head = vim.b.gitsigns_head
   if not head or head == "" then return "" end
 
@@ -120,13 +120,13 @@ M.git_component = function()
   return string.format("%%#StatuslineTitle# %s %s%s%s", head, add_hl, change_hl, delete_hl)
 end
 
-M.dap_component = function()
+local dap_component = function()
   if not package.loaded["dap"] or require("dap").status() == "" then return nil end
 
   return string.format("%%#%s#%s  %s", get_or_create_hl "DapUIRestart", icons.misc.bug, require("dap").status())
 end
 
-M.lsp_progress_component = function()
+local lsp_progress_component = function()
   if not _G.progress_status.client or not _G.progress_status.title then return "" end
 
   return table.concat {
@@ -136,7 +136,7 @@ M.lsp_progress_component = function()
   }
 end
 
-M.diagnostics_component = function()
+local diagnostics_component = function()
   -- Lazy uses diagnostic icons, but those aren't errors per se.
   if vim.bo.filetype == "lazy" then return "" end
 
@@ -168,12 +168,14 @@ M.diagnostics_component = function()
   return last_diagnostic_component
 end
 
-M.filetype_component = function()
+local filetype_component = function()
   local devicons = package.loaded["nvim-web-devicons"] and require "nvim-web-devicons"
+  local mini_icons = package.loaded["mini.icons"] and require "mini.icons"
 
   local special_icons = {
-    gitcommit = { icons.misc.git, "Number" },
     gitrebase = { icons.misc.git, "Number" },
+    gitbranch = { icons.misc.git, "Number" },
+    git = { icons.misc.git, "Number" },
     fugitive = { icons.misc.git, "Number" },
     lazy = { icons.symbol_kinds.Module, "Special" },
     oil = { icons.symbol_kinds.Folder, "Directory" },
@@ -194,18 +196,20 @@ M.filetype_component = function()
     if not icon then
       icon, icon_hl = devicons.get_icon_by_filetype(filetype, { default = true })
     end
+  elseif mini_icons then
+    icon, icon_hl = mini_icons.get("file", vim.api.nvim_buf_get_name(0))
   end
   icon_hl = get_or_create_hl(icon_hl)
 
   return string.format("%%#%s#%s %%#StatuslineTitle#%s", icon_hl, icon, filetype)
 end
 
-M.encoding_component = function()
+local encoding_component = function()
   local encoding = vim.opt.fileencoding:get()
   return encoding ~= "" and string.format("%%#StatuslineInactive# %s", encoding) or ""
 end
 
-M.filesize_component = function()
+local filesize_component = function()
   local function format_file_size(file)
     local size = vim.fn.getfsize(file)
     if size <= 0 then return "" end
@@ -225,7 +229,7 @@ M.filesize_component = function()
   return string.format("%%#StatuslineInactive#%s", size)
 end
 
-M.position_component = function()
+local position_component = function()
   local line = vim.fn.line "."
   local line_count = vim.api.nvim_buf_line_count(0)
   local col = vim.fn.virtcol "."
@@ -247,18 +251,18 @@ M.render = function()
 
   return table.concat {
     concat_components {
-      M.mode_component(),
-      M.filesize_component(),
-      M.git_component(),
-      M.dap_component() or M.lsp_progress_component(),
+      mode_component(),
+      filesize_component(),
+      git_component(),
+      dap_component() or lsp_progress_component(),
     },
     "%=",
-    M.diagnostics_component(),
+    diagnostics_component(),
     "%=",
     concat_components {
-      M.filetype_component(),
-      M.encoding_component(),
-      M.position_component(),
+      filetype_component(),
+      encoding_component(),
+      position_component(),
     },
     " ",
   }
