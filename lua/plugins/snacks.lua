@@ -1,6 +1,8 @@
+-- luacheck: globals Snacks
+---@diagnostic disable: undefined-global
+
 local icons = require "icons"
 
--- luacheck: globals Snacks
 return {
   "folke/snacks.nvim",
   priority = 1000,
