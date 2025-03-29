@@ -3,6 +3,7 @@ return {
   event = "InsertEnter",
   opts = {
     ignored_next_char = "[%w%:%.]",
+    map_cr = false,
   },
   config = function(_, opts)
     local npairs = require "nvim-autopairs"

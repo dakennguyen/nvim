@@ -135,3 +135,30 @@ map("n", "<space>gn", ":vert botright 80 new $CLOUD/Notes<CR>", { silent = true 
 map("n", "<space>gs", ":botright 20 new $CLOUD/Notes/scratch.md<CR>", { silent = true })
 map("n", "<space>gt", ":botright 10 new $CLOUD/Notes/todo.md<CR>", { silent = true })
 map("n", "<space>gh", ":vnew local.http<cr>", { silent = true })
+
+-- completion with autopairs
+map("i", "<c-n>", function()
+  if vim.fn.pumvisible() == 1 then
+    return "<c-n>"
+  else
+    return "<Cmd>lua vim.lsp.completion.get()<CR>"
+  end
+end, { expr = true, silent = true })
+map("i", "<Tab>", function()
+  if vim.fn.pumvisible() == 1 then
+    return "<c-n>"
+  elseif vim.snippet.active { direction = 1 } then
+    return "<Cmd>lua vim.snippet.jump(1)<CR>"
+  else
+    return "<Tab>"
+  end
+end, { expr = true, silent = true })
+map("i", "<S-Tab>", "pumvisible() ? '<C-p>' : '<S-Tab>'", { expr = true, silent = true })
+map("i", "<CR>", function()
+  local npairs = require "nvim-autopairs"
+  if vim.fn.pumvisible() ~= 0 then
+    return npairs.esc "<c-y>"
+  else
+    return npairs.completion_confirm()
+  end
+end, { expr = true, silent = true, replace_keycodes = false })
