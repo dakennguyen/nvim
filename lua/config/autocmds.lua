@@ -73,3 +73,22 @@ vim.api.nvim_create_user_command("R", function(opts)
   vim.api.nvim_set_option_value("swapfile", false, { buf = buf })
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
 end, { nargs = 1, complete = "command", bar = true, range = true })
+
+-- Snippet section
+local paths = {
+  vim.fn.stdpath "config" .. "/snippets/_package.json",
+}
+local descs = { "USR" }
+local sn_group = vim.api.nvim_create_augroup("SnippetServer", { clear = true })
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+  group = sn_group,
+  once = true,
+  callback = function()
+    require("snippet").snippet_handler(paths, vim.bo.filetype, descs)
+    vim.api.nvim_create_autocmd({ "BufEnter" }, {
+      group = sn_group,
+      callback = function() require("snippet").snippet_handler(paths, vim.bo.filetype, descs) end,
+      desc = "Handle LSP for buffer changes",
+    })
+  end,
+})
