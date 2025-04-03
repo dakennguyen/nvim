@@ -10,9 +10,20 @@ return {
     vim.g.projectionist_heuristics = {
       [".git/"] = {
         ["local.http"] = { type = "http" },
+        ["doc/*.md"] = { type = "doc" },
         ["docs/*.md"] = { type = "doc" },
         ["README.md"] = { type = "readme" },
-        [".projections.json"] = { type = "project" },
+        [".projections.json"] = {
+          type = "project",
+          template = {
+            "{",
+            '  "*": {',
+            '    "make": "",',
+            '    "dispatch": ""',
+            "  }",
+            "}",
+          },
+        },
         ["Gemfile"] = { alternate = "Gemfile.lock", type = "gem" },
         ["Gemfile.lock"] = { alternate = "Gemfile" },
         ["composer.json"] = { alternate = "composer.lock", type = "composer" },
