@@ -62,7 +62,6 @@ return {
   },
   opts = {
     input = { enabled = true },
-    sratch = { enabled = true },
     statuscolumn = { enabled = true },
     notifier = { enabled = true },
     image = { enabled = true },

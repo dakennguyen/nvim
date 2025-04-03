@@ -2,7 +2,7 @@ return {
   "Wansmer/treesj",
   dependencies = { "nvim-treesitter/nvim-treesitter" },
   keys = {
-    { "<leader><leader>", "<cmd>TSJToggle<cr>" },
+    { "<space><space>", "<cmd>TSJToggle<cr>" },
     { "gS", "<cmd>TSJSplit<cr>" },
     { "gJ", "<cmd>TSJJoin<cr>" },
   },

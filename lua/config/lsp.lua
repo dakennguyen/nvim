@@ -1,17 +1,8 @@
 -- Preference
 -- ======================================
-local signs = require("icons").diagnostics
-
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
-
 vim.diagnostic.config {
-  virtual_text = false,
+  virtual_lines = { current_line = true },
   signs = false,
-  underline = true,
-  update_in_insert = false,
 }
 
 -- Servers config
