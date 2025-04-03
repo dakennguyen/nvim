@@ -7,7 +7,11 @@ return {
   opts = {
     modes = {
       search = { enabled = false },
-      char = { enabled = false },
+      char = {
+        enabled = true,
+        highlight = { backdrop = false, matches = false },
+        multi_line = false,
+      },
     },
   },
   config = function(_, opts)

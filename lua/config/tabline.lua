@@ -1,6 +1,12 @@
 vim.o.showtabline = 2
 
 local icons = require "icons"
+local utils = require "utils"
+
+local bg = utils.get_hl("Normal").bg
+vim.api.nvim_set_hl(0, "TabLine", { bg = bg })
+vim.api.nvim_set_hl(0, "TabLineSel", { bg = bg, bold = true })
+vim.api.nvim_set_hl(0, "TabLineFill", { bg = bg, underline = true })
 
 local M = {}
 
