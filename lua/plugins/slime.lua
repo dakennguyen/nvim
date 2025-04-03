@@ -8,10 +8,10 @@ return {
     }
   end,
   keys = {
-    "<c-c><c-c>",
+    { mode = { "n", "v" }, "<c-c><c-c>" },
     "<c-c>v",
     { "<c-c><c-l>", "<cmd>SlimeSendCurrentLine<cr>" },
     { "<c-c>l", "<cmd>SlimeSendCurrentLine<cr>" },
   },
-  cmd = { "SlimeConfig", "SlimeSend" },
+  cmd = { "SlimeConfig", "SlimeSend", "SlimeSend0", "SlimeSend1" },
 }
