@@ -12,7 +12,17 @@ return {
         ["local.http"] = { type = "http" },
         ["docs/*.md"] = { type = "doc" },
         ["README.md"] = { type = "readme" },
-        [".projections.json"] = { type = "project" },
+        [".projections.json"] = {
+          type = "project",
+          template = {
+            "{",
+            "  \"*\": {",
+            "    \"make\": \"\",",
+            "    \"dispatch\": \"\"",
+            "  }",
+            "}",
+          },
+        },
         ["Gemfile"] = { alternate = "Gemfile.lock", type = "gem" },
         ["Gemfile.lock"] = { alternate = "Gemfile" },
         ["composer.json"] = { alternate = "composer.lock", type = "composer" },
