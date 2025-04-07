@@ -11,6 +11,23 @@ local buf_map = function(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
+-- example:
+-- map("n", "[e", repeatable("n", "<Plug>(MoveUp)", function()
+--   vim.cmd("move -2")
+-- end))
+local repeatable = function(mode, lhs, rhs)
+  vim.validate {
+    mode = { mode, { "string", "table" } },
+    rhs = { rhs, { "string", "function" }, lhs = { name = "string" } },
+  }
+  if not vim.startswith(lhs, "<Plug>") then error("`lhs` should start with `<Plug>`, given: " .. lhs) end
+  vim.keymap.set(mode, lhs, function()
+    rhs()
+    vim.fn["repeat#set"](vim.api.nvim_replace_termcodes(lhs, true, true, true))
+  end)
+  return lhs
+end
+
 local augroup = function(name, commands)
   local id = vim.api.nvim_create_augroup(name, { clear = true })
 
@@ -81,6 +98,7 @@ end
 
 _G.map = map
 _G.buf_map = buf_map
+_G.repeatable = repeatable
 _G.lazy_load = lazy_load
 _G.augroup = augroup
 _G.fold_text = fold_text
