@@ -39,6 +39,7 @@ map("n", "<space>sl", utils.load_session, { silent = true })
 
 -- macro
 map("x", "@", '":norm @" . getcharstr() . "<cr>"', { expr = true })
+map("n", "Q", repeatable("n", "<Plug>(RepeatableQ)", function() vim.cmd "normal! Q" end), { remap = true })
 
 -- marks
 for i = string.byte "A", string.byte "z" do
