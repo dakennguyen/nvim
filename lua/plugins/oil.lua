@@ -41,7 +41,7 @@ return {
         nowait = true,
       },
     },
-    delete_to_trash = true,
+    delete_to_trash = false,
     view_options = {
       show_hidden = true,
     },
