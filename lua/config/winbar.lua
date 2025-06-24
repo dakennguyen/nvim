@@ -1,6 +1,7 @@
 local icons = require "icons"
+local utils = require "utils"
 
-vim.api.nvim_set_hl(0, "Winbar", { bold = true })
+vim.api.nvim_set_hl(0, "Winbar", { bold = true, bg = utils.get_hl("CursorLine").bg })
 vim.api.nvim_set_hl(0, "WinbarStandout", { bold = true, reverse = true })
 vim.api.nvim_set_hl(0, "WinbarNC", { bold = true })
 

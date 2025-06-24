@@ -52,6 +52,11 @@ return {
     "<leader>df",
   },
   config = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "dap-float",
+      callback = function() buf_map("n", "q", "<cmd>q<CR>", { silent = true }) end,
+    })
+
     local widgets = require "dap.ui.widgets"
     local scopes = widgets.sidebar(widgets.scopes, {}, "vsplit")
     local frames = widgets.sidebar(widgets.frames, { height = 10 }, "belowright split")

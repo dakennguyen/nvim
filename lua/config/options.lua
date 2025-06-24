@@ -12,12 +12,11 @@ o.hlsearch = false
 o.number = true
 o.relativenumber = true
 o.scrolloff = 5
-o.mouse = "a"
-o.wildmenu = true
 o.wildmode = { "list:longest", "list:full" }
 o.diffopt:append { "context:99999" }
 o.diffopt:remove { "linematch:40" }
-o.encoding = "UTF-8"
+o.expandtab = true
+o.shiftwidth = 2
 
 -- buffer
 -- o.switchbuf:append { "useopen" }

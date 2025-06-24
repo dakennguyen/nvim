@@ -2,7 +2,7 @@ return {
   "tpope/vim-fugitive",
   lazy = false,
   keys = {
-    { "gs", "<cmd>G<CR>", desc = "Git status" },
+    { "gs", ":tab G<CR>", silent = true, desc = "Git status" },
     { "g0", "<cmd>Gedit<CR>" },
     { "<leader>gb", "<cmd>Git blame<CR>", desc = "Git blame" },
     { mode = "v", "<leader>gb", ":Git blame<CR>", silent = true, desc = "Git blame" },
@@ -24,7 +24,7 @@ return {
     { "<leader>gz", "<cmd>botright Gclog! -g stash | copen<CR>", desc = "Git stash" },
     { "<leader>gx", "<cmd>GBrowse<CR>", desc = "Git Browse" },
     { mode = "v", "<leader>gx", ":GBrowse<CR>", silent = true, desc = "Git Browse" },
-    { "<space>gg", [[<cmd>Git log -n 5000 --oneline --date=short --pretty=format:"%h %ad -%d %s (%an)"<cr>]] },
+    { "<space>gg", [[<cmd>tab Git log -n 5000 --oneline --date=short --pretty=format:"%h %ad -%d %s (%an)"<cr>]] },
 
     -- vimdiff
     { mode = "", "<leader>dp", ":diffput<cr>" },

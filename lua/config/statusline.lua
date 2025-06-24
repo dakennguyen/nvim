@@ -90,6 +90,7 @@ end
 local git_component = function()
   local head = vim.b.gitsigns_head
   if not head or head == "" then return "" end
+  if vim.api.nvim_win_get_width(0) < 80 then return "" end
 
   local status = vim.b.gitsigns_status_dict
   local added = status and status.added or 0

@@ -25,7 +25,7 @@ return {
     },
     {
       "<space>fn",
-      function() Snacks.picker.files { cwd = "~/Library/Mobile Documents/com~apple~CloudDocs/Notes" } end,
+      function() Snacks.picker.files { cwd = vim.fs.normalize "$CLOUD/Notes" } end,
       desc = "Find notes",
       mode = { "n", "x" },
     },
@@ -55,14 +55,21 @@ return {
       end,
       desc = "Projects",
     },
-    { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+    {
+      "<leader>.",
+      function()
+        Snacks.scratch { ft = "markdown", filekey = { branch = false }, root = vim.fs.normalize "$CLOUD/Notes/scratch" }
+      end,
+      desc = "Toggle project note",
+    },
+    { "<space>gs", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
     { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
     { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
     { "<leader>z", function() Snacks.zen.zoom() end },
   },
   opts = {
     input = { enabled = true },
-    sratch = { enabled = true },
+    scratch = { root = vim.fs.normalize "$CLOUD/Notes/scratch" },
     statuscolumn = { enabled = true },
     notifier = { enabled = true },
     image = { enabled = true },

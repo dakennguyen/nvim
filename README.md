@@ -19,7 +19,7 @@ cp ./lua/config/lsp-servers.lua.dist ./lua/config/lsp-servers.lua
 export THEME_LIGHT=default
 export THEME_DARK=default
 
-export PROJECT_PATHS=(~/.dotfiles ~/projects)
+export PROJECT_PATHS=(~/projects ~/.dotfiles)
 export PROJECT_PATHS_STR="${(j.:.)PROJECT_PATHS}"
 ```
 
@@ -33,4 +33,15 @@ fi
 
 # Find app name with `mdfind "kMDItemKind == 'Application'"`
 export MYBROWSER=firefox
+```
+
+For Linux
+```sh
+hour=$(date +%H)
+# assumes "daytime" is from 07:00 to 18:59
+if [ "$hour" -ge 7 ] && [ "$hour" -lt 19 ]; then
+    export THEME_MODE=light
+else
+    export THEME_MODE=dark
+fi
 ```

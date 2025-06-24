@@ -40,6 +40,7 @@ return {
       },
       providers = {
         dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+        snippets = { score_offset = 100 },
       },
     },
     appearance = {

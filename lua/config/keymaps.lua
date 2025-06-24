@@ -47,6 +47,10 @@ for i = string.byte "A", string.byte "z" do
   if char:match "[A-Za-z]" then map("n", "dm" .. char, ":delmarks " .. char .. "<CR>", { silent = true }) end
 end
 
+for i = string.byte "A", string.byte "I" do
+  map("n", "<leader>" .. (i - 64), "`" .. string.char(i))
+end
+
 -- quickfix and loclist
 map("n", "<leader>c", utils.toggle_quickfix, { silent = true })
 map("n", "<leader>l", utils.toggle_loclist, { silent = true })
@@ -133,6 +137,5 @@ map("n", "<leader>fyl", [[:let @+=expand("%").":".line(".") | echo @+<CR>]], { s
 
 -- open files
 map("n", "<space>gn", ":vert botright 80 new $CLOUD/Notes<CR>", { silent = true })
-map("n", "<space>gs", ":botright 20 new $CLOUD/Notes/scratch.md<CR>", { silent = true })
 map("n", "<space>gt", ":botright 10 new $CLOUD/Notes/todo.md<CR>", { silent = true })
 map("n", "<space>gh", ":vnew local.http<cr>", { silent = true })

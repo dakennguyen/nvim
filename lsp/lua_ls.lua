@@ -1,5 +1,7 @@
 -- git clone https://github.com/LuaLS/lua-language-server
 -- ./make.sh
+-- OR
+-- brew install lua-language-server
 return {
   cmd = { "lua-language-server" },
   root_markers = {
