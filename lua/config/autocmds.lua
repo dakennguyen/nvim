@@ -46,7 +46,8 @@ _G.augroup("t_obsession", {
   nested = true,
   callback = function()
     if
-      vim.fn.argc() == 0
+      vim.g.vscode == nil
+      and vim.fn.argc() == 0
       and vim.v.this_session == ""
       and not vim.bo.modified
       and vim.fn.filereadable "Session.vim" == 1
