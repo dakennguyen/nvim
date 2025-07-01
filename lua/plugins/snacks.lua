@@ -72,7 +72,10 @@ return {
     scratch = { root = vim.fs.normalize "$CLOUD/Notes/scratch" },
     statuscolumn = { enabled = true },
     notifier = { enabled = true },
-    image = { enabled = true },
+    image = {
+      enabled = true,
+      doc = { inline = false },
+    },
     scope = { enabled = true },
     picker = {
       enabled = true,
