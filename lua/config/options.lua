@@ -17,6 +17,8 @@ o.diffopt:append { "context:99999" }
 o.diffopt:remove { "linematch:40" }
 o.expandtab = true
 o.shiftwidth = 2
+o.list = true
+o.listchars = { tab = "→ ", trail = "·" }
 
 -- buffer
 -- o.switchbuf:append { "useopen" }
