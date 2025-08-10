@@ -2,8 +2,8 @@
   "log": {
     "prefix": "log",
     "body": [
-      "print(\"${1:$TM_SELECTED_TEXT}\")",
-      "print(${1:$TM_SELECTED_TEXT})"
+      "print(\"${1}\")",
+      "print(${1})"
     ]
   }
 }

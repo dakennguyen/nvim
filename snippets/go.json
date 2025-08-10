@@ -2,8 +2,8 @@
   "log": {
     "prefix": "log",
     "body": [
-      "a, _ := json.MarshalIndent(${1:$TM_SELECTED_TEXT}, \"\", \" \")",
-      "println(\"DEBUG\", \"${1:$TM_SELECTED_TEXT}\", string(a))"
+      "a, _ := json.MarshalIndent(${1}, \"\", \" \")",
+      "println(\"DEBUG\", \"${1}\", string(a))"
     ]
   }
 }

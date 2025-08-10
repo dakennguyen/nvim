@@ -3,7 +3,7 @@
     "prefix": "log",
     "body": [
       "echo '<pre>';",
-      "var_dump(${1:$TM_SELECTED_TEXT});",
+      "var_dump(${1});",
       "echo '</pre>';",
       "die();"
     ]
