@@ -16,6 +16,7 @@ return {
       ["<C-l>"] = false,
       ["gs"] = false,
       ["<C-x>"] = "actions.change_sort",
+      ["<C-\\>"] = "actions.open_terminal",
       ["`"] = {
         callback = function()
           local oil = require "oil"
