@@ -76,7 +76,7 @@ return {
     dap.adapters.cppdbg = {
       id = "cppdbg",
       type = "executable",
-      command = os.getenv "HOME" .. "/opensources/cpptools/extension/debugAdapters/bin/OpenDebugAD7",
+      command = os.getenv "HOME" .. "/opt/cpptools/extension/debugAdapters/bin/OpenDebugAD7",
     }
     dap.adapters.delve = function(callback, config)
       if config.mode == "remote" and config.request == "attach" then
@@ -107,7 +107,7 @@ return {
     dap.adapters.php = {
       type = "executable",
       command = "node",
-      args = { os.getenv "HOME" .. "/opensources/vscode-php-debug/out/phpDebug.js" },
+      args = { os.getenv "HOME" .. "/opt/vscode-php-debug/out/phpDebug.js" },
     }
 
     -- Configurations
