@@ -2,7 +2,7 @@ return {
   "tpope/vim-fugitive",
   lazy = false,
   keys = {
-    { "gs", ":tab G<CR>", silent = true, desc = "Git status" },
+    { "gs", ":G<CR>", silent = true, desc = "Git status" },
     { "g0", "<cmd>Gedit<CR>" },
     { "<leader>gb", "<cmd>Git blame<CR>", desc = "Git blame" },
     { mode = "v", "<leader>gb", ":Git blame<CR>", silent = true, desc = "Git blame" },

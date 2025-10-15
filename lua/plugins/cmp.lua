@@ -8,7 +8,6 @@ return {
   {
     "saghen/blink.cmp",
     version = "*",
-    build = "cargo build --release",
     event = { "InsertEnter" },
     dependencies = { "rcarriga/cmp-dap" },
     opts = {
