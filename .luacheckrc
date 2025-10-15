@@ -5,4 +5,4 @@ self = false
 
 cache = true
 
-globals = { "vim", "map", "buf_map" }
+globals = { "vim", "map", "buf_map", "repeatable" }

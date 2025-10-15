@@ -79,6 +79,7 @@ return {
     scope = { enabled = true },
     picker = {
       enabled = true,
+      hidden = true,
       sources = {
         files = { hidden = true, layout = "ivy" },
         projects = { layout = "select" },
