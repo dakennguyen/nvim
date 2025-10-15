@@ -19,6 +19,9 @@ cp ./lua/config/lsp-servers.lua.dist ./lua/config/lsp-servers.lua
 export THEME_LIGHT=default
 export THEME_DARK=default
 
+export MYBROWSER=firefox
+export MYCODEAGENT=cursor-agent
+
 export PROJECT_PATHS=(~/projects ~/.dotfiles)
 export PROJECT_PATHS_STR="${(j.:.)PROJECT_PATHS}"
 ```
@@ -30,9 +33,6 @@ if defaults read -g AppleInterfaceStyle &>/dev/null; then
 else
     export THEME_MODE=light
 fi
-
-# Find app name with `mdfind "kMDItemKind == 'Application'"`
-export MYBROWSER=firefox
 ```
 
 For Linux
