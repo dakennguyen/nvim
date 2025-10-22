@@ -100,9 +100,9 @@ return {
         open_pj_fugitive = function(picker, item)
           picker:close()
           if not item then return end
-          if vim.bo.filetype ~= "snacks_dashboard" then vim.cmd "tabnew" end
+          -- if vim.bo.filetype ~= "snacks_dashboard" then vim.cmd "tabnew" end
 
-          vim.cmd("tcd" .. item.file .. " | G | only")
+          vim.cmd("cd" .. item.file)
         end,
         picker_files_hidden = function(picker, item)
           if not item then return end

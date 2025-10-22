@@ -1,16 +1,9 @@
 return {
   {
-    "saghen/blink.compat",
-    version = "*",
-    lazy = true,
-    opts = {},
-  },
-  {
     "saghen/blink.cmp",
     version = "*",
     build = "cargo build --release",
     event = { "InsertEnter" },
-    dependencies = { "rcarriga/cmp-dap" },
     opts = {
       keymap = {
         ["<C-u>"] = { "scroll_documentation_up", "fallback" },
@@ -45,12 +38,10 @@ return {
       sources = {
         per_filetype = {
           sql = { "snippets", "dadbod", "buffer", "path" },
-          ["dap-repl"] = { "dap", "snippets", "buffer" },
         },
         providers = {
           dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
           snippets = { score_offset = 100 },
-          dap = { name = "dap", module = "blink.compat.source" },
         },
       },
       appearance = {
