@@ -33,6 +33,25 @@ local stylua = {
   formatStdin = true,
 }
 
+local phpcs = {
+  lintCommand = "./vendor/bin/phpcs --no-colors --report=emacs --stdin-path=${INPUT} -",
+  lintStdin = true,
+  lintFormats = { "%.%#:%l:%c: %trror - %m", "%.%#:%l:%c: %tarning - %m" },
+  rootMarkers = { ".phpcs.xml", "phpcs.xml", ".phpcs.xml.dist", "phpcs.xml.dist", "composer.json" },
+}
+
+local phpcbf = {
+  formatCommand = "./vendor/bin/phpcbf -q - || true",
+  formatStdin = true,
+}
+
+local phpstan = {
+  lintCommand = "./vendor/bin/phpstan analyse --no-progress --no-ansi --error-format=raw ${INPUT}",
+  lintStdin = false,
+  lintFormats = { "%.%#:%l:%m" },
+  rootMarkers = { "phpstan.neon", "phpstan.neon.dist", "composer.json" },
+}
+
 -- `npm install -g eslint_d`
 -- `brew install efm-langserver`
 -- `brew install stylua`
@@ -51,8 +70,19 @@ return {
       go = { golangci_lint },
       python = { flake8, black },
       lua = { luacheck, stylua },
+      php = { phpcs, phpcbf, phpstan },
     },
   },
-  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "go", "python", "lua" },
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "go",
+    "python",
+    "lua",
+    "php",
+  },
   init_options = { documentFormatting = true, codeAction = true },
 }
