@@ -1,17 +1,9 @@
-return {
-  {
-    "tpope/vim-dadbod",
-    cmd = "DB",
-    keys = {
-      { mode = "", "<space>dd", ":DB" }, -- let g:db = ...
-      { mode = "", "<space>dr", ":DB g:redis" },
-      { mode = "", "<space>dt", ":DB g:dbtest" },
-    },
-    config = function() vim.g["redis"] = "redis:localhost:6379" end,
-  },
-  {
-    "kristijanhusak/vim-dadbod-completion",
-    ft = { "sql", "mysql", "plsql" },
-    dependencies = "tpope/vim-dadbod",
-  },
+vim.pack.add {
+  { src = "https://github.com/tpope/vim-dadbod" },
+  { src = "https://github.com/kristijanhusak/vim-dadbod-completion" },
 }
+
+vim.g["redis"] = "redis:localhost:6379"
+map("", "<space>dd", ":DB") -- let g:db = ...
+map("", "<space>dr", ":DB g:redis")
+map("", "<space>dt", ":DB g:dbtest")
