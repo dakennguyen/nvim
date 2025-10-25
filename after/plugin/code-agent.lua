@@ -53,6 +53,6 @@ local function paste_file_code_agent()
   vim.api.nvim_put({ pos }, "c", true, true)
 end
 
-map("n", "<m-l>", toggle_code_agent, { silent = true })
-map("v", "<m-l>", paste_range_code_agent, { silent = true })
-map("n", "<m-L>", paste_file_code_agent, { silent = true })
+map("n", "<leader>a", toggle_code_agent, { silent = true })
+map("v", "<leader>a", paste_range_code_agent, { silent = true })
+map("n", "<leader>A", paste_file_code_agent, { silent = true })

@@ -55,13 +55,6 @@ return {
       end,
       desc = "Projects",
     },
-    {
-      "<leader>.",
-      function()
-        Snacks.scratch { ft = "markdown", filekey = { branch = false }, root = vim.fs.normalize "$CLOUD/Notes/scratch" }
-      end,
-      desc = "Toggle project note",
-    },
     { "<space>gs", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
     { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
     { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
