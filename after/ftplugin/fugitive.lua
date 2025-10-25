@@ -3,22 +3,23 @@ vim.cmd [[
   silent! unmap <buffer> -
 ]]
 
-buf_map("n", "<c-s>", "o", { remap = true, nowait = true })
-buf_map("n", "<c-v>", "gO", { remap = true, nowait = true })
-buf_map("n", "<c-t>", "O", { remap = true, nowait = true })
+vim.keymap.set("n", "<c-s>", "o", { buffer = true, remap = true, nowait = true })
+vim.keymap.set("n", "<c-v>", "gO", { buffer = true, remap = true, nowait = true })
+vim.keymap.set("n", "<c-t>", "O", { buffer = true, remap = true, nowait = true })
 
-buf_map("n", "cl", ":Git pull")
-buf_map("n", "cp", ":Git push")
-buf_map("n", "ch", ":Git fetch")
-buf_map("n", "cH", ":Git remote update origin --prune")
-buf_map("n", "cd", ":vert Git diff")
-buf_map("n", "W", ":Git commit --no-verify<CR>")
-buf_map("n", "E", ":Git commit --amend --no-edit --no-verify")
+local opts = { buffer = true }
+vim.keymap.set("n", "cl", ":Git pull", opts)
+vim.keymap.set("n", "cp", ":Git push", opts)
+vim.keymap.set("n", "ch", ":Git fetch", opts)
+vim.keymap.set("n", "cH", ":Git remote update origin --prune", opts)
+vim.keymap.set("n", "cd", ":vert Git diff", opts)
+vim.keymap.set("n", "W", ":Git commit --no-verify<CR>", opts)
+vim.keymap.set("n", "E", ":Git commit --amend --no-edit --no-verify", opts)
 
-buf_map("n", "[ou", [[:Git branch -u origin/<c-r>=system('git branch --show-current')<CR><BS><CR>]])
-buf_map("n", "]ou", [[:Git branch -u origin/HEAD<CR>]])
+vim.keymap.set("n", "[ou", [[:Git branch -u origin/<c-r>=system('git branch --show-current')<CR><BS><CR>]], opts)
+vim.keymap.set("n", "]ou", [[:Git branch -u origin/HEAD<CR>]], opts)
 
-buf_map("n", "<leader>gd", ":vert Git diff --merge-base origin/HEAD<CR>")
+vim.keymap.set("n", "<leader>gd", ":vert Git diff --merge-base origin/HEAD<CR>", opts)
 
 -- vim.cmd [[
 -- "function! s:open(cmd)

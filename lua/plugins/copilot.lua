@@ -5,4 +5,4 @@ vim.g.copilot_filetypes = {
 }
 vim.g.copilot_no_tab_map = true
 
-map("i", "<c-j>", 'copilot#Accept("<CR>")', { silent = true, expr = true, replace_keycodes = false })
+vim.keymap.set("i", "<c-j>", 'copilot#Accept("<CR>")', { silent = true, expr = true, replace_keycodes = false })

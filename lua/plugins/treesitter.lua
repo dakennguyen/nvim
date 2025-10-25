@@ -86,9 +86,9 @@ require("treesj").setup {
   use_default_keymaps = false,
   max_join_length = 9999,
 }
-map("n", "<space><space>", "<cmd>TSJToggle<cr>")
-map("n", "gS", "<cmd>TSJSplit<cr>")
-map("n", "gJ", "<cmd>TSJJoin<cr>")
+vim.keymap.set("n", "<space><space>", "<cmd>TSJToggle<cr>")
+vim.keymap.set("n", "gS", "<cmd>TSJSplit<cr>")
+vim.keymap.set("n", "gJ", "<cmd>TSJJoin<cr>")
 
 -- ##########################
 -- autotag
@@ -98,8 +98,8 @@ require("nvim-ts-autotag").setup()
 -- ##########################
 -- kulala
 -- ##########################
-map("n", "<space>ro", "<cmd>lua require('kulala').open()<cr>", { silent = true })
-map("n", "<space>rl", "<cmd>lua require('kulala').replay()<cr>", { silent = true })
+vim.keymap.set("n", "<space>ro", "<cmd>lua require('kulala').open()<cr>", { silent = true })
+vim.keymap.set("n", "<space>rl", "<cmd>lua require('kulala').replay()<cr>", { silent = true })
 
 require("kulala").setup {
   global_keymaps = false,

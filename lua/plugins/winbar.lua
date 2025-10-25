@@ -54,7 +54,7 @@ _G.augroup("my.winbar", {
       and vim.api.nvim_buf_get_name(args.buf) ~= "" -- Has a file name
       and not vim.wo[0].diff -- Not in diff mode
     then
-      vim.wo.winbar = "%{%v:lua.require'config.winbar'.render()%}"
+      vim.wo.winbar = "%{%v:lua.require'plugins.winbar'.render()%}"
     end
   end,
 })

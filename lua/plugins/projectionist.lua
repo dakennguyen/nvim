@@ -1,8 +1,8 @@
 vim.pack.add { "https://github.com/tpope/vim-projectionist" }
 
-map("n", "<space>6", "<cmd>A<CR>")
-map("n", "c<cr>", "<cmd>Console<CR>")
-map("n", "c<space>", ":Console ")
+vim.keymap.set("n", "<space>6", "<cmd>A<CR>")
+vim.keymap.set("n", "c<cr>", "<cmd>Console<CR>")
+vim.keymap.set("n", "c<space>", ":Console ")
 
 vim.g.projectionist_heuristics = {
   [".git/"] = {

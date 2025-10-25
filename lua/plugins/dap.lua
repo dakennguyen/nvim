@@ -2,15 +2,15 @@ vim.pack.add { "https://github.com/mfussenegger/nvim-dap" }
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "dap-float",
-  callback = function() buf_map("n", "q", "<cmd>q<CR>", { silent = true }) end,
+  callback = function() vim.keymap.set("n", "q", "<cmd>q<CR>", { buffer = true, silent = true }) end,
 })
 
 local widgets = require "dap.ui.widgets"
 local scopes = widgets.sidebar(widgets.scopes, {}, "vsplit")
 local frames = widgets.sidebar(widgets.frames, { height = 10 }, "belowright split")
 
-map("n", "<leader>ds", scopes.toggle)
-map("n", "<leader>df", frames.toggle)
+vim.keymap.set("n", "<leader>ds", scopes.toggle)
+vim.keymap.set("n", "<leader>df", frames.toggle)
 
 local dap = require "dap"
 
@@ -121,31 +121,31 @@ dap.configurations.php = {
   },
 }
 
-map("n", "<F9>", function() require("dap").toggle_breakpoint() end)
-map("n", "<F21>", function()
+vim.keymap.set("n", "<F9>", function() require("dap").toggle_breakpoint() end)
+vim.keymap.set("n", "<F21>", function()
   vim.ui.input({ prompt = "Breakpoint condition" }, function(input) require("dap").set_breakpoint(input) end)
 end, { desc = "Set Conditional Breakpoint" }) -- <S-F9>
-map("n", "<F5>", function() require("dap").continue() end)
-map("n", "<F17>", function() require("dap").terminate() end)
-map("n", "<F10>", function() require("dap").step_over() end)
-map("n", "<F11>", function() require("dap").step_into() end)
-map("n", "<F12>", function() require("dap").step_out() end)
-map("n", "<leader>dl", function() require("dap").run_last() end)
-map("n", "<leader>d.", function() require("dap").run_to_cursor() end)
-map("n", "<leader>dr", function() require("dap").repl.toggle() end)
-map({ "n", "v" }, "<leader>dh", function() require("dap.ui.widgets").hover() end)
-map(
+vim.keymap.set("n", "<F5>", function() require("dap").continue() end)
+vim.keymap.set("n", "<F17>", function() require("dap").terminate() end)
+vim.keymap.set("n", "<F10>", function() require("dap").step_over() end)
+vim.keymap.set("n", "<F11>", function() require("dap").step_into() end)
+vim.keymap.set("n", "<F12>", function() require("dap").step_out() end)
+vim.keymap.set("n", "<leader>dl", function() require("dap").run_last() end)
+vim.keymap.set("n", "<leader>d.", function() require("dap").run_to_cursor() end)
+vim.keymap.set("n", "<leader>dr", function() require("dap").repl.toggle() end)
+vim.keymap.set({ "n", "v" }, "<leader>dh", function() require("dap.ui.widgets").hover() end)
+vim.keymap.set(
   { "n", "v" },
   "<leader>dp",
   function(expr) require("dap.ui.widgets").preview(expr, { listener = { "scopes" } }) end
 )
-map({ "n", "v" }, "<Leader>de", function(expr)
+vim.keymap.set({ "n", "v" }, "<Leader>de", function(expr)
   local value = require("utils").eval_expression(expr)
   local view = widgets.sidebar(widgets.expression, {}, "vsplit")
   view.open(value)
   view.__expression = value
 end)
-map("n", "<Leader>dE", function()
+vim.keymap.set("n", "<Leader>dE", function()
   vim.ui.input({ prompt = "Expression: " }, function(expr)
     if expr then
       local value = require("utils").eval_expression(expr)

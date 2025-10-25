@@ -91,7 +91,7 @@ require("snacks").setup {
     },
     sections = {
       { section = "header" },
-      { icon = icons.misc.keyboard, title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+      { icon = icons.misc.keyboard, title = "Keyvim.keymap.sets", section = "keys", indent = 2, padding = 1 },
       { icon = icons.symbol_kinds.File, title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
       {
         icon = icons.misc.project,
@@ -109,26 +109,41 @@ require("snacks").setup {
   },
 }
 
-map("n", "<space>ff", function() Snacks.picker.files() end, { desc = "Find Files" })
-map("n", "<space>fe", function() Snacks.picker.explorer() end, { desc = "Explorer" })
-map("n", "<space>fb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
-map("n", "<space>fo", function() Snacks.picker.recent() end, { desc = "Recent" })
-map("n", "<space>fc", function() Snacks.picker.command_history() end, { desc = "Command History" })
-map("n", "<space>fh", function() Snacks.picker.help() end, { desc = "Help" })
-map("n", "<space>fm", function() Snacks.picker.keymaps() end, { desc = "Keymaps" })
-map({ "n", "x" }, "<space>fw", function() Snacks.picker.grep_word() end, { desc = "Visual selection or word" })
-map("n", "<space>fq", function() Snacks.picker.qflist() end, { desc = "Quickfix list" })
-map({ "n", "x" }, "<space>fs", function() Snacks.picker.files { cwd = "local_scripts" } end, { desc = "Find scripts" })
-map(
+vim.keymap.set("n", "<space>ff", function() Snacks.picker.files() end, { desc = "Find Files" })
+vim.keymap.set("n", "<space>fe", function() Snacks.picker.explorer() end, { desc = "Explorer" })
+vim.keymap.set("n", "<space>fb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
+vim.keymap.set("n", "<space>fo", function() Snacks.picker.recent() end, { desc = "Recent" })
+vim.keymap.set("n", "<space>fc", function() Snacks.picker.command_history() end, { desc = "Command History" })
+vim.keymap.set("n", "<space>fh", function() Snacks.picker.help() end, { desc = "Help" })
+vim.keymap.set("n", "<space>fm", function() Snacks.picker.keymaps() end, { desc = "Keymaps" })
+vim.keymap.set(
+  { "n", "x" },
+  "<space>fw",
+  function() Snacks.picker.grep_word() end,
+  { desc = "Visual selection or word" }
+)
+vim.keymap.set("n", "<space>fq", function() Snacks.picker.qflist() end, { desc = "Quickfix list" })
+vim.keymap.set(
+  { "n", "x" },
+  "<space>fs",
+  function() Snacks.picker.files { cwd = "local_scripts" } end,
+  { desc = "Find scripts" }
+)
+vim.keymap.set(
   { "n", "x" },
   "<space>fn",
   function() Snacks.picker.files { cwd = vim.fs.normalize "$CLOUD/Notes" } end,
   { desc = "Find notes" }
 )
-map("n", "//", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
-map("n", "\\", ":Sgrep ", { desc = "Grep" })
-map("n", "<space>fv", function() Snacks.picker.files { cwd = "~/.dotfiles" } end, { desc = "Find Config File" })
-map(
+vim.keymap.set("n", "//", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
+vim.keymap.set("n", "\\", ":Sgrep ", { desc = "Grep" })
+vim.keymap.set(
+  "n",
+  "<space>fv",
+  function() Snacks.picker.files { cwd = "~/.dotfiles" } end,
+  { desc = "Find Config File" }
+)
+vim.keymap.set(
   "n",
   "<space>fp",
   function()
@@ -148,7 +163,7 @@ map(
   end,
   { desc = "Projects" }
 )
-map(
+vim.keymap.set(
   "n",
   "<leader>.",
   function()
@@ -156,7 +171,7 @@ map(
   end,
   { desc = "Toggle project note" }
 )
-map("n", "<space>gs", function() Snacks.scratch() end, { desc = "Toggle Scratch Buffer" })
-map("n", "<leader>S", function() Snacks.scratch.select() end, { desc = "Select Scratch Buffer" })
-map("n", "<leader>n", function() Snacks.notifier.show_history() end, { desc = "Notification History" })
-map("n", "<leader>z", function() Snacks.zen.zoom() end)
+vim.keymap.set("n", "<space>gs", function() Snacks.scratch() end, { desc = "Toggle Scratch Buffer" })
+vim.keymap.set("n", "<leader>S", function() Snacks.scratch.select() end, { desc = "Select Scratch Buffer" })
+vim.keymap.set("n", "<leader>n", function() Snacks.notifier.show_history() end, { desc = "Notification History" })
+vim.keymap.set("n", "<leader>z", function() Snacks.zen.zoom() end)

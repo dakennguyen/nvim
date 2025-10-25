@@ -4,6 +4,6 @@ vim.pack.add {
 }
 
 vim.g["redis"] = "redis:localhost:6379"
-map("", "<space>dd", ":DB") -- let g:db = ...
-map("", "<space>dr", ":DB g:redis")
-map("", "<space>dt", ":DB g:dbtest")
+vim.keymap.set("", "<space>dd", ":DB") -- let g:db = ...
+vim.keymap.set("", "<space>dr", ":DB g:redis")
+vim.keymap.set("", "<space>dt", ":DB g:dbtest")

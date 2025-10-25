@@ -1,2 +1,2 @@
-buf_map("n", "<c-s>", "o", { remap = true, nowait = true })
-buf_map("n", "<c-t>", "O", { remap = true, nowait = true })
+vim.keymap.set("n", "<c-s>", "o", { buffer = true, remap = true, nowait = true })
+vim.keymap.set("n", "<c-t>", "O", { buffer = true, remap = true, nowait = true })

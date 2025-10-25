@@ -6,5 +6,5 @@ vim.g.slime_default_config = {
   target_pane = ":.2",
 }
 
-map("n", "<c-c><c-l>", "<cmd>SlimeSendCurrentLine<cr>")
-map("n", "<c-c>l", "<cmd>SlimeSendCurrentLine<cr>")
+vim.keymap.set("n", "<c-c><c-l>", "<cmd>SlimeSendCurrentLine<cr>")
+vim.keymap.set("n", "<c-c>l", "<cmd>SlimeSendCurrentLine<cr>")
