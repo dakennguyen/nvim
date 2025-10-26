@@ -54,15 +54,15 @@ return {
   config = function()
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "dap-float",
-      callback = function() buf_map("n", "q", "<cmd>q<CR>", { silent = true }) end,
+      callback = function() vim.keymap.set("n", "q", "<cmd>q<CR>", { buffer = true, silent = true }) end,
     })
 
     local widgets = require "dap.ui.widgets"
     local scopes = widgets.sidebar(widgets.scopes, {}, "vsplit")
     local frames = widgets.sidebar(widgets.frames, { height = 10 }, "belowright split")
 
-    map("n", "<leader>ds", scopes.toggle)
-    map("n", "<leader>df", frames.toggle)
+    vim.keymap.set("n", "<leader>ds", scopes.toggle)
+    vim.keymap.set("n", "<leader>df", frames.toggle)
 
     local dap = require "dap"
 

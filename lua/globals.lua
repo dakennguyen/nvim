@@ -3,16 +3,8 @@ _G.global = {
   _store = {},
 }
 
-local map = vim.keymap.set
-
-local buf_map = function(mode, lhs, rhs, opts)
-  local options = { buffer = true }
-  if opts then options = vim.tbl_extend("force", options, opts) end
-  vim.keymap.set(mode, lhs, rhs, options)
-end
-
 -- example:
--- map("n", "[e", repeatable("n", "<Plug>(MoveUp)", function()
+-- vim.keymap.set("n", "[e", repeatable("n", "<Plug>(MoveUp)", function()
 --   vim.cmd("move -2")
 -- end))
 local repeatable = function(mode, lhs, rhs)
@@ -96,8 +88,6 @@ local dev_paths = function()
   return vim.split(dev_paths, ":", { trimempty = true })
 end
 
-_G.map = map
-_G.buf_map = buf_map
 _G.repeatable = repeatable
 _G.lazy_load = lazy_load
 _G.augroup = augroup

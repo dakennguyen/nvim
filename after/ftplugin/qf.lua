@@ -5,6 +5,6 @@ local open = function(command)
   if file ~= "" then vim.cmd(command .. " " .. vim.fn.fnameescape(file)) end
 end
 
-buf_map("n", "<c-v>", "<c-w><cr><c-w>H", { silent = true })
-buf_map("n", "<c-s>", function() open "split" end, { silent = true })
-buf_map("n", "<c-t>", function() open "tab drop" end, { silent = true })
+vim.keymap.set("n", "<c-v>", "<c-w><cr><c-w>H", { buffer = true, silent = true })
+vim.keymap.set("n", "<c-s>", function() open "split" end, { buffer = true, silent = true })
+vim.keymap.set("n", "<c-t>", function() open "tab drop" end, { buffer = true, silent = true })
