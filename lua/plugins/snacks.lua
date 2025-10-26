@@ -15,7 +15,7 @@ return {
     { "<space>fc", function() Snacks.picker.command_history() end, desc = "Command History" },
     { "<space>fh", function() Snacks.picker.help() end, desc = "Help" },
     { "<space>fm", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
-    { "<space>fw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
+    { "<space>fw", function() Snacks.picker.grep_word() end, desc = "Grep word", mode = { "n", "x" } },
     { "<space>fq", function() Snacks.picker.qflist() end, desc = "Quickfix list" },
     {
       "<space>fs",
@@ -31,32 +31,9 @@ return {
     },
     { "//", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
     { "\\", ":Sgrep ", desc = "Grep" },
-    {
-      "<space>fv",
-      function() Snacks.picker.files { cwd = "~/.dotfiles" } end,
-      desc = "Find Config File",
-    },
-    {
-      "<space>fp",
-      function()
-        Snacks.picker.projects {
-          dev = _G.dev_paths,
-          confirm = "open_pj_fugitive",
-          win = {
-            preview = { minimal = true },
-            input = {
-              keys = {
-                ["<c-o>"] = { { "tcd", "picker_files_hidden" }, mode = { "n", "i" } },
-                ["<c-l>"] = { { "tcd", "restore_session" }, mode = { "n", "i" } },
-              },
-            },
-          },
-        }
-      end,
-      desc = "Projects",
-    },
+    { "<space>fp", function() Snacks.picker.projects() end, { desc = "Projects" } },
     { "<space>gs", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-    { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
+    { "<leader>S", function() Snacks.picker.scratch() end, desc = "Select Scratch Buffer" },
     { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
     { "<leader>z", function() Snacks.zen.zoom() end },
   },
@@ -74,7 +51,20 @@ return {
       enabled = true,
       sources = {
         files = { hidden = true, layout = "ivy" },
-        projects = { layout = "select" },
+        projects = {
+          layout = "select",
+          dev = _G.dev_paths,
+          confirm = "open_pj_fugitive",
+          win = {
+            preview = { minimal = true },
+            input = {
+              keys = {
+                ["<c-o>"] = { { "tcd", "picker_files_hidden" }, mode = { "n", "i" } },
+                ["<c-l>"] = { { "tcd", "restore_session" }, mode = { "n", "i" } },
+              },
+            },
+          },
+        },
         explorer = {
           include = { "*" },
           win = {
