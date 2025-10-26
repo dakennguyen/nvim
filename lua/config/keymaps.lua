@@ -32,12 +32,6 @@ vim.keymap.set("", "gfv", function() utils.vsplit "gf" end)
 vim.keymap.set("", "gfs", "<c-w>f")
 vim.keymap.set("", "gft", "<c-w>gf")
 
--- session
-vim.keymap.set("n", "<space>ss", ":mksession!<CR>")
-vim.keymap.set("n", "<space>sq", ":mksession!<CR>:qa<CR>")
-vim.keymap.set("n", "<space>sl", utils.load_session, { silent = true })
-vim.keymap.set("n", "<space>sd", utils.delete_session, { silent = true })
-
 -- macro
 vim.keymap.set("x", "@", '":norm @" . getcharstr() . "<cr>"', { expr = true })
 vim.keymap.set("n", "Q", repeatable("n", "<Plug>(RepeatableQ)", function() vim.cmd "normal! Q" end), { remap = true })
@@ -156,3 +150,6 @@ vim.keymap.set(
 vim.keymap.set("n", "<space>gn", ":vert botright 80 new $CLOUD/Notes<CR>", { silent = true })
 vim.keymap.set("n", "<space>gt", ":botright 30 new $CLOUD/Notes/todo.md<CR>", { silent = true })
 vim.keymap.set("n", "<space>gh", ":vnew local.http<cr>", { silent = true })
+
+-- pack
+vim.keymap.set("n", "<space>ps", function() vim.pack.update() end)

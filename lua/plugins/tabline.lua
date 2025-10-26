@@ -38,6 +38,6 @@ end
 
 M.render = function() return cwd() .. "%=" .. tabs_indicator() end
 
-vim.o.tabline = "%!v:lua.require'config.tabline'.render()"
+vim.o.tabline = "%!v:lua.require'plugins.tabline'.render()"
 
 return M

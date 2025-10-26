@@ -255,7 +255,7 @@ M.render = function()
 end
 
 if vim.o.laststatus == 3 then
-  vim.o.statusline = "%!v:lua.require'config.statusline'.render()"
+  vim.o.statusline = "%!v:lua.require'plugins.statusline'.render()"
 else
   _G.augroup("my.statusline", {
     {
@@ -263,7 +263,7 @@ else
       desc = "Attach winbar",
       callback = function(args)
         if vim.bo[args.buf].filetype == "qf" then return end
-        vim.wo.statusline = "%!v:lua.require'config.statusline'.render()"
+        vim.wo.statusline = "%!v:lua.require'plugins.statusline'.render()"
       end,
     },
     {

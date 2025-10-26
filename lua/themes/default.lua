@@ -1,4 +1,4 @@
 return {
-  specs = {},
+  setup = function() return {} end,
   colors = function() return {} end,
 }
