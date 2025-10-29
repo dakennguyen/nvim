@@ -1,31 +1,57 @@
 # Install
 
+Clone this repository straight into your Neovim config directory, or keep it elsewhere and symlink it in.
+
 ```sh
+# Option A: clone directly
+git clone <repository-url> ~/.config/nvim
+
+# Option B: symlink a checked-out copy
 ln -s $PWD ~/.config/nvim
 ```
 
-# Setup
+# Setup (optional)
 ### Enable LSP servers
 
-Use file names in `lsp/`
+Copy the sample config file:
 ```sh
 cp ./lua/config/lsp-servers.lua.dist ./lua/config/lsp-servers.lua
 ```
 
-### Export env variables
+Then edit `./lua/config/lsp-servers.lua` and uncomment or add the servers you want to enable, using the filenames from `lsp/`, for example:
+
+```lua
+vim.lsp.enable {
+  "efm",
+  "gopls",
+  "jsonls",
+  "lua_ls",
+  -- ...
+}
+```
+
+### Configuration
+
+Set these to match your preferred tools, themes, and project directories.
 
 ```sh
-# Use file names from `lua/themes/`
-export THEME_LIGHT=default
-export THEME_DARK=default
+# Theme names must match files in `lua/themes/`
+export THEME_LIGHT=gruvbox
+export THEME_DARK=gruvbox
+export THEME_MODE=dark # or light
 
+# Default browser
 export MYBROWSER=firefox
+
+# Default code agent CLI
 export MYCODEAGENT=cursor-agent
 
-export PROJECT_PATHS=(~/projects ~/.dotfiles)
+# List directories that contain your project folders
+export PROJECT_PATHS=(~/projects ~/freelance)
 export PROJECT_PATHS_STR="${(j.:.)PROJECT_PATHS}"
 ```
 
+### Auto-detect light/dark mode
 For MacOS
 ```sh
 if defaults read -g AppleInterfaceStyle &>/dev/null; then
