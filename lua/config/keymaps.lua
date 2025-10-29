@@ -36,6 +36,7 @@ vim.keymap.set("", "gft", "<c-w>gf")
 vim.keymap.set("n", "<space>ss", ":mksession!<CR>")
 vim.keymap.set("n", "<space>sq", ":mksession!<CR>:qa<CR>")
 vim.keymap.set("n", "<space>sl", utils.load_session, { silent = true })
+vim.keymap.set("n", "<space>sd", utils.delete_session, { silent = true })
 
 -- macro
 vim.keymap.set("x", "@", '":norm @" . getcharstr() . "<cr>"', { expr = true })

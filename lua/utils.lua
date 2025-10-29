@@ -75,6 +75,18 @@ M.load_session = function()
   end
 end
 
+M.delete_session = function()
+  local ok, choice = pcall(vim.fn.confirm, "Delete Session.vim?", "&Yes\n&No", 2)
+  if not ok or choice ~= 1 then return end
+
+  local deleted = vim.fn.delete "Session.vim"
+  if deleted == 0 then
+    vim.notify("Session deleted", vim.log.levels.INFO)
+  else
+    vim.notify("No session to delete", vim.log.levels.WARN)
+  end
+end
+
 M.eval_expression = function(expr)
   local mode = vim.api.nvim_get_mode()
   if mode.mode == "v" then
