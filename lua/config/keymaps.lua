@@ -50,9 +50,9 @@ for i = string.byte "A", string.byte "z" do
   end
 end
 
-for i = string.byte "A", string.byte "I" do
-  vim.keymap.set("n", "<leader>" .. (i - 64), "`" .. string.char(i))
-end
+-- for i = string.byte "A", string.byte "I" do
+--   vim.keymap.set("n", "<leader>" .. (i - 64), "`" .. string.char(i))
+-- end
 
 -- quickfix and loclist
 vim.keymap.set("n", "<leader>c", utils.toggle_quickfix, { silent = true })
