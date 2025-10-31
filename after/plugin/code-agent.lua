@@ -29,7 +29,7 @@ end
 
 local function paste_range_code_agent()
   -- Get the current file path and line range
-  local file_path = vim.fn.expand "%"
+  local file_path = vim.fn.expand "%:."
   local start_line = vim.fn.line "v"
   local end_line = vim.fn.line "."
   if start_line > end_line then
@@ -46,7 +46,7 @@ local function paste_range_code_agent()
 end
 
 local function paste_file_code_agent()
-  local file_path = vim.fn.expand "%"
+  local file_path = vim.fn.expand "%:."
   local pos = "@" .. file_path
   local _ = focus_terminal() or show_terminal() or create_terminal()
   vim.cmd "startinsert"
