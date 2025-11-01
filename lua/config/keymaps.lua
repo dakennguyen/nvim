@@ -121,22 +121,44 @@ vim.keymap.set("n", "<leader>w<Left>", ":10winc <<CR>", { silent = true })
 vim.keymap.set("n", "<leader>w<Right>", ":10winc ><CR>", { silent = true })
 
 -- File
--- File > Save As
-vim.keymap.set("n", "<leader>fc", [[:saveas <C-R>=expand("%")<CR>]])
--- File > Copy > Relative File Path
-vim.keymap.set("n", "<leader>fyy", [[:let @+=expand("%:.") | echo @+<CR>]], { silent = true })
--- File > Copy > Full File Path
-vim.keymap.set("n", "<leader>fyY", [[:let @+=expand("%:p") | echo @+<CR>]], { silent = true })
--- File > Copy > File Content
-vim.keymap.set("n", "<leader>fyf", [[ggVG"*y<c-o>]], { silent = true })
--- File > Copy > File Name without extension
-vim.keymap.set("n", "<leader>fyn", [[:let @+=expand("%:t:r") | echo @+<CR>]], { silent = true })
--- File > Copy > File Name with extension
-vim.keymap.set("n", "<leader>fyN", [[:let @+=expand("%:t") | echo @+<CR>]], { silent = true })
--- File > Copy > Relative File Path with Line number
-vim.keymap.set("n", "<leader>fyl", [[:let @+=expand("%:.").":".line(".") | echo @+<CR>]], { silent = true })
--- File > Copy > Directory Path
--- vim.keymap.set('n', '<leader>fyd', [[ :let @+=expand("%:h") | echo @+<CR>             ]] , { silent = true })
+vim.keymap.set("n", "<leader>fc", [[:saveas <C-R>=expand("%")<CR>]], { silent = true, desc = "File > Save As" })
+vim.keymap.set(
+  "n",
+  "<leader>fyy",
+  [[:let @+=expand("%:.") | echo @+<CR>]],
+  { silent = true, desc = "File > Copy > Relative File Path" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>fyY",
+  [[:let @+=expand("%:p") | echo @+<CR>]],
+  { silent = true, desc = "File > Copy > Full File Path" }
+)
+vim.keymap.set("n", "<leader>fyf", [[ggVG"*y<c-o>]], { silent = true, desc = "File > Copy > File Content" })
+vim.keymap.set(
+  "n",
+  "<leader>fyn",
+  [[:let @+=expand("%:t:r") | echo @+<CR>]],
+  { silent = true, desc = "File > Copy > File Name without Extension" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>fyN",
+  [[:let @+=expand("%:t") | echo @+<CR>]],
+  { silent = true, desc = "File > Copy > File Name with Extension" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>fyl",
+  [[:let @+=expand("%:.").":".line(".") | echo @+<CR>]],
+  { silent = true, desc = "File > Copy > Relative File Path with Line Number" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>fyd",
+  [[:let @+=expand("%:.:h") | echo @+<CR>]],
+  { silent = true, desc = "File > Copy > Directory Path" }
+)
 
 -- open files
 vim.keymap.set("n", "<space>gn", ":vert botright 80 new $CLOUD/Notes<CR>", { silent = true })
