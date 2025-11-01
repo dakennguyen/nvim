@@ -20,7 +20,8 @@ require("snacks").setup {
   picker = {
     enabled = true,
     sources = {
-      files = { hidden = true, layout = "ivy" },
+      files = { hidden = true, ignored = true, layout = "ivy" },
+      grep_word = { hidden = true, ignored = true },
       projects = {
         layout = "select",
         dev = _G.dev_paths,

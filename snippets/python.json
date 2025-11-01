@@ -1,6 +1,6 @@
 {
   "log": {
     "prefix": "log",
-    "body": "print(\"DEBUG\", \"${1}\", ${1})"
+    "body": "self.logger.debug(\"KHOA\", ${1}=${1})"
   }
 }
