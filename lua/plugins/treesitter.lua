@@ -8,6 +8,7 @@ vim.pack.add {
 
 require("nvim-treesitter.configs").setup {
   auto_install = true,
+  ignore_install = { "tmux" },
   highlight = {
     enable = true,
   },
