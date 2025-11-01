@@ -5,6 +5,7 @@ return {
   build = ":TSUpdate",
   opts = {
     auto_install = true,
+    ignore_install = { "tmux" },
     highlight = {
       enable = true,
     },

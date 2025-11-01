@@ -50,18 +50,12 @@ _G.augroup("t_obsession", {
       and vim.fn.argc() == 0
       and vim.v.this_session == ""
       and not vim.bo.modified
-      and vim.fn.filereadable "Session.vim" == 1
+      and vim.fn.filereadable ".git/safe/../../Session.vim" == 1
     then
       vim.cmd "source Session.vim"
     end
   end,
 })
-
-vim.filetype.add {
-  extension = {
-    ["http"] = "http",
-  },
-}
 
 vim.api.nvim_create_user_command("R", function(opts)
   local result = vim.api.nvim_exec2(opts.args, { output = true })

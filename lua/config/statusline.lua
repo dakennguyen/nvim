@@ -1,5 +1,5 @@
 vim.o.showmode = false
-vim.o.laststatus = 3
+vim.o.laststatus = 2
 
 local icons = require "icons"
 local utils = require "utils"

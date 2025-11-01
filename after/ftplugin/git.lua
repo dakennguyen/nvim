@@ -17,5 +17,5 @@ vim.keymap.set("n", "ch", ":Git fetch", opts)
 vim.keymap.set("n", "cH", ":Git remote update origin --prune", opts)
 vim.keymap.set("n", "cd", ":vert Git diff", opts)
 
-vim.keymap.set("n", "]f", "/^diff --git<cr>zV", { buffer = true, remap = true, silent = true })
-vim.keymap.set("n", "[f", "?^diff --git<cr>zV", { buffer = true, remap = true, silent = true })
+vim.keymap.set("n", "]f", "/^diff --git<cr>zV<cmd>noh<cr>", { buffer = true, remap = true, silent = true })
+vim.keymap.set("n", "[f", "?^diff --git<cr>zV<cmd>noh<cr>", { buffer = true, remap = true, silent = true })

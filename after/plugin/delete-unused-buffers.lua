@@ -19,12 +19,17 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
   end,
 })
 
-vim.keymap.set("n", "<space>bd", function()
+vim.api.nvim_create_user_command("DeleteUnusedBuffers", function()
   local curbufnr = vim.api.nvim_get_current_buf()
   local buflist = vim.api.nvim_list_bufs()
   for _, bufnr in ipairs(buflist) do
-    if vim.bo[bufnr].buflisted and bufnr ~= curbufnr and (vim.fn.getbufvar(bufnr, "bufpersist") ~= 1) then
+    if
+      vim.bo[bufnr].buflisted
+      and bufnr ~= curbufnr
+      and vim.bo[bufnr].buftype ~= "terminal"
+      and (vim.fn.getbufvar(bufnr, "bufpersist") ~= 1)
+    then
       vim.cmd("bd " .. tostring(bufnr))
     end
   end
-end, { silent = true, desc = "Close unused buffers" })
+end, { desc = "Delete unused buffers" })
