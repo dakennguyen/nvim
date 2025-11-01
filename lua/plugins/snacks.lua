@@ -54,13 +54,14 @@ return {
         projects = {
           layout = "select",
           dev = _G.dev_paths,
-          confirm = "open_pj_fugitive",
+          confirm = "open_project",
           win = {
             preview = { minimal = true },
             input = {
               keys = {
                 ["<c-o>"] = { { "tcd", "picker_files_hidden" }, mode = { "n", "i" } },
                 ["<c-l>"] = { { "tcd", "restore_session" }, mode = { "n", "i" } },
+                ["<c-t>"] = { { "open_project_new_tab" }, mode = { "n", "i" } },
               },
             },
           },
@@ -80,7 +81,14 @@ return {
         file = { truncate = 80 },
       },
       actions = {
-        open_pj_fugitive = function(picker, item)
+        open_project = function(picker, item)
+          picker:close()
+          if not item then return end
+          if vim.bo.filetype ~= "snacks_dashboard" then vim.cmd "tabnew" end
+
+          vim.cmd("tcd" .. item.file .. " | G | only | tabonly")
+        end,
+        open_project_new_tab = function(picker, item)
           picker:close()
           if not item then return end
           if vim.bo.filetype ~= "snacks_dashboard" then vim.cmd "tabnew" end
