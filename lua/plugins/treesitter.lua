@@ -8,6 +8,7 @@ vim.pack.add {
 
 require("nvim-treesitter.configs").setup {
   auto_install = true,
+  ignore_install = { "tmux" },
   highlight = {
     enable = true,
   },
@@ -86,9 +87,8 @@ require("treesj").setup {
   use_default_keymaps = false,
   max_join_length = 9999,
 }
-vim.keymap.set("n", "<space><space>", "<cmd>TSJToggle<cr>")
-vim.keymap.set("n", "gS", "<cmd>TSJSplit<cr>")
-vim.keymap.set("n", "gJ", "<cmd>TSJJoin<cr>")
+vim.keymap.set("n", "]j", "<cmd>TSJSplit<cr>")
+vim.keymap.set("n", "[j", "<cmd>TSJJoin<cr>")
 
 -- ##########################
 -- autotag

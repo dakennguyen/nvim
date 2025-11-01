@@ -5,11 +5,9 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.opt.swapfile = false
 vim.opt.signcolumn = "auto"
-vim.opt.hlsearch = false
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 5
-vim.opt.wildmode = { "list:longest", "list:full" }
 vim.opt.diffopt:append { "context:99999" }
 vim.opt.diffopt:remove { "linematch:40" }
 vim.opt.expandtab = true
@@ -27,7 +25,7 @@ vim.opt.foldlevel = 99
 vim.opt.foldnestmax = 5
 vim.opt.foldmethod = "indent"
 vim.opt.foldopen:remove { "hor", "search" }
-vim.opt.foldtext = "v:lua.fold_text()"
+vim.opt.foldtext = "v:lua.require'utils'.fold_text()"
 vim.opt.fillchars:append { fold = " " }
 
 -- Search
