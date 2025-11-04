@@ -1,7 +1,6 @@
 vim.pack.add {
   "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
   "https://github.com/Wansmer/treesj",
-  "https://github.com/windwp/nvim-ts-autotag",
 }
 
 -- ##########################
@@ -51,8 +50,3 @@ require("treesj").setup {
 }
 vim.keymap.set("n", "]j", "<cmd>TSJSplit<cr>")
 vim.keymap.set("n", "[j", "<cmd>TSJJoin<cr>")
-
--- ##########################
--- autotag
--- ##########################
-require("nvim-ts-autotag").setup()
