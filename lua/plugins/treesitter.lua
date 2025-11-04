@@ -2,7 +2,6 @@ vim.pack.add {
   "https://github.com/nvim-treesitter/nvim-treesitter",
   "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
   "https://github.com/Wansmer/treesj",
-  "https://github.com/windwp/nvim-ts-autotag",
   "https://github.com/mistweaverco/kulala.nvim",
 }
 
@@ -90,11 +89,6 @@ require("treesj").setup {
 vim.keymap.set("n", "<space><space>", "<cmd>TSJToggle<cr>")
 vim.keymap.set("n", "gS", "<cmd>TSJSplit<cr>")
 vim.keymap.set("n", "gJ", "<cmd>TSJJoin<cr>")
-
--- ##########################
--- autotag
--- ##########################
-require("nvim-ts-autotag").setup()
 
 -- ##########################
 -- kulala
