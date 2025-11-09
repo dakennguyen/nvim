@@ -17,14 +17,6 @@ M.jump = function(letter)
   vim.cmd(string.format([[call execute('normal! %s%s', )]], count, letter))
 end
 
--- Does: close and focus on previous tab
-M.tabclose = function()
-  pcall(vim.cmd.call, 'execute("-1tabmove")')
-  if not pcall(vim.cmd.call, 'execute("tabclose")') and vim.bo.filetype ~= "qf" then
-    vim.notify("E784: Cannot close last tab page", vim.log.levels.ERROR)
-  end
-end
-
 -- Does: quit and focus on previous buffer
 M.smart_quit = function()
   if vim.bo.filetype == "fugitiveblame" then
