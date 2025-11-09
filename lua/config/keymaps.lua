@@ -91,14 +91,6 @@ vim.keymap.set("n", "<c-]><c-t>", "<c-w>g<c-]><c-w>T", { remap = true })
 vim.keymap.set("n", "<c-]>p", "<c-w>g}", { remap = true })
 vim.keymap.set("n", "<c-]><c-p>", "<c-w>g}", { remap = true })
 
--- tab
-vim.keymap.set("n", "]<tab>", "gt")
-vim.keymap.set("n", "[<tab>", "gT")
-vim.keymap.set("t", "]<tab>", "<c-\\><c-n>Ggt")
-vim.keymap.set("t", "[<tab>", "<c-\\><c-n>GgT")
-vim.keymap.set("n", "<leader>t", ":tabnew<cr>", { silent = true })
-vim.keymap.set("n", "<leader>x", utils.tabclose, { silent = true })
-
 -- keep center
 -- vim.keymap.set('n', [[']], [["'" . nr2char(getchar()) . "zt"]], { expr = true })
 -- vim.keymap.set('n', [[`]], [["`" . nr2char(getchar()) . "zt"]], { expr = true })
