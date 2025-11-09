@@ -25,8 +25,11 @@ local cwd = function()
 end
 
 local tabs_indicator = function()
+  local total = vim.fn.tabpagenr "$"
+  if total <= 1 then return "" end
+
   local s = ""
-  for i = 1, vim.fn.tabpagenr "$" do
+  for i = 1, total do
     local hl = (i == vim.fn.tabpagenr()) and "%#TabLineSel#" or "%#TabLine#"
     s = s .. hl .. " " .. i .. " "
   end

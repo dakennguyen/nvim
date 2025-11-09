@@ -30,7 +30,7 @@ vim.keymap.set("v", "<leader>gx", ":GBrowse<CR>", { silent = true, desc = "Git B
 vim.keymap.set(
   "n",
   "<space>gg",
-  [[<cmd>tab Git log -n 5000 --oneline --date=short --pretty=format:"%h %ad -%d %s (%an)"<cr>]]
+  [[<cmd>Git log -n 5000 --oneline --date=short --pretty=format:"%h %ad -%d %s (%an)"<cr>]]
 )
 
 -- vimdiff
