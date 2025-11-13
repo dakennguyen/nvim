@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
   end,
 })
 
-vim.keymap.set("n", "<space>bd", function()
+vim.api.nvim_create_user_command("DeleteUnusedBuffers", function()
   local curbufnr = vim.api.nvim_get_current_buf()
   local buflist = vim.api.nvim_list_bufs()
   for _, bufnr in ipairs(buflist) do

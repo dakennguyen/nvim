@@ -9,7 +9,6 @@ vim.opt.hlsearch = false
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 5
-vim.opt.wildmode = { "list:longest", "list:full" }
 vim.opt.diffopt:append { "context:99999" }
 vim.opt.diffopt:remove { "linematch:40" }
 vim.opt.expandtab = true
@@ -27,12 +26,16 @@ vim.opt.foldlevel = 99
 vim.opt.foldnestmax = 5
 vim.opt.foldmethod = "indent"
 vim.opt.foldopen:remove { "hor", "search" }
-vim.opt.foldtext = "v:lua.fold_text()"
+vim.opt.foldtext = "v:lua.require'utils'.fold_text()"
 vim.opt.fillchars:append { fold = " " }
 
 -- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+if vim.fn.executable "rg" == 1 then
+  vim.opt.findfunc = "v:lua.require'utils'.rg_find"
+  vim.opt.grepprg = "rg --vimgrep"
+end
 
 -- netrw
 vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
