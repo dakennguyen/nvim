@@ -1,14 +1,22 @@
 vim.keymap.set("n", "<leader>b", function()
   local function collect_entries()
     local raw = vim.fn.execute "silent! buffers"
+    local last_used = {}
+    for _, info in ipairs(vim.fn.getbufinfo { buflisted = 1 }) do
+      last_used[info.bufnr] = info.lastused or 0
+    end
     local parsed = {}
     for line in raw:gmatch "[^\n]+" do
       local cleaned = line:gsub("\r$", "")
       if cleaned:match "%S" then
         local bufnr = tonumber(cleaned:match "^%s*(%d+)")
-        if bufnr then parsed[#parsed + 1] = { bufnr = bufnr, text = cleaned } end
+        if bufnr then parsed[#parsed + 1] = { bufnr = bufnr, text = cleaned, lastused = last_used[bufnr] or 0 } end
       end
     end
+    table.sort(parsed, function(a, b)
+      if a.lastused == b.lastused then return a.bufnr < b.bufnr end
+      return a.lastused > b.lastused
+    end)
     return parsed
   end
 
