@@ -149,4 +149,12 @@ vim.keymap.set("n", "<leader>b", function()
     function() vim.api.nvim_buf_delete(list_buf, { force = true }) end,
     { buffer = list_buf, desc = "Close buffer list" }
   )
+
+  for i = 1, 9 do
+    local idx = i
+    vim.keymap.set("n", tostring(idx), function() open_buffer_for_idx(idx) end, {
+      buffer = list_buf,
+      desc = ("Go to buffer %d"):format(idx),
+    })
+  end
 end, { desc = "Show buffer list" })

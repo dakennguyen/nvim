@@ -5,7 +5,6 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.opt.swapfile = false
 vim.opt.signcolumn = "auto"
-vim.opt.hlsearch = false
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 5
@@ -34,7 +33,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 if vim.fn.executable "rg" == 1 then
   vim.opt.findfunc = "v:lua.require'utils'.rg_find"
-  vim.opt.grepprg = "rg --vimgrep"
+  vim.opt.grepprg = "rg --vimgrep --smart-case"
 end
 
 -- netrw
