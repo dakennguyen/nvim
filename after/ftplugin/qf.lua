@@ -10,7 +10,7 @@ vim.keymap.set("n", "`<cr>", function()
   local grepprg = vim.o.grepprg or ""
   if grepprg ~= "" and vim.startswith(title, ":" .. grepprg) then
     local offset = #(":" .. grepprg) + 1
-    title = ":Grep" .. title:sub(offset)
+    title = ":copen | silent grep!" .. title:sub(offset)
   end
   if title ~= "" then vim.cmd(title) end
 end, { buffer = true })

@@ -40,6 +40,14 @@ local augroup = function(name, commands)
   end
 end
 
+local dev_paths = function()
+  local dev_paths = os.getenv "PROJECT_PATHS_STR"
+  if not dev_paths then return {} end
+
+  return vim.split(dev_paths, ":", { trimempty = true })
+end
+
 _G.repeatable = repeatable
 _G.augroup = augroup
+_G.dev_paths = dev_paths()
 _G.progress_status = { client = nil, title = nil }

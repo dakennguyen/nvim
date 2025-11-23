@@ -18,8 +18,7 @@ vim.keymap.set("n", "<space><space>", ":find ", { desc = "Find files" })
 vim.keymap.set("n", "<space>fs", ":find local_scripts/", { desc = "Find scripts" })
 
 -- search
-vim.keymap.set("n", "\\", ":Grep ", { desc = "Grep" })
-vim.keymap.set("n", "//", require("utils").search_lines, { silent = true, desc = "Buffer Lines" })
+vim.keymap.set("n", "\\", ":copen | silent grep! ", { desc = "Grep" })
 vim.keymap.set({ "n", "x" }, "<space>fw", require("utils").grep_word, { desc = "Find word" })
 vim.keymap.set("n", "#", "#<S-N>", { silent = true })
 vim.keymap.set("n", "*", "*<S-N>", { silent = true })
