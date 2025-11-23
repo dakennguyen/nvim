@@ -68,3 +68,8 @@ vim.api.nvim_create_user_command("R", function(opts)
   vim.api.nvim_set_option_value("swapfile", false, { buf = buf })
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
 end, { nargs = 1, complete = "command", bar = true, range = true })
+
+vim.api.nvim_create_user_command("Grep", function(opts)
+  vim.cmd("silent grep! " .. opts.args)
+  vim.cmd "copen"
+end, { nargs = "+" })
