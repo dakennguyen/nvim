@@ -7,12 +7,19 @@ vim.keymap.set("n", "<leader>s", ":w<cr>", { silent = true })
 vim.keymap.set("n", "<leader>w", "<c-w>", { silent = true })
 vim.keymap.set("n", "0", "^")
 vim.keymap.set("", "$", "g_", { silent = true })
+vim.keymap.set("n", "<leader>n", "<cmd>messages<cr>", { desc = "Notification History" })
 
 -- jk
 vim.keymap.set("n", "j", function() utils.jump "j" end, { silent = true })
 vim.keymap.set("n", "k", function() utils.jump "k" end, { silent = true })
 
+-- Find
+vim.keymap.set("n", "<space><space>", ":find ", { desc = "Find files" })
+vim.keymap.set("n", "<space>fs", ":find local_scripts/", { desc = "Find scripts" })
+
 -- search
+vim.keymap.set("n", "\\", ":copen | silent grep! ", { desc = "Grep" })
+vim.keymap.set({ "n", "x" }, "<space>fw", require("utils").grep_word, { desc = "Find word" })
 vim.keymap.set("n", "#", "#<S-N>", { silent = true })
 vim.keymap.set("n", "*", "*<S-N>", { silent = true })
 vim.keymap.set("v", "#", [[y?\V<C-R>=escape(@",'/\')<CR><CR><S-N>]])
