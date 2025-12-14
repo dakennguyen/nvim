@@ -132,4 +132,51 @@ M.toggle_loclist = function(opts)
   end
 end
 
+M.grep_word = function()
+  local mode = vim.api.nvim_get_mode().mode
+  if mode ~= "n" and mode ~= "v" and mode ~= "V" and mode ~= "\22" then return end
+
+  local query
+  if mode == "n" then
+    query = vim.fn.expand "<cword>"
+  else
+    local saved = vim.fn.getreg "v"
+    local saved_type = vim.fn.getregtype "v"
+    vim.cmd [[silent! normal! "vy]]
+    query = vim.fn.getreg "v"
+    vim.fn.setreg("v", saved, saved_type)
+  end
+
+  if not query or query == "" then return end
+
+  vim.cmd("copen | silent grep! " .. vim.fn.shellescape(query))
+end
+
+M.rg_find = function(cmdarg, _cmdcomplete)
+  local fnames = vim.fn.systemlist 'rg --files -uu --hidden --color=never --glob="!.git" --glob="!node_modules/"'
+  if #cmdarg == 0 then
+    return fnames
+  else
+    return vim.fn.matchfuzzy(fnames, cmdarg)
+  end
+end
+
+local zoom_state = {}
+M.zoom = function()
+  local tab = vim.api.nvim_get_current_tabpage()
+  local state = zoom_state[tab]
+  if state and state.zoomed then
+    if state.restore then vim.cmd(state.restore) end
+    zoom_state[tab] = nil
+    return
+  end
+
+  zoom_state[tab] = {
+    zoomed = true,
+    restore = vim.fn.winrestcmd(),
+  }
+  vim.cmd "wincmd _"
+  vim.cmd "wincmd |"
+end
+
 return M
