@@ -8,10 +8,9 @@ _G.global = {
 --   vim.cmd("move -2")
 -- end))
 local repeatable = function(mode, lhs, rhs)
-  vim.validate {
-    mode = { mode, { "string", "table" } },
-    rhs = { rhs, { "string", "function" }, lhs = { name = "string" } },
-  }
+  vim.validate("mode", mode, { "string", "table" })
+  vim.validate("lhs", lhs, "string")
+  vim.validate("rhs", rhs, "function")
   if not vim.startswith(lhs, "<Plug>") then error("`lhs` should start with `<Plug>`, given: " .. lhs) end
   vim.keymap.set(mode, lhs, function()
     rhs()
