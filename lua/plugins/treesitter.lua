@@ -1,83 +1,71 @@
 vim.pack.add {
   "https://github.com/nvim-treesitter/nvim-treesitter",
-  "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
   "https://github.com/Wansmer/treesj",
   "https://github.com/mistweaverco/kulala.nvim",
 }
 
-require("nvim-treesitter.configs").setup {
-  auto_install = true,
-  ignore_install = { "tmux" },
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = true,
-    disable = { "ruby", "go" },
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "<cr>",
-      node_incremental = "<cr>",
-      scope_incremental = false,
-      node_decremental = "<bs>",
-    },
-  },
-  -- nvim-treesitter-textobjects
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ["am"] = "@function.outer",
-        ["im"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true,
-      goto_next_start = {
-        ["]m"] = "@function.outer",
-        ["]]"] = "@class.outer",
-      },
-      goto_next_end = {
-        ["]M"] = "@function.outer",
-        ["]["] = "@class.outer",
-      },
-      goto_previous_start = {
-        ["[m"] = "@function.outer",
-        ["[["] = "@class.outer",
-      },
-      goto_previous_end = {
-        ["[M"] = "@function.outer",
-        ["[]"] = "@class.outer",
-      },
-    },
-    swap = {
-      enable = false,
-      swap_next = {
-        ["<leader>a"] = "@parameter.inner",
-      },
-      swap_previous = {
-        ["<leader>A"] = "@parameter.inner",
-      },
-    },
-    lsp_interop = {
-      enable = false,
-      border = "single",
-      peek_definition_code = {
-        ["<leader>df"] = "@function.outer",
-        ["<leader>dF"] = "@class.outer",
-      },
-    },
-  },
+local ensure_installed = {
+  "bash",
+  "dockerfile",
+  "http",
+  "javascript",
+  "json",
+  "lua",
+  "nginx",
+  "php",
+  "python",
+  "sql",
+  "typescript",
+  "vim",
+  "vimdoc",
+  "yaml",
+  "zsh",
 }
+if ensure_installed and #ensure_installed > 0 then
+  require("nvim-treesitter").install(ensure_installed)
+  for _, parser in ipairs(ensure_installed) do
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = parser,
+      callback = function()
+        vim.treesitter.start()
+        vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.wo[0][0].foldmethod = "expr"
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
+    })
+  end
+end
 
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- ##########################
+-- nvim-treesitter-textobjects
+-- ##########################
+local select = require "nvim-treesitter-textobjects.select"
+vim.keymap.set({ "x", "o" }, "am", function() select.select_textobject("@function.outer", "textobjects") end)
+vim.keymap.set({ "x", "o" }, "im", function() select.select_textobject("@function.inner", "textobjects") end)
+vim.keymap.set({ "x", "o" }, "ac", function() select.select_textobject("@class.outer", "textobjects") end)
+vim.keymap.set({ "x", "o" }, "ic", function() select.select_textobject("@class.inner", "textobjects") end)
+vim.keymap.set({ "x", "o" }, "as", function() select.select_textobject("@local.scope", "locals") end)
+
+local move = require "nvim-treesitter-textobjects.move"
+local mode = { "n", "x", "o" }
+vim.keymap.set(mode, "]m", function() move.goto_next_start("@function.outer", "textobjects") end)
+vim.keymap.set(mode, "]]", function() move.goto_next_start("@class.outer", "textobjects") end)
+vim.keymap.set(mode, "]o", function() move.goto_next_start({ "@loop.inner", "@loop.outer" }, "textobjects") end)
+vim.keymap.set(mode, "]s", function() move.goto_next_start("@local.scope", "locals") end)
+vim.keymap.set(mode, "]z", function() move.goto_next_start("@fold", "folds") end)
+
+vim.keymap.set(mode, "]M", function() move.goto_next_end("@function.outer", "textobjects") end)
+vim.keymap.set(mode, "][", function() move.goto_next_end("@class.outer", "textobjects") end)
+
+vim.keymap.set(mode, "[m", function() move.goto_previous_start("@function.outer", "textobjects") end)
+vim.keymap.set(mode, "[[", function() move.goto_previous_start("@class.outer", "textobjects") end)
+
+vim.keymap.set(mode, "[M", function() move.goto_previous_end("@function.outer", "textobjects") end)
+vim.keymap.set(mode, "[]", function() move.goto_previous_end("@class.outer", "textobjects") end)
+
+vim.keymap.set(mode, "]d", function() move.goto_next("@conditional.outer", "textobjects") end)
+vim.keymap.set(mode, "[d", function() move.goto_previous("@conditional.outer", "textobjects") end)
 
 -- ##########################
 -- treesj
