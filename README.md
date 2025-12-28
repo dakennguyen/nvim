@@ -52,7 +52,11 @@ export PROJECT_PATHS_STR="${(j.:.)PROJECT_PATHS}"
 ```
 
 ### Auto-detect light/dark mode
-For MacOS
+Use one of the scripts below to automatically set `THEME_MODE` based on system settings (macOS) or time of day (Linux).
+
+Put it somewhere that runs before Neovim starts. For example, in `~/.zshenv` and make an alias `alias v="source ~/.zshenv && nvim"`.
+
+For MacOS:
 ```sh
 if defaults read -g AppleInterfaceStyle &>/dev/null; then
     export THEME_MODE=dark
@@ -61,7 +65,7 @@ else
 fi
 ```
 
-For Linux
+For Linux:
 ```sh
 hour=$(date +%H)
 # assumes "daytime" is from 07:00 to 18:59
