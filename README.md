@@ -38,7 +38,7 @@ Set these to match your preferred tools, themes, and project directories.
 # Theme names must match files in `lua/themes/`
 export THEME_LIGHT=gruvbox
 export THEME_DARK=gruvbox
-export THEME_MODE=dark # or light
+export THEME_MODE=dark # or light, for auto-detect see below
 
 # Default browser
 export MYBROWSER=firefox
@@ -52,7 +52,11 @@ export PROJECT_PATHS_STR="${(j.:.)PROJECT_PATHS}"
 ```
 
 ### Auto-detect light/dark mode
-For MacOS
+Use one of the scripts below to automatically set `THEME_MODE` based on system settings (macOS) or time of day (Linux).
+
+Hint: put it somewhere that runs before Neovim starts. For example, in `~/.zshenv` and make an alias `alias v="source ~/.zshenv && nvim"`.
+
+For macOS:
 ```sh
 if defaults read -g AppleInterfaceStyle &>/dev/null; then
     export THEME_MODE=dark
@@ -61,7 +65,7 @@ else
 fi
 ```
 
-For Linux
+For Linux:
 ```sh
 hour=$(date +%H)
 # assumes "daytime" is from 07:00 to 18:59
