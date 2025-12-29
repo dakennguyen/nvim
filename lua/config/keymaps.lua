@@ -19,6 +19,7 @@ vim.keymap.set("n", "<space>fs", ":find local_scripts/", { desc = "Find scripts"
 
 -- search
 vim.keymap.set("n", "\\", ":copen | silent grep! ", { desc = "Grep" })
+vim.keymap.set("n", "//", "<cmd>FzfBufferLines<cr>", { silent = true, desc = "FZF current buffer lines" })
 vim.keymap.set({ "n", "x" }, "<space>fw", require("utils").grep_word, { desc = "Find word" })
 vim.keymap.set("n", "#", "#<S-N>", { silent = true })
 vim.keymap.set("n", "*", "*<S-N>", { silent = true })
