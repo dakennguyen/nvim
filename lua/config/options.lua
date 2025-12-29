@@ -16,6 +16,7 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·" }
 vim.opt.exrc = true
 vim.opt.secure = true
+vim.opt.colorcolumn = "+1"
 
 -- buffer
 -- o.switchbuf:append { "useopen" }

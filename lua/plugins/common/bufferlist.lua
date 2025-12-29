@@ -117,12 +117,7 @@ vim.keymap.set("n", "<leader>b", function()
   end
 
   vim.keymap.set("n", "<CR>", function() open_buffer() end, { buffer = list_buf, desc = "Go to buffer" })
-  vim.keymap.set(
-    "n",
-    "<C-s>",
-    function() open_buffer "split" end,
-    { buffer = list_buf, desc = "Open buffer in split" }
-  )
+  vim.keymap.set("n", "<C-s>", function() open_buffer "split" end, { buffer = list_buf, desc = "Open buffer in split" })
   vim.keymap.set(
     "n",
     "<C-v>",

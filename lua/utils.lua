@@ -3,8 +3,7 @@ local M = {}
 -- Does:
 --   For wrapped lines, does gj/gk
 --   For large jumps, adds a spot on the jump list
--- luacheck: ignore 631
--- https://github.com/tjdevries/config_manager/blob/b9490fe7eb47e2bf21e828474787d8b8e8ed5314/xdg_config/nvim/autoload/tj.vim#L161
+-- https://github.com/tjdevries/config_manager/blob/b9490fe/xdg_config/nvim/autoload/tj.vim#L161
 M.jump = function(letter)
   local count = vim.api.nvim_eval "v:count"
   if count == 0 then
@@ -29,11 +28,8 @@ M.smart_quit = function()
     else
       vim.cmd "quit"
     end
-  elseif vim.bo.buftype == "nofile" then
-    vim.cmd "q"
   else
     vim.cmd "q"
-    vim.cmd.wincmd "p"
   end
 end
 
@@ -103,7 +99,6 @@ M.toggle_quickfix = function()
   if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
     if vim.bo.filetype == "qf" then
       vim.cmd "cclose"
-      vim.cmd.wincmd "p"
     else
       vim.cmd "botright copen"
     end
@@ -119,7 +114,6 @@ M.toggle_loclist = function(opts)
   if is_open then
     if vim.bo.filetype == "qf" then
       vim.cmd "lclose"
-      vim.cmd.wincmd "p"
     else
       vim.cmd "lopen"
     end

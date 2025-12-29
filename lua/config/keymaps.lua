@@ -47,9 +47,7 @@ vim.keymap.set("n", "Q", repeatable("n", "<Plug>(RepeatableQ)", function() vim.c
 -- marks
 for i = string.byte "A", string.byte "z" do
   local char = string.char(i)
-  if char:match "[A-Za-z]" then
-    vim.keymap.set("n", "dm" .. char, ":delmarks " .. char .. "<CR>", { silent = true })
-  end
+  if char:match "[A-Za-z]" then vim.keymap.set("n", "dm" .. char, ":delmarks " .. char .. "<CR>", { silent = true }) end
 end
 
 -- for i = string.byte "A", string.byte "I" do
