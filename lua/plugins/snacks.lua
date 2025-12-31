@@ -73,8 +73,9 @@ require("snacks").setup {
   },
 }
 
-vim.keymap.set("n", "<space>fh", function() Snacks.picker.help() end, { desc = "Help" })
-vim.keymap.set("n", "<space>fm", function() Snacks.picker.keymaps() end, { desc = "Keymaps" })
-vim.keymap.set("n", "<space>fq", function() Snacks.picker.qflist() end, { desc = "Quickfix list" })
-vim.keymap.set("n", "<space>fp", function() Snacks.picker.projects() end, { desc = "Projects" })
-vim.keymap.set("n", "//", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
+vim.keymap.set("n", "<space>fh", Snacks.picker.help, { desc = "Help" })
+vim.keymap.set("n", "<space>fm", Snacks.picker.keymaps, { desc = "Keymaps" })
+vim.keymap.set("n", "<space>fq", Snacks.picker.qflist, { desc = "Quickfix list" })
+vim.keymap.set("n", "<space>fp", Snacks.picker.projects, { desc = "Projects" })
+vim.keymap.set("n", "<leader>z", Snacks.zen.zoom, { desc = "Zoom" })
+vim.keymap.set("n", "//", Snacks.picker.lines, { desc = "Buffer Lines" })
