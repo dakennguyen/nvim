@@ -8,32 +8,11 @@ return {
   priority = 1000,
   lazy = false,
   keys = {
-    { "<space>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-    { "<space>fe", function() Snacks.picker.explorer() end, desc = "Explorer" },
-    { "<space>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
-    { "<space>fo", function() Snacks.picker.recent() end, desc = "Recent" },
-    { "<space>fc", function() Snacks.picker.command_history() end, desc = "Command History" },
     { "<space>fh", function() Snacks.picker.help() end, desc = "Help" },
     { "<space>fm", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
-    { "<space>fw", function() Snacks.picker.grep_word() end, desc = "Grep word", mode = { "n", "x" } },
     { "<space>fq", function() Snacks.picker.qflist() end, desc = "Quickfix list" },
-    {
-      "<space>fs",
-      function() Snacks.picker.files { cwd = "local_scripts" } end,
-      desc = "Find scripts",
-      mode = { "n", "x" },
-    },
-    {
-      "<space>fn",
-      function() Snacks.picker.files { cwd = vim.fs.normalize "$CLOUD/Notes" } end,
-      desc = "Find notes",
-      mode = { "n", "x" },
-    },
     { "//", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
-    { "\\", ":Sgrep ", desc = "Grep" },
     { "<space>fp", function() Snacks.picker.projects() end, { desc = "Projects" } },
-    { "<space>gs", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-    { "<leader>S", function() Snacks.picker.scratch() end, desc = "Select Scratch Buffer" },
     { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
     { "<leader>z", function() Snacks.zen.zoom() end },
   },
@@ -159,13 +138,4 @@ return {
       },
     },
   },
-  config = function(_, opts)
-    vim.api.nvim_create_user_command(
-      "Sgrep",
-      function(o) Snacks.picker.grep_word { search = o.args } end,
-      { nargs = "?" }
-    )
-
-    require("snacks").setup(opts)
-  end,
 }

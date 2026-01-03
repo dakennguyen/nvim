@@ -10,5 +10,6 @@ require "config.lsp"
 require "config.statusline"
 require "config.winbar"
 require "config.tabline"
+require "config.bufferlist"
 
 vim.notify(vim.fn.printf("Loaded in %.0fms", vim.fn.reltimefloat(vim.fn.reltime(start_time)) * 1000))

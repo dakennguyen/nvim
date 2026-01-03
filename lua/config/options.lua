@@ -31,6 +31,10 @@ vim.opt.fillchars:append { fold = " " }
 -- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+if vim.fn.executable "rg" == 1 then
+  vim.opt.findfunc = "v:lua.require'utils'.rg_find"
+  vim.opt.grepprg = "rg --vimgrep --smart-case"
+end
 
 -- netrw
 vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
