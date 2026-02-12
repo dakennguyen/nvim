@@ -35,7 +35,7 @@ vim.lsp.enable {
 Set these to match your preferred tools, themes, and project directories.
 
 ```sh
-# Theme names must match files in `lua/themes/`
+# Theme names must match files in `lua/themes/` or supported colorschemes by nvim
 export THEME_LIGHT=gruvbox
 export THEME_DARK=gruvbox
 export THEME_MODE=dark # or light, for auto-detect see below
