@@ -1,22 +1,17 @@
-return {
-  "tpope/vim-dispatch",
-  event = "VeryLazy",
-  keys = {
-    { "<leader>C", "<cmd>Copen<cr>" },
-    { "<space>C", "<cmd>Copen!<cr>" },
-    { mode = "v", "`<space>", ":Dispatch<space>" },
-    { mode = "v", "`<cr>", ":Dispatch<cr>" },
-    { "t<c-n>", "mT<cmd>.Dispatch<cr>" },
-    { "t<c-l>", "<cmd>Copen|Dispatch<cr>" },
-    { "t<c-g>", "'T" },
-  },
-  config = function()
-    vim.g["dispatch_no_tmux_start"] = true
-    vim.g["dispatch_compilers"] = {
-      ["python -m pytest"] = "pytest",
-      ["poetry run"] = "",
-      ["bundle exec spring"] = "",
-      ["bundle exec"] = "",
-    }
-  end,
+vim.pack.add { "https://tpope.io/vim/dispatch" }
+
+vim.g["dispatch_no_tmux_start"] = true
+vim.g["dispatch_compilers"] = {
+  ["python -m pytest"] = "pytest",
+  ["poetry run"] = "",
+  ["bundle exec spring"] = "",
+  ["bundle exec"] = "",
 }
+
+vim.keymap.set("n", "<leader>C", "<cmd>Copen<cr>")
+vim.keymap.set("n", "<space>C", "<cmd>Copen!<cr>")
+vim.keymap.set("v", "`<space>", ":Dispatch<space>")
+vim.keymap.set("v", "`<cr>", ":Dispatch<cr>")
+vim.keymap.set("n", "t<c-n>", "mT<cmd>.Dispatch<cr>")
+vim.keymap.set("n", "t<c-l>", "<cmd>Copen|Dispatch<cr>")
+vim.keymap.set("n", "t<c-g>", "'T")
