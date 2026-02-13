@@ -1,10 +1,9 @@
-return {
-  "norcalli/nvim-colorizer.lua",
-  cmd = "ColorizerToggle",
-  init = function() vim.opt.termguicolors = true end,
-  opts = {
-    "*",
-    "!fugitive",
-    "!git",
-  },
+vim.pack.add { "https://github.com/norcalli/nvim-colorizer.lua" }
+
+vim.opt.termguicolors = true
+
+require("colorizer").setup {
+  "*",
+  "!fugitive",
+  "!git",
 }
