@@ -1,8 +1,8 @@
-return {
-  { "tpope/vim-rhubarb", event = "VeryLazy" },
-  { "tommcdo/vim-fubitive", event = "VeryLazy" },
-  { "tpope/vim-repeat", init = _G.lazy_load "vim-repeat" },
-  { "tpope/vim-sleuth", lazy = false },
-  { "tpope/vim-rsi", event = { "InsertEnter", "CmdlineEnter" } },
-  { "dakennguyen/vim-unimpaired", event = "VeryLazy" },
+vim.pack.add {
+  "https://tpope.io/vim/rhubarb",
+  "https://github.com/tommcdo/vim-fubitive",
+  "https://tpope.io/vim/repeat",
+  "https://tpope.io/vim/sleuth",
+  "https://tpope.io/vim/rsi",
+  "https://github.com/dakennguyen/vim-unimpaired",
 }

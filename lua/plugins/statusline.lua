@@ -24,7 +24,6 @@ vim.api.nvim_set_hl(0, "StatuslineTitle", { bold = true })
 vim.api.nvim_set_hl(0, "StatuslineInactive", { link = "Comment" })
 
 local M = {}
-local last_diagnostic_component = ""
 
 local mode_component = function()
   -- Note that: \19 = ^S and \22 = ^V.
@@ -123,38 +122,6 @@ local lsp_progress_component = function()
   }
 end
 
-local diagnostics_component = function()
-  -- Lazy uses diagnostic icons, but those aren't errors per se.
-  if vim.bo.filetype == "lazy" then return "" end
-
-  if vim.startswith(vim.api.nvim_get_mode().mode, "i") then return last_diagnostic_component end
-
-  local counts = vim.iter(vim.diagnostic.get(0)):fold({
-    ERROR = 0,
-    WARN = 0,
-    HINT = 0,
-    INFO = 0,
-  }, function(acc, diagnostic)
-    local severity = vim.diagnostic.severity[diagnostic.severity]
-    acc[severity] = acc[severity] + 1
-    return acc
-  end)
-
-  local parts = vim
-    .iter(counts)
-    :map(function(severity, count)
-      if count == 0 then return nil end
-
-      local capitalized_severity = severity:sub(1, 1) .. severity:sub(2):lower()
-      local hl = "Diagnostic" .. capitalized_severity
-      return string.format("%%#%s#%s %d", hl, icons.diagnostics[capitalized_severity], count)
-    end)
-    :totable()
-
-  last_diagnostic_component = table.concat(parts, " ")
-  return last_diagnostic_component
-end
-
 local filetype_component = function()
   local devicons = package.loaded["nvim-web-devicons"] and require "nvim-web-devicons"
   local mini_icons = package.loaded["mini.icons"] and require "mini.icons"
@@ -243,7 +210,7 @@ M.render = function()
       dap_component() or lsp_progress_component(),
     },
     "%=",
-    diagnostics_component(),
+    vim.diagnostic.status(),
     "%=",
     concat_components {
       filetype_component(),
@@ -255,20 +222,22 @@ M.render = function()
 end
 
 if vim.o.laststatus == 3 then
-  vim.o.statusline = "%!v:lua.require'config.statusline'.render()"
+  vim.o.statusline = "%!v:lua.require'plugins.statusline'.render()"
 else
   _G.augroup("my.statusline", {
     {
       event = { "WinEnter", "BufWinEnter" },
       desc = "Attach winbar",
       callback = function(args)
+        if vim.api.nvim_win_get_config(0).relative ~= "" then return end
         if vim.bo[args.buf].filetype == "qf" then return end
-        vim.wo.statusline = "%!v:lua.require'config.statusline'.render()"
+        vim.wo.statusline = "%!v:lua.require'plugins.statusline'.render()"
       end,
     },
     {
       event = "WinLeave",
       callback = function(args)
+        if vim.api.nvim_win_get_config(0).relative ~= "" then return end
         if vim.bo[args.buf].filetype == "qf" then return end
         vim.wo.statusline = "%#StatusLineNC#"
       end,

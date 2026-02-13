@@ -50,27 +50,6 @@ M.get_hl = function(group)
   }
 end
 
-M.load_session = function()
-  local session_file = "Session.vim"
-  if vim.fn.filereadable(session_file) == 1 then
-    vim.cmd("source " .. session_file)
-  else
-    vim.notify("No sessions", vim.log.levels.WARN)
-  end
-end
-
-M.delete_session = function()
-  local ok, choice = pcall(vim.fn.confirm, "Delete Session.vim?", "&Yes\n&No", 2)
-  if not ok or choice ~= 1 then return end
-
-  local deleted = vim.fn.delete "Session.vim"
-  if deleted == 0 then
-    vim.notify("Session deleted", vim.log.levels.INFO)
-  else
-    vim.notify("No session to delete", vim.log.levels.WARN)
-  end
-end
-
 M.eval_expression = function(expr)
   local mode = vim.api.nvim_get_mode()
   if mode.mode == "v" then
@@ -180,6 +159,24 @@ M.rg_find = function(cmdarg, _cmdcomplete)
   else
     return vim.fn.matchfuzzy(fnames, cmdarg)
   end
+end
+
+local zoom_state = {}
+M.zoom = function()
+  local tab = vim.api.nvim_get_current_tabpage()
+  local state = zoom_state[tab]
+  if state and state.zoomed then
+    if state.restore then vim.cmd(state.restore) end
+    zoom_state[tab] = nil
+    return
+  end
+
+  zoom_state[tab] = {
+    zoomed = true,
+    restore = vim.fn.winrestcmd(),
+  }
+  vim.cmd "wincmd _"
+  vim.cmd "wincmd |"
 end
 
 return M
