@@ -1,7 +1,16 @@
 -- Preference
 -- ======================================
+local icons = require "icons"
 vim.diagnostic.config {
   signs = false,
+  status = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = icons.diagnostics["Error"] .. " ",
+      [vim.diagnostic.severity.WARN] = icons.diagnostics["Warn"] .. " ",
+      [vim.diagnostic.severity.INFO] = icons.diagnostics["Info"] .. " ",
+      [vim.diagnostic.severity.HINT] = icons.diagnostics["Hint"],
+    },
+  },
 }
 
 -- Servers config

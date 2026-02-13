@@ -1,10 +1,9 @@
 local M = {}
 
-M.specs = {
-  "EdenEast/nightfox.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {
+function M.setup()
+  vim.pack.add { "https://github.com/EdenEast/nightfox.nvim" }
+
+  require("nightfox").setup {
     palettes = {
       nightfox = {
         light = "#BBC2CF",
@@ -27,17 +26,14 @@ M.specs = {
         diff_remove_bg = "#824d5b",
       },
     },
-  },
-  config = function(_, opts)
-    require("nightfox").setup(opts)
+  }
 
-    if vim.o.background == "light" then
-      vim.cmd "colorscheme dayfox"
-    else
-      vim.cmd "colorscheme nightfox"
-    end
-  end,
-}
+  if vim.o.background == "light" then
+    vim.cmd "colorscheme dayfox"
+  else
+    vim.cmd "colorscheme nightfox"
+  end
+end
 
 function M.colors()
   local palette

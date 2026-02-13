@@ -19,12 +19,13 @@ end
 if theme_module_exists(theme_name) then return require("themes." .. theme_name) end
 
 if colorscheme_exists(theme_name) then
-  vim.cmd("colorscheme " .. theme_name)
-else
-vim.opt.termguicolors = false
+  return {
+    setup = function() vim.cmd("colorscheme " .. theme_name) end,
+    colors = function() return {} end,
+  }
 end
 
 return {
-  specs = {},
+  setup = function() vim.opt.termguicolors = false end,
   colors = function() return {} end,
 }
