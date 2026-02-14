@@ -36,6 +36,7 @@ vim.keymap.set("n", "<leader>.", function()
 
   -- Put current arglist
   local arglist = vim.fn.argv(-1)
+  if type(arglist) == "string" then arglist = { arglist } end
   local to_read = {}
   for idx, entry in ipairs(arglist) do
     to_read[idx] = vim.fn.fnamemodify(entry, ":.")
@@ -54,7 +55,7 @@ vim.keymap.set("n", "<leader>.", function()
     vim.cmd(("%dargument"):format(line))
   end
 
-  vim.keymap.set("n", "<CR>", function() open_arg() end, { buffer = argseditor, desc = "Go to file under cursor" })
+  vim.keymap.set("n", "<CR>", open_arg, { buffer = argseditor, desc = "Go to file under cursor" })
   vim.keymap.set("n", "<C-s>", function() open_arg "split" end, { buffer = argseditor, desc = "Open arg in split" })
   vim.keymap.set("n", "<C-v>", function() open_arg "vsplit" end, { buffer = argseditor, desc = "Open arg in vsplit" })
   vim.keymap.set("n", "<C-t>", function() open_arg "tab split" end, { buffer = argseditor, desc = "Open arg in tab" })

@@ -1,5 +1,5 @@
 local opts = { buffer = true }
-vim.keymap.set("n", ".", ": <c-r><c-a><s-left><left>", opts)
+vim.keymap.set("n", ".", ":Git  <c-r><c-a><s-left><left>", opts)
 vim.keymap.set("n", "cb<space>", ":Git branch  <c-r><c-a><s-left><left>", opts)
 vim.keymap.set("n", "co<space>", ":Git checkout  <c-r><c-a><s-left><left>", opts)
 vim.keymap.set("n", "cot", ":Git checkout --track <c-r><c-a><cr>", opts)
