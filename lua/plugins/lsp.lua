@@ -27,17 +27,26 @@ _G.augroup("my.lsp", {
     end
 
     local opts = { buffer = args.buf, silent = true }
-    vim.keymap.set("n", "gdd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    vim.keymap.set("n", "gdv", [[<Cmd>vs | lua vim.lsp.buf.definition()<CR>]], opts)
-    vim.keymap.set("n", "gds", [[<Cmd>split | lua vim.lsp.buf.definition()<CR>]], opts)
-    vim.keymap.set("n", "gdt", [[<Cmd>tab split | lua vim.lsp.buf.definition()<CR>]], opts)
-    vim.keymap.set("n", "gh", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-    vim.keymap.set("n", "gry", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-    vim.keymap.set("n", "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-    vim.keymap.set("n", "<space>ld", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    vim.keymap.set("n", "<space>ll", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+    vim.keymap.set("n", "gdd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "gdv", function()
+      vim.cmd.vsplit()
+      vim.lsp.buf.definition()
+    end, opts)
+    vim.keymap.set("n", "gds", function()
+      vim.cmd.split()
+      vim.lsp.buf.definition()
+    end, opts)
+    vim.keymap.set("n", "gdt", function()
+      vim.cmd "tab split"
+      vim.lsp.buf.definition()
+    end, opts)
+    vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "gry", vim.lsp.buf.type_definition, opts)
+    vim.keymap.set("n", "<c-s>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "<space>ld", vim.lsp.buf.declaration, opts)
+    vim.keymap.set("n", "<space>ll", vim.diagnostic.open_float, opts)
     vim.keymap.set("n", "<leader>l", function() require("utils").toggle_loclist { setloclist = true } end, opts)
-    vim.keymap.set("n", "<space>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
+    vim.keymap.set("n", "<space>lf", function() vim.lsp.buf.format { async = true } end, opts)
   end,
 })
 

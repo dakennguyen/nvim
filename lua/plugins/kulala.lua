@@ -1,7 +1,7 @@
 vim.pack.add { "https://github.com/mistweaverco/kulala.nvim" }
 
-vim.keymap.set("n", "<space>ro", "<cmd>lua require('kulala').open()<cr>", { silent = true })
-vim.keymap.set("n", "<space>rl", "<cmd>lua require('kulala').replay()<cr>", { silent = true })
+vim.keymap.set("n", "<space>ro", require("kulala").open, { silent = true })
+vim.keymap.set("n", "<space>rl", require("kulala").replay, { silent = true })
 
 require("kulala").setup {
   global_keymaps = false,
