@@ -1,6 +1,4 @@
-vim.pack.add {
-  { src = "https://github.com/lewis6991/gitsigns.nvim", version = "v0.8.1" },
-}
+vim.pack.add { "https://github.com/dakennguyen/gitsigns.nvim" }
 
 require("gitsigns").setup {
   signs = {
