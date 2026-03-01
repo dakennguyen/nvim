@@ -2,12 +2,14 @@ _G.__global_callbacks = {}
 _G.global = {
   _store = {},
 }
+_G.progress_status = { client = nil, title = nil }
+_G.dev_paths = vim.split(os.getenv "PROJECT_PATHS_STR" or "", ":", { trimempty = true })
 
 -- example:
 -- vim.keymap.set("n", "[e", repeatable("n", "<Plug>(MoveUp)", function()
 --   vim.cmd("move -2")
 -- end))
-local repeatable = function(mode, lhs, rhs)
+_G.repeatable = function(mode, lhs, rhs)
   vim.validate("mode", mode, { "string", "table" })
   vim.validate("lhs", lhs, "string")
   vim.validate("rhs", rhs, "function")
@@ -19,7 +21,7 @@ local repeatable = function(mode, lhs, rhs)
   return lhs
 end
 
-local augroup = function(name, commands)
+_G.augroup = function(name, commands)
   local id = vim.api.nvim_create_augroup(name, { clear = true })
 
   local autocmd = function(c)
@@ -38,15 +40,3 @@ local augroup = function(name, commands)
     autocmd(c)
   end
 end
-
-local dev_paths = function()
-  local dev_paths = os.getenv "PROJECT_PATHS_STR"
-  if not dev_paths then return {} end
-
-  return vim.split(dev_paths, ":", { trimempty = true })
-end
-
-_G.repeatable = repeatable
-_G.augroup = augroup
-_G.dev_paths = dev_paths()
-_G.progress_status = { client = nil, title = nil }
