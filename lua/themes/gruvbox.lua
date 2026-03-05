@@ -13,12 +13,13 @@ M.specs = {
 
 function M.colors()
   if vim.o.background == "dark" then return {} end
+  local colors = require("gruvbox").palette
 
   return {
     gitsigns = {
-      add_fg = "#4c9c3e",
-      change_fg = "#f28c28",
-      delete_fg = "#e34f4f",
+      add_fg = colors.faded_blue,
+      change_fg = colors.faded_purple,
+      delete_fg = colors.faded_orange,
     },
   }
 end
