@@ -1,1 +1,1 @@
-vim.b["dispatch"] = ":Dispatch open -a $MYBROWSER %:p"
+vim.b["dispatch"] = ":Dispatch open -a $MYBROWSER '%:p'"

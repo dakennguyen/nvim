@@ -46,9 +46,7 @@ vim.keymap.set("n", "Q", repeatable("n", "<Plug>(RepeatableQ)", function() vim.c
 -- marks
 for i = string.byte "A", string.byte "z" do
   local char = string.char(i)
-  if char:match "[A-Za-z]" then
-    vim.keymap.set("n", "dm" .. char, ":delmarks " .. char .. "<CR>", { silent = true })
-  end
+  if char:match "[A-Za-z]" then vim.keymap.set("n", "dm" .. char, ":delmarks " .. char .. "<CR>", { silent = true }) end
 end
 
 -- for i = string.byte "A", string.byte "I" do
@@ -64,7 +62,7 @@ vim.keymap.set("n", "zV", ":normal zMzvzz<CR>", { silent = true })
 vim.keymap.set("n", "[of", ":setlocal foldmethod=indent<cr>")
 vim.keymap.set("n", "]of", ":setlocal foldmethod=expr<cr>")
 vim.keymap.set("n", "yof", function()
-  if vim.opt_local.foldmethod:get() == "indent" then
+  if vim.api.nvim_get_option_value("foldmethod", { scope = "local" }) == "indent" then
     vim.opt_local.foldmethod = "expr"
     vim.cmd 'echo ":setlocal foldmethod=expr"'
   else

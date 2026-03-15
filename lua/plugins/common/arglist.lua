@@ -36,6 +36,7 @@ vim.keymap.set("n", "<leader>.", function()
 
   -- Put current arglist
   local arglist = vim.fn.argv(-1)
+  if type(arglist) == "string" then arglist = { arglist } end
   local to_read = {}
   for idx, entry in ipairs(arglist) do
     to_read[idx] = vim.fn.fnamemodify(entry, ":.")

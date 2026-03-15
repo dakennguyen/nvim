@@ -10,12 +10,11 @@ vim.opt.relativenumber = true
 vim.opt.scrolloff = 5
 vim.opt.diffopt:append { "context:99999" }
 vim.opt.diffopt:remove { "linematch:40" }
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·" }
 vim.opt.exrc = true
 vim.opt.secure = true
+vim.opt.colorcolumn = "+1"
 
 -- buffer
 -- o.switchbuf:append { "useopen" }
