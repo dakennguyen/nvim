@@ -76,6 +76,12 @@ end, {
   desc = "Open or focus Code Agent terminal (accepts CLI args)",
 })
 
+vim.api.nvim_create_user_command(
+  "Spend",
+  function() vim.cmd 'Dispatch sh -c "$MYCODEAGENT_SPEND"' end,
+  { desc = "Run :Dispatch $MYCODEAGENT_SPEND" }
+)
+
 vim.keymap.set("n", "<leader>a", "<cmd>Agent<CR>", { silent = true })
 vim.keymap.set("v", "<leader>a", paste_range_code_agent, { silent = true })
 vim.keymap.set("n", "<leader>A", paste_file_code_agent, { silent = true })

@@ -15,6 +15,7 @@ vim.opt.listchars = { tab = "→ ", trail = "·" }
 vim.opt.exrc = true
 vim.opt.secure = true
 vim.opt.colorcolumn = "+1"
+vim.opt.cursorline = true
 
 -- buffer
 -- o.switchbuf:append { "useopen" }
@@ -40,3 +41,9 @@ vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
 
 -- markdown
 vim.g.markdown_fenced_languages = { "ruby", "sql", "bash" }
+
+vim.filetype.add {
+  extension = {
+    j2 = "jinja",
+  },
+}

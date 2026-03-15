@@ -31,7 +31,7 @@ vim.keymap.set("v", "<space>er", [[y/\V<C-R>=escape(@",'/\')<CR><CR>:cfdo %s/<C-
 
 -- quit
 vim.keymap.set("n", "<leader>q", utils.smart_quit, { silent = true })
-vim.keymap.set("t", "<leader>q", "<C-\\><C-N>:q<CR>", { silent = true })
+vim.keymap.set("t", "<leader>q", "<C-\\><C-N>:q<CR><C-w>p", { silent = true })
 
 -- gf
 vim.keymap.set("", "gff", "gf")

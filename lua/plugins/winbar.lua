@@ -48,12 +48,12 @@ _G.augroup("my.winbar", {
   event = "BufWinEnter",
   desc = "Attach winbar",
   callback = function(args)
-    if
-      not vim.api.nvim_win_get_config(0).zindex -- Not a floating window
-      and vim.bo[args.buf].buftype == "" -- Normal buffer
-      and vim.api.nvim_buf_get_name(args.buf) ~= "" -- Has a file name
-      and not vim.wo[0].diff -- Not in diff mode
-    then
+    local normal_buffer = vim.bo[args.buf].buftype == ""
+    local fugitiveblame = vim.bo[args.buf].filetype == "fugitiveblame"
+    local floating = vim.api.nvim_win_get_config(0).zindex
+    local has_file_name = vim.api.nvim_buf_get_name(args.buf) ~= ""
+    local diff_mode = vim.wo[0].diff
+    if not floating and (normal_buffer or fugitiveblame) and has_file_name and not diff_mode then
       vim.wo.winbar = "%{%v:lua.require'plugins.winbar'.render()%}"
     end
   end,
