@@ -1,6 +1,5 @@
 vim.pack.add { "https://tpope.io/vim/projectionist" }
 
-vim.keymap.set("n", "<space>6", "<cmd>A<CR>")
 vim.keymap.set("n", "c<cr>", "<cmd>Console<CR>")
 vim.keymap.set("n", "c<space>", ":Console ")
 
