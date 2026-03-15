@@ -7,4 +7,3 @@ vim.g.slime_default_config = {
 }
 
 vim.keymap.set("n", "<c-c><c-l>", "<cmd>SlimeSendCurrentLine<cr>")
-vim.keymap.set("n", "<c-c>l", "<cmd>SlimeSendCurrentLine<cr>")

@@ -73,6 +73,7 @@ require("snacks").setup {
   },
 }
 
+vim.keymap.set("n", "<space>fe", Snacks.picker.explorer, { desc = "Explorer" })
 vim.keymap.set("n", "<space>fh", Snacks.picker.help, { desc = "Help" })
 vim.keymap.set("n", "<space>fm", Snacks.picker.keymaps, { desc = "Keymaps" })
 vim.keymap.set("n", "<space>fq", Snacks.picker.qflist, { desc = "Quickfix list" })

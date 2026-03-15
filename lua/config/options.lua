@@ -10,12 +10,13 @@ vim.opt.relativenumber = true
 vim.opt.scrolloff = 5
 vim.opt.diffopt:append { "context:99999" }
 vim.opt.diffopt:remove { "linematch:40" }
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·" }
 vim.opt.exrc = true
 vim.opt.secure = true
+vim.opt.colorcolumn = "+1"
+vim.opt.cursorline = true
+vim.opt.previewheight = 30
 
 -- buffer
 -- o.switchbuf:append { "useopen" }
@@ -33,7 +34,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 if vim.fn.executable "rg" == 1 then
   vim.opt.findfunc = "v:lua.require'utils'.rg_find"
-  vim.opt.grepprg = "rg --vimgrep --smart-case"
+  vim.opt.grepprg = "rg --vimgrep --smart-case --sort path"
 end
 
 -- netrw
@@ -41,3 +42,9 @@ vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
 
 -- markdown
 vim.g.markdown_fenced_languages = { "ruby", "sql", "bash" }
+
+vim.filetype.add {
+  extension = {
+    j2 = "jinja",
+  },
+}
