@@ -1,3 +1,19 @@
+_G.augroup("TreesitterSetup", {
+  event = "FileType",
+  callback = function(event)
+    if not vim.api.nvim_buf_is_valid(event.buf) then return end
+
+    local lang = vim.treesitter.language.get_lang(event.match) or event.match
+    if lang == "diff" then return end
+
+    if vim.treesitter.language.add(lang) then
+      vim.treesitter.start(event.buf, lang)
+      vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+      vim.wo[0][0].foldmethod = "expr"
+    end
+  end,
+})
+
 _G.augroup("RemoveTrailingWhitespace", {
   event = "BufWritePre",
   pattern = "*",

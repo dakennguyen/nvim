@@ -1,41 +1,8 @@
 vim.pack.add {
-  "https://github.com/nvim-treesitter/nvim-treesitter",
   "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
   "https://github.com/Wansmer/treesj",
   "https://github.com/windwp/nvim-ts-autotag",
 }
-
--- ##########################
--- nvim-treesitter
--- ##########################
--- npm install -g tree-sitter-cli
-_G.augroup("TreesitterSetup", {
-  event = "FileType",
-  callback = function(event)
-    -- Skip treesitter on large files
-    -- local stats = vim.uv.fs_stat(vim.api.nvim_buf_get_name(event.buf))
-    -- if vim.api.nvim_buf_line_count(event.buf) > 5000 or (stats and stats.size > 100 * 1024) then return end
-
-    if not vim.api.nvim_buf_is_valid(event.buf) then return end
-
-    local lang = vim.treesitter.language.get_lang(event.match) or event.match
-    if lang == "diff" then return end
-
-    local ok_parsers, parser_configs = pcall(require, "nvim-treesitter.parsers")
-
-    if lang ~= "kulala_http" then
-      if not ok_parsers or not parser_configs[lang] then return end
-      require("nvim-treesitter").install { lang }
-    end
-
-    local ok = pcall(vim.treesitter.start, event.buf, lang)
-    if ok then
-      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-      vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-      vim.wo[0][0].foldmethod = "expr"
-    end
-  end,
-})
 
 -- ##########################
 -- nvim-treesitter-textobjects
