@@ -61,18 +61,18 @@ dap.adapters.php = {
 -- Configurations
 -- ======================================
 dap.configurations.cpp = {
-  {
-    name = "Launch (lldb)",
-    type = "lldb",
-    request = "launch",
-    program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
-    args = function()
-      local args_string = vim.fn.input "Input arguments: "
-      return vim.split(args_string, " ")
-    end,
-    cwd = "${workspaceFolder}",
-    stopOnEntry = false,
-  },
+  -- {
+  --   name = "Launch (lldb)",
+  --   type = "lldb",
+  --   request = "launch",
+  --   program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
+  --   args = function()
+  --     local args_string = vim.fn.input "Input arguments: "
+  --     return vim.split(args_string, " ")
+  --   end,
+  --   cwd = "${workspaceFolder}",
+  --   stopOnEntry = false,
+  -- },
   {
     name = "Launch (cppdbg)",
     type = "cppdbg",
@@ -85,6 +85,18 @@ dap.configurations.cpp = {
     cwd = "${workspaceFolder}",
     stopAtEntry = false,
   },
+  -- {
+  --   name = 'Attach to gdbserver :1234',
+  --   type = 'cppdbg',
+  --   request = 'launch',
+  --   MIMode = 'gdb',
+  --   miDebuggerServerAddress = 'localhost:1234',
+  --   miDebuggerPath = '/usr/bin/gdb',
+  --   cwd = '${workspaceFolder}',
+  --   program = function()
+  --     return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+  --   end,
+  -- },
 }
 
 -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md

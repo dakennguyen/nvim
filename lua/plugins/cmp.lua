@@ -40,11 +40,10 @@ require("blink.cmp").setup {
   cmdline = { enabled = false },
   sources = {
     per_filetype = {
-      sql = { "snippets", "dadbod", "buffer", "path" },
+      sql = { "snippets", "buffer", "path" },
       ["dap-repl"] = { "dap", "snippets", "buffer" },
     },
     providers = {
-      dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
       snippets = { score_offset = 100 },
       dap = { name = "dap", module = "blink.compat.source" },
     },
