@@ -1,8 +1,4 @@
-vim.pack.add {
-  "https://github.com/saghen/blink.cmp",
-  "https://github.com/saghen/blink.compat",
-  "https://github.com/rcarriga/cmp-dap",
-}
+vim.pack.add { { src = "https://github.com/saghen/blink.cmp", version = "v1" } }
 
 require("blink.cmp").setup {
   fuzzy = {
@@ -41,11 +37,9 @@ require("blink.cmp").setup {
   sources = {
     per_filetype = {
       sql = { "snippets", "buffer", "path" },
-      ["dap-repl"] = { "dap", "snippets", "buffer" },
     },
     providers = {
       snippets = { score_offset = 100 },
-      dap = { name = "dap", module = "blink.compat.source" },
     },
   },
   appearance = {
