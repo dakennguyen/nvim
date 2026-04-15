@@ -1,11 +1,5 @@
-vim.pack.add {
-  "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
-  "https://github.com/Wansmer/treesj",
-}
+vim.pack.add { "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" }
 
--- ##########################
--- nvim-treesitter-textobjects
--- ##########################
 local select = require "nvim-treesitter-textobjects.select"
 vim.keymap.set({ "x", "o" }, "am", function() select.select_textobject("@function.outer", "textobjects") end)
 vim.keymap.set({ "x", "o" }, "im", function() select.select_textobject("@function.inner", "textobjects") end)
@@ -40,13 +34,3 @@ vim.keymap.set(mode, "f", ts_repeat_move.builtin_f_expr, { expr = true })
 vim.keymap.set(mode, "F", ts_repeat_move.builtin_F_expr, { expr = true })
 vim.keymap.set(mode, "t", ts_repeat_move.builtin_t_expr, { expr = true })
 vim.keymap.set(mode, "T", ts_repeat_move.builtin_T_expr, { expr = true })
-
--- ##########################
--- treesj
--- ##########################
-require("treesj").setup {
-  use_default_keymaps = false,
-  max_join_length = 9999,
-}
-vim.keymap.set("n", "]j", "<cmd>TSJSplit<cr>")
-vim.keymap.set("n", "[j", "<cmd>TSJJoin<cr>")
