@@ -1,4 +1,4 @@
-vim.pack.add { "https://github.com/mistweaverco/kulala.nvim" }
+vim.pack.add { { src = "https://github.com/mistweaverco/kulala.nvim", version = "v5.3.4" } }
 
 vim.keymap.set("n", "<space>ro", require("kulala").open, { silent = true })
 vim.keymap.set("n", "<space>rl", require("kulala").replay, { silent = true })
