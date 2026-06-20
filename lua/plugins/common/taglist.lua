@@ -32,9 +32,10 @@ vim.keymap.set("n", "<leader>t", function()
     height = height,
     row = row,
     col = col,
-    border = "single",
+    border = { "─", "─", "─", " ", " ", " ", " ", " " },
     title = ":tags",
   })
+  vim.api.nvim_set_option_value("winhighlight", "NormalFloat:Normal", { win = win })
   vim.api.nvim_set_option_value("relativenumber", false, { win = win })
   vim.api.nvim_set_option_value("buftype", "nofile", { buf = list_buf })
   vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = list_buf })

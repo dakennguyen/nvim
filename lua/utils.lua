@@ -99,13 +99,10 @@ M.fold_text = function()
 end
 
 M.toggle_quickfix = function()
-  if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
-    if vim.bo.filetype == "qf" then
-      vim.cmd "cclose"
-      vim.cmd.wincmd "p"
-    else
-      vim.cmd "botright copen"
-    end
+  local is_quickfix = vim.fn.getwininfo(vim.api.nvim_get_current_win())[1].quickfix == 1
+  if is_quickfix then
+    vim.cmd "cclose"
+    vim.cmd.wincmd "p"
   else
     vim.cmd "botright copen"
   end
