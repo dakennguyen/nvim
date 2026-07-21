@@ -38,9 +38,10 @@ vim.keymap.set("n", "<leader>b", function()
     height = height,
     row = row,
     col = col,
-    border = "single",
+    border = { "─", "─", "─", " ", " ", " ", " ", " " },
     title = "buffers",
   })
+  vim.api.nvim_set_option_value("winhighlight", "NormalFloat:Normal", { win = win })
   vim.api.nvim_set_option_value("relativenumber", false, { win = win })
 
   local function render_entries()

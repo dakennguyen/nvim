@@ -32,6 +32,7 @@ vim.keymap.set("n", "<leader>.", function()
     border = "rounded",
     title = "arglist",
   })
+  vim.api.nvim_set_option_value("winhighlight", "NormalFloat:Normal", { win = argseditor_win })
   vim.api.nvim_set_option_value("relativenumber", false, { win = argseditor_win })
 
   -- Put current arglist
