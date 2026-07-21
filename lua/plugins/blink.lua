@@ -1,4 +1,4 @@
-vim.pack.add { "https://github.com/saghen/blink.cmp" }
+vim.pack.add { { src = "https://github.com/saghen/blink.cmp", version = "v1" } }
 
 require("blink.cmp").setup {
   fuzzy = {
