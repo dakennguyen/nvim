@@ -17,8 +17,8 @@ local flake8 = {
   lintStdin = true,
 }
 
-local black = {
-  formatCommand = "black --quiet -",
+local ruff = {
+  formatCommand = "ruff format --stdin-filename=${INPUT} -",
   formatStdin = true,
 }
 
@@ -58,6 +58,7 @@ local phpstan = {
 -- `brew install luacheck`
 -- `go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest`
 -- `pip install flake8`
+-- `uv tool install ruff`
 return {
   cmd = { "efm-langserver" },
   settings = {
@@ -68,7 +69,7 @@ return {
       typescript = { eslint },
       typescriptreact = { eslint },
       go = { golangci_lint },
-      python = { flake8, black },
+      python = { flake8, ruff },
       lua = { luacheck, stylua },
       php = { phpcs, phpcbf, phpstan },
     },
