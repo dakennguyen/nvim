@@ -1,8 +1,5 @@
 require("themes").setup()
 
-vim.pack.add { "https://github.com/nvim-mini/mini.icons" }
-require("mini.icons").setup()
-
 local config_root = vim.fn.stdpath "config" .. "/lua/"
 local function load_files(sub_dir)
   local dir = "plugins" .. (sub_dir and "/" .. sub_dir or "")
