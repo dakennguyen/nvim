@@ -1,6 +1,4 @@
-vim.pack.add {
-  { src = "https://github.com/folke/snacks.nvim", version = "stable" },
-}
+vim.pack.add { "https://github.com/folke/snacks.nvim" }
 
 -- luacheck: globals Snacks
 ---@diagnostic disable: undefined-global
