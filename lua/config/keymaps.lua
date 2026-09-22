@@ -158,3 +158,16 @@ vim.keymap.set("n", "<space>gh", ":vnew local.http<cr>", { silent = true })
 
 -- pack
 vim.keymap.set("n", "<space>ps", vim.pack.update)
+
+-- ansible
+vim.keymap.set("n", "<leader>v?", function()
+  local name = vim.fn.expand "<cword>"
+  local file = vim.fn.expand "%:p"
+
+  vim.cmd(
+    ("Dispatch ansible localhost -m ansible.builtin.debug -a %s -e %s && exit 1"):format(
+      vim.fn.shellescape(('var="%s"'):format(name)),
+      vim.fn.shellescape("@" .. file)
+    )
+  )
+end, { desc = "Decrypt Ansible variable" })
