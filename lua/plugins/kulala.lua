@@ -1,4 +1,4 @@
-vim.pack.add { { src = "https://github.com/dont-be-evil-company/kulala.nvim", version = "dcad056" } }
+vim.pack.add { { src = "https://github.com/dont-be-evil-company/kulala.nvim", version = "v6.31.1" } }
 
 vim.keymap.set("n", "<space>ro", require("kulala").open, { silent = true })
 vim.keymap.set("n", "<space>rl", require("kulala").replay, { silent = true })
